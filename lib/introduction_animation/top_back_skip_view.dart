@@ -14,19 +14,22 @@ class TopBackSkipView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _animation =
-        Tween<Offset>(begin: Offset(0, -1), end: Offset(0.0, 0.0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.0,
-        0.2,
-        curve: Curves.fastOutSlowIn,
+    final _animation = Tween<Offset>(
+      begin: Offset(0, -1),
+      end: Offset(0.0, 0.0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.0,
+          0.2,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
 
     // final _backAnimation =
-    //     Tween<Offset>(begin: Offset(0, 0), end: Offset(-2, 0))
+    //     Tween<Offset>(begin: Offset(0, 0), end: Offset(-2, 0),)
     //         .animate(CurvedAnimation(
     //   parent: animationController,
     //   curve: Interval(
@@ -34,16 +37,20 @@ class TopBackSkipView extends StatelessWidget {
     //     0.8,
     //     curve: Curves.fastOutSlowIn,
     //   ),
-    // ));
-    final _skipAnimation = Tween<Offset>(begin: Offset(0, 0), end: Offset(2, 0))
-        .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
+    // ),);
+    final _skipAnimation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(2, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.6,
+          0.8,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
 
     return SlideTransition(
       position: _animation,

@@ -10,14 +10,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: const Color.fromARGB(255, 6, 67, 117)),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 6, 67, 117),
+      ),
       drawer: SafeArea(
         child: Drawer(
+          //hamburger menu drawer on the left
           child: Column(
             children: [
               const DrawerHeader(
-                decoration:
-                    BoxDecoration(color: Color.fromARGB(255, 6, 67, 117)),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 6, 67, 117),
+                ),
                 child: ListTile(
                   title: Text(
                     "dani osi",
@@ -37,11 +41,11 @@ class HomePage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) {
-                      return const LoginPage();
-                    }),
-                  );
+                  // Navigator.of(context).pushReplacement(
+                  //   MaterialPageRoute(builder: (context) {
+                  //     return const LoginPage();
+                  //   }),
+                  // );
                 },
                 leading: const Icon(Icons.logout),
                 title: const Text(

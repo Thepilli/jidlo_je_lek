@@ -11,35 +11,42 @@ class CenterNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _topMoveAnimation =
-        Tween<Offset>(begin: Offset(0, 5), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.0,
-        0.2,
-        curve: Curves.fastOutSlowIn,
+    final _topMoveAnimation = Tween<Offset>(
+      begin: Offset(0, 5),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.0,
+          0.2,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final _signUpMoveAnimation =
-        Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
+    );
+    final _signUpMoveAnimation = Tween<double>(begin: 0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.6,
+          0.8,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final _loginTextMoveAnimation =
-        Tween<Offset>(begin: Offset(0, 5), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
+    );
+    final _loginTextMoveAnimation = Tween<Offset>(
+      begin: Offset(0, 5),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.6,
+          0.8,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
 
     return Padding(
       padding:
@@ -68,13 +75,15 @@ class CenterNextButton extends StatelessWidget {
               animation: animationController,
               builder: (context, child) => Padding(
                 padding: EdgeInsets.only(
-                    bottom: 38 - (38 * _signUpMoveAnimation.value)),
+                  bottom: 38 - (38 * _signUpMoveAnimation.value),
+                ),
                 child: Container(
                   height: 58,
                   width: 58 + (200 * _signUpMoveAnimation.value),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
-                        8 + 32 * (1 - _signUpMoveAnimation.value)),
+                      8 + 32 * (1 - _signUpMoveAnimation.value),
+                    ),
                     color: Color(0xff132137),
                   ),
                   child: PageTransitionSwitcher(

@@ -1,11 +1,10 @@
-
-import 'components/care_view.dart';
-import 'components/center_next_button.dart';
-import 'components/mood_diary_vew.dart';
-import 'components/relax_view.dart';
-import 'components/splash_view.dart';
-import 'components/top_back_skip_view.dart';
-import 'components/welcome_view.dart';
+import 'introduction_animation/3_care_view.dart';
+import 'introduction_animation/center_next_button.dart';
+import 'introduction_animation/4_mood_diary_vew.dart';
+import 'introduction_animation/2_relax_view.dart';
+import 'introduction_animation/1_splash_view.dart';
+import 'introduction_animation/top_back_skip_view.dart';
+import 'introduction_animation/5_welcome_view.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {
@@ -22,8 +21,10 @@ class _IntroductionAnimationScreenState
 
   @override
   void initState() {
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 8));
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 8),
+    );
     _animationController?.animateTo(0.0);
     super.initState();
   }
@@ -38,7 +39,7 @@ class _IntroductionAnimationScreenState
   Widget build(BuildContext context) {
     print(_animationController?.value);
     return Scaffold(
-      backgroundColor: Color(0xffF7EBE1),
+      backgroundColor: Color.fromARGB(255, 240, 233, 215),
       body: ClipRect(
         child: Stack(
           children: [
@@ -73,8 +74,10 @@ class _IntroductionAnimationScreenState
   }
 
   void _onSkipClick() {
-    _animationController?.animateTo(0.8,
-        duration: Duration(milliseconds: 1200));
+    _animationController?.animateTo(
+      0.8,
+      duration: Duration(milliseconds: 1200),
+    );
   }
 
   void _onBackClick() {

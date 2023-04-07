@@ -13,16 +13,19 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
-    final _introductionanimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(0.0, -1.0))
-            .animate(CurvedAnimation(
-      parent: widget.animationController,
-      curve: Interval(
-        0.0,
-        0.2,
-        curve: Curves.fastOutSlowIn,
+    final _introductionanimation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(0.0, -1.0),
+    ).animate(
+      CurvedAnimation(
+        parent: widget.animationController,
+        curve: Interval(
+          0.0,
+          0.2,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
     return SlideTransition(
       position: _introductionanimation,
       child: SingleChildScrollView(
@@ -31,7 +34,7 @@ class _SplashViewState extends State<SplashView> {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                'assets/introduction_animation/introduction_image.png',
+                'assets/introduction_animation/splash.png',
                 fit: BoxFit.cover,
               ),
             ),

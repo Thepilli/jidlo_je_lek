@@ -8,67 +8,85 @@ class CareView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _firstHalfAnimation =
-        Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.2,
-        0.4,
-        curve: Curves.fastOutSlowIn,
+    final _firstHalfAnimation = Tween<Offset>(
+      begin: Offset(1, 0),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.2,
+          0.4,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final _secondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-1, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.4,
-        0.6,
-        curve: Curves.fastOutSlowIn,
+    );
+    final _secondHalfAnimation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(-1, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.4,
+          0.6,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final _relaxFirstHalfAnimation =
-        Tween<Offset>(begin: Offset(2, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.2,
-        0.4,
-        curve: Curves.fastOutSlowIn,
+    );
+    final _relaxFirstHalfAnimation = Tween<Offset>(
+      begin: Offset(2, 0),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.2,
+          0.4,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final _relaxSecondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-2, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.4,
-        0.6,
-        curve: Curves.fastOutSlowIn,
+    );
+    final _relaxSecondHalfAnimation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(-2, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.4,
+          0.6,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
 
-    final _imageFirstHalfAnimation =
-        Tween<Offset>(begin: Offset(4, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.2,
-        0.4,
-        curve: Curves.fastOutSlowIn,
+    final _imageFirstHalfAnimation = Tween<Offset>(
+      begin: Offset(4, 0),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.2,
+          0.4,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final _imageSecondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-4, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.4,
-        0.6,
-        curve: Curves.fastOutSlowIn,
+    );
+    final _imageSecondHalfAnimation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(-4, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.4,
+          0.6,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
 
     return SlideTransition(
       position: _firstHalfAnimation,

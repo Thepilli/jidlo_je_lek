@@ -7,8 +7,10 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _firstHalfAnimation =
-        Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)).animate(
+    final _firstHalfAnimation = Tween<Offset>(
+      begin: Offset(1, 0),
+      end: Offset(0, 0),
+    ).animate(
       CurvedAnimation(
         parent: animationController,
         curve: Interval(
@@ -18,8 +20,10 @@ class WelcomeView extends StatelessWidget {
         ),
       ),
     );
-    final _secondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-1, 0)).animate(
+    final _secondHalfAnimation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(-1, 0),
+    ).animate(
       CurvedAnimation(
         parent: animationController,
         curve: Interval(
@@ -30,27 +34,33 @@ class WelcomeView extends StatelessWidget {
       ),
     );
 
-    final _welcomeFirstHalfAnimation =
-        Tween<Offset>(begin: Offset(2, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
+    final _welcomeFirstHalfAnimation = Tween<Offset>(
+      begin: Offset(2, 0),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.6,
+          0.8,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
 
-    final _welcomeImageAnimation =
-        Tween<Offset>(begin: Offset(4, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
+    final _welcomeImageAnimation = Tween<Offset>(
+      begin: Offset(4, 0),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(
+          0.6,
+          0.8,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
     return SlideTransition(
       position: _firstHalfAnimation,
       child: SlideTransition(
