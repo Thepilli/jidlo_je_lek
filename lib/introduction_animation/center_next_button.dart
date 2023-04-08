@@ -120,7 +120,7 @@ class CenterNextButton extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   const Text(
-                                    'Sign Up',
+                                    'Jdeme na to',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,

@@ -1,10 +1,10 @@
-import 'introduction_animation/3_care_view.dart';
+import 'introduction_animation/intro_screen_3.dart';
 import 'introduction_animation/center_next_button.dart';
-import 'introduction_animation/4_mood_diary_vew.dart';
-import 'introduction_animation/2_relax_view.dart';
-import 'introduction_animation/1_splash_view.dart';
+import 'introduction_animation/intro_screen_4.dart';
+import 'introduction_animation/intro_screen_2.dart';
+import 'introduction_animation/intro_screen_1.dart';
 import 'introduction_animation/top_back_skip_view.dart';
-import 'introduction_animation/5_welcome_view.dart';
+import 'introduction_animation/intro_screen_5.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {

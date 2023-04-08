@@ -1,295 +1,144 @@
-import 'dart:ui';
+import 'dart:convert';
 
-import 'package:stacionar_app/description_screen.dart';
-import 'package:stacionar_app/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:stacionar_app/widgets/article_container.dart';
+import 'package:stacionar_app/widgets/elevated_button.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late Future<List<Article>> _articlesFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _articlesFuture = ArticleRepository().getArticles();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 6, 67, 117),
+        backgroundColor: Color.fromARGB(255, 68, 153, 223),
       ),
-      drawer: SafeArea(
-        child: Drawer(
-          //hamburger menu drawer on the left
-          child: Column(
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 6, 67, 117),
-                ),
-                child: ListTile(
-                  title: Text(
-                    "dani osi",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+      // drawer: SafeArea(
+      //   child: Drawer(
+      //     //hamburger menu drawer on the left
+      //     child: Column(
+      //       children: [
+      //         const DrawerHeader(
+      //           decoration: BoxDecoration(
+      //             color: Color.fromARGB(255, 6, 67, 117),
+      //           ),
+      //           child: ListTile(
+      //             title: Text(
+      //               "dani osi",
+      //               style: TextStyle(
+      //                 color: Colors.white,
+      //                 fontSize: 20,
+      //               ),
+      //             ),
+      //           ),
+      //         ),
+      //         ListTile(
+      //           onTap: () {},
+      //           leading: const Icon(Icons.settings),
+      //           title: const Text(
+      //             "Settings",
+      //           ),
+      //         ),
+      //         ListTile(
+      //           onTap: () {
+      //             // Navigator.of(context).pushReplacement(
+      //             //   MaterialPageRoute(builder: (context) {
+      //             //     return const LoginPage();
+      //             //   }),
+      //             // );
+      //           },
+      //           leading: const Icon(Icons.logout),
+      //           title: const Text(
+      //             "Logout",
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      body: FutureBuilder<List<Article>>(
+        future: _articlesFuture,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      MyElevatedButton(buttonText: 'one'),
+                      const SizedBox(width: 5),
+                      MyElevatedButton(buttonText: 'two'),
+                      const SizedBox(width: 5),
+                      MyElevatedButton(buttonText: 'three'),
+                      const SizedBox(width: 5),
+                      MyElevatedButton(buttonText: 'four'),
+                      const SizedBox(width: 5),
+                      MyElevatedButton(buttonText: 'five'),
+                    ],
                   ),
                 ),
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.settings),
-                title: const Text(
-                  "Settings",
-                ),
-              ),
-              ListTile(
-                onTap: () {
-                  // Navigator.of(context).pushReplacement(
-                  //   MaterialPageRoute(builder: (context) {
-                  //     return const LoginPage();
-                  //   }),
-                  // );
-                },
-                leading: const Icon(Icons.logout),
-                title: const Text(
-                  "Logout",
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              padding: EdgeInsets.all(5),
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 6, 67, 117),
-                      foregroundColor: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    child: const Text('Finance'),
-                  ),
-                  const SizedBox(width: 5),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 6, 67, 117),
-                      foregroundColor: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    child: const Text('Technology'),
-                  ),
-                  const SizedBox(width: 5),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 6, 67, 117),
-                      foregroundColor: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    child: const Text('music'),
-                  ),
-                  const SizedBox(width: 5),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 6, 67, 117),
-                      foregroundColor: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    child: const Text('Education'),
-                  ),
-                  const SizedBox(width: 5),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 6, 67, 117),
-                      foregroundColor: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    child: const Text('Education'),
-                  ),
-                ],
-              ),
-            ),
-            GestureDetector(
-              onTap: (() {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const DescriptionPage(
-                        title: "How To get rich",
-                        image: "assets/images/wealth.png",
-                      );
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      final article = snapshot.data![index];
+                      return ArticleContainer(article: article);
                     },
                   ),
-                );
-              }),
-              child: Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
                 ),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 2,
-                      blurRadius: 2,
-                      offset: Offset(2, 2),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Image.asset('assets/images/wealth.png'),
-                    const ListTile(
-                      title: Text("How to get rich"),
-                      trailing: Icon(Icons.arrow_forward_ios_rounded),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: (() {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const DescriptionPage(
-                        title: "Saving money ways",
-                        image: "assets/images/urban-saving-money.png",
-                      );
-                    },
-                  ),
-                );
-              }),
-              child: Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 2,
-                      blurRadius: 2,
-                      offset: Offset(2, 2),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Image.asset('assets/images/urban-saving-money.png'),
-                    const ListTile(
-                      title: Text("Saving money ways"),
-                      trailing: Icon(Icons.arrow_forward_ios_rounded),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: (() {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const DescriptionPage(
-                        title: "sending global messages",
-                        image:
-                            "assets/images/martina-guy-sends-a-message-from-phone.png",
-                      );
-                    },
-                  ),
-                );
-              }),
-              child: Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 2,
-                      blurRadius: 2,
-                      offset: Offset(2, 2),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Image.asset(
-                        "assets/images/martina-guy-sends-a-message-from-phone.png"),
-                    const ListTile(
-                      title: Text("sending global messages"),
-                      trailing: Icon(Icons.arrow_forward_ios_rounded),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: (() {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const DescriptionPage(
-                        title: "opening a new shop",
-                        image: "assets/images/login.png",
-                      );
-                    },
-                  ),
-                );
-              }),
-              child: Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 2,
-                      blurRadius: 2,
-                      offset: Offset(2, 2),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Image.asset("assets/images/login.png"),
-                    const ListTile(
-                      title: Text("opening a new shop"),
-                      trailing: Icon(Icons.arrow_forward_ios_rounded),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+              ],
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
       ),
     );
+  }
+}
+
+class Article {
+  final String title;
+  final String image;
+  final String bodyArticle;
+
+  Article(
+      {required this.title, required this.image, required this.bodyArticle});
+}
+
+class ArticleRepository {
+  Future<List<Article>> getArticles() async {
+    final jsonStr = await rootBundle.loadString('assets/articles.JSON');
+    final List<dynamic> jsonList = jsonDecode(jsonStr);
+
+    return jsonList
+        .map((json) => Article(
+              title: json['title'],
+              image: json['image'],
+              bodyArticle: json['bodyArticle'],
+            ))
+        .toList();
   }
 }

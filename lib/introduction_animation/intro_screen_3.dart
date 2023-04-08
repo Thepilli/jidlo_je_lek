@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MoodDiaryVew extends StatelessWidget {
+class CareView extends StatelessWidget {
   final AnimationController animationController;
 
-  const MoodDiaryVew({Key? key, required this.animationController})
+  const CareView({Key? key, required this.animationController})
       : super(key: key);
 
   @override
@@ -15,8 +15,8 @@ class MoodDiaryVew extends StatelessWidget {
       CurvedAnimation(
         parent: animationController,
         curve: const Interval(
+          0.2,
           0.4,
-          0.6,
           curve: Curves.fastOutSlowIn,
         ),
       ),
@@ -28,16 +28,28 @@ class MoodDiaryVew extends StatelessWidget {
       CurvedAnimation(
         parent: animationController,
         curve: const Interval(
+          0.4,
           0.6,
-          0.8,
           curve: Curves.fastOutSlowIn,
         ),
       ),
     );
-
-    final _moodFirstHalfAnimation = Tween<Offset>(
+    final _relaxFirstHalfAnimation = Tween<Offset>(
       begin: const Offset(2, 0),
       end: const Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: const Interval(
+          0.2,
+          0.4,
+          curve: Curves.fastOutSlowIn,
+        ),
+      ),
+    );
+    final _relaxSecondHalfAnimation = Tween<Offset>(
+      begin: const Offset(0, 0),
+      end: const Offset(-2, 0),
     ).animate(
       CurvedAnimation(
         parent: animationController,
@@ -48,19 +60,7 @@ class MoodDiaryVew extends StatelessWidget {
         ),
       ),
     );
-    final _moodSecondHalfAnimation = Tween<Offset>(
-      begin: const Offset(0, 0),
-      end: const Offset(-2, 0),
-    ).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.6,
-          0.8,
-          curve: Curves.fastOutSlowIn,
-        ),
-      ),
-    );
+
     final _imageFirstHalfAnimation = Tween<Offset>(
       begin: const Offset(4, 0),
       end: const Offset(0, 0),
@@ -68,8 +68,8 @@ class MoodDiaryVew extends StatelessWidget {
       CurvedAnimation(
         parent: animationController,
         curve: const Interval(
+          0.2,
           0.4,
-          0.6,
           curve: Curves.fastOutSlowIn,
         ),
       ),
@@ -81,8 +81,8 @@ class MoodDiaryVew extends StatelessWidget {
       CurvedAnimation(
         parent: animationController,
         curve: const Interval(
+          0.4,
           0.6,
-          0.8,
           curve: Curves.fastOutSlowIn,
         ),
       ),
@@ -97,24 +97,6 @@ class MoodDiaryVew extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "Mood Dairy",
-                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
-              ),
-              SlideTransition(
-                position: _moodFirstHalfAnimation,
-                child: SlideTransition(
-                  position: _moodSecondHalfAnimation,
-                  child: const Padding(
-                    padding: EdgeInsets.only(
-                        left: 64, right: 64, top: 16, bottom: 16),
-                    child: Text(
-                      "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
               SlideTransition(
                 position: _imageFirstHalfAnimation,
                 child: SlideTransition(
@@ -123,10 +105,29 @@ class MoodDiaryVew extends StatelessWidget {
                     constraints:
                         const BoxConstraints(maxWidth: 350, maxHeight: 250),
                     child: Image.asset(
-                      'assets/introduction_animation/mood_dairy_image.png',
+                      'assets/introduction_animation/care_image.png',
                       fit: BoxFit.contain,
                     ),
                   ),
+                ),
+              ),
+              SlideTransition(
+                position: _relaxFirstHalfAnimation,
+                child: SlideTransition(
+                  position: _relaxSecondHalfAnimation,
+                  child: const Text(
+                    "Jídelníček",
+                    style:
+                        TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding:
+                    EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
+                child: Text(
+                  "Jídelníček je nedílnou součástí znovunastolení normálního stravovacího režimu. Podívejte se na doporučení pro sestavení vlastního jídelníčku, vzory jednotlivých chodů a příklady jídel.",
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],

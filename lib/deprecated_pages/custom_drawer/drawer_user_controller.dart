@@ -1,5 +1,5 @@
 import 'package:stacionar_app/app_theme.dart';
-import 'package:stacionar_app/custom_drawer/home_drawer.dart';
+import 'package:stacionar_app/deprecated_pages/custom_drawer/home_drawer.dart';
 import 'package:flutter/material.dart';
 
 class DrawerUserController extends StatefulWidget {
