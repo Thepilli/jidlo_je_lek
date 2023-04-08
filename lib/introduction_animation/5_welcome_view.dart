@@ -8,12 +8,12 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _firstHalfAnimation = Tween<Offset>(
-      begin: Offset(1, 0),
-      end: Offset(0, 0),
+      begin: const Offset(1, 0),
+      end: const Offset(0, 0),
     ).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.6,
           0.8,
           curve: Curves.fastOutSlowIn,
@@ -21,12 +21,12 @@ class WelcomeView extends StatelessWidget {
       ),
     );
     final _secondHalfAnimation = Tween<Offset>(
-      begin: Offset(0, 0),
-      end: Offset(-1, 0),
+      begin: const Offset(0, 0),
+      end: const Offset(-1, 0),
     ).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.8,
           1.0,
           curve: Curves.fastOutSlowIn,
@@ -35,12 +35,12 @@ class WelcomeView extends StatelessWidget {
     );
 
     final _welcomeFirstHalfAnimation = Tween<Offset>(
-      begin: Offset(2, 0),
-      end: Offset(0, 0),
+      begin: const Offset(2, 0),
+      end: const Offset(0, 0),
     ).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.6,
           0.8,
           curve: Curves.fastOutSlowIn,
@@ -49,12 +49,12 @@ class WelcomeView extends StatelessWidget {
     );
 
     final _welcomeImageAnimation = Tween<Offset>(
-      begin: Offset(4, 0),
-      end: Offset(0, 0),
+      begin: const Offset(4, 0),
+      end: const Offset(0, 0),
     ).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.6,
           0.8,
           curve: Curves.fastOutSlowIn,
@@ -73,7 +73,8 @@ class WelcomeView extends StatelessWidget {
               SlideTransition(
                 position: _welcomeImageAnimation,
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 350, maxHeight: 350),
+                  constraints:
+                      const BoxConstraints(maxWidth: 350, maxHeight: 350),
                   child: Image.asset(
                     'assets/introduction_animation/welcome.png',
                     fit: BoxFit.contain,
@@ -82,12 +83,12 @@ class WelcomeView extends StatelessWidget {
               ),
               SlideTransition(
                 position: _welcomeFirstHalfAnimation,
-                child: Text(
+                child: const Text(
                   "Welcome",
                   style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding:
                     EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                 child: Text(
