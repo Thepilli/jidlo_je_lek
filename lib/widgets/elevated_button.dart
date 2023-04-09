@@ -18,3 +18,22 @@ class MyElevatedButton extends StatelessWidget {
     );
   }
 }
+
+
+// Padding(
+//   padding: const EdgeInsets.all(8.0),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       MyElevatedButton(buttonText: 'one'),
+//       const SizedBox(width: 5),
+//       MyElevatedButton(buttonText: 'two'),
+//       const SizedBox(width: 5),
+//       MyElevatedButton(buttonText: 'three'),
+//       const SizedBox(width: 5),
+//       MyElevatedButton(buttonText: 'four'),
+//       const SizedBox(width: 5),
+//       MyElevatedButton(buttonText: 'five'),
+//     ],
+//   ),
+// ),

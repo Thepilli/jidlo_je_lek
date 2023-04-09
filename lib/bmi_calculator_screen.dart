@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/deprecated_pages/meal_plan_screen.dart';
+import 'package:stacionar_app/widgets/table.dart';
 
 class BmiCalculator extends StatefulWidget {
   const BmiCalculator({Key? key}) : super(key: key);
@@ -14,16 +16,14 @@ class _BmiCalculatorState extends State<BmiCalculator> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('BMI Calculator'),
-      ),
-      body: Center(
+    return SingleChildScrollView(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 20),
             const Text(
-              'Enter your height and weight:',
+              'Vyplnte svoji vysku a vahu:',
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(height: 20),
@@ -31,11 +31,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 100,
+                  width: 150,
                   child: TextField(
                     controller: _heightController,
                     decoration: const InputDecoration(
-                      labelText: 'Height (cm)',
+                      labelText: 'Vyska (cm)',
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -47,7 +47,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   child: TextField(
                     controller: _weightController,
                     decoration: const InputDecoration(
-                      labelText: 'Weight (kg)',
+                      labelText: 'Vaha (kg)',
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -58,13 +58,14 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _calculateBmi,
-              child: const Text('Calculate BMI'),
+              child: const Text('Spocitat BMI'),
             ),
             SizedBox(height: 20),
             Text(
-              'Your BMI is ${_bmi.toStringAsFixed(1)}',
+              'Vase hodnota BMI je ${_bmi.toStringAsFixed(1)}',
               style: const TextStyle(fontSize: 18),
             ),
+            Table_Widget()
           ],
         ),
       ),
@@ -77,6 +78,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
     final weight = double.parse(_weightController.text);
     final bmi = weight / (height * height);
     setState(() {
+      FocusScopeNode currentFocus = FocusScope.of(context);
+
+      if (!currentFocus.hasPrimaryFocus) {
+        currentFocus.unfocus();
+      }
       _bmi = bmi;
     });
   }
