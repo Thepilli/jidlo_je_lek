@@ -40,6 +40,7 @@ dependencies:
     animations: ^2.0.3
     flutter_lints: ^2.0.1
     flutter_staggered_grid_view: ^0.6.2
+    path_provider: ^2.0.14
 
 dev_dependencies:
     flutter_test:
@@ -61,6 +62,15 @@ flutter:
         - assets/icons/
         - assets/introduction_animation/
         - assets/
+        - assets/images/meal_plans/thumbnail/afterdinner/
+        - assets/images/meal_plans/thumbnail/aftersnack/
+        - assets/images/meal_plans/thumbnail/breakfast/
+        - assets/images/meal_plans/thumbnail/dinner/
+        - assets/images/meal_plans/thumbnail/lunch/
+        - assets/images/meal_plans/thumbnail/model_01/
+        - assets/images/meal_plans/thumbnail/model_02/
+        - assets/images/meal_plans/thumbnail/model_03/
+        - assets/images/meal_plans/thumbnail/snack/
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware.

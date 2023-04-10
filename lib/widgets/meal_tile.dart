@@ -12,6 +12,7 @@ class MealTile extends StatelessWidget {
     required this.mealType,
     required this.mealTileColor,
     required this.imageName,
+    required imagePaths,
   });
 
   @override

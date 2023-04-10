@@ -43,60 +43,60 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: myTabs.length,
       child: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 25,
-          title: Text(
-            'title',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-          ),
-          backgroundColor: Color.fromARGB(255, 68, 153, 223),
-        ),
-        drawer: SafeArea(
-          child: Drawer(
-            //hamburger menu drawer on the left
-            child: Column(
-              children: [
-                const DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 6, 67, 117),
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      "dani osi",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: const Icon(Icons.settings),
-                  title: const Text(
-                    "Settings",
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    // Navigator.of(context).pushReplacement(
-                    //   MaterialPageRoute(builder: (context) {
-                    //     return const LoginPage();
-                    //   }),
-                    // );
-                  },
-                  leading: const Icon(Icons.logout),
-                  title: const Text(
-                    "Logout",
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        // appBar: AppBar(
+        //   toolbarHeight: 25,
+        //   title: Text(
+        //     'title',
+        //     style: TextStyle(
+        //       color: Colors.white,
+        //       fontSize: 20,
+        //     ),
+        //   ),
+        //   backgroundColor: Color.fromARGB(255, 68, 153, 223),
+        // ),
+        // drawer: SafeArea(
+        //   child: Drawer(
+        //     //hamburger menu drawer on the left
+        //     child: Column(
+        //       children: [
+        //         const DrawerHeader(
+        //           decoration: BoxDecoration(
+        //             color: Color.fromARGB(255, 6, 67, 117),
+        //           ),
+        //           child: ListTile(
+        //             title: Text(
+        //               "dani osi",
+        //               style: TextStyle(
+        //                 color: Colors.white,
+        //                 fontSize: 20,
+        //               ),
+        //             ),
+        //           ),
+        //         ),
+        //         ListTile(
+        //           onTap: () {},
+        //           leading: const Icon(Icons.settings),
+        //           title: const Text(
+        //             "Settings",
+        //           ),
+        //         ),
+        //         ListTile(
+        //           onTap: () {
+        //             // Navigator.of(context).pushReplacement(
+        //             //   MaterialPageRoute(builder: (context) {
+        //             //     return const LoginPage();
+        //             //   }),
+        //             // );
+        //           },
+        //           leading: const Icon(Icons.logout),
+        //           title: const Text(
+        //             "Logout",
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
         body: SafeArea(
           child: FutureBuilder<List<Article>>(
             future: _articlesFuture,
