@@ -128,6 +128,7 @@ class MealTab extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => MealTypePage(
                         mealType: mealsOnSale[index][0],
+                        mealTileColor: mealsOnSale[index][1],
                         imagePaths: mealsOnSale[index][3],
                       )),
             );
