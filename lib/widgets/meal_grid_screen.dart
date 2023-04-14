@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MealTypePage extends StatelessWidget {
+class MealGridScreen extends StatelessWidget {
   final String mealType;
   final mealTileColor;
   final List imagePaths;
 
-  MealTypePage(
+  MealGridScreen(
       {required this.mealType,
       required this.imagePaths,
       required this.mealTileColor});
@@ -14,10 +14,12 @@ class MealTypePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: mealTileColor[100],
         title: Text(mealType),
       ),
       body: SafeArea(
         child: Container(
+          padding: EdgeInsets.all(10.0),
           color: mealTileColor[100],
           child: CustomScrollView(
             slivers: [
@@ -33,19 +35,29 @@ class MealTypePage extends StatelessWidget {
                     return Container(
                       padding: EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color.fromARGB(255, 215, 229, 161),
-                            Color.fromARGB(255, 79, 145, 189),
-                          ],
-                        ),
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: mealTileColor.withAlpha(80),
                       ),
-                      child: Image.asset(
-                        imagePaths[index],
-                        fit: BoxFit.cover,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: Image.asset(
+                              imagePaths[index],
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(height: 10.0),
+                          Text(
+                            'Varianta $index',
+                            style: TextStyle(
+                              color: mealTileColor[900],
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        ],
                       ),
                     );
                   },

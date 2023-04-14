@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/widgets/meal_grid.dart';
+import 'package:stacionar_app/widgets/meal_grid_screen.dart';
 import 'package:stacionar_app/widgets/meal_tile.dart';
 
 class MealTab extends StatelessWidget {
@@ -126,7 +126,7 @@ class MealTab extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => MealTypePage(
+                  builder: (context) => MealGridScreen(
                         mealType: mealsOnSale[index][0],
                         mealTileColor: mealsOnSale[index][1],
                         imagePaths: mealsOnSale[index][3],

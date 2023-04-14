@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:stacionar_app/utils/app_theme.dart';
+import 'package:stacionar_app/utils/mytextstyles.dart';
 
 class DescriptionPage extends StatefulWidget {
   const DescriptionPage({
@@ -39,7 +41,14 @@ class _DescriptionPageState extends State<DescriptionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 69, 130, 180),
+        actions: [
+          IconButton(
+            onPressed: () {
+              currentTheme.toggleTheme();
+            },
+            icon: const Icon(Icons.lightbulb_outline),
+          )
+        ],
         title: Text(widget.title,
             style: const TextStyle(color: Colors.white, fontSize: 35)),
       ),
@@ -53,13 +62,28 @@ class _DescriptionPageState extends State<DescriptionPage> {
               HtmlWidget(
                 _htmlContent,
                 customStylesBuilder: (element) {
-                  if (element.localName == 'h1') {
-                    return {'color': 'red', 'text-align': 'center'};
-                  } else if (element.localName == 'h2') {
-                    return {'color': 'red', 'text-align': 'center'};
-                  } else {
-                    // return null to use the default behavior of HtmlWidget
-                    return null;
+                  switch (element.localName) {
+                    case 'h2':
+                      return {
+                        'color': 'rgba(201, 76, 76, 1)',
+                        'text-align': 'center',
+                        'font-size': '200%',
+                      };
+                    case 'p':
+                      return {
+                        'color': 'black',
+                        'text-align': 'left',
+                        'font-size': '100%',
+                        'padding': '10px',
+                      };
+                    case 'li':
+                      return {
+                        'color': 'black',
+                        'text-align': 'left',
+                        'font-size': '100%',
+                      };
+                    default:
+                      return {};
                   }
                 },
               )
@@ -69,4 +93,12 @@ class _DescriptionPageState extends State<DescriptionPage> {
       ),
     );
   }
+}
+
+Map<String, String> textStyleToMap(TextStyle textStyle) {
+  return <String, String>{
+    '\'fontSize\'': '\'${textStyle.fontSize?.toStringAsFixed(0) ?? ''}\'',
+    '\'fontWeight\'': '\'${textStyle.fontWeight?.toString() ?? ''}\'',
+    '\'color\'': '\'${textStyle.color?.value.toRadixString(16) ?? ''}\'',
+  };
 }

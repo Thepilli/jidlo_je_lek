@@ -107,7 +107,7 @@ class RelaxView extends StatelessWidget {
                   constraints:
                       const BoxConstraints(maxWidth: 350, maxHeight: 250),
                   child: Image.asset(
-                    'assets/introduction_animation/relax_image.png',
+                    'assets/introduction_animation/image5.png',
                     fit: BoxFit.contain,
                   ),
                 ),

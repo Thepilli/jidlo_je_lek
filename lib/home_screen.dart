@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: myTabs.length,
       child: Scaffold(
+        backgroundColor: Color.fromARGB(255, 240, 233, 215),
         // appBar: AppBar(
         //   toolbarHeight: 25,
         //   title: Text(

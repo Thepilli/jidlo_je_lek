@@ -76,7 +76,7 @@ class WelcomeView extends StatelessWidget {
                   constraints:
                       const BoxConstraints(maxWidth: 350, maxHeight: 350),
                   child: Image.asset(
-                    'assets/introduction_animation/welcome.png',
+                    'assets/introduction_animation/splash2.png',
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -84,7 +84,7 @@ class WelcomeView extends StatelessWidget {
               SlideTransition(
                 position: _welcomeFirstHalfAnimation,
                 child: const Text(
-                  "Welcome",
+                  "Mnohe další",
                   style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
               ),

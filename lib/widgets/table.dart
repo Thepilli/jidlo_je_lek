@@ -10,12 +10,12 @@ class Table_Widget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Table(
-            border: TableBorder.all(color: Colors.white),
+            border: TableBorder.all(color: Color.fromARGB(255, 206, 153, 236)),
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: [
               const TableRow(
                 decoration: BoxDecoration(
-                  color: Colors.amber,
+                  color: Color.fromARGB(255, 206, 153, 236),
                 ),
                 children: [
                   TableCell(
