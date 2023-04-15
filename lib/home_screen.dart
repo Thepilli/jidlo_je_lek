@@ -30,6 +30,14 @@ class _HomePageState extends State<HomePage> {
     MyTab(
       iconPath: 'assets/icons/icon_plan.png',
     ),
+    // calendar tab
+    MyTab(
+      iconPath: 'assets/icons/icon_calendar.png',
+    ),
+    // faq tab
+    MyTab(
+      iconPath: 'assets/icons/icon_faq.png',
+    ),
   ];
 
   @override
@@ -43,61 +51,6 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: myTabs.length,
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 240, 233, 215),
-        // appBar: AppBar(
-        //   toolbarHeight: 25,
-        //   title: Text(
-        //     'title',
-        //     style: TextStyle(
-        //       color: Colors.white,
-        //       fontSize: 20,
-        //     ),
-        //   ),
-        //   backgroundColor: Color.fromARGB(255, 68, 153, 223),
-        // ),
-        // drawer: SafeArea(
-        //   child: Drawer(
-        //     //hamburger menu drawer on the left
-        //     child: Column(
-        //       children: [
-        //         const DrawerHeader(
-        //           decoration: BoxDecoration(
-        //             color: Color.fromARGB(255, 6, 67, 117),
-        //           ),
-        //           child: ListTile(
-        //             title: Text(
-        //               "dani osi",
-        //               style: TextStyle(
-        //                 color: Colors.white,
-        //                 fontSize: 20,
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //         ListTile(
-        //           onTap: () {},
-        //           leading: const Icon(Icons.settings),
-        //           title: const Text(
-        //             "Settings",
-        //           ),
-        //         ),
-        //         ListTile(
-        //           onTap: () {
-        //             // Navigator.of(context).pushReplacement(
-        //             //   MaterialPageRoute(builder: (context) {
-        //             //     return const LoginPage();
-        //             //   }),
-        //             // );
-        //           },
-        //           leading: const Icon(Icons.logout),
-        //           title: const Text(
-        //             "Logout",
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
         body: SafeArea(
           child: FutureBuilder<List<Article>>(
             future: _articlesFuture,
@@ -117,6 +70,8 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                           BmiCalculator(),
+                          MealTab(),
+                          MealTab(),
                           MealTab(),
                         ],
                       ),

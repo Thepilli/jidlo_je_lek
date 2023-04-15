@@ -73,107 +73,83 @@ class CenterNextButton extends StatelessWidget {
             position: _topMoveAnimation,
             child: AnimatedBuilder(
               animation: animationController,
-              builder: (context, child) => Padding(
-                padding: EdgeInsets.only(
-                  bottom: 38 - (38 * _signUpMoveAnimation.value),
-                ),
-                child: Container(
-                  height: 58,
-                  width: 58 + (200 * _signUpMoveAnimation.value),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      8 + 32 * (1 - _signUpMoveAnimation.value),
-                    ),
-                    color: const Color(0xff132137),
+              builder: (context, child) => Center(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    bottom: 38 - (38 * _signUpMoveAnimation.value),
                   ),
-                  child: PageTransitionSwitcher(
-                    duration: const Duration(milliseconds: 480),
-                    reverse: _signUpMoveAnimation.value < 0.7,
-                    transitionBuilder: (
-                      Widget child,
-                      Animation<double> animation,
-                      Animation<double> secondaryAnimation,
-                    ) {
-                      return SharedAxisTransition(
-                        fillColor: Colors.transparent,
-                        child: child,
-                        animation: animation,
-                        secondaryAnimation: secondaryAnimation,
-                        transitionType: SharedAxisTransitionType.vertical,
-                      );
-                    },
-                    child: _signUpMoveAnimation.value > 0.7
-                        ? InkWell(
-                            key: const ValueKey('Sign Up button'),
-                            onTap: () {
-                              Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(builder: (context) {
-                                  return const HomePage();
-                                }),
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 16.0, right: 16.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Text(
-                                    'Jdeme na to',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
+                  child: Container(
+                    height: 58,
+                    width: 58 + (200 * _signUpMoveAnimation.value),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        8 + 32 * (1 - _signUpMoveAnimation.value),
+                      ),
+                      color: const Color(0xff132137),
+                    ),
+                    child: PageTransitionSwitcher(
+                      duration: const Duration(milliseconds: 480),
+                      reverse: _signUpMoveAnimation.value < 0.7,
+                      transitionBuilder: (
+                        Widget child,
+                        Animation<double> animation,
+                        Animation<double> secondaryAnimation,
+                      ) {
+                        return SharedAxisTransition(
+                          fillColor: Colors.transparent,
+                          child: child,
+                          animation: animation,
+                          secondaryAnimation: secondaryAnimation,
+                          transitionType: SharedAxisTransitionType.vertical,
+                        );
+                      },
+                      child: _signUpMoveAnimation.value > 0.7
+                          ? InkWell(
+                              key: const ValueKey('Sign Up button'),
+                              onTap: () {
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(builder: (context) {
+                                    return const HomePage();
+                                  }),
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 16.0, right: 16.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      'Jdeme na to',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
-                                  ),
-                                  const Icon(Icons.arrow_forward_rounded,
-                                      color: Colors.white),
-                                ],
+                                    const Icon(Icons.arrow_forward_rounded,
+                                        color: Colors.white),
+                                  ],
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              key: const ValueKey('next button'),
+                              onTap: onNextClick,
+                              child: const Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Icon(Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white),
                               ),
                             ),
-                          )
-                        : InkWell(
-                            key: const ValueKey('next button'),
-                            onTap: onNextClick,
-                            child: const Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Icon(Icons.arrow_forward_ios_rounded,
-                                  color: Colors.white),
-                            ),
-                          ),
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: SlideTransition(
-              position: _loginTextMoveAnimation,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Already have an account? ',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Color(0xff132137),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          const SizedBox(height: 40),
         ],
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
-import 'package:stacionar_app/deprecated_pages/meal_plan_screen.dart';
 import 'package:stacionar_app/utils/mytextstyles.dart';
 import 'package:stacionar_app/widgets/table.dart';
 
@@ -26,7 +25,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             SizedBox(height: 20),
             const Text(
               'Vyplnte svoji vysku a vahu:',
-              style: CustomTheme.display1,
+              style: CustomTheme.h4,
             ),
             SizedBox(height: 20),
             Row(

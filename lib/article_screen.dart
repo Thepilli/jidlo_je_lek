@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
-import 'package:stacionar_app/utils/mytextstyles.dart';
 
-class DescriptionPage extends StatefulWidget {
-  const DescriptionPage({
+class ArticlePage extends StatefulWidget {
+  const ArticlePage({
     super.key,
     required this.title,
     required this.image,
@@ -17,10 +16,10 @@ class DescriptionPage extends StatefulWidget {
   final String bodyArticle;
 
   @override
-  State<DescriptionPage> createState() => _DescriptionPageState();
+  State<ArticlePage> createState() => _ArticlePageState();
 }
 
-class _DescriptionPageState extends State<DescriptionPage> {
+class _ArticlePageState extends State<ArticlePage> {
   String _htmlContent = '';
 
   @override
@@ -39,6 +38,7 @@ class _DescriptionPageState extends State<DescriptionPage> {
 
   @override
   Widget build(BuildContext context) {
+    const bool isDarkTheme = false;
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -49,8 +49,10 @@ class _DescriptionPageState extends State<DescriptionPage> {
             icon: const Icon(Icons.lightbulb_outline),
           )
         ],
-        title: Text(widget.title,
-            style: const TextStyle(color: Colors.white, fontSize: 35)),
+        title: Text(
+          widget.title,
+          style: CustomTheme.h4,
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -63,22 +65,28 @@ class _DescriptionPageState extends State<DescriptionPage> {
                 _htmlContent,
                 customStylesBuilder: (element) {
                   switch (element.localName) {
-                    case 'h2':
-                      return {
-                        'color': 'rgba(201, 76, 76, 1)',
-                        'text-align': 'center',
-                        'font-size': '200%',
-                      };
-                    case 'p':
-                      return {
-                        'color': 'black',
-                        'text-align': 'left',
-                        'font-size': '100%',
-                        'padding': '10px',
-                      };
+                    // case 'h2':
+                    //   return {
+                    //     'color': 'rgba(60, 56, 47,255)',
+                    //     'text-align': 'center',
+                    //     'font-size': '200%',
+                    //   };
+                    // case 'p':
+                    //   return {
+                    //     'color': 'rgba(60, 56, 47,255)',
+                    //     'text-align': 'left',
+                    //     'font-size': '100%',
+                    //     'padding': '10px',
+                    //   };
                     case 'li':
                       return {
-                        'color': 'black',
+                        'color': 'rgba(60, 56, 47,255)',
+                        'text-align': 'left',
+                        'font-size': '100%',
+                      };
+                    case 'a':
+                      return {
+                        'color': 'rgba(160, 79, 40,255)',
                         'text-align': 'left',
                         'font-size': '100%',
                       };

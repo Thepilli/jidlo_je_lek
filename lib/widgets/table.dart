@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:stacionar_app/utils/app_theme.dart";
 
 class Table_Widget extends StatelessWidget {
   const Table_Widget({super.key});
@@ -10,12 +11,12 @@ class Table_Widget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Table(
-            border: TableBorder.all(color: Color.fromARGB(255, 206, 153, 236)),
+            border: TableBorder.all(color: CustomTheme.lime),
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: [
               const TableRow(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 206, 153, 236),
+                  color: CustomTheme.lime,
                 ),
                 children: [
                   TableCell(
@@ -25,9 +26,7 @@ class Table_Widget extends StatelessWidget {
                       child: Text(
                         "BMI",
                         style: TextStyle(
-                            decoration: TextDecoration.none,
-                            color: Colors.white,
-                            fontSize: 20),
+                            decoration: TextDecoration.none, fontSize: 20),
                       ),
                     ),
                   ),
@@ -38,9 +37,7 @@ class Table_Widget extends StatelessWidget {
                       child: Text(
                         "Hodnota Indexu",
                         style: TextStyle(
-                            decoration: TextDecoration.none,
-                            color: Colors.white,
-                            fontSize: 20),
+                            decoration: TextDecoration.none, fontSize: 20),
                       ),
                     ),
                   ),
@@ -61,7 +58,7 @@ class Table_Widget extends StatelessWidget {
 TableRow buildCustomTableRow(String BMI_string, String index_string) {
   return TableRow(
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: CustomTheme.limeAccent,
     ),
     children: [
       TableCell(
@@ -70,10 +67,7 @@ TableRow buildCustomTableRow(String BMI_string, String index_string) {
           padding: EdgeInsets.all(8.0),
           child: Text(
             BMI_string,
-            style: TextStyle(
-                decoration: TextDecoration.none,
-                color: Colors.black,
-                fontSize: 20),
+            style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
           ),
         ),
       ),
@@ -83,10 +77,7 @@ TableRow buildCustomTableRow(String BMI_string, String index_string) {
           padding: EdgeInsets.all(8.0),
           child: Text(
             index_string,
-            style: TextStyle(
-                decoration: TextDecoration.none,
-                color: Colors.black,
-                fontSize: 20),
+            style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
           ),
         ),
       ),

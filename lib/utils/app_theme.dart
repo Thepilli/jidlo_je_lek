@@ -16,27 +16,7 @@ class CustomTheme with ChangeNotifier {
       scaffoldBackgroundColor: tan,
       textTheme: textTheme,
       primaryColor: lime,
-      primarySwatch: MaterialColor(0xFFD3EC54, <int, Color>{
-        50: lime,
-        100: lime,
-        200: lime,
-        300: lime,
-        400: lime,
-        500: lime,
-        600: lime,
-        700: lime,
-        800: lime,
-        900: lime,
-      }),
-    );
-  }
-
-  static ThemeData get darkTheme {
-    return ThemeData(
-      scaffoldBackgroundColor: brown,
-      textTheme: textTheme,
-      primaryColor: brightGreen,
-      primarySwatch: MaterialColor(0xFF1ADE8E, <int, Color>{
+      primarySwatch: MaterialColor(0xFF1CDE8F, <int, Color>{
         50: brightGreen,
         100: brightGreen,
         200: brightGreen,
@@ -51,21 +31,45 @@ class CustomTheme with ChangeNotifier {
     );
   }
 
-  static const Color darkText = Color(0xFF253840);
-  static const Color darkerText = Color.fromARGB(255, 222, 23, 60);
-  static const Color lightText = Color(0xFF4A6572);
+  static ThemeData get darkTheme {
+    return ThemeData(
+      scaffoldBackgroundColor: brown,
+      textTheme: textTheme,
+      primaryColor: brightGreen,
+      primarySwatch: MaterialColor(0xFF1CDE8F, <int, Color>{
+        50: brightGreen,
+        100: brightGreen,
+        200: brightGreen,
+        300: brightGreen,
+        400: brightGreen,
+        500: brightGreen,
+        600: brightGreen,
+        700: brightGreen,
+        800: brightGreen,
+        900: brightGreen,
+      }),
+    );
+  }
+
+  static const Color lightText = tan;
+  static const Color darkText = brown;
   static const Color brightGreen = Color(0xFF1CDE8F);
+  static const Color brightGreenAccent = Color(0xFFA0E5C9);
   static const Color lime = Color(0xFFD3EC54);
+  static const Color limeAccent = Color(0xFFD8E2AA);
   static const Color gold = Color(0xFFFCC824);
   static const Color orange = Color(0xFFFF9628);
   static const Color red = Color(0xFFFF5917);
   static const Color tan = Color(0xFFF4E9D7);
   static const Color brown = Color(0xFF3D3930);
+  static const Color white = Color(0xFFFFFFFF);
+
   static const String fontName = 'WorkSans';
+  Color get textColor => _isDarkTheme ? lightText : darkText;
 
   static const TextTheme textTheme = TextTheme(
-    headlineMedium: display1,
-    headlineSmall: headline,
+    headlineMedium: h2,
+    headlineSmall: h4,
     titleLarge: title,
     titleSmall: subtitle,
     bodyMedium: body2,
@@ -73,67 +77,60 @@ class CustomTheme with ChangeNotifier {
     bodySmall: caption,
   );
 
-  static const TextStyle display1 = TextStyle(
-    // h4 -> display1
+  static const TextStyle h2 = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 36,
     letterSpacing: 0.4,
     height: 0.9,
-    //color: darkerText,
+    color: darkText,
   );
 
-  static const TextStyle headline = TextStyle(
-    // h5 -> headline
+  static const TextStyle h4 = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 24,
     letterSpacing: 0.27,
-    //color: darkerText,
+    color: darkText,
   );
 
   static const TextStyle title = TextStyle(
-    // h6 -> title
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 16,
     letterSpacing: 0.18,
-    //color: darkerText,
+    color: darkText,
   );
 
   static const TextStyle subtitle = TextStyle(
-    // subtitle2 -> subtitle
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: -0.04,
-    //color: darkText,
+    color: darkText,
   );
 
   static const TextStyle body2 = TextStyle(
-    // body1 -> body2
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: 0.2,
-    //color: darkText,
+    color: darkText,
   );
 
   static const TextStyle body1 = TextStyle(
-    // body2 -> body1
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 16,
     letterSpacing: -0.05,
-    //color: darkText,
+    color: darkText,
   );
 
   static const TextStyle caption = TextStyle(
-    // Caption -> caption
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 12,
     letterSpacing: 0.2,
-    //color: lightText, // was lightText
+    color: darkText, // was lightText
   );
 }

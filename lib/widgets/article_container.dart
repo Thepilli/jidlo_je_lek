@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/description_screen.dart';
+import 'package:stacionar_app/article_screen.dart';
 import 'package:stacionar_app/home_screen.dart';
+import 'package:stacionar_app/utils/app_theme.dart';
 
 class ArticleContainer extends StatelessWidget {
   final Article article;
@@ -17,7 +18,7 @@ class ArticleContainer extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return DescriptionPage(
+              return ArticlePage(
                 title: article.title,
                 image: article.image,
                 bodyArticle: article.bodyArticle,
@@ -34,7 +35,7 @@ class ArticleContainer extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
+          color: CustomTheme.white,
           boxShadow: const [
             BoxShadow(
               color: Colors.black12,

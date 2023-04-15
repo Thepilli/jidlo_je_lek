@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/utils/app_theme.dart';
 
 class MealGridScreen extends StatelessWidget {
   final String mealType;
@@ -14,13 +15,12 @@ class MealGridScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: mealTileColor[100],
-        title: Text(mealType),
+        backgroundColor: mealTileColor.withAlpha(80),
+        title: Text(mealType, style: CustomTheme.h4),
       ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(10.0),
-          color: mealTileColor[100],
           child: CustomScrollView(
             slivers: [
               SliverGrid(

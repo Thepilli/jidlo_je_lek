@@ -39,7 +39,6 @@ class _IntroductionAnimationScreenState
   Widget build(BuildContext context) {
     print(_animationController?.value);
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 240, 233, 215),
       body: ClipRect(
         child: Stack(
           children: [
