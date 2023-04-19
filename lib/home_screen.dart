@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:stacionar_app/bmi_calculator_screen.dart';
+import 'package:stacionar_app/food_menu_screen.dart';
+import 'package:stacionar_app/food_menu_weekly_screen.dart';
 import 'package:stacionar_app/mealplan_screen.dart';
 import 'package:stacionar_app/widgets/article_container.dart';
 import 'package:stacionar_app/widgets/my_tab.dart';
@@ -71,8 +73,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           BmiCalculator(),
                           MealTab(),
-                          MealTab(),
-                          MealTab(),
+                          FoodMenuScreen(),
+                          FoodMenuWeeklyScreen(),
                         ],
                       ),
                     ),

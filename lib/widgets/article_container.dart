@@ -51,7 +51,7 @@ class ArticleContainer extends StatelessWidget {
             ListTile(
               title: Text(article.title),
               trailing: const Icon(Icons.arrow_forward_ios_rounded),
-            )
+            ),
           ],
         ),
       ),

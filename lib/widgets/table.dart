@@ -11,12 +11,12 @@ class Table_Widget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Table(
-            border: TableBorder.all(color: CustomTheme.lime),
+            border: TableBorder.all(color: CustomTheme.brightGreen),
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: [
               const TableRow(
                 decoration: BoxDecoration(
-                  color: CustomTheme.lime,
+                  color: CustomTheme.brightGreen,
                 ),
                 children: [
                   TableCell(
@@ -58,7 +58,7 @@ class Table_Widget extends StatelessWidget {
 TableRow buildCustomTableRow(String BMI_string, String index_string) {
   return TableRow(
     decoration: BoxDecoration(
-      color: CustomTheme.limeAccent,
+      color: CustomTheme.brightGreenAccent,
     ),
     children: [
       TableCell(

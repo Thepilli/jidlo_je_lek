@@ -1,15 +1,11 @@
-import 'dart:io';
 import 'package:stacionar_app/utils/app_theme.dart';
-import 'package:stacionar_app/home_screen.dart';
 import 'package:stacionar_app/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:stacionar_app/widgets/gauge.dart';
-import 'package:stacionar_app/widgets/table.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown

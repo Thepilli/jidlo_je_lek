@@ -25,13 +25,42 @@
         "bodyArticle": "chapter_5.html"
     },
     {
-        "title": "co_je_anorexie",
-        "image": "assets/images/wealth.png",
+        "title": "Co je anorexie?",
+        "image": "assets/images/co_je_anorexie.png",
         "bodyArticle": "co_je_anorexie.html"
     },
     {
-        "title": "co_je_ppp",
-        "image": "assets/images/wealth.png",
+        "title": "Co jsou poruchy příjmu potravy?",
+        "image": "assets/images/co_je_ppp.png",
         "bodyArticle": "co_je_ppp.html"
+    },
+    {
+        "title": "Co je bulimie?",
+        "image": "assets/images/co_je_bulimie.png",
+        "bodyArticle": "co_je_bulimie.html"
+    },{
+        "title": "Co je záchvatovité přejídání?",
+        "image": "assets/images/co_je_prejidani.png",
+        "bodyArticle": "co_je_prejidani.html"
+    },
+    {
+        "title": "Mentální anorexie: diagnóza a léčba",
+        "image": "assets/images/anorexie_lecba.png",
+        "bodyArticle": "anorexie_lecba.html"
+    },
+    {
+        "title": "Poruchy příjmu potravy: diagnóza a léčba",
+        "image": "assets/images/ppp_lecba.png",
+        "bodyArticle": "ppp_lecba.html"
+    },
+    {
+        "title": "Bulimie: diagnóza a léčba",
+        "image": "assets/images/bulimie_lecba.png",
+        "bodyArticle": "bulimie_lecba.html"
+    },
+    {
+        "title": "Záchvatovité přejídání: diagnóza a léčba",
+        "image": "assets/images/prejidani_lecba.png",
+        "bodyArticle": "prejidani_lecba.html"
     }
 ]
