@@ -4,7 +4,7 @@ import 'package:stacionar_app/widgets/meal_grid_container.dart';
 
 class MealTab extends StatelessWidget {
   List mealsOnSale = [
-    // [ mealType, mealTileColor, imageName, imagePaths ]
+    // [ mealType, mealTileColor, imageName, imagePaths, time ]
     [
       "Snidane",
       Colors.blue,
@@ -80,7 +80,7 @@ class MealTab extends StatelessWidget {
       [
         [
           "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_normal_01.jpg",
-          " porce - sladka"
+          "normalni porce - sladka"
         ],
         [
           "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_normal_02.jpg",
@@ -122,7 +122,7 @@ class MealTab extends StatelessWidget {
       "19:00",
     ],
     [
-      "afterdinner",
+      "Druha vecere",
       Colors.brown,
       "assets/icons/tile_vecere_2.png",
       [
@@ -146,97 +146,97 @@ class MealTab extends StatelessWidget {
       "21:00",
     ],
     [
-      "Ukazkovy jidelnicek",
+      "Ukazkovy jidelnicek - Normalni porce",
       Colors.brown,
       "assets/icons/tile_model.png",
       [
         [
           "assets/images/meal_plans/thumbnail/model_01/breakfast_model_01.jpg",
-          "normalni porce"
+          "Snidane"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_01/snack_model_01.jpg",
-          "normalni porce"
+          "Svacina"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_01/lunch_model_01.jpg",
-          "normalni porce"
+          "Obed"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_01/aftersnack_model_01.jpg",
-          "normalni porce"
+          "Svacina"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_01/dinner_model_01.jpg",
-          "normalni porce"
+          "Vecere"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_01/afterdinner_model_01.jpg",
-          "normalni porce"
+          "Druha vecere"
         ],
       ],
       "Varianta 1",
     ],
     [
-      "Ukazkovy jidelnicek",
+      "Ukazkovy jidelnicek - Normalni",
       Colors.brown,
       "assets/icons/tile_model.png",
       [
         [
           "assets/images/meal_plans/thumbnail/model_02/breakfast_model_02.jpg",
-          "normalni porce"
+          "Snidane"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_02/snack_model_02.jpg",
-          "normalni porce"
+          "Svacina"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_02/lunch_model_02.jpg",
-          "normalni porce"
+          "Obed"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_02/aftersnack_model_02.jpg",
-          "normalni porce"
+          "Svacina"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_02/dinner_model_02.jpg",
-          "normalni porce"
+          "Vecere"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_02/afterdinner_model_02.jpg",
-          "normalni porce"
+          "Druha vecere"
         ],
       ],
       "Varianta 2",
     ],
     [
-      "Ukazkovy jidelnicek",
+      "Ukazkovy jidelnicek - Zvysena",
       Colors.brown,
       "assets/icons/tile_model.png",
       [
         [
           "assets/images/meal_plans/thumbnail/model_03/breakfast_model_03.jpg",
-          "zvysena porce"
+          "Snidane"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_03/snack_model_03.jpg",
-          "zvysena porce"
+          "Svacina"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_03/lunch_model_03.jpg",
-          "zvysena porce"
+          "Obed"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_03/aftersnack_model_03.jpg",
-          "zvysena porce"
+          "Svacina"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_03/dinner_model_03.jpg",
-          "zvysena porce"
+          "Vecere"
         ],
         [
           "assets/images/meal_plans/thumbnail/model_03/afterdinner_model_03.jpg",
-          "zvysena porce"
+          "Druha vecere"
         ],
       ],
       "Varianta 3",

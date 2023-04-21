@@ -53,17 +53,11 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Current week number: $weekNumber and cycle number: $cycleNumber',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
                       SizedBox(
                         height: 8,
                       ),
                       Text(
-                        'Co je dnes\ndobreho k obedu?',
+                        'Co je tento tyden\ndobreho k obedu?',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,

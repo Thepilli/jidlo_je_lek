@@ -62,35 +62,68 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               child: const Text('Spocitat BMI'),
             ),
             SizedBox(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: _bmi == 0
-                    ? Colors.transparent
-                    : _bmi < 18.5
-                        ? Colors.blue[300]
-                        : _bmi >= 18.5 && _bmi <= 24.9
-                            ? Colors.green[300]
-                            : _bmi >= 25.0 && _bmi <= 29.9
-                                ? Colors.orange[300]
-                                : Colors.red[300],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Vase hodnota BMI je ${_bmi.toStringAsFixed(1)}',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: _bmi == 0.0 ? Colors.transparent : Colors.black,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image(
+                  image: _bmi == 0
+                      ? AssetImage('assets/icons/empty.png')
+                      : _bmi < 18.5
+                          ? AssetImage('assets/icons/bmi_way_to_go.png')
+                          : _bmi >= 18.5 && _bmi <= 24.9
+                              ? AssetImage('assets/icons/bmi_way_to_go.png')
+                              : _bmi >= 25.0 && _bmi <= 29.9
+                                  ? AssetImage('assets/icons/bmi_way_to_go.png')
+                                  : AssetImage(
+                                      'assets/icons/bmi_way_to_go.png'),
+                  width: 100,
+                  height: 100,
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: _bmi == 0
+                          ? Colors.transparent
+                          : _bmi < 18.5
+                              ? Colors.blue[300]
+                              : _bmi >= 18.5 && _bmi <= 24.9
+                                  ? Colors.green[300]
+                                  : _bmi >= 25.0 && _bmi <= 29.9
+                                      ? Colors.orange[300]
+                                      : Colors.red[300],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        'Vase hodnota BMI je ${_bmi.toStringAsFixed(1)}',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color:
+                              _bmi == 0.0 ? Colors.transparent : Colors.black,
+                        ),
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
+                Image(
+                  image: _bmi == 0
+                      ? AssetImage('assets/icons/empty.png')
+                      : _bmi < 18.5
+                          ? AssetImage('assets/icons/bmi_way_to_go.png')
+                          : _bmi >= 18.5 && _bmi <= 24.9
+                              ? AssetImage('assets/icons/bmi_way_to_go.png')
+                              : _bmi >= 25.0 && _bmi <= 29.9
+                                  ? AssetImage('assets/icons/bmi_way_to_go.png')
+                                  : AssetImage(
+                                      'assets/icons/bmi_way_to_go.png'),
+                  width: 100,
+                  height: 100,
+                ),
+              ],
             ),
             SizedBox(height: 40),
             Text(
