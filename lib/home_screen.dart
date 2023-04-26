@@ -71,10 +71,10 @@ class _HomePageState extends State<HomePage> {
                               return ArticleContainer(article: article);
                             },
                           ),
-                          BmiCalculator(),
+                          const BmiCalculator(),
                           MealTab(),
-                          FoodMenuScreen(),
-                          NewsHomeOnePage(),
+                          const FoodMenuScreen(),
+                          const NewsHomeOnePage(),
                         ],
                       ),
                     ),

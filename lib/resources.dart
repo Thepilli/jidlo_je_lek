@@ -8,7 +8,6 @@ class NewsHomeOnePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: ListView(
         children: <Widget>[
           _buildFeaturedNews(),
@@ -189,7 +188,7 @@ class NewsHomeOnePage extends StatelessWidget {
               pagination: const SwiperPagination(margin: EdgeInsets.only()),
               viewportFraction: 0.9,
               itemCount: 4,
-              loop: false,
+              loop: true,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -201,7 +200,7 @@ class NewsHomeOnePage extends StatelessWidget {
                         Expanded(
                           flex: 3,
                           child: Text(
-                            "A complete set of design elements, and their intitutive design.",
+                            "A  set of design elements, and their intitutive design.",
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
@@ -248,8 +247,8 @@ class RoundedContainer extends StatelessWidget {
     this.elevation,
   }) : super(key: key);
   final Widget child;
-  final double? width;
   final double? height;
+  final double? width;
   final Color color;
   final EdgeInsets padding;
   final EdgeInsets? margin;

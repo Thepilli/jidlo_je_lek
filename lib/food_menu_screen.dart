@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:stacionar_app/main.dart';
 
 class FoodMenuScreen extends StatefulWidget {
+  const FoodMenuScreen({super.key});
+
   @override
   State<FoodMenuScreen> createState() => _FoodMenuScreenState();
 }
@@ -52,7 +53,7 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       SizedBox(
                         height: 8,
                       ),
@@ -95,36 +96,51 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
 
 Widget courseLayout(BuildContext context, int cycleNumber) {
   List menu = [
-    ['Pondeli', 'Koprova omacka, hovezi, vejce', Color(0xffD3DEFA), 2],
-    ['Utery', 'Kroupova kase, sekana, okurka', Color(0xffD3DEFA), 2],
-    ['Streda', 'Testoviny, kure po toskansku', Color(0xffD3DEFA), 2],
-    ['Ctvrtek', 'Ryze, hovezi platek, rajcatovy salat', Color(0xffD3DEFA), 2],
-    ['Patek', 'Segedinsky gulas, knedliky', Color(0xffD3DEFA), 2],
-    ['Pondeli', 'Bramkova kase, kure, nadivka', Color(0xffD3DEFA), 3],
-    ['Utery', 'Testoviny, kure na paprice', Color(0xffD3DEFA), 3],
+    ['Pondeli', 'Koprova omacka, hovezi, vejce', const Color(0xffD3DEFA), 2],
+    ['Utery', 'Kroupova kase, sekana, okurka', const Color(0xffD3DEFA), 2],
+    ['Streda', 'Testoviny, kure po toskansku', const Color(0xffD3DEFA), 2],
+    [
+      'Ctvrtek',
+      'Ryze, hovezi platek, rajcatovy salat',
+      const Color(0xffD3DEFA),
+      2
+    ],
+    ['Patek', 'Segedinsky gulas, knedliky', const Color(0xffD3DEFA), 2],
+    ['Pondeli', 'Bramkova kase, kure, nadivka', const Color(0xffD3DEFA), 3],
+    ['Utery', 'Testoviny, kure na paprice', const Color(0xffD3DEFA), 3],
     [
       'Streda',
       'Bramborova kase, holandsky rizek, okurkovy salat',
-      Color(0xffD3DEFA),
+      const Color(0xffD3DEFA),
       3
     ],
-    ['Ctvrtek', 'Svickova omacka, knedliky', Color(0xffD3DEFA), 3],
-    ['Patek', 'Ryze, rolada', Color(0xffD3DEFA), 3],
-    ['Pondeli', 'Bramborova kase, file, okurkovy salat', Color(0xffD3DEFA), 4],
-    ['Utery', 'Houbova omacka, knedliky', Color(0xffD3DEFA), 4],
-    ['Streda', 'Zapacene brambory s kurecim masem', Color(0xffD3DEFA), 4],
-    ['Ctvrtek', 'Brambory, cevapcici', Color(0xffD3DEFA), 4],
-    ['Patek', 'Bramborove knedliky, veprove, spenat', Color(0xffD3DEFA), 4],
-    ['Pondeli', 'Bramborove knedliky, kure, zeli', Color(0xffD3DEFA), 5],
-    ['Utery', 'Rajska omacka, testoviny', Color(0xffD3DEFA), 5],
-    ['Streda', 'Bramborova kase, rizek, kompot', Color(0xffD3DEFA), 5],
-    ['Ctvrtek', 'Gulas, knedliky', Color(0xffD3DEFA), 5],
-    ['Patek', 'Lepenice, uzene', Color(0xffD3DEFA), 5],
-    ['Pondeli', 'Brambory, kureci stehno', Color(0xffD3DEFA), 1],
-    ['Utery', 'Hamburska pecene, knedliky', Color(0xffD3DEFA), 1],
-    ['Streda', 'Bramborova kase, karbanatek', Color(0xffD3DEFA), 1],
-    ['Ctvrtek', 'Ryze, kure na kari', Color(0xffD3DEFA), 1],
-    ['Patek', 'Bramborova kase, rolada', Color(0xffD3DEFA), 1],
+    ['Ctvrtek', 'Svickova omacka, knedliky', const Color(0xffD3DEFA), 3],
+    ['Patek', 'Ryze, rolada', const Color(0xffD3DEFA), 3],
+    [
+      'Pondeli',
+      'Bramborova kase, file, okurkovy salat',
+      const Color(0xffD3DEFA),
+      4
+    ],
+    ['Utery', 'Houbova omacka, knedliky', const Color(0xffD3DEFA), 4],
+    ['Streda', 'Zapacene brambory s kurecim masem', const Color(0xffD3DEFA), 4],
+    ['Ctvrtek', 'Brambory, cevapcici', const Color(0xffD3DEFA), 4],
+    [
+      'Patek',
+      'Bramborove knedliky, veprove, spenat',
+      const Color(0xffD3DEFA),
+      4
+    ],
+    ['Pondeli', 'Bramborove knedliky, kure, zeli', const Color(0xffD3DEFA), 5],
+    ['Utery', 'Rajska omacka, testoviny', const Color(0xffD3DEFA), 5],
+    ['Streda', 'Bramborova kase, rizek, kompot', const Color(0xffD3DEFA), 5],
+    ['Ctvrtek', 'Gulas, knedliky', const Color(0xffD3DEFA), 5],
+    ['Patek', 'Lepenice, uzene', const Color(0xffD3DEFA), 5],
+    ['Pondeli', 'Brambory, kureci stehno', const Color(0xffD3DEFA), 1],
+    ['Utery', 'Hamburska pecene, knedliky', const Color(0xffD3DEFA), 1],
+    ['Streda', 'Bramborova kase, karbanatek', const Color(0xffD3DEFA), 1],
+    ['Ctvrtek', 'Ryze, kure na kari', const Color(0xffD3DEFA), 1],
+    ['Patek', 'Bramborova kase, rolada', const Color(0xffD3DEFA), 1],
   ];
   final filteredItems = menu.where((item) => item[3] == cycleNumber).toList();
 
@@ -139,34 +155,33 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Container(
+          width: double.infinity,
           height: 50,
           color: filteredItems[index][2],
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                width: 20,
-              ),
-              Text(
-                filteredItems[index][0],
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+              Container(
+                padding: const EdgeInsets.only(left: 20),
+                width: 80,
+                child: Text(
+                  filteredItems[index][0],
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              const SizedBox(
-                width: 20,
-              ),
               Flexible(
-                child: Text(filteredItems[index][1],
+                child: SizedBox(
+                  child: Text(
+                    filteredItems[index][1],
                     style: const TextStyle(
                       fontSize: 18,
                     ),
-                    overflow: TextOverflow.clip),
-              ),
-              const SizedBox(
-                width: 20,
+                  ),
+                ),
               ),
             ],
           ),

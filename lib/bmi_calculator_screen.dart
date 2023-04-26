@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
+import 'package:stacionar_app/utils/gauge_arrow_component.dart';
 import 'package:stacionar_app/utils/mytextstyles.dart';
-import 'package:stacionar_app/widgets/table.dart';
 
 class BmiCalculator extends StatefulWidget {
   const BmiCalculator({Key? key}) : super(key: key);
@@ -22,12 +22,12 @@ class _BmiCalculatorState extends State<BmiCalculator> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             const Text(
               'Vyplnte svoji vysku a vahu:',
               style: CustomTheme.h4,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -42,7 +42,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                     keyboardType: TextInputType.number,
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 SizedBox(
                   width: 100,
                   child: TextField(
@@ -56,27 +56,28 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _calculateBmi,
               child: const Text('Spocitat BMI'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image(
                   image: _bmi == 0
-                      ? AssetImage('assets/icons/empty.png')
+                      ? const AssetImage('assets/icons/empty.png')
                       : _bmi < 18.5
-                          ? AssetImage('assets/icons/bmi_way_to_go.png')
+                          ? const AssetImage('assets/icons/bmi_neutral.png')
                           : _bmi >= 18.5 && _bmi <= 24.9
-                              ? AssetImage('assets/icons/bmi_way_to_go.png')
+                              ? const AssetImage(
+                                  'assets/icons/bmi_way_to_go.png')
                               : _bmi >= 25.0 && _bmi <= 29.9
-                                  ? AssetImage('assets/icons/bmi_way_to_go.png')
-                                  : AssetImage(
-                                      'assets/icons/bmi_way_to_go.png'),
+                                  ? const AssetImage('assets/icons/bmi_bad.png')
+                                  : const AssetImage(
+                                      'assets/icons/bmi_sad.png'),
                   width: 100,
                   height: 100,
                 ),
@@ -98,7 +99,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
                         textAlign: TextAlign.center,
-                        'Vase hodnota BMI je ${_bmi.toStringAsFixed(1)}',
+                        'Vase hodnota BMI je \n${_bmi.toStringAsFixed(1)}',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -109,29 +110,35 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                     ),
                   ),
                 ),
-                Image(
-                  image: _bmi == 0
-                      ? AssetImage('assets/icons/empty.png')
-                      : _bmi < 18.5
-                          ? AssetImage('assets/icons/bmi_way_to_go.png')
-                          : _bmi >= 18.5 && _bmi <= 24.9
-                              ? AssetImage('assets/icons/bmi_way_to_go.png')
-                              : _bmi >= 25.0 && _bmi <= 29.9
-                                  ? AssetImage('assets/icons/bmi_way_to_go.png')
-                                  : AssetImage(
-                                      'assets/icons/bmi_way_to_go.png'),
-                  width: 100,
-                  height: 100,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                      _bmi == 0
+                          ? ''
+                          : _bmi < 18.5
+                              ? 'Jeste kousek'
+                              : _bmi >= 18.5 && _bmi <= 24.9
+                                  ? 'Parada'
+                                  : _bmi >= 25.0 && _bmi <= 29.9
+                                      ? 'Co s tim?'
+                                      : 'Pozor!',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: _bmi == 0.0 ? Colors.transparent : Colors.black,
+                      )),
                 ),
               ],
             ),
-            SizedBox(height: 40),
-            Text(
+            const SizedBox(height: 40),
+            const Text(
               'Mějte s pomocí přehledných tabulek povědomí o své hodnotě BMI',
               style: MyTextStyles.bodyText1,
               textAlign: TextAlign.center,
             ),
-            Table_Widget()
+            GaugeArrowAnimation(
+              value: _bmi,
+            ),
           ],
         ),
       ),
