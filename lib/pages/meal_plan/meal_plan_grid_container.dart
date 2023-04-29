@@ -34,7 +34,6 @@ class MealContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  child: Text(mealTime, style: CustomTheme.caption),
                   decoration: BoxDecoration(
                     color: mealContainerColor[100],
                     borderRadius: BorderRadius.only(
@@ -42,21 +41,22 @@ class MealContainer extends StatelessWidget {
                       topRight: Radius.circular(borderRadius),
                     ),
                   ),
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
+                  child: Text(mealTime, style: CustomTheme.caption),
                 ),
               ],
             ),
 
             // meal picture
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Image.asset(imageName, height: 100),
             ),
 
             // meal flavor
             Text(
               mealType,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),

@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import "package:stacionar_app/utils/app_theme.dart";
 
-class Table_Widget extends StatelessWidget {
-  const Table_Widget({super.key});
+class TableWidget extends StatelessWidget {
+  const TableWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,29 +55,31 @@ class Table_Widget extends StatelessWidget {
   }
 }
 
-TableRow buildCustomTableRow(String BMI_string, String index_string) {
+TableRow buildCustomTableRow(String bmiString, String indexString) {
   return TableRow(
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       color: CustomTheme.brightGreenAccent,
     ),
     children: [
       TableCell(
         verticalAlignment: TableCellVerticalAlignment.middle,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Text(
-            BMI_string,
-            style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
+            bmiString,
+            style:
+                const TextStyle(decoration: TextDecoration.none, fontSize: 20),
           ),
         ),
       ),
       TableCell(
         verticalAlignment: TableCellVerticalAlignment.middle,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Text(
-            index_string,
-            style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
+            indexString,
+            style:
+                const TextStyle(decoration: TextDecoration.none, fontSize: 20),
           ),
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/widgets/meal_grid_galery_screen.dart';
-import 'package:stacionar_app/widgets/meal_grid_container.dart';
+import 'package:stacionar_app/pages/meal_plan/meal_plan_grid_galery_screen.dart';
+import 'package:stacionar_app/pages/meal_plan/meal_plan_grid_container.dart';
 
 class MealTab extends StatelessWidget {
   List mealsOnSale = [
@@ -11,16 +11,16 @@ class MealTab extends StatelessWidget {
       "assets/icons/tile_snidane.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/breakfast/breakfast_large_01.jpg",
-          "zvysena porce - slana"
-        ],
-        [
           "assets/images/meal_plans/thumbnail/breakfast/breakfast_normal_01.jpg",
           "normalni porce - slana"
         ],
         [
           "assets/images/meal_plans/thumbnail/breakfast/breakfast_normal_02.jpg",
           "normalni porce - sladka"
+        ],
+        [
+          "assets/images/meal_plans/thumbnail/breakfast/breakfast_large_01.jpg",
+          "zvysena porce - slana"
         ],
       ],
       "8:00",
@@ -31,16 +31,16 @@ class MealTab extends StatelessWidget {
       "assets/icons/tile_svacina.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/snack/snack_normal_01.jpg",
-          "zvysena porce - sladka"
-        ],
-        [
           "assets/images/meal_plans/thumbnail/snack/snack_large_01.jpg",
           "normalni porce - ovoce"
         ],
         [
           "assets/images/meal_plans/thumbnail/snack/snack_normal_02.jpg",
           "normalni porce - ovoce"
+        ],
+        [
+          "assets/images/meal_plans/thumbnail/snack/snack_normal_01.jpg",
+          "zvysena porce - sladka"
         ],
       ],
       "10:00",
@@ -55,12 +55,12 @@ class MealTab extends StatelessWidget {
           "normalni porce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/lunch/lunch_large_01.jpg",
-          "zvysena porce"
-        ],
-        [
           "assets/images/meal_plans/thumbnail/lunch/lunch_normal_02.jpg",
           "normalni porce"
+        ],
+        [
+          "assets/images/meal_plans/thumbnail/lunch/lunch_large_01.jpg",
+          "zvysena porce"
         ],
         [
           "assets/images/meal_plans/thumbnail/lunch/lunch_large_02.jpg",
@@ -111,12 +111,12 @@ class MealTab extends StatelessWidget {
           "normalni porce - tepla"
         ],
         [
-          "assets/images/meal_plans/thumbnail/dinner/dinner_large_01.jpg",
-          "zvysena porce - studena"
-        ],
-        [
           "assets/images/meal_plans/thumbnail/dinner/dinner_normal_02.jpg",
           "normalni porce - studena"
+        ],
+        [
+          "assets/images/meal_plans/thumbnail/dinner/dinner_large_01.jpg",
+          "zvysena porce - studena"
         ],
       ],
       "19:00",
@@ -131,12 +131,12 @@ class MealTab extends StatelessWidget {
           "normalni porce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_large_01.jpg",
-          "zvysena porce"
-        ],
-        [
           "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_normal_02.jpg",
           "normalni porce"
+        ],
+        [
+          "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_large_01.jpg",
+          "zvysena porce"
         ],
         [
           "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_large_02.jpg",
@@ -243,12 +243,14 @@ class MealTab extends StatelessWidget {
     ],
   ];
 
+  MealTab({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: mealsOnSale.length,
-      padding: EdgeInsets.all(12),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 1,
         childAspectRatio: 1 / 0.6,
       ),

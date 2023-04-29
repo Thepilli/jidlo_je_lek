@@ -11,12 +11,13 @@ class FoodMenuScreen extends StatefulWidget {
 class _FoodMenuScreenState extends State<FoodMenuScreen> {
   int weekNumber = 0;
   int cycleNumber = 0;
-
+  bool isNextWeek = false;
   @override
   void initState() {
     super.initState();
     DateTime now = DateTime.now();
     weekNumber = getWeekNumber(now);
+
     cycleNumber = getCycleNumber(weekNumber);
   }
 
@@ -37,58 +38,63 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 15.0,
-          ),
-          child: ListView(
-            scrollDirection: Axis.vertical,
+    if (isNextWeek) {
+      cycleNumber = getCycleNumber(weekNumber);
+    } else {
+      cycleNumber = getCycleNumber(weekNumber) + 1;
+    }
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15.0,
+      ),
+      child: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'Co je tento tyden\ndobreho k obedu?',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+              const Expanded(
+                child: Text(
+                  'Co je tento týden \ndobreho k obedu?',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Container(
-                    height: 56,
-                    width: 56,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(8),
-                      image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          'https://www.pngall.com/wp-content/uploads/5/Pikachu-PNG-Image-File.png',
-                        ),
+                ),
+              ),
+              Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      'Příští týden',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 30,
+                    child: Switch(
+                      value: isNextWeek,
+                      onChanged: (value) {
+                        setState(() {
+                          isNextWeek = value;
+                        });
+                      },
+                    ),
+                  ),
                 ],
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              courseLayout(context, cycleNumber),
             ],
           ),
-        ),
+          const SizedBox(
+            height: 30,
+          ),
+          courseLayout(context, cycleNumber),
+        ],
       ),
     );
   }
@@ -173,12 +179,20 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
                   ),
                 ),
               ),
+              const VerticalDivider(
+                color: Colors.black,
+                thickness: 1,
+                width: 20,
+              ),
+              // const DottedLine(
+              //   direction: Axis.vertical,
+              // ),
               Flexible(
                 child: SizedBox(
                   child: Text(
                     filteredItems[index][1],
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 15,
                     ),
                   ),
                 ),

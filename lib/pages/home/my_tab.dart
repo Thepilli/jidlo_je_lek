@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class MyTab extends StatelessWidget {
@@ -10,7 +11,7 @@ class MyTab extends StatelessWidget {
     return Tab(
       height: 80,
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
         child: Image.asset(
           iconPath,

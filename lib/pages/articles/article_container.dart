@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/article_screen.dart';
-import 'package:stacionar_app/home_screen.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
+
+import 'article_list.dart';
+import 'article_screen.dart';
 
 class ArticleContainer extends StatelessWidget {
   final Article article;
@@ -47,7 +48,7 @@ class ArticleContainer extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset(article.image),
+            SizedBox(height: 150, child: Image.asset(article.image)),
             ListTile(
               title: Text(article.title),
               trailing: const Icon(Icons.arrow_forward_ios_rounded),

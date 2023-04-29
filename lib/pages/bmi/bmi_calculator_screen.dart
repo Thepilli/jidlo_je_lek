@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
-import 'package:stacionar_app/utils/gauge_arrow_component.dart';
-import 'package:stacionar_app/utils/mytextstyles.dart';
+import 'package:stacionar_app/pages/bmi/bmi_gauge_arrow_component.dart';
 
 class BmiCalculator extends StatefulWidget {
   const BmiCalculator({Key? key}) : super(key: key);
@@ -130,12 +129,12 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 ),
               ],
             ),
-            const SizedBox(height: 40),
-            const Text(
-              'Mějte s pomocí přehledných tabulek povědomí o své hodnotě BMI',
-              style: MyTextStyles.bodyText1,
-              textAlign: TextAlign.center,
-            ),
+            // const SizedBox(height: 40),
+            // const Text(
+            //   'Mějte s pomocí přehledných tabulek povědomí o své hodnotě BMI',
+            //   style: MyTextStyles.bodyText1,
+            //   textAlign: TextAlign.center,
+            // ),
             GaugeArrowAnimation(
               value: _bmi,
             ),
