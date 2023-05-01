@@ -8,7 +8,7 @@ class MealTab extends StatelessWidget {
     [
       "Snídaně",
       Colors.blue,
-      "assets/icons/tile_snidane.png",
+      "assets/icons/meal_plan_tile_snidane.png",
       [
         [
           "assets/images/meal_plans/thumbnail/breakfast/breakfast_normal_01.jpg",
@@ -28,7 +28,7 @@ class MealTab extends StatelessWidget {
     [
       "Svačina",
       Colors.red,
-      "assets/icons/tile_svacina.png",
+      "assets/icons/meal_plan_tile_svacina.png",
       [
         [
           "assets/images/meal_plans/thumbnail/snack/snack_large_01.jpg",
@@ -48,7 +48,7 @@ class MealTab extends StatelessWidget {
     [
       "Oběd",
       Colors.purple,
-      "assets/icons/tile_obed.png",
+      "assets/icons/meal_plan_tile_obed.png",
       [
         [
           "assets/images/meal_plans/thumbnail/lunch/lunch_normal_01.jpg",
@@ -76,7 +76,7 @@ class MealTab extends StatelessWidget {
     [
       "Druhá Svačina",
       Colors.green,
-      "assets/icons/tile_svaciana_2.png",
+      "assets/icons/meal_plan_tile_svaciana_2.png",
       [
         [
           "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_normal_01.jpg",
@@ -104,7 +104,7 @@ class MealTab extends StatelessWidget {
     [
       "Večeře",
       Colors.orange,
-      "assets/icons/tile_vecere.png",
+      "assets/icons/meal_plan_tile_vecere.png",
       [
         [
           "assets/images/meal_plans/thumbnail/dinner/dinner_normal_01.jpg",
@@ -124,7 +124,7 @@ class MealTab extends StatelessWidget {
     [
       "Druhá Večeře",
       Colors.teal,
-      "assets/icons/tile_vecere_2.png",
+      "assets/icons/meal_plan_tile_vecere_2.png",
       [
         [
           "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_normal_01.jpg",
@@ -148,7 +148,7 @@ class MealTab extends StatelessWidget {
     [
       "Ukázkový jídelníček - \nNormální porce",
       Colors.lime,
-      "assets/icons/tile_model.png",
+      "assets/icons/meal_plan_tile_model.png",
       [
         [
           "assets/images/meal_plans/thumbnail/model_01/breakfast_model_01.jpg",
@@ -180,7 +180,7 @@ class MealTab extends StatelessWidget {
     [
       "Ukázkový jídelníček - \nNormální porce",
       Colors.amber,
-      "assets/icons/tile_model.png",
+      "assets/icons/meal_plan_tile_model.png",
       [
         [
           "assets/images/meal_plans/thumbnail/model_02/breakfast_model_02.jpg",
@@ -212,7 +212,7 @@ class MealTab extends StatelessWidget {
     [
       "Ukázkový jídelníček - \nZvýšená porce",
       Colors.indigo,
-      "assets/icons/tile_model.png",
+      "assets/icons/meal_plan_tile_model.png",
       [
         [
           "assets/images/meal_plans/thumbnail/model_03/breakfast_model_03.jpg",

@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
-import '../navigation/navigation_page.dart';
+import '../tab_page/tab_page.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
@@ -110,7 +110,7 @@ class CenterNextButton extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(builder: (context) {
-                                    return NavigationPage();
+                                    return const TabPage();
                                   }),
                                 );
                               },

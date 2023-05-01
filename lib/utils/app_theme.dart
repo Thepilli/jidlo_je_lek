@@ -15,7 +15,7 @@ class CustomTheme with ChangeNotifier {
     return ThemeData(
       scaffoldBackgroundColor: tan,
       textTheme: textTheme,
-      primaryColor: lime,
+      primaryColor: Colors.greenAccent,
       primarySwatch: const MaterialColor(0xFF1CDE8F, <int, Color>{
         50: brightGreen,
         100: brightGreen,
@@ -33,22 +33,10 @@ class CustomTheme with ChangeNotifier {
 
   static ThemeData get darkTheme {
     return ThemeData(
-      scaffoldBackgroundColor: brown,
-      textTheme: textTheme,
-      primaryColor: brightGreen,
-      primarySwatch: const MaterialColor(0xFF1CDE8F, <int, Color>{
-        50: brightGreen,
-        100: brightGreen,
-        200: brightGreen,
-        300: brightGreen,
-        400: brightGreen,
-        500: brightGreen,
-        600: brightGreen,
-        700: brightGreen,
-        800: brightGreen,
-        900: brightGreen,
-      }),
-    );
+        scaffoldBackgroundColor: brown,
+        textTheme: textTheme,
+        primaryColor: Colors.greenAccent,
+        primarySwatch: Colors.green);
   }
 
   static const Color lightText = tan;

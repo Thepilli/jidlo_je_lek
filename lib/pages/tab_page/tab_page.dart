@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:stacionar_app/pages/bmi/bmi_calculator_screen.dart';
 import 'package:stacionar_app/pages/food_menu/food_menu_screen.dart';
 
-import '../articles/article_list.dart';
+import '../../dictionary_page.dart';
+import '../../help_page.dart';
 import '../fortune_wheel/fortune_wheel_page.dart';
 import '../meal_plan/meal_plan_screen.dart';
-import '../roulette/roulette_homepage.dart';
 import 'tab_page_builder.dart';
 
 class TabPage extends StatefulWidget {
@@ -16,20 +16,25 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> {
-  late Future<List<Article>> _articlesFuture;
   // my tabs
-  List<Widget> myTabs = const [
-    TabPageBuilder(iconPath: 'assets/icons/icon_blog.png'), // blog tab
-    TabPageBuilder(iconPath: 'assets/icons/icon_bmi.png'), // bmi tab
-    TabPageBuilder(iconPath: 'assets/icons/icon_plan.png'), // plan tab
-    TabPageBuilder(iconPath: 'assets/icons/icon_calendar.png'), // calendar tab
-    TabPageBuilder(iconPath: 'assets/icons/icon_faq.png'), // faq tab
+  List<Widget> myTabs = [
+    const TabPageBuilder(
+        label: 'Clanky',
+        iconPath: 'assets/icons/tab_icon_dictionary.png'), // blog tab
+    const TabPageBuilder(
+        label: 'BMI', iconPath: 'assets/icons/tab_icon_bmi.png'), // bmi tab
+    const TabPageBuilder(
+        label: 'Jidelnicek',
+        iconPath: 'assets/icons/tab_icon_plan.png'), // plan tab
+    const TabPageBuilder(
+        label: 'Stacionar',
+        iconPath: 'assets/icons/tab_icon_calendar.png'), // calendar tab
+    const TabPageBuilder(
+        label: 'Ruleta',
+        iconPath: 'assets/icons/tab_icon_loterry.png'), // faq tab
+    const TabPageBuilder(
+        label: 'Odkazy', iconPath: 'assets/icons/tab_icon_help.png'), // faq tab
   ];
-  @override
-  void initState() {
-    super.initState();
-    _articlesFuture = ArticleRepository().getArticles();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,36 +42,28 @@ class _TabPageState extends State<TabPage> {
       length: myTabs.length,
       child: Scaffold(
         body: SafeArea(
-          child: FutureBuilder<List<Article>>(
-            future: _articlesFuture,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Column(
+          child: Column(
+            children: [
+              TabBar(
+                tabs: myTabs,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.greenAccent,
+                ),
+              ),
+              Expanded(
+                child: TabBarView(
                   children: [
-                    TabBar(tabs: myTabs),
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          const RouletteHomePage(),
-                          const BmiCalculator(),
-                          MealTab(),
-                          const FoodMenuScreen(),
-                          const FortuneWheelPage(),
-                        ],
-                      ),
-                    ),
+                    const DictionaryPage(),
+                    const BmiCalculator(),
+                    MealTab(),
+                    const FoodMenuScreen(),
+                    const FortuneWheelPage(),
+                    const HelpPage(),
                   ],
-                );
-              } else if (snapshot.hasError) {
-                return Center(
-                  child: Text('Error: ${snapshot.error}'),
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
+                ),
+              ),
+            ],
           ),
         ),
       ),

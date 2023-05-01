@@ -12,7 +12,7 @@ class BmiCalculator extends StatefulWidget {
 class _BmiCalculatorState extends State<BmiCalculator> {
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
-  double _bmi = 0;
+  double _bmi = 0.00;
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +68,10 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 Image(
                   image: _bmi == 0
                       ? const AssetImage('assets/icons/empty.png')
-                      : _bmi < 18.5
+                      : _bmi < 18.50
                           ? const AssetImage('assets/icons/bmi_neutral.png')
-                          : _bmi >= 18.5 && _bmi <= 24.9
-                              ? const AssetImage(
-                                  'assets/icons/bmi_way_to_go.png')
+                          : _bmi >= 18.50 && _bmi <= 24.9
+                              ? const AssetImage('assets/icons/bmi_good.png')
                               : _bmi >= 25.0 && _bmi <= 29.9
                                   ? const AssetImage('assets/icons/bmi_bad.png')
                                   : const AssetImage(
