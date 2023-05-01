@@ -16,7 +16,7 @@ class CustomTheme with ChangeNotifier {
       scaffoldBackgroundColor: tan,
       textTheme: textTheme,
       primaryColor: lime,
-      primarySwatch: MaterialColor(0xFF1CDE8F, <int, Color>{
+      primarySwatch: const MaterialColor(0xFF1CDE8F, <int, Color>{
         50: brightGreen,
         100: brightGreen,
         200: brightGreen,
@@ -36,7 +36,7 @@ class CustomTheme with ChangeNotifier {
       scaffoldBackgroundColor: brown,
       textTheme: textTheme,
       primaryColor: brightGreen,
-      primarySwatch: MaterialColor(0xFF1CDE8F, <int, Color>{
+      primarySwatch: const MaterialColor(0xFF1CDE8F, <int, Color>{
         50: brightGreen,
         100: brightGreen,
         200: brightGreen,
@@ -129,7 +129,7 @@ class CustomTheme with ChangeNotifier {
   static const TextStyle caption = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
-    fontSize: 12,
+    fontSize: 15,
     letterSpacing: 0.2,
     color: darkText, // was lightText
   );

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'widgets/fortune_wheel.dart';
 
-class DemoScreen extends StatefulWidget {
-  const DemoScreen({super.key});
+class FortuneWheelPage extends StatefulWidget {
+  const FortuneWheelPage({super.key});
 
   @override
-  _DemoScreenState createState() => _DemoScreenState();
+  _FortuneWheelPageState createState() => _FortuneWheelPageState();
 }
 
-class _DemoScreenState extends State<DemoScreen> {
+class _FortuneWheelPageState extends State<FortuneWheelPage> {
   FortuneWheelController<int> fortuneWheelController = FortuneWheelController();
   FortuneWheelChild? currentWheelChild;
   int currentBalance = 0;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 
-import 'article_list.dart';
-import 'article_screen.dart';
+import '../navigation/navigation_page.dart';
+import 'article_page.dart';
 
 class ArticleContainer extends StatelessWidget {
   final Article article;
@@ -12,6 +12,7 @@ class ArticleContainer extends StatelessWidget {
     required this.article,
   }) : super(key: key);
 
+// Builds the article container
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

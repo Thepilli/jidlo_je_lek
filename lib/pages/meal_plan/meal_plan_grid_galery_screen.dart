@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 
-class MealGridGaleryScreen extends StatelessWidget {
+class MealPlanGridGaleryScreen extends StatelessWidget {
   final String mealType;
   final mealContainerColor;
   final List imagePaths;
 
-  MealGridGaleryScreen(
-      {required this.mealType,
+  const MealPlanGridGaleryScreen(
+      {super.key,
+      required this.mealType,
       required this.imagePaths,
       required this.mealContainerColor});
 
@@ -20,11 +21,11 @@ class MealGridGaleryScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: CustomScrollView(
             slivers: [
               SliverGrid(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   mainAxisSpacing: 10.0,
                   crossAxisSpacing: 10.0,
@@ -33,7 +34,7 @@ class MealGridGaleryScreen extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
                     return Container(
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25.0),
                         color: mealContainerColor.withAlpha(80),

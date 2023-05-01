@@ -1,5 +1,5 @@
+import 'package:stacionar_app/pages/introduction_animation/introduction_animation_screen.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
-import 'package:stacionar_app/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,7 +10,7 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]).then((_) => runApp(
-        MyApp(),
+        const MyApp(),
       ));
 }
 
@@ -52,7 +52,7 @@ class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll('#', '');
     if (hexColor.length == 6) {
-      hexColor = 'FF' + hexColor;
+      hexColor = 'FF$hexColor';
     }
     return int.parse(hexColor, radix: 16);
   }

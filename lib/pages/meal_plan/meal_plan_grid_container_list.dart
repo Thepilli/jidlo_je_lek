@@ -54,11 +54,13 @@ class MealContainer extends StatelessWidget {
             ),
 
             // meal flavor
-            Text(
-              mealType,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+            Expanded(
+              child: Text(
+                mealType,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
             const SizedBox(height: 4),

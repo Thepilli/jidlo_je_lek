@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/pages/home/home_screen.dart';
+
+import '../navigation/navigation_page.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
@@ -109,7 +110,7 @@ class CenterNextButton extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(builder: (context) {
-                                    return const HomePage();
+                                    return NavigationPage();
                                   }),
                                 );
                               },

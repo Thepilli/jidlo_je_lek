@@ -38,7 +38,6 @@ class _ArticlePageState extends State<ArticlePage> {
 
   @override
   Widget build(BuildContext context) {
-    const bool isDarkTheme = false;
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -65,25 +64,6 @@ class _ArticlePageState extends State<ArticlePage> {
                 _htmlContent,
                 customStylesBuilder: (element) {
                   switch (element.localName) {
-                    // case 'h2':
-                    //   return {
-                    //     'color': 'rgba(60, 56, 47,255)',
-                    //     'text-align': 'center',
-                    //     'font-size': '200%',
-                    //   };
-                    // case 'p':
-                    //   return {
-                    //     'color': 'rgba(60, 56, 47,255)',
-                    //     'text-align': 'left',
-                    //     'font-size': '100%',
-                    //     'padding': '10px',
-                    //   };
-                    case 'li':
-                      return {
-                        'color': 'rgba(60, 56, 47,255)',
-                        'text-align': 'left',
-                        'font-size': '100%',
-                      };
                     case 'a':
                       return {
                         'color': 'rgba(160, 79, 40,255)',
@@ -101,12 +81,4 @@ class _ArticlePageState extends State<ArticlePage> {
       ),
     );
   }
-}
-
-Map<String, String> textStyleToMap(TextStyle textStyle) {
-  return <String, String>{
-    '\'fontSize\'': '\'${textStyle.fontSize?.toStringAsFixed(0) ?? ''}\'',
-    '\'fontWeight\'': '\'${textStyle.fontWeight?.toString() ?? ''}\'',
-    '\'color\'': '\'${textStyle.color?.value.toRadixString(16) ?? ''}\'',
-  };
 }

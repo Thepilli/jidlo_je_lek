@@ -23,7 +23,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
           children: [
             const SizedBox(height: 20),
             const Text(
-              'Vyplnte svoji vysku a vahu:',
+              'Vyplňte svoji výšku a váhu :',
               style: CustomTheme.h4,
             ),
             const SizedBox(height: 20),
@@ -35,7 +35,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   child: TextField(
                     controller: _heightController,
                     decoration: const InputDecoration(
-                      labelText: 'Vyska (cm)',
+                      labelText: 'Výška (cm)',
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -47,7 +47,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   child: TextField(
                     controller: _weightController,
                     decoration: const InputDecoration(
-                      labelText: 'Vaha (kg)',
+                      labelText: 'Váha (kg)',
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -58,7 +58,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _calculateBmi,
-              child: const Text('Spocitat BMI'),
+              child: const Text('Spočítat BMI'),
             ),
             const SizedBox(height: 20),
             Row(
@@ -98,7 +98,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
                         textAlign: TextAlign.center,
-                        'Vase hodnota BMI je \n${_bmi.toStringAsFixed(1)}',
+                        'Vaše hodnota BMI je \n${_bmi.toStringAsFixed(1)}',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -115,11 +115,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       _bmi == 0
                           ? ''
                           : _bmi < 18.5
-                              ? 'Jeste kousek'
+                              ? 'Ješte \nkousek'
                               : _bmi >= 18.5 && _bmi <= 24.9
-                                  ? 'Parada'
+                                  ? 'Paráda'
                                   : _bmi >= 25.0 && _bmi <= 29.9
-                                      ? 'Co s tim?'
+                                      ? 'Co \ns tim?'
                                       : 'Pozor!',
                       style: TextStyle(
                         fontSize: 18,

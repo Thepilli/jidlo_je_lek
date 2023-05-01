@@ -1,10 +1,10 @@
-import 'introduction_animation/intro_screen_3.dart';
-import 'introduction_animation/center_next_button.dart';
-import 'introduction_animation/intro_screen_4.dart';
-import 'introduction_animation/intro_screen_2.dart';
-import 'introduction_animation/intro_screen_1.dart';
-import 'introduction_animation/top_back_skip_view.dart';
-import 'introduction_animation/intro_screen_5.dart';
+import 'intro_screen_3.dart';
+import 'center_next_button.dart';
+import 'intro_screen_4.dart';
+import 'intro_screen_2.dart';
+import 'intro_screen_1.dart';
+import 'top_back_skip_view.dart';
+import 'intro_screen_5.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {
@@ -23,7 +23,7 @@ class _IntroductionAnimationScreenState
   void initState() {
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 8),
+      duration: const Duration(seconds: 8),
     );
     _animationController?.animateTo(0.0);
     super.initState();
@@ -75,7 +75,7 @@ class _IntroductionAnimationScreenState
   void _onSkipClick() {
     _animationController?.animateTo(
       0.8,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
     );
   }
 

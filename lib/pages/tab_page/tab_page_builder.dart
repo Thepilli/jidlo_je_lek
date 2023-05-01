@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 
-class MyTab extends StatelessWidget {
+class TabPageBuilder extends StatelessWidget {
   final String iconPath;
 
-  const MyTab({super.key, required this.iconPath});
+  const TabPageBuilder({super.key, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {

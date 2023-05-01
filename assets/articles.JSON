@@ -2,65 +2,78 @@
     {
         "title": "Kapitola 1. - Sledování jídelního režimu",
         "image": "assets/images/chapter1.png",
-        "bodyArticle": "chapter_1.html"
+        "bodyArticle": "chapter_1.html",
+        "topicSection": 1
     },
     {
         "title": "Kapitola 2. - Jídelní plán",
         "image": "assets/images/chapter2.png",
-        "bodyArticle": "chapter_2.html"
+        "bodyArticle": "chapter_2.html",
+        "topicSection": 1
     },
     {
         "title": "Kapitola 3. - Jak předcházet přejídání",
         "image": "assets/images/chapter3.png",
-        "bodyArticle": "chapter_3.html"
+        "bodyArticle": "chapter_3.html",
+        "topicSection": 1
     },
     {
         "title": "Kapitola 4. - Řešení problémů",
         "image": "assets/images/chapter4.png",
-        "bodyArticle": "chapter_4.html"
+        "bodyArticle": "chapter_4.html",
+        "topicSection": 1
     },
     {
         "title": "Kapitola 5. - Odstranění diet",
         "image": "assets/images/chapter5.png",
-        "bodyArticle": "chapter_5.html"
+        "bodyArticle": "chapter_5.html",
+        "topicSection": 1
     },
     {
         "title": "Co je anorexie?",
         "image": "assets/images/co_je_anorexie.png",
-        "bodyArticle": "co_je_anorexie.html"
+        "bodyArticle": "co_je_anorexie.html",
+        "topicSection": 12
     },
     {
         "title": "Co jsou poruchy příjmu potravy?",
         "image": "assets/images/co_je_ppp.png",
-        "bodyArticle": "co_je_ppp.html"
+        "bodyArticle": "co_je_ppp.html",
+        "topicSection": 2
     },
     {
         "title": "Co je bulimie?",
         "image": "assets/images/co_je_bulimie.png",
-        "bodyArticle": "co_je_bulimie.html"
+        "bodyArticle": "co_je_bulimie.html",
+        "topicSection": 2
     },{
         "title": "Co je záchvatovité přejídání?",
         "image": "assets/images/co_je_prejidani.png",
-        "bodyArticle": "co_je_prejidani.html"
+        "bodyArticle": "co_je_prejidani.html",
+        "topicSection": 2
     },
     {
         "title": "Mentální anorexie: diagnóza a léčba",
         "image": "assets/images/anorexie_lecba.png",
-        "bodyArticle": "anorexie_lecba.html"
+        "bodyArticle": "anorexie_lecba.html",
+        "topicSection": 3
     },
     {
         "title": "Poruchy příjmu potravy: diagnóza a léčba",
         "image": "assets/images/ppp_lecba.png",
-        "bodyArticle": "ppp_lecba.html"
+        "bodyArticle": "ppp_lecba.html",
+        "topicSection": 3
     },
     {
         "title": "Bulimie: diagnóza a léčba",
         "image": "assets/images/bulimie_lecba.png",
-        "bodyArticle": "bulimie_lecba.html"
+        "bodyArticle": "bulimie_lecba.html",
+        "topicSection": 3
     },
     {
         "title": "Záchvatovité přejídání: diagnóza a léčba",
         "image": "assets/images/prejidani_lecba.png",
-        "bodyArticle": "prejidani_lecba.html"
+        "bodyArticle": "prejidani_lecba.html",
+        "topicSection": 3
     }
 ]

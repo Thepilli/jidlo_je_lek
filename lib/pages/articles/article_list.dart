@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'article_container.dart';
-
 class ArticleList extends StatefulWidget {
   const ArticleList({super.key});
 
@@ -21,6 +19,7 @@ class _ArticleListState extends State<ArticleList> {
     _articlesFuture = ArticleRepository().getArticles();
   }
 
+// Builds the list of article containers
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Article>>(
@@ -31,7 +30,8 @@ class _ArticleListState extends State<ArticleList> {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               final article = snapshot.data![index];
-              return ArticleContainer(article: article);
+              return null;
+              // return ArticleContainer(article: article);
             },
           );
         } else if (snapshot.hasError) {
@@ -52,9 +52,13 @@ class Article {
   final String title;
   final String image;
   final String bodyArticle;
+  final String topicSection;
 
   Article(
-      {required this.title, required this.image, required this.bodyArticle});
+      {required this.title,
+      required this.image,
+      required this.bodyArticle,
+      required this.topicSection});
 }
 
 class ArticleRepository {
@@ -63,10 +67,12 @@ class ArticleRepository {
     final List<dynamic> jsonList = jsonDecode(jsonStr);
 
     return jsonList
+        .where((json) => json['topicSection'] == "Section2")
         .map((json) => Article(
               title: json['title'],
               image: json['image'],
               bodyArticle: json['bodyArticle'],
+              topicSection: json['topicSection'],
             ))
         .toList();
   }
