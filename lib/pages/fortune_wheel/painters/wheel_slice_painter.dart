@@ -22,7 +22,7 @@ class WheelSlicePainter extends CustomPainter {
 
   void _initializeStroke() {
     currentPaint = Paint()
-      ..color = Colors.white.withOpacity(0.2)
+      ..color = Colors.white.withOpacity(0.5)
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
   }
@@ -31,7 +31,7 @@ class WheelSlicePainter extends CustomPainter {
     currentPaint = Paint()
       ..color = color != null
           ? color!
-          : Color.lerp(Colors.teal, Colors.lime, number / (divider - 1))!;
+          : Colors.primaries[number % Colors.primaries.length].withOpacity(0.5);
 
     angleWidth = pi * 2 / divider;
   }

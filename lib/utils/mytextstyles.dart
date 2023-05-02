@@ -8,9 +8,9 @@ class MyTextStyles {
       color: Color.fromRGBO(201, 76, 76, 0.6));
 
   static const TextStyle headline3 = TextStyle(
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: FontWeight.bold,
-    color: Colors.blue,
+    color: Colors.black,
   );
   static const TextStyle bodyText1 = TextStyle(
     fontSize: 16,

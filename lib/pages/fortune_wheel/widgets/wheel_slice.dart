@@ -20,8 +20,8 @@ class WheelSlice extends StatelessWidget {
     int childCount = fortuneWheelChildren.length;
     double pieceAngle = (index / childCount * pi * 2);
     double pieceWidth =
-        childCount == 2 ? size : sin(pi / childCount) * size / 2;
-    double pieceHeight = size / 2;
+        childCount == 2 ? size : sin(pi / childCount) * size / 1.5;
+    double pieceHeight = size / 1.5;
 
     return Stack(
       children: [
