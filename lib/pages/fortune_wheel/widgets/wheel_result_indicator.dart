@@ -16,8 +16,8 @@ class WheelResultIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double indicatorSize = wheelSize / 10;
-    Color indicatorColor = Colors.black;
+    double indicatorSize = wheelSize / 9;
+    Color indicatorColor = Colors.greenAccent;
 
     return Stack(
       children: [

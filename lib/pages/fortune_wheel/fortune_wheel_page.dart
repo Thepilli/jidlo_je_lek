@@ -86,6 +86,13 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                         _createFortuneWheelChild('Rohlik', 'rohlik4.png'),
                         _createFortuneWheelChild('Veka', 'veka.png'),
                         _createFortuneWheelChild('Houska', 'houska2.png'),
+                        _createFortuneWheelChild('Rohlik', 'rohlik5.png'),
+                        _createFortuneWheelChild(
+                            'Sezamova bulka', 'bulka_sezamova.png'),
+                        _createFortuneWheelChild(
+                            'Houska lnena', 'houska_lnena.png'),
+                        _createFortuneWheelChild(
+                            'Grahamovy rohlik', 'rohlik_grahamovy.png'),
                       ],
                     )),
               ],

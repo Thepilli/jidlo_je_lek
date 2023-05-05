@@ -38,10 +38,12 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('weekNumber: ${weekNumber.toString()}');
+
     if (isNextWeek) {
-      cycleNumber = getCycleNumber(weekNumber);
-    } else {
       cycleNumber = getCycleNumber(weekNumber) + 1;
+    } else {
+      cycleNumber = getCycleNumber(weekNumber);
     }
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -102,53 +104,159 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
 
 Widget courseLayout(BuildContext context, int cycleNumber) {
   List menu = [
-    ['Pondělí', 'Koprová omáčka, hovězí, vejce', const Color(0xffD3DEFA), 2],
-    ['Úterý', 'Kroupová kaše, sekaná, okurka', const Color(0xffD3DEFA), 2],
-    ['Středa', 'Těstoviny, kuře po toskánsku', const Color(0xffD3DEFA), 2],
+    [
+      'Pondělí',
+      'Brambory, kuřecí stehno',
+      const Color(0xffD3DEFA),
+      1,
+    ],
+    [
+      'Úterý',
+      'Hamburská pečeně, knedlíky',
+      const Color(0xffD3DEFA),
+      1,
+    ],
+    [
+      'Středa',
+      'Bramborová kaše, karbanátek',
+      const Color(0xffD3DEFA),
+      1,
+    ],
+    [
+      'Čtvrtek',
+      'Rýže, kuře na kari',
+      const Color(0xffD3DEFA),
+      1,
+    ],
+    [
+      'Pátek ',
+      'Bramborová kaše, roláda',
+      const Color(0xffD3DEFA),
+      1,
+    ],
+    [
+      'Pondělí',
+      'Koprová omáčka, hovězí, vejce',
+      const Color(0xffD3DEFA),
+      2,
+    ],
+    [
+      'Úterý',
+      'Kroupová kaše, sekaná, okurka',
+      const Color(0xffD3DEFA),
+      2,
+    ],
+    [
+      'Středa',
+      'Těstoviny, kuře po toskánsku',
+      const Color(0xffD3DEFA),
+      2,
+    ],
     [
       'Čtvrtek',
       'Rýže, hovězí plátek, rajčatový salát',
       const Color(0xffD3DEFA),
-      2
+      2,
     ],
-    ['Pátek ', 'Segedinský guláš, knedlíky', const Color(0xffD3DEFA), 2],
-    ['Pondělí', 'Bramborová kaše, kuře, nádivka', const Color(0xffD3DEFA), 3],
-    ['Úterý', 'Těstoviny, kuře na paprice', const Color(0xffD3DEFA), 3],
+    [
+      'Pátek ',
+      'Segedinský guláš, knedlíky',
+      const Color(0xffD3DEFA),
+      2,
+    ],
+    [
+      'Pondělí',
+      'Bramborová kaše, kuře, nádivka',
+      const Color(0xffD3DEFA),
+      3,
+    ],
+    [
+      'Úterý',
+      'Těstoviny, kuře na paprice',
+      const Color(0xffD3DEFA),
+      3,
+    ],
     [
       'Středa',
       'Bramborová kaše, holandský řízek, okurkový salát',
       const Color(0xffD3DEFA),
-      3
+      3,
     ],
-    ['Čtvrtek', 'Svíčková omáčka, knedlíky', const Color(0xffD3DEFA), 3],
-    ['Pátek ', 'Rýže, roláda', const Color(0xffD3DEFA), 3],
+    [
+      'Čtvrtek',
+      'Svíčková omáčka, knedlíky',
+      const Color(0xffD3DEFA),
+      3,
+    ],
+    [
+      'Pátek ',
+      'Rýže, roláda',
+      const Color(0xffD3DEFA),
+      3,
+    ],
     [
       'Pondělí',
       'Bramborová kaše, file, okurkový salát',
       const Color(0xffD3DEFA),
-      4
+      4,
     ],
-    ['Úterý', 'Houbová omáčka, knedlíky', const Color(0xffD3DEFA), 4],
-    ['Středa', 'Zapačené brambory s kuřecím masem', const Color(0xffD3DEFA), 4],
-    ['Čtvrtek', 'Brambory, Ćevapčići ', const Color(0xffD3DEFA), 4],
+    [
+      'Úterý',
+      'Houbová omáčka, knedlíky',
+      const Color(0xffD3DEFA),
+      4,
+    ],
+    [
+      'Středa',
+      'Zapačené brambory s kuřecím masem',
+      const Color(0xffD3DEFA),
+      4,
+    ],
+    [
+      'Čtvrtek',
+      'Brambory, Ćevapčići ',
+      const Color(0xffD3DEFA),
+      4,
+    ],
     [
       'Pátek ',
       'Bramborové knedlíky, vepřové, špenát',
       const Color(0xffD3DEFA),
-      4
+      4,
     ],
-    ['Pondělí', 'Bramborové knedlíky, kuře, zeli', const Color(0xffD3DEFA), 5],
-    ['Úterý', 'Rajská omáčka, těstoviny', const Color(0xffD3DEFA), 5],
-    ['Středa', 'Bramborová kaše, rizek, kompot', const Color(0xffD3DEFA), 5],
-    ['Čtvrtek', 'Guláš, knedlíky', const Color(0xffD3DEFA), 5],
-    ['Pátek ', 'Lepenice, uzené', const Color(0xffD3DEFA), 5],
-    ['Pondělí', 'Brambory, kuřecí stehno', const Color(0xffD3DEFA), 1],
-    ['Úterý', 'Hamburská pečeně, knedlíky', const Color(0xffD3DEFA), 1],
-    ['Středa', 'Bramborová kaše, karbanátek', const Color(0xffD3DEFA), 1],
-    ['Čtvrtek', 'Rýže, kuře na kari', const Color(0xffD3DEFA), 1],
-    ['Pátek ', 'Bramborová kaše, roláda', const Color(0xffD3DEFA), 1],
+    [
+      'Pondělí',
+      'Bramborové knedlíky, kuře, zeli',
+      const Color(0xffD3DEFA),
+      5,
+    ],
+    [
+      'Úterý',
+      'Rajská omáčka, těstoviny',
+      const Color(0xffD3DEFA),
+      5,
+    ],
+    [
+      'Středa',
+      'Bramborová kaše, rizek, kompot',
+      const Color(0xffD3DEFA),
+      5,
+    ],
+    [
+      'Čtvrtek',
+      'Guláš, knedlíky',
+      const Color(0xffD3DEFA),
+      5,
+    ],
+    [
+      'Pátek ',
+      'Lepenice, uzené',
+      const Color(0xffD3DEFA),
+      5,
+    ],
   ];
   final filteredItems = menu.where((item) => item[3] == cycleNumber).toList();
+  debugPrint('cycleNumber: ${cycleNumber.toString()}');
 
   return MasonryGridView.count(
     shrinkWrap: true,
