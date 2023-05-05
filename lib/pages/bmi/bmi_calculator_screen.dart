@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
+
 import 'package:stacionar_app/pages/bmi/bmi_gauge_arrow_component.dart';
 
 class BmiCalculator extends StatefulWidget {
@@ -145,16 +146,20 @@ class _BmiCalculatorState extends State<BmiCalculator> {
 
   void _calculateBmi() {
     final height =
-        double.parse(_heightController.text) / 100; // convert cm to m
-    final weight = double.parse(_weightController.text);
+        _parseDouble(_heightController.text) / 100; // convert cm to m
+    final weight = _parseDouble(_weightController.text);
     final bmi = weight / (height * height);
     setState(() {
       FocusScopeNode currentFocus = FocusScope.of(context);
-
       if (!currentFocus.hasPrimaryFocus) {
         currentFocus.unfocus();
       }
-      _bmi = bmi;
+      _bmi = bmi.toString() == 'NaN' ? 0.0 : bmi;
     });
+  }
+
+  double _parseDouble(String value) {
+    // replace any commas with periods, then parse the string to a double
+    return double.parse(value.replaceAll(',', '.'));
   }
 }
