@@ -23,7 +23,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'Vyplňte svoji výšku a váhu :',
               style: CustomTheme.h4,
             ),

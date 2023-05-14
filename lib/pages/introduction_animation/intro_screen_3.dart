@@ -8,7 +8,7 @@ class CareView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _firstHalfAnimation = Tween<Offset>(
+    final firstHalfAnimation = Tween<Offset>(
       begin: const Offset(1, 0),
       end: const Offset(0, 0),
     ).animate(
@@ -21,7 +21,7 @@ class CareView extends StatelessWidget {
         ),
       ),
     );
-    final _secondHalfAnimation = Tween<Offset>(
+    final secondHalfAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(-1, 0),
     ).animate(
@@ -34,7 +34,7 @@ class CareView extends StatelessWidget {
         ),
       ),
     );
-    final _relaxFirstHalfAnimation = Tween<Offset>(
+    final relaxFirstHalfAnimation = Tween<Offset>(
       begin: const Offset(2, 0),
       end: const Offset(0, 0),
     ).animate(
@@ -47,7 +47,7 @@ class CareView extends StatelessWidget {
         ),
       ),
     );
-    final _relaxSecondHalfAnimation = Tween<Offset>(
+    final relaxSecondHalfAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(-2, 0),
     ).animate(
@@ -61,7 +61,7 @@ class CareView extends StatelessWidget {
       ),
     );
 
-    final _imageFirstHalfAnimation = Tween<Offset>(
+    final imageFirstHalfAnimation = Tween<Offset>(
       begin: const Offset(4, 0),
       end: const Offset(0, 0),
     ).animate(
@@ -74,7 +74,7 @@ class CareView extends StatelessWidget {
         ),
       ),
     );
-    final _imageSecondHalfAnimation = Tween<Offset>(
+    final imageSecondHalfAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(-4, 0),
     ).animate(
@@ -89,32 +89,32 @@ class CareView extends StatelessWidget {
     );
 
     return SlideTransition(
-      position: _firstHalfAnimation,
+      position: firstHalfAnimation,
       child: SlideTransition(
-        position: _secondHalfAnimation,
+        position: secondHalfAnimation,
         child: Padding(
           padding: const EdgeInsets.only(bottom: 100),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SlideTransition(
-                position: _imageFirstHalfAnimation,
+                position: imageFirstHalfAnimation,
                 child: SlideTransition(
-                  position: _imageSecondHalfAnimation,
+                  position: imageSecondHalfAnimation,
                   child: Container(
                     constraints:
                         const BoxConstraints(maxWidth: 350, maxHeight: 250),
                     child: Image.asset(
-                      'assets/introduction_animation/image1.png',
+                      'assets/images/introduction_animation/splash_2.png',
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
               ),
               SlideTransition(
-                position: _relaxFirstHalfAnimation,
+                position: relaxFirstHalfAnimation,
                 child: SlideTransition(
-                  position: _relaxSecondHalfAnimation,
+                  position: relaxSecondHalfAnimation,
                   child: const Text(
                     "Jídelníček",
                     style:

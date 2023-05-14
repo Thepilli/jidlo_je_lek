@@ -50,6 +50,7 @@ dependencies:
   dotted_line: ^3.1.0
   google_nav_bar: ^5.0.6
   side_menu_animation: ^1.1.0
+  showcaseview: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -70,17 +71,17 @@ flutter:
     - assets/images/
     - assets/images/pecivo/
     - assets/icons/
-    - assets/introduction_animation/
+    - assets/images/introduction_animation/
     - assets/
-    - assets/images/meal_plans/thumbnail/afterdinner/
-    - assets/images/meal_plans/thumbnail/aftersnack/
-    - assets/images/meal_plans/thumbnail/breakfast/
-    - assets/images/meal_plans/thumbnail/dinner/
-    - assets/images/meal_plans/thumbnail/lunch/
-    - assets/images/meal_plans/thumbnail/model_01/
-    - assets/images/meal_plans/thumbnail/model_02/
-    - assets/images/meal_plans/thumbnail/model_03/
-    - assets/images/meal_plans/thumbnail/snack/
+    - assets/images/meal_plans/afterdinner/
+    - assets/images/meal_plans/aftersnack/
+    - assets/images/meal_plans/breakfast/
+    - assets/images/meal_plans/dinner/
+    - assets/images/meal_plans/lunch/
+    - assets/images/meal_plans/model_01/
+    - assets/images/meal_plans/model_02/
+    - assets/images/meal_plans/model_03/
+    - assets/images/meal_plans/snack/
     - assets/htmls/
 
   # An image asset can refer to one or more resolution-specific "variants", see

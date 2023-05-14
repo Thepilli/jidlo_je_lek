@@ -13,8 +13,23 @@ class TabPageBuilder extends StatelessWidget {
       height: 80,
       child: Container(
         padding: const EdgeInsets.all(1),
-        child: Image.asset(
-          iconPath,
+        child: Column(
+          children: [
+            const SizedBox(height: 5),
+            SizedBox(
+              child: Image.asset(
+                iconPath,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 10,
+              ),
+            ),
+          ],
         ),
       ),
     );

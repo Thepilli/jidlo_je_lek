@@ -16,18 +16,38 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> {
+  Future<bool> _onBackPressed() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Confirm'),
+        content: const Text('Do you want to exit the app?'),
+        actions: <Widget>[
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('No'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Yes'),
+          ),
+        ],
+      ),
+    ).then((value) => value ?? false);
+  }
+
   // my tabs
   List<Widget> myTabs = [
     const TabPageBuilder(
-        label: 'Clanky',
+        label: 'Články',
         iconPath: 'assets/icons/tab_icon_dictionary.png'), // blog tab
     const TabPageBuilder(
         label: 'BMI', iconPath: 'assets/icons/tab_icon_bmi.png'), // bmi tab
     const TabPageBuilder(
-        label: 'Jidelnicek',
+        label: 'Jídelní \nplán',
         iconPath: 'assets/icons/tab_icon_plan.png'), // plan tab
     const TabPageBuilder(
-        label: 'Stacionar',
+        label: 'Menu',
         iconPath: 'assets/icons/tab_icon_calendar.png'), // calendar tab
     const TabPageBuilder(
         label: 'Ruleta',
@@ -38,32 +58,35 @@ class _TabPageState extends State<TabPage> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: myTabs.length,
-      child: Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: [
-              TabBar(
-                tabs: myTabs,
-                indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.greenAccent,
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: DefaultTabController(
+        length: myTabs.length,
+        child: Scaffold(
+          body: SafeArea(
+            child: Column(
+              children: [
+                TabBar(
+                  tabs: myTabs,
+                  indicator: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.greenAccent,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    const DictionaryPage(),
-                    const BmiCalculator(),
-                    MealTab(),
-                    const FoodMenuScreen(),
-                    const FortuneWheelPage(),
-                    const HelpPage(),
-                  ],
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      const DictionaryPage(),
+                      const BmiCalculator(),
+                      MealTab(),
+                      const FoodMenuScreen(),
+                      const FortuneWheelPage(),
+                      const HelpPage(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

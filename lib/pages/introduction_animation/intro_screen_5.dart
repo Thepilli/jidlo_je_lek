@@ -7,7 +7,7 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _firstHalfAnimation = Tween<Offset>(
+    final firstHalfAnimation = Tween<Offset>(
       begin: const Offset(1, 0),
       end: const Offset(0, 0),
     ).animate(
@@ -20,7 +20,7 @@ class WelcomeView extends StatelessWidget {
         ),
       ),
     );
-    final _secondHalfAnimation = Tween<Offset>(
+    final secondHalfAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(-1, 0),
     ).animate(
@@ -34,7 +34,7 @@ class WelcomeView extends StatelessWidget {
       ),
     );
 
-    final _welcomeFirstHalfAnimation = Tween<Offset>(
+    final welcomeFirstHalfAnimation = Tween<Offset>(
       begin: const Offset(2, 0),
       end: const Offset(0, 0),
     ).animate(
@@ -48,7 +48,7 @@ class WelcomeView extends StatelessWidget {
       ),
     );
 
-    final _welcomeImageAnimation = Tween<Offset>(
+    final welcomeImageAnimation = Tween<Offset>(
       begin: const Offset(4, 0),
       end: const Offset(0, 0),
     ).animate(
@@ -62,29 +62,29 @@ class WelcomeView extends StatelessWidget {
       ),
     );
     return SlideTransition(
-      position: _firstHalfAnimation,
+      position: firstHalfAnimation,
       child: SlideTransition(
-        position: _secondHalfAnimation,
+        position: secondHalfAnimation,
         child: Padding(
           padding: const EdgeInsets.only(bottom: 150),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SlideTransition(
-                position: _welcomeImageAnimation,
+                position: welcomeImageAnimation,
                 child: Container(
                   constraints:
                       const BoxConstraints(maxWidth: 350, maxHeight: 350),
                   child: Image.asset(
-                    'assets/introduction_animation/splash2.png',
+                    'assets/images/introduction_animation/splash_4.png',
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
               SlideTransition(
-                position: _welcomeFirstHalfAnimation,
+                position: welcomeFirstHalfAnimation,
                 child: const Text(
-                  "Mnohe další",
+                  "Mnohé další",
                   style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -92,7 +92,7 @@ class WelcomeView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                 child: Text(
-                  "Stay organised and live stress-free with you-do app",
+                  "",
                   textAlign: TextAlign.center,
                 ),
               ),

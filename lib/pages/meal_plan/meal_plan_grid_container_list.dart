@@ -57,6 +57,7 @@ class MealContainer extends StatelessWidget {
             Expanded(
               child: Text(
                 mealType,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,

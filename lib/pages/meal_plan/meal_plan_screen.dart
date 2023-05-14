@@ -11,15 +11,15 @@ class MealTab extends StatelessWidget {
       "assets/icons/meal_plan_tile_snidane.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/breakfast/breakfast_normal_01.jpg",
+          "assets/images/meal_plans/breakfast/breakfast_normal_01.jpg",
           "Normální porce - slaná"
         ],
         [
-          "assets/images/meal_plans/thumbnail/breakfast/breakfast_normal_02.jpg",
+          "assets/images/meal_plans/breakfast/breakfast_normal_02.jpg",
           "Normální porce - sladká"
         ],
         [
-          "assets/images/meal_plans/thumbnail/breakfast/breakfast_large_01.jpg",
+          "assets/images/meal_plans/breakfast/breakfast_large_01.jpg",
           "Zvýšená porce - slaná"
         ],
       ],
@@ -31,15 +31,15 @@ class MealTab extends StatelessWidget {
       "assets/icons/meal_plan_tile_svacina.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/snack/snack_large_01.jpg",
+          "assets/images/meal_plans/snack/snack_normal_02.jpg",
           "Normální porce - ovoce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/snack/snack_normal_02.jpg",
+          "assets/images/meal_plans/snack/snack_normal_01.jpg",
           "Normální porce - ovoce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/snack/snack_normal_01.jpg",
+          "assets/images/meal_plans/snack/snack_large_01.jpg",
           "Zvýšená porce - sladká"
         ],
       ],
@@ -51,25 +51,16 @@ class MealTab extends StatelessWidget {
       "assets/icons/meal_plan_tile_obed.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/lunch/lunch_normal_01.jpg",
+          "assets/images/meal_plans/lunch/lunch_normal_01.jpg",
           "Normální porce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/lunch/lunch_normal_02.jpg",
+          "assets/images/meal_plans/lunch/lunch_normal_02.jpg",
           "Normální porce"
         ],
-        [
-          "assets/images/meal_plans/thumbnail/lunch/lunch_large_01.jpg",
-          "Zvýšená porce"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/lunch/lunch_large_02.jpg",
-          "Zvýšená porce"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/lunch/lunch_large_03.jpg",
-          "Zvýšená porce"
-        ],
+        ["assets/images/meal_plans/lunch/lunch_large_01.jpg", "Zvýšená porce"],
+        ["assets/images/meal_plans/lunch/lunch_large_02.jpg", "Zvýšená porce"],
+        ["assets/images/meal_plans/lunch/lunch_large_03.jpg", "Zvýšená porce"],
       ],
       "12:00",
     ],
@@ -79,23 +70,23 @@ class MealTab extends StatelessWidget {
       "assets/icons/meal_plan_tile_svaciana_2.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_normal_01.jpg",
+          "assets/images/meal_plans/aftersnack/aftersnack_normal_01.jpg",
           "Normální porce - sladká"
         ],
         [
-          "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_normal_02.jpg",
+          "assets/images/meal_plans/aftersnack/aftersnack_normal_02.jpg",
           "Normální porce - slaná"
         ],
         [
-          "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_large_01.jpg",
+          "assets/images/meal_plans/aftersnack/aftersnack_large_01.jpg",
           "Zvýšená porce - sladká"
         ],
         [
-          "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_large_02.jpg",
-          "Zvýšená porce - sladká"
+          "assets/images/meal_plans/aftersnack/aftersnack_large_02.jpg",
+          "Zvýšená porce - slaná"
         ],
         [
-          "assets/images/meal_plans/thumbnail/aftersnack/aftersnack_large_03.jpg",
+          "assets/images/meal_plans/aftersnack/aftersnack_large_03.jpg",
           "Zvýšená porce - sladká"
         ],
       ],
@@ -107,16 +98,16 @@ class MealTab extends StatelessWidget {
       "assets/icons/meal_plan_tile_vecere.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/dinner/dinner_normal_01.jpg",
-          "Normální porce - tepla"
+          "assets/images/meal_plans/dinner/dinner_normal_01.jpg",
+          "Normální porce - teplá"
         ],
         [
-          "assets/images/meal_plans/thumbnail/dinner/dinner_normal_02.jpg",
-          "Normální porce - studena"
+          "assets/images/meal_plans/dinner/dinner_normal_02.jpg",
+          "Normální porce - studená"
         ],
         [
-          "assets/images/meal_plans/thumbnail/dinner/dinner_large_01.jpg",
-          "Zvýšená porce - studena"
+          "assets/images/meal_plans/dinner/dinner_large_01.jpg",
+          "Zvýšená porce - studená"
         ],
       ],
       "19:00",
@@ -127,19 +118,19 @@ class MealTab extends StatelessWidget {
       "assets/icons/meal_plan_tile_vecere_2.png",
       [
         [
-          "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_normal_01.jpg",
+          "assets/images/meal_plans/afterdinner/afterdinner_normal_01.jpg",
           "Normální porce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_normal_02.jpg",
+          "assets/images/meal_plans/afterdinner/afterdinner_normal_02.jpg",
           "Normální porce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_large_01.jpg",
+          "assets/images/meal_plans/afterdinner/afterdinner_large_01.jpg",
           "Zvýšená porce"
         ],
         [
-          "assets/images/meal_plans/thumbnail/afterdinner/afterdinner_large_02.jpg",
+          "assets/images/meal_plans/afterdinner/afterdinner_large_02.jpg",
           "Zvýšená porce"
         ],
       ],
@@ -150,28 +141,16 @@ class MealTab extends StatelessWidget {
       Colors.lime,
       "assets/icons/meal_plan_tile_model.png",
       [
+        ["assets/images/meal_plans/model_01/breakfast_model_01.jpg", "Snídaně"],
+        ["assets/images/meal_plans/model_01/snack_model_01.jpg", "Svačina"],
+        ["assets/images/meal_plans/model_01/lunch_model_01.jpg", "Oběd"],
         [
-          "assets/images/meal_plans/thumbnail/model_01/breakfast_model_01.jpg",
-          "Snídaně"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_01/snack_model_01.jpg",
+          "assets/images/meal_plans/model_01/aftersnack_model_01.jpg",
           "Svačina"
         ],
+        ["assets/images/meal_plans/model_01/dinner_model_01.jpg", "Večeře"],
         [
-          "assets/images/meal_plans/thumbnail/model_01/lunch_model_01.jpg",
-          "Oběd"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_01/aftersnack_model_01.jpg",
-          "Svačina"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_01/dinner_model_01.jpg",
-          "Večeře"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_01/afterdinner_model_01.jpg",
+          "assets/images/meal_plans/model_01/afterdinner_model_01.jpg",
           "Druhá Večeře"
         ],
       ],
@@ -182,28 +161,16 @@ class MealTab extends StatelessWidget {
       Colors.amber,
       "assets/icons/meal_plan_tile_model.png",
       [
+        ["assets/images/meal_plans/model_02/breakfast_model_02.jpg", "Snídaně"],
+        ["assets/images/meal_plans/model_02/snack_model_02.jpg", "Svačina"],
+        ["assets/images/meal_plans/model_02/lunch_model_02.jpg", "Oběd"],
         [
-          "assets/images/meal_plans/thumbnail/model_02/breakfast_model_02.jpg",
-          "Snídaně"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_02/snack_model_02.jpg",
+          "assets/images/meal_plans/model_02/aftersnack_model_02.jpg",
           "Svačina"
         ],
+        ["assets/images/meal_plans/model_02/dinner_model_02.jpg", "Večeře"],
         [
-          "assets/images/meal_plans/thumbnail/model_02/lunch_model_02.jpg",
-          "Oběd"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_02/aftersnack_model_02.jpg",
-          "Svačina"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_02/dinner_model_02.jpg",
-          "Večeře"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_02/afterdinner_model_02.jpg",
+          "assets/images/meal_plans/model_02/afterdinner_model_02.jpg",
           "Druhá Večeře"
         ],
       ],
@@ -214,28 +181,16 @@ class MealTab extends StatelessWidget {
       Colors.indigo,
       "assets/icons/meal_plan_tile_model.png",
       [
+        ["assets/images/meal_plans/model_03/breakfast_model_03.jpg", "Snídaně"],
+        ["assets/images/meal_plans/model_03/snack_model_03.jpg", "Svačina"],
+        ["assets/images/meal_plans/model_03/lunch_model_03.jpg", "Oběd"],
         [
-          "assets/images/meal_plans/thumbnail/model_03/breakfast_model_03.jpg",
-          "Snídaně"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_03/snack_model_03.jpg",
+          "assets/images/meal_plans/model_03/aftersnack_model_03.jpg",
           "Svačina"
         ],
+        ["assets/images/meal_plans/model_03/dinner_model_03.jpg", "Večeře"],
         [
-          "assets/images/meal_plans/thumbnail/model_03/lunch_model_03.jpg",
-          "Oběd"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_03/aftersnack_model_03.jpg",
-          "Svačina"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_03/dinner_model_03.jpg",
-          "Večeře"
-        ],
-        [
-          "assets/images/meal_plans/thumbnail/model_03/afterdinner_model_03.jpg",
+          "assets/images/meal_plans/model_03/afterdinner_model_03.jpg",
           "Druhá Večeře"
         ],
       ],

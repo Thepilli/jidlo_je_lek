@@ -4,6 +4,7 @@ CustomTheme currentTheme = CustomTheme();
 
 class CustomTheme with ChangeNotifier {
   static bool _isDarkTheme = false;
+
   ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
 
   void toggleTheme() {
@@ -39,8 +40,8 @@ class CustomTheme with ChangeNotifier {
         primarySwatch: Colors.green);
   }
 
-  static const Color lightText = tan;
-  static const Color darkText = brown;
+  static Color lightText = const Color.fromARGB(255, 212, 212, 212);
+  static Color darkText = const Color.fromARGB(255, 26, 26, 26);
   static const Color brightGreen = Color(0xFF1CDE8F);
   static const Color brightGreenAccent = Color(0xFFA0E5C9);
   static const Color lime = Color(0xFFD3EC54);
@@ -49,13 +50,12 @@ class CustomTheme with ChangeNotifier {
   static const Color orange = Color(0xFFFF9628);
   static const Color red = Color(0xFFFF5917);
   static const Color tan = Color(0xFFF4E9D7);
-  static const Color brown = Color(0xFF3D3930);
+  static const Color brown = Color.fromARGB(255, 26, 26, 26);
   static const Color white = Color(0xFFFFFFFF);
 
   static const String fontName = 'WorkSans';
-  Color get textColor => _isDarkTheme ? lightText : darkText;
 
-  static const TextTheme textTheme = TextTheme(
+  static TextTheme textTheme = TextTheme(
     headlineMedium: h2,
     headlineSmall: h4,
     titleLarge: title,
@@ -65,60 +65,60 @@ class CustomTheme with ChangeNotifier {
     bodySmall: caption,
   );
 
-  static const TextStyle h2 = TextStyle(
+  static TextStyle h2 = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 36,
     letterSpacing: 0.4,
     height: 0.9,
-    color: darkText,
+    color: _isDarkTheme ? lightText : darkText,
   );
 
-  static const TextStyle h4 = TextStyle(
+  static TextStyle h4 = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 24,
     letterSpacing: 0.27,
-    color: darkText,
+    color: _isDarkTheme ? lightText : darkText,
   );
 
-  static const TextStyle title = TextStyle(
+  static TextStyle title = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 16,
     letterSpacing: 0.18,
-    color: darkText,
+    color: _isDarkTheme ? lightText : darkText,
   );
 
-  static const TextStyle subtitle = TextStyle(
+  static TextStyle subtitle = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: -0.04,
-    color: darkText,
+    color: _isDarkTheme ? lightText : darkText,
   );
 
-  static const TextStyle body2 = TextStyle(
+  static TextStyle body2 = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: 0.2,
-    color: darkText,
+    color: _isDarkTheme ? lightText : darkText,
   );
 
-  static const TextStyle body1 = TextStyle(
+  static TextStyle body1 = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 16,
     letterSpacing: -0.05,
-    color: darkText,
+    color: _isDarkTheme ? lightText : darkText,
   );
 
-  static const TextStyle caption = TextStyle(
+  static TextStyle caption = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 15,
     letterSpacing: 0.2,
-    color: darkText, // was lightText
+    color: _isDarkTheme ? lightText : darkText, // was lightText
   );
 }

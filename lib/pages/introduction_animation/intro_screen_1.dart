@@ -13,7 +13,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
-    final _introductionanimation = Tween<Offset>(
+    final introductionanimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(0.0, -1.0),
     ).animate(
@@ -27,28 +27,28 @@ class _SplashViewState extends State<SplashView> {
       ),
     );
     return SlideTransition(
-      position: _introductionanimation,
+      position: introductionanimation,
       child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                'assets/introduction_animation/splash.png',
+                'assets/images/introduction_animation/splash_0.png',
                 fit: BoxFit.cover,
               ),
             ),
             const Padding(
               padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
-                "Vitej!",
+                "Vítej!",
                 style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 64, right: 64),
               child: Text(
-                "Tato aplikace je určena pro všechny, kteří se potýkají s nemocí, nebo chtějí zjistit vice o léčbě poruch příjmu potravy.",
+                "Tato aplikace je určena pro všechny, kteří se potýkají s nemocí, nebo chtějí zjistit více o léčbě poruch příjmu potravy.",
                 textAlign: TextAlign.center,
               ),
             ),

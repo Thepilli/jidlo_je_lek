@@ -8,7 +8,7 @@ class RelaxView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _firstHalfAnimation = Tween<Offset>(
+    final firstHalfAnimation = Tween<Offset>(
       begin: const Offset(0, 1),
       end: const Offset(0, 0),
     ).animate(
@@ -21,7 +21,7 @@ class RelaxView extends StatelessWidget {
         ),
       ),
     );
-    final _secondHalfAnimation = Tween<Offset>(
+    final secondHalfAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(-1, 0),
     ).animate(
@@ -34,7 +34,7 @@ class RelaxView extends StatelessWidget {
         ),
       ),
     );
-    final _textAnimation = Tween<Offset>(
+    final textAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(-2, 0),
     ).animate(
@@ -47,7 +47,7 @@ class RelaxView extends StatelessWidget {
         ),
       ),
     );
-    final _imageAnimation = Tween<Offset>(
+    final imageAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(-4, 0),
     ).animate(
@@ -61,7 +61,7 @@ class RelaxView extends StatelessWidget {
       ),
     );
 
-    final _relaxAnimation = Tween<Offset>(
+    final relaxAnimation = Tween<Offset>(
       begin: const Offset(0, -2),
       end: const Offset(0, 0),
     ).animate(
@@ -75,39 +75,39 @@ class RelaxView extends StatelessWidget {
       ),
     );
     return SlideTransition(
-      position: _firstHalfAnimation,
+      position: firstHalfAnimation,
       child: SlideTransition(
-        position: _secondHalfAnimation,
+        position: secondHalfAnimation,
         child: Padding(
           padding: const EdgeInsets.only(bottom: 100),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SlideTransition(
-                position: _relaxAnimation,
+                position: relaxAnimation,
                 child: const Text(
                   "Pomoc",
                   style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                 ),
               ),
               SlideTransition(
-                position: _textAnimation,
+                position: textAnimation,
                 child: const Padding(
                   padding:
                       EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                   child: Text(
-                    "Pokud vás nebo někoho blízkého dusí zákeřná sokyně s přízviskem anorexie nebo bulimie, neváhejte a pokračujte například do sekce Blog, Svépomoc, nebo Časté dotazy. Snažím  se pomoc vám a vašim blízkým.",
+                    "Pokud vás nebo někoho blízkého duší zákeřná sokyně s přízviskem anorexie nebo bulimie, neváhejte a pokračujte například do sekce Blog, Svépomoc, nebo Časté dotazy. Snažím se pomoc vám a vašim blízkým.",
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
               SlideTransition(
-                position: _imageAnimation,
+                position: imageAnimation,
                 child: Container(
                   constraints:
                       const BoxConstraints(maxWidth: 350, maxHeight: 250),
                   child: Image.asset(
-                    'assets/introduction_animation/image5.png',
+                    'assets/images/introduction_animation/splash_1.png',
                     fit: BoxFit.contain,
                   ),
                 ),
