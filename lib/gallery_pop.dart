@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GalleryPop extends StatefulWidget {
-  final heroTag;
-  const GalleryPop({super.key, this.heroTag});
+  final String heroTag;
+  const GalleryPop({super.key, required this.heroTag});
 
   @override
   State<GalleryPop> createState() => _GaleryPopState();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacionar_app/pages/meal_plan/meal_plan_grid_galery_screen.dart';
 import 'package:stacionar_app/pages/meal_plan/meal_plan_grid_container_list.dart';
 
+// ignore: must_be_immutable
 class MealTab extends StatelessWidget {
   List foodMenu = [
     // [ mealType, mealTileColor, imageName, imagePaths, time ]

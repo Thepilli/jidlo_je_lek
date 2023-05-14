@@ -35,6 +35,7 @@ class CenterNextButton extends StatelessWidget {
         ),
       ),
     );
+    // ignore: unused_local_variable
     final loginTextMoveAnimation = Tween<Offset>(
       begin: const Offset(0, 5),
       end: const Offset(0, 0),

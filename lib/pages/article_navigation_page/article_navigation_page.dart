@@ -12,10 +12,10 @@ class ArticleNavigationPage extends StatefulWidget {
   const ArticleNavigationPage({Key? key}) : super(key: key);
 
   @override
-  Article_NavigationPageState createState() => Article_NavigationPageState();
+  _ArticleNavigationPageState createState() => _ArticleNavigationPageState();
 }
 
-class Article_NavigationPageState extends State<ArticleNavigationPage> {
+class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
   late Future<List<Article>> _articlesFuture;
   int _selectedTopicSection = 1;
   final _index = ValueNotifier<int>(1);

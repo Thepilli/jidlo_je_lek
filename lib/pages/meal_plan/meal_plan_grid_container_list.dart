@@ -3,7 +3,7 @@ import 'package:stacionar_app/utils/app_theme.dart';
 
 class MealContainer extends StatelessWidget {
   final String mealType;
-  final mealContainerColor;
+  final dynamic mealContainerColor;
   final String imageName;
   final String mealTime;
 
