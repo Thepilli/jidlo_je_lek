@@ -41,7 +41,11 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
     debugPrint('weekNumber: ${weekNumber.toString()}');
 
     if (isNextWeek) {
-      cycleNumber = getCycleNumber(weekNumber) + 1;
+      if (cycleNumber == 5) {
+        cycleNumber = 1;
+      } else {
+        cycleNumber = getCycleNumber(weekNumber) + 1;
+      }
     } else {
       cycleNumber = getCycleNumber(weekNumber);
     }

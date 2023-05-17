@@ -1,5 +1,5 @@
 {
-  "[polevky]": {
+  "polevky": {
     "image-5e7f9d82abf36.jpg": "Hovězí vývar s masem a nudlemi",
     "image-5e81d9515faf2.jpg": "Kulajda",
     "image-5f00448c4aa99.jpg": "Gulášová",
@@ -21,9 +21,9 @@
     "image-5e80fcbacb9e5.jpg": "Drůbeží vývar s masem a nudlemi",
     "image-5eb1dfc02b39b.jpg": "Hovězí vývar s játrovými knedlíčky"
   },
-  "[hlavni_jidla]": {
-    "image-607ff9e93c2b4.jpg": "Staročeské pečené koleno, hořčice, křen, kyselá okurka, cbléb / 900g v syrovém stavu",
-    "image-606d8fabaa96a.jpg": "Pečené vepřové koleno na černém pivu, hořčice, křen, zelný salát, cbléb",
+  "hlavni_jidla": {
+    "image-607ff9e93c2b4.jpg": "Staročeské pečené koleno, hořčice, křen, kyselá okurka, chléb / 900g v syrovém stavu",
+    "image-606d8fabaa96a.jpg": "Pečené vepřové koleno na černém pivu, hořčice, křen, zelný salát, chléb",
     "image-5ee6186b90db3.jpg": "Pečené kachní stehno, bílé zelí, bramborový knedlík",
     "image-5ee61870e4fe4.jpg": "Pečené kachní stehno, bílé zelí, houskový knedlík",
     "image-608c77acc85a3.jpg": "Vepřová marinovaná žebra, chléb 3ks plátek",
@@ -165,7 +165,7 @@
     "image-5ed276209e729.jpg": "Houbová omáčka - světlá, houskový knedlík",
     "image-5f3389e0dddbf.jpg": "Houbová omáčka - světlá, těstoviny"
   },
-  "[smazena_jidla]": {
+  "smazena_jidla": {
     "image-5eb97d8401d18.jpg": "Smažený kuřecí řízek, bramborová kaše",
     "image-5e8241cdafc40.jpg": "Smažený kuřecí řízek, salát bramborový",
     "image-5e85813fb2e19.jpg": "Smažený kuřecí řízek, brambory vařené",
@@ -193,7 +193,7 @@
     "image-5ed24c5c6ba9d.jpg": "Smažené žampiony, bramborový salát",
     "image-5e98a27d3b87c.jpg": "Smažené žampiony, brambory vařené"
   },
-  "[sladka_jidla]": {
+  "sladka_jidla": {
     "image-60af53787d9ae.jpg": "Jablková žemlovka",
     "image-5e7f53562815d.jpg": "Dukátové buchtičky s vanilkovým krémem",
     "image-626a3f6917391.jpg": "Bramborové šišky, mák, máslo",

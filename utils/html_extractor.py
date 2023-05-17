@@ -3,6 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 def scrape_blog(url, title_div, title_class, title_classtext, content_div, content_class, content_classtext, filename):
     # Send a GET request to the URL and get the response
     response = requests.get(url)
@@ -22,18 +23,29 @@ def scrape_blog(url, title_div, title_class, title_classtext, content_div, conte
         # f.write(abstract)
         f.write(content)
 
+
 # Sample function call
 scrape_blog(
-    url="https://www.idealni.cz/clanek/leci-leky-od-psychiatra/",
-    title_div='h1',
+    url="http://www.ecinstitut.cz/about-us",
+    title_div='header',
     title_class='class',
-    title_classtext='post-title entry-title\\ ',
-    content_div='div',
+    title_classtext='article-header clearfix',
+    content_div='section',
     content_class='class',
-    content_classtext='entry-content',
-    filename='idealni.html'
+    content_classtext='article-content clearfix',
+    filename='e_clinic.html'
 )
 
+# idealni(
+#     url="https://www.idealni.cz/clanek/leci-leky-od-psychiatra/",
+#     title_div='h1',
+#     title_class='class',
+#     title_classtext='post-title entry-title\\ ',
+#     content_div='div',
+#     content_class='class',
+#     content_classtext='entry-content',
+#     filename='idealni.html'
+# )
 # nzip(
 #     url="https://www.nzip.cz/clanek/700-poruchy-prijmu-potravy-jak-rozpoznat-priznaky",
 #     title_div='div',
@@ -65,4 +77,3 @@ scrape_blog(
 #     content_classtext='post-body entry-content',
 #     filename='blog_intro_test.html'
 # )
-

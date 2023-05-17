@@ -1,5 +1,5 @@
 {
-  "[polevky]": {
+  "polevky": {
     "image-5e7f9d82abf36.jpg": "Hovezi vyvar s masem a nudlemi",
     "image-5e81d9515faf2.jpg": "Kulajda",
     "image-5f00448c4aa99.jpg": "Gulasova",
@@ -21,9 +21,9 @@
     "image-5e80fcbacb9e5.jpg": "Drubezi vyvar s masem a nudlemi",
     "image-5eb1dfc02b39b.jpg": "Hovezi vyvar s jatrovymi knedlicky"
   },
-  "[hlavni_jidla]": {
-    "image-607ff9e93c2b4.jpg": "Staroceske pecene koleno, horcice, kren, kysela okurka, cbleb / 900g v syrovem stavu",
-    "image-606d8fabaa96a.jpg": "Pecene veprove koleno na cernem pivu, horcice, kren, zelny salat, cbleb",
+  "hlavni_jidla": {
+    "image-607ff9e93c2b4.jpg": "Staroceske pecene koleno, horcice, kren, kysela okurka, chleb / 900g v syrovem stavu",
+    "image-606d8fabaa96a.jpg": "Pecene veprove koleno na cernem pivu, horcice, kren, zelny salat, chleb",
     "image-5ee6186b90db3.jpg": "Pecene kachni stehno, bile zeli, bramborovy knedlik",
     "image-5ee61870e4fe4.jpg": "Pecene kachni stehno, bile zeli, houskovy knedlik",
     "image-608c77acc85a3.jpg": "Veprova marinovana zebra, chleb 3ks platek",
@@ -165,7 +165,7 @@
     "image-5ed276209e729.jpg": "Houbova omacka - svetla, houskovy knedlik",
     "image-5f3389e0dddbf.jpg": "Houbova omacka - svetla, testoviny"
   },
-  "[smazena_jidla]": {
+  "smazena_jidla": {
     "image-5eb97d8401d18.jpg": "Smazeny kureci rizek, bramborova kase",
     "image-5e8241cdafc40.jpg": "Smazeny kureci rizek, salat bramborovy",
     "image-5e85813fb2e19.jpg": "Smazeny kureci rizek, brambory varene",
@@ -193,7 +193,7 @@
     "image-5ed24c5c6ba9d.jpg": "Smazene zampiony, bramborovy salat",
     "image-5e98a27d3b87c.jpg": "Smazene zampiony, brambory varene"
   },
-  "[sladka_jidla]": {
+  "sladka_jidla": {
     "image-60af53787d9ae.jpg": "Jablkova zemlovka",
     "image-5e7f53562815d.jpg": "Dukatove buchticky s vanilkovym kremem",
     "image-626a3f6917391.jpg": "Bramborove sisky, mak, maslo",
