@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/pages/article_navigation_page/article_navigation_page.dart';
+import 'package:stacionar_app/pages/article_navigationbar_page/article_navigation_page.dart';
 import 'package:stacionar_app/utils/mytextstyles.dart';
 
 class DictionaryPage extends StatelessWidget {
@@ -29,6 +29,9 @@ class DictionaryPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(description, style: MyTextStyles.bodyText1),
           ),
+          // const VerticalSliderDemo(
+          //   meals: [],
+          // ),
           ElevatedButton(
             onPressed: () {
               Navigator.push(

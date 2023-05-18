@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacionar_app/pages/bmi/bmi_calculator_screen.dart';
 import 'package:stacionar_app/pages/food_menu/food_menu_screen.dart';
 
-import '../../dictionary_page.dart';
+import '../article_tab_page/dictionary_page.dart';
 import '../help_resources/help_page.dart';
 import '../fortune_wheel/fortune_wheel_page.dart';
 import '../meal_plan/meal_plan_screen.dart';

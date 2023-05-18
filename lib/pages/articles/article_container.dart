@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 
-import '../article_navigation_page/article_navigation_page.dart';
+import '../article_navigationbar_page/article_navigation_page.dart';
 import 'article_page.dart';
 
 class ArticleContainer extends StatelessWidget {

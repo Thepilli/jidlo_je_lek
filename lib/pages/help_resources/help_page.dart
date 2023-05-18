@@ -42,6 +42,16 @@ class _HelpPageState extends State<HelpPage> {
             'assets/icons/help_e_clinic.png',
             'assets/htmls/e_clinic.html',
           ),
+          buildCard(
+            'Možnosti léčby',
+            'assets/icons/help_lecba.png',
+            'assets/htmls/help_lecba.html',
+          ),
+          buildCard(
+            'Nasledky',
+            'assets/icons/help_nasledky.png',
+            'assets/htmls/nasledky.html',
+          ),
         ],
       ),
     );

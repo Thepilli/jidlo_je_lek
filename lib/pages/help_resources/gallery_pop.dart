@@ -20,8 +20,10 @@ class _GaleryPopState extends State<GalleryPop> {
           },
           child: Hero(
             tag: widget.heroTag,
-            child: Image(
-              image: AssetImage(widget.heroTag),
+            child: InteractiveViewer(
+              child: Image(
+                image: AssetImage(widget.heroTag),
+              ),
             ),
           ),
         ),

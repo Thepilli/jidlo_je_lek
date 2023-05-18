@@ -26,14 +26,14 @@ def scrape_blog(url, title_div, title_class, title_classtext, content_div, conte
 
 # Sample function call
 scrape_blog(
-    url="http://www.ecinstitut.cz/about-us",
+    url="https://www.idealni.cz/nasledky-mentalni-anorexie-a-bulimie//",
     title_div='header',
     title_class='class',
-    title_classtext='article-header clearfix',
-    content_div='section',
+    title_classtext='entry-content-header',
+    content_div='div',
     content_class='class',
-    content_classtext='article-content clearfix',
-    filename='e_clinic.html'
+    content_classtext='entry-content',
+    filename='nasledky.html'
 )
 
 # idealni(
