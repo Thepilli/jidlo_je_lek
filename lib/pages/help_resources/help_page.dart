@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ellipsis_text/flutter_ellipsis_text.dart';
 
 import 'gallery_pop.dart';
 import '../../utils/mytextstyles.dart';
@@ -15,6 +16,15 @@ class _HelpPageState extends State<HelpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: TextButton(
+        onPressed: () {},
+        child: const EllipsisText(
+          text:
+              'O mně\nAhoj, Dobrý den. Jmenuji se Jiří a touto cestou bych rád pomohl všem, kteří se - stejně tak jako já - potýkají s nemocí zvanou mentální anorexie, nebo chtějí zjistit více o léčbě poruch příjmu potravy. Po zbytek času si budeme tykat, protože přece jenom je to intimnější téma, a navíc jsme v tom společně jako jedna komunita. Nejsi v tom sama, či sám! Ať už chceš využít jeden z nástrojů aplikace, nebo jen získat více informací jak postupovat s léčbou, věř že je to ten správný krok.\nPo začátku léčby jsem si uvědomil, jak malé, přehlížené, ba dokonce zkreslené, je povědomí o poruchách příjmu potravy a lidech jimi trpícími. A také že není jednoduché najít relevantní informace na jednom místě.',
+          ellipsis: "..show more",
+          maxLines: 1,
+        ),
+      ),
       body: ListView(
         children: [
           buildAppCard(

@@ -66,7 +66,7 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
               Row(
                 children: [
                   const Spacer(
-                    flex: 2,
+                    flex: 5,
                   ),
                   SizedBox(
                     height: 120,
@@ -78,14 +78,18 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                   const Spacer(
                     flex: 1,
                   ),
-                  SizedBox(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Theme.of(context).primaryColor),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: SizedBox(
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).primaryColor),
+                        ),
+                        onPressed: () =>
+                            fortuneWheelController.rotateTheWheel(),
+                        child: const Text('Roztoč mě!'),
                       ),
-                      onPressed: () => fortuneWheelController.rotateTheWheel(),
-                      child: const Text('Roztoč mě!'),
                     ),
                   ),
                 ],
@@ -99,21 +103,86 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                 child: FortuneWheel<int>(
                   controller: fortuneWheelController,
                   children: [
-                    _createFortuneWheelChild('Rohlik', 'rohlik1.png'),
-                    _createFortuneWheelChild('Houska', 'houska3.png'),
                     _createFortuneWheelChild(
-                        'Ceralni rohlik', 'rohlik_ceralni.png'),
-                    _createFortuneWheelChild('Dalamanek', 'dalamanek2.png'),
-                    _createFortuneWheelChild('Rohlik', 'rohlik4.png'),
-                    _createFortuneWheelChild('Veka', 'veka.png'),
-                    _createFortuneWheelChild('Houska', 'houska2.png'),
-                    _createFortuneWheelChild('Rohlik', 'rohlik5.png'),
+                      'Bageta fit',
+                      'bageta_fit.png',
+                    ),
                     _createFortuneWheelChild(
-                        'Sezamova bulka', 'bulka_sezamova.png'),
+                      'Brioška ',
+                      'brioska.png',
+                    ),
                     _createFortuneWheelChild(
-                        'Houska lnena', 'houska_lnena.png'),
+                      'Bulka sezamova',
+                      'bulka_sezamova.png',
+                    ),
                     _createFortuneWheelChild(
-                        'Grahamovy rohlik', 'rohlik_grahamovy.png'),
+                      'Chléb kmínáček',
+                      'chleb_kminacek_krajeny_maly.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Chléb příborský ',
+                      'chleb_priborsky.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Chléb sedlácký',
+                      'chleb_sedlacky.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Chléb žitný',
+                      'chleb_zitny_krajeny.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Croissant máslový ',
+                      'croissan_maslovy.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Dalamánek ',
+                      'dalamanek2.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Houska',
+                      'houska3.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Houska',
+                      'houska_lnena.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Hřeben makový',
+                      'hreben_makovy.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Koláč makový',
+                      'kolac_mak.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Loupák ',
+                      'loupak.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Rohlík ',
+                      'rohlik1.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Rohlík ',
+                      'rohlik3.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Rohlík ',
+                      'rohlik4.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Rohlík cerální',
+                      'rohlik_ceralni.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Rohlik grahamový',
+                      'rohlik_grahamovy.png',
+                    ),
+                    _createFortuneWheelChild(
+                      'Veka',
+                      'veka.png',
+                    ),
                   ],
                 ),
               ),

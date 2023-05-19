@@ -46,7 +46,7 @@ const myMenuValue = [
   MenuValues(
     // icon: Icons.wifi,
     icon: 'assets/icons/article_navigation_blog.png',
-    title: 'Blog',
+    title: 'Blog: Hladový deník',
     items: [],
     color: Colors.transparent,
   ),

@@ -34,7 +34,7 @@ class ArticleContainer extends StatelessWidget {
           horizontal: 10,
           vertical: 5,
         ),
-        width: double.infinity,
+        width: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: CustomTheme.white,
@@ -47,13 +47,16 @@ class ArticleContainer extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
+        child: Row(
           children: [
-            SizedBox(height: 150, child: Image.asset(article.image)),
-            ListTile(
-              title: Text(article.title),
-              trailing: const Icon(Icons.arrow_forward_ios_rounded),
-            ),
+            SizedBox(
+                height: 100, width: 150, child: Image.asset(article.image)),
+            Flexible(
+                child: Text(
+              article.title,
+              style: const TextStyle(fontSize: 16),
+              overflow: TextOverflow.clip,
+            )),
           ],
         ),
       ),
