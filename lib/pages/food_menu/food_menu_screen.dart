@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:http/http.dart' as http;
+
+import '../../model/svatek.dart';
 
 class FoodMenuScreen extends StatefulWidget {
   const FoodMenuScreen({super.key});
@@ -12,12 +17,18 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
   int weekNumber = 0;
   int cycleNumber = 0;
   bool isNextWeek = false;
+  String svatekDnes = '';
+  String dayNumber = '';
+  String dayInWeek = '';
+  String monthNumber = '';
+  Svatek? svatek;
+
   @override
   void initState() {
     super.initState();
     DateTime now = DateTime.now();
     weekNumber = getWeekNumber(now);
-
+    fetchSvatek();
     cycleNumber = getCycleNumber(weekNumber);
   }
 
@@ -36,8 +47,27 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
     return ((weekNumber - 1) % 5) + 1;
   }
 
+  Future<void> fetchSvatek() async {
+    final response = await http.get(Uri.parse('https://svatkyapi.cz/api/day'));
+    if (response.statusCode == 200) {
+      final jsonBody = json.decode(response.body);
+      final svatek = Svatek.fromJson(jsonBody);
+      setState(() {
+        this.svatek = svatek;
+      });
+    } else {
+      throw Exception('Failed to fetch svatek');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (svatek != null) {
+      svatekDnes = svatek!.name;
+      dayNumber = svatek!.dayNumber;
+      dayInWeek = svatek!.dayInWeek..toUpperCase();
+      monthNumber = svatek!.monthNumber;
+    }
     debugPrint('weekNumber: ${weekNumber.toString()}');
 
     if (isNextWeek) {
@@ -56,6 +86,29 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
       child: ListView(
         scrollDirection: Axis.vertical,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Dnes je $dayInWeek,\n$dayNumber.$monthNumber a svátek má:',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                svatekDnes,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            ],
+          ),
+          const Divider(
+            color: Colors.black,
+            thickness: 1,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,

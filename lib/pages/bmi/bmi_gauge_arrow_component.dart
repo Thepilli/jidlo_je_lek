@@ -44,7 +44,7 @@ class _GaugeArrowAnimationState extends State<GaugeArrowAnimation>
       } else if (widget.value <= 34.99) {
         angle = ((widget.value - 30) / 4.99 * 35 + 112) / 180 * math.pi;
       } else {
-        angle = ((widget.value - 35) / 5 * 40 + 145) / 180 * math.pi;
+        angle = math.pi - 0.05;
       }
       _animation = Tween<double>(
         begin: -math.pi / 2,
