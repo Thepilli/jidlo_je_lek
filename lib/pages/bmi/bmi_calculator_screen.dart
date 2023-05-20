@@ -34,25 +34,25 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 SizedBox(
                   width: 150,
                   child: TextField(
-                    controller: _heightController,
-                    decoration: const InputDecoration(
-                      labelText: 'Výška (cm)',
-                      border: OutlineInputBorder(),
-                    ),
-                    keyboardType: TextInputType.number,
-                  ),
+                      controller: _heightController,
+                      decoration: const InputDecoration(
+                        labelText: 'Výška (cm)',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true)),
                 ),
                 const SizedBox(width: 20),
                 SizedBox(
                   width: 100,
                   child: TextField(
-                    controller: _weightController,
-                    decoration: const InputDecoration(
-                      labelText: 'Váha (kg)',
-                      border: OutlineInputBorder(),
-                    ),
-                    keyboardType: TextInputType.number,
-                  ),
+                      controller: _weightController,
+                      decoration: const InputDecoration(
+                        labelText: 'Váha (kg)',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true)),
                 ),
               ],
             ),

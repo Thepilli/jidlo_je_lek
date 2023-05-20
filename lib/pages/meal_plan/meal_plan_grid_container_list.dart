@@ -42,16 +42,13 @@ class MealContainer extends StatelessWidget {
                     ),
                   ),
                   padding: const EdgeInsets.all(12),
-                  child: Text(mealTime, style: CustomTheme.caption),
+                  child: Text(mealTime, style: CustomTheme.body1),
                 ),
               ],
             ),
 
             // meal picture
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Image.asset(imageName, height: 100),
-            ),
+            Image.asset(imageName, height: 100),
 
             // meal flavor
             Expanded(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ellipsis_text/flutter_ellipsis_text.dart';
 
-import 'gallery_pop.dart';
+import '../../widgets/gallery_pop.dart';
 import '../../utils/mytextstyles.dart';
 import '../../widgets/html_readed_widget.dart';
 
@@ -123,36 +123,4 @@ class _HelpPageState extends State<HelpPage> {
           ),
         ),
       );
-}
-
-class InkwellPop extends StatelessWidget {
-  final String imgPath;
-
-  const InkwellPop({
-    super.key,
-    required this.imgPath,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => GalleryPop(
-              heroTag: imgPath,
-            ),
-          ),
-        );
-      },
-      child: Hero(
-        tag: imgPath,
-        child: Image(
-          image: AssetImage(imgPath),
-          width: 150,
-        ),
-      ),
-    );
-  }
 }

@@ -117,7 +117,7 @@ class CustomTheme with ChangeNotifier {
   static TextStyle caption = TextStyle(
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
-    fontSize: 15,
+    fontSize: 20,
     letterSpacing: 0.2,
     color: _isDarkTheme ? lightText : darkText, // was lightText
   );

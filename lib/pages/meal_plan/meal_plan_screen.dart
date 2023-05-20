@@ -13,15 +13,15 @@ class MealTab extends StatelessWidget {
       [
         [
           "assets/images/meal_plans/breakfast/breakfast_normal_01.jpg",
-          "Normální porce - slaná"
+          "Normální \nporce: \nslaná"
         ],
         [
           "assets/images/meal_plans/breakfast/breakfast_normal_02.jpg",
-          "Normální porce - sladká"
+          "Normální \nporce: \nsladká"
         ],
         [
           "assets/images/meal_plans/breakfast/breakfast_large_01.jpg",
-          "Zvýšená porce - slaná"
+          "Zvýšená \nporce: \nslaná"
         ],
       ],
       "8:00",
@@ -33,15 +33,15 @@ class MealTab extends StatelessWidget {
       [
         [
           "assets/images/meal_plans/snack/snack_normal_02.jpg",
-          "Normální porce - ovoce"
+          "Normální \nporce: \novoce"
         ],
         [
           "assets/images/meal_plans/snack/snack_normal_01.jpg",
-          "Normální porce - ovoce"
+          "Normální \nporce: \novoce"
         ],
         [
           "assets/images/meal_plans/snack/snack_large_01.jpg",
-          "Zvýšená porce - sladká"
+          "Zvýšená \nporce: \nsladká"
         ],
       ],
       "10:00",
@@ -53,15 +53,24 @@ class MealTab extends StatelessWidget {
       [
         [
           "assets/images/meal_plans/lunch/lunch_normal_01.jpg",
-          "Normální porce"
+          "Normální \nporce:"
         ],
         [
           "assets/images/meal_plans/lunch/lunch_normal_02.jpg",
-          "Normální porce"
+          "Normální \nporce:"
         ],
-        ["assets/images/meal_plans/lunch/lunch_large_01.jpg", "Zvýšená porce"],
-        ["assets/images/meal_plans/lunch/lunch_large_02.jpg", "Zvýšená porce"],
-        ["assets/images/meal_plans/lunch/lunch_large_03.jpg", "Zvýšená porce"],
+        [
+          "assets/images/meal_plans/lunch/lunch_large_01.jpg",
+          "Zvýšená \nporce:"
+        ],
+        [
+          "assets/images/meal_plans/lunch/lunch_large_02.jpg",
+          "Zvýšená \nporce:"
+        ],
+        [
+          "assets/images/meal_plans/lunch/lunch_large_03.jpg",
+          "Zvýšená \nporce:"
+        ],
       ],
       "12:00",
     ],
@@ -72,23 +81,23 @@ class MealTab extends StatelessWidget {
       [
         [
           "assets/images/meal_plans/aftersnack/aftersnack_normal_01.jpg",
-          "Normální porce - sladká"
+          "Normální \nporce: \nsladká"
         ],
         [
           "assets/images/meal_plans/aftersnack/aftersnack_normal_02.jpg",
-          "Normální porce - slaná"
+          "Normální \nporce: \nslaná"
         ],
         [
           "assets/images/meal_plans/aftersnack/aftersnack_large_01.jpg",
-          "Zvýšená porce - sladká"
+          "Zvýšená \nporce: \nsladká"
         ],
         [
           "assets/images/meal_plans/aftersnack/aftersnack_large_02.jpg",
-          "Zvýšená porce - slaná"
+          "Zvýšená \nporce: \nslaná"
         ],
         [
           "assets/images/meal_plans/aftersnack/aftersnack_large_03.jpg",
-          "Zvýšená porce - sladká"
+          "Zvýšená \nporce: \nsladká"
         ],
       ],
       "16:00",
@@ -100,15 +109,15 @@ class MealTab extends StatelessWidget {
       [
         [
           "assets/images/meal_plans/dinner/dinner_normal_01.jpg",
-          "Normální porce - teplá"
+          "Normální \nporce: \nteplá"
         ],
         [
           "assets/images/meal_plans/dinner/dinner_normal_02.jpg",
-          "Normální porce - studená"
+          "Normální \nporce: \nstudená"
         ],
         [
           "assets/images/meal_plans/dinner/dinner_large_01.jpg",
-          "Zvýšená porce - studená"
+          "Zvýšená \nporce: \nstudená"
         ],
       ],
       "19:00",
@@ -120,25 +129,25 @@ class MealTab extends StatelessWidget {
       [
         [
           "assets/images/meal_plans/afterdinner/afterdinner_normal_01.jpg",
-          "Normální porce"
+          "Normální \nporce:"
         ],
         [
           "assets/images/meal_plans/afterdinner/afterdinner_normal_02.jpg",
-          "Normální porce"
+          "Normální \nporce:"
         ],
         [
           "assets/images/meal_plans/afterdinner/afterdinner_large_01.jpg",
-          "Zvýšená porce"
+          "Zvýšená \nporce:"
         ],
         [
           "assets/images/meal_plans/afterdinner/afterdinner_large_02.jpg",
-          "Zvýšená porce"
+          "Zvýšená \nporce:"
         ],
       ],
       "21:00",
     ],
     [
-      "Ukázkový jídelníček - \nNormální porce",
+      "Ukázkový jídelníček - \nNormální porce:",
       Colors.lime,
       "assets/icons/meal_plan_tile_model.png",
       [
@@ -152,13 +161,13 @@ class MealTab extends StatelessWidget {
         ["assets/images/meal_plans/model_01/dinner_model_01.jpg", "Večeře"],
         [
           "assets/images/meal_plans/model_01/afterdinner_model_01.jpg",
-          "Druhá Večeře"
+          "Druhá \nVečeře"
         ],
       ],
       "Varianta 1",
     ],
     [
-      "Ukázkový jídelníček - \nNormální porce",
+      "Ukázkový jídelníček - \nNormální porce:",
       Colors.amber,
       "assets/icons/meal_plan_tile_model.png",
       [
@@ -172,13 +181,13 @@ class MealTab extends StatelessWidget {
         ["assets/images/meal_plans/model_02/dinner_model_02.jpg", "Večeře"],
         [
           "assets/images/meal_plans/model_02/afterdinner_model_02.jpg",
-          "Druhá Večeře"
+          "Druhá \nVečeře"
         ],
       ],
       "Varianta 2",
     ],
     [
-      "Ukázkový jídelníček - \nZvýšená porce",
+      "Ukázkový jídelníček - \nZvýšená porce:",
       Colors.indigo,
       "assets/icons/meal_plan_tile_model.png",
       [
@@ -192,7 +201,7 @@ class MealTab extends StatelessWidget {
         ["assets/images/meal_plans/model_03/dinner_model_03.jpg", "Večeře"],
         [
           "assets/images/meal_plans/model_03/afterdinner_model_03.jpg",
-          "Druhá Večeře"
+          "Druhá \nVečeře"
         ],
       ],
       "Varianta 3",

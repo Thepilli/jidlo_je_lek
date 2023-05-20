@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 
+import '../../widgets/gallery_pop.dart';
+
 class MealPlanGridGaleryScreen extends StatelessWidget {
   final String mealType;
   final dynamic mealContainerColor;
@@ -29,7 +31,7 @@ class MealPlanGridGaleryScreen extends StatelessWidget {
                   crossAxisCount: 1,
                   mainAxisSpacing: 10.0,
                   crossAxisSpacing: 10.0,
-                  childAspectRatio: 1.5,
+                  childAspectRatio: 2.5,
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
@@ -39,20 +41,26 @@ class MealPlanGridGaleryScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(25.0),
                         color: mealContainerColor.withAlpha(80),
                       ),
-                      child: Column(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(20.0),
-                            child: Image.asset(
-                              imagePaths[index][0],
-                              fit: BoxFit.cover,
+                            child: SizedBox(
+                              // height: 100,
+                              width: 200,
+                              child: InkwellPop(
+                                imgPath: imagePaths[index][0],
+                              ),
                             ),
                           ),
-                          const SizedBox(height: 10.0),
-                          Text(
-                            imagePaths[index][1],
-                            style: CustomTheme.caption,
+                          const SizedBox(width: 30.0),
+                          Flexible(
+                            child: Text(
+                              imagePaths[index][1],
+                              textAlign: TextAlign.center,
+                              style: CustomTheme.caption,
+                            ),
                           )
                         ],
                       ),

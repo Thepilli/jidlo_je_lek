@@ -31,3 +31,35 @@ class _GaleryPopState extends State<GalleryPop> {
     ));
   }
 }
+
+class InkwellPop extends StatelessWidget {
+  final String imgPath;
+
+  const InkwellPop({
+    super.key,
+    required this.imgPath,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GalleryPop(
+              heroTag: imgPath,
+            ),
+          ),
+        );
+      },
+      child: Hero(
+        tag: imgPath,
+        child: Image(
+          image: AssetImage(imgPath),
+          width: 150,
+        ),
+      ),
+    );
+  }
+}

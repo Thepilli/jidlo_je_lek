@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
-import '../pages/help_resources/gallery_pop.dart';
+import 'gallery_pop.dart';
 
 class HtmlReaderWidget extends StatelessWidget {
   final String htmlFilePath;
