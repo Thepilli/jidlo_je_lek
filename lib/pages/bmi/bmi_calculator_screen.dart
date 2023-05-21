@@ -3,6 +3,8 @@ import 'package:stacionar_app/utils/app_theme.dart';
 
 import 'package:stacionar_app/pages/bmi/bmi_gauge_arrow_component.dart';
 
+import '../../widgets/disclaimer_text_widget.dart';
+
 class BmiCalculator extends StatefulWidget {
   const BmiCalculator({Key? key}) : super(key: key);
 
@@ -14,134 +16,166 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
   double _bmi = 0.00;
-
+  String disclaimer =
+      'Prosím berte na vědomí, že zdravotní, výživová či léčebná tvrzení jsou v rámci legislativy EU výrazně omezena. Při tvorbě článků smíme vycházet pouze ze schválených tvrzení, která uvádí platná legislativa.';
+  String bmiDescription =
+      'Body Mass Index neboli index tělesné hmotnosti (BMI) vyjadřuje vztah mezi tělesnou hmotností a tělesnou výškou. Nezohledňuje nic jiného a pouze naznačuje, jak jste na tom z hlediska těchto dvou parametrů';
+  String bmiDescription2 =
+      'U konkrétního jednotlivce je BMI příliš jednoduchým prostředkem, který ignoruje velké množství důležitých faktorů';
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 20),
-            Text(
-              'Vyplňte svoji výšku a váhu :',
-              style: CustomTheme.h4,
-            ),
-            const SizedBox(height: 20),
-            Row(
+    return Scaffold(
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 150,
-                  child: TextField(
-                      controller: _heightController,
-                      decoration: const InputDecoration(
-                        labelText: 'Výška (cm)',
-                        border: OutlineInputBorder(),
-                      ),
-                      keyboardType:
-                          const TextInputType.numberWithOptions(decimal: true)),
+                const SizedBox(height: 20),
+                Text(
+                  'Vyplňte svoji výšku a váhu :',
+                  style: CustomTheme.h4,
                 ),
-                const SizedBox(width: 20),
-                SizedBox(
-                  width: 100,
-                  child: TextField(
-                      controller: _weightController,
-                      decoration: const InputDecoration(
-                        labelText: 'Váha (kg)',
-                        border: OutlineInputBorder(),
-                      ),
-                      keyboardType:
-                          const TextInputType.numberWithOptions(decimal: true)),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _calculateBmi,
-              child: const Text('Spočítat BMI'),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image(
-                  image: _bmi == 0
-                      ? const AssetImage('assets/icons/empty.png')
-                      : _bmi < 18.50
-                          ? const AssetImage('assets/icons/bmi_neutral.png')
-                          : _bmi >= 18.50 && _bmi <= 24.9
-                              ? const AssetImage('assets/icons/bmi_good.png')
-                              : _bmi >= 25.0 && _bmi <= 29.9
-                                  ? const AssetImage('assets/icons/bmi_bad.png')
-                                  : const AssetImage(
-                                      'assets/icons/bmi_sad.png'),
-                  width: 100,
-                  height: 100,
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: _bmi == 0
-                          ? Colors.transparent
-                          : _bmi < 18.5
-                              ? Colors.blue[300]
-                              : _bmi >= 18.5 && _bmi <= 24.9
-                                  ? Colors.green[300]
-                                  : _bmi >= 25.0 && _bmi <= 29.9
-                                      ? Colors.orange[300]
-                                      : Colors.red[300],
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 150,
+                      child: TextField(
+                          controller: _heightController,
+                          decoration: const InputDecoration(
+                            labelText: 'Výška (cm)',
+                            border: OutlineInputBorder(),
+                          ),
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true)),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        textAlign: TextAlign.center,
-                        'Vaše hodnota BMI je \n${_bmi.toStringAsFixed(1)}',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color:
-                              _bmi == 0.0 ? Colors.transparent : Colors.black,
+                    const SizedBox(width: 20),
+                    SizedBox(
+                      width: 100,
+                      child: TextField(
+                          controller: _weightController,
+                          decoration: const InputDecoration(
+                            labelText: 'Váha (kg)',
+                            border: OutlineInputBorder(),
+                          ),
+                          keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true)),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _calculateBmi,
+                  child: const Text('Spočítat BMI'),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image(
+                      image: _bmi == 0
+                          ? const AssetImage('assets/icons/empty.png')
+                          : _bmi < 18.50
+                              ? const AssetImage('assets/icons/bmi_neutral.png')
+                              : _bmi >= 18.50 && _bmi <= 24.9
+                                  ? const AssetImage(
+                                      'assets/icons/bmi_good.png')
+                                  : _bmi >= 25.0 && _bmi <= 29.9
+                                      ? const AssetImage(
+                                          'assets/icons/bmi_bad.png')
+                                      : const AssetImage(
+                                          'assets/icons/bmi_sad.png'),
+                      width: 100,
+                      height: 100,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: _bmi == 0
+                              ? Colors.transparent
+                              : _bmi < 18.5
+                                  ? Colors.blue[300]
+                                  : _bmi >= 18.5 && _bmi <= 24.9
+                                      ? Colors.green[300]
+                                      : _bmi >= 25.0 && _bmi <= 29.9
+                                          ? Colors.orange[300]
+                                          : Colors.red[300],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            textAlign: TextAlign.center,
+                            'Vaše hodnota BMI je \n${_bmi.toStringAsFixed(1)}',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: _bmi == 0.0
+                                  ? Colors.transparent
+                                  : Colors.black,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          _bmi == 0
+                              ? ''
+                              : _bmi < 18.5
+                                  ? 'Ješte \nkousek'
+                                  : _bmi >= 18.5 && _bmi <= 24.9
+                                      ? 'Paráda'
+                                      : _bmi >= 25.0 && _bmi <= 29.9
+                                          ? 'Co \ns tim?'
+                                          : 'Pozor!',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color:
+                                _bmi == 0.0 ? Colors.transparent : Colors.black,
+                          )),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                      _bmi == 0
-                          ? ''
-                          : _bmi < 18.5
-                              ? 'Ješte \nkousek'
-                              : _bmi >= 18.5 && _bmi <= 24.9
-                                  ? 'Paráda'
-                                  : _bmi >= 25.0 && _bmi <= 29.9
-                                      ? 'Co \ns tim?'
-                                      : 'Pozor!',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: _bmi == 0.0 ? Colors.transparent : Colors.black,
-                      )),
+                // const SizedBox(height: 40),
+                // const Text(
+                //   'Mějte s pomocí přehledných tabulek povědomí o své hodnotě BMI',
+                //   style: MyTextStyles.bodyText1,
+                //   textAlign: TextAlign.center,
+                // ),
+                GaugeArrowAnimation(
+                  value: _bmi,
                 ),
               ],
             ),
-            // const SizedBox(height: 40),
-            // const Text(
-            //   'Mějte s pomocí přehledných tabulek povědomí o své hodnotě BMI',
-            //   style: MyTextStyles.bodyText1,
-            //   textAlign: TextAlign.center,
-            // ),
-            GaugeArrowAnimation(
-              value: _bmi,
-            ),
-          ],
+          ),
         ),
-      ),
-    );
+        bottomSheet: FloatingActionButton.extended(
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return SizedBox(
+                  height: 350,
+                  child: Column(
+                    children: [
+                      disclaimerText('Co je BMI?'),
+                      disclaimerText(bmiDescription),
+                      disclaimerText(bmiDescription2),
+                      disclaimerText(disclaimer),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
+          label: const Text('Co je BMI?'),
+          icon: const Icon(Icons.info),
+        ));
   }
 
   void _calculateBmi() {

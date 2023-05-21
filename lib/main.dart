@@ -5,9 +5,11 @@ import 'package:flutter/services.dart';
 
 // ignore: unused_import
 import 'dev_carousel.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: '.env');
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
@@ -40,6 +42,7 @@ class _MyAppState extends State<MyApp> {
       theme: CustomTheme.lightTheme,
       darkTheme: CustomTheme.darkTheme,
       themeMode: currentTheme.currentTheme,
+
       home: const IntroductionAnimationScreen(),
       // home: const Scaffold(
       //   body: Center(

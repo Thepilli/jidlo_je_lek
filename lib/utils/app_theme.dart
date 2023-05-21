@@ -49,7 +49,7 @@ class CustomTheme with ChangeNotifier {
   static const Color gold = Color(0xFFFCC824);
   static const Color orange = Color(0xFFFF9628);
   static const Color red = Color(0xFFFF5917);
-  static const Color tan = Color(0xFFF4E9D7);
+  static const Color tan = Color.fromRGBO(244, 233, 215, 1);
   static const Color brown = Color.fromARGB(255, 26, 26, 26);
   static const Color white = Color(0xFFFFFFFF);
 

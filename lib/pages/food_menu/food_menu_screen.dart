@@ -334,7 +334,7 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 10),
                 width: 80,
                 child: Text(
                   filteredItems[index][0],

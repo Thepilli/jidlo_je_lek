@@ -65,38 +65,41 @@ class _GaugeArrowAnimationState extends State<GaugeArrowAnimation>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Stack(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              height: 300,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/bmi_gauge.png'),
-                  fit: BoxFit.fitWidth,
+        SizedBox(
+          width: 392,
+          child: Stack(
+            children: [
+              Container(
+                alignment: Alignment.center,
+                height: 300,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/bmi_gauge.png'),
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.only(top: 153, left: 10),
-              child: SizedBox(
-                height: 100,
-                child: AnimatedBuilder(
-                  animation: _animation,
-                  builder: (context, child) {
-                    return Transform.rotate(
-                      alignment: const Alignment(0.0, 1.0),
-                      angle: _animation.value,
-                      child: Image.asset(
-                        'assets/images/gauge_arrow.png',
-                      ),
-                    );
-                  },
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.only(top: 153, left: 10),
+                child: SizedBox(
+                  height: 100,
+                  child: AnimatedBuilder(
+                    animation: _animation,
+                    builder: (context, child) {
+                      return Transform.rotate(
+                        alignment: const Alignment(0.0, 1.0),
+                        angle: _animation.value,
+                        child: Image.asset(
+                          'assets/images/gauge_arrow.png',
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

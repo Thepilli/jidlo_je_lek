@@ -12,15 +12,19 @@ class _GaleryPopState extends State<GalleryPop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      child: Center(
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).pop();
-          },
-          child: Hero(
-            tag: widget.heroTag,
+        body: Center(
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).pop();
+        },
+        child: Hero(
+          tag: widget.heroTag,
+          child: Dismissible(
+            direction: DismissDirection.vertical,
+            key: const Key('key'),
+            onDismissed: (_) => Navigator.of(context).pop(),
             child: InteractiveViewer(
+              clipBehavior: Clip.none,
               child: Image(
                 image: AssetImage(widget.heroTag),
               ),

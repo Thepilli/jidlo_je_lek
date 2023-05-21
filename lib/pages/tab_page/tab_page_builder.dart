@@ -11,17 +11,18 @@ class TabPageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tab(
       height: 80,
-      child: Container(
-        padding: const EdgeInsets.all(1),
+      child: SizedBox(
+        width: 50,
         child: Column(
           children: [
-            const SizedBox(height: 5),
             SizedBox(
+              width: 50,
               child: Image.asset(
                 iconPath,
+                width: 50,
+                height: 50,
               ),
             ),
-            const SizedBox(height: 5),
             Text(
               label,
               textAlign: TextAlign.center,
