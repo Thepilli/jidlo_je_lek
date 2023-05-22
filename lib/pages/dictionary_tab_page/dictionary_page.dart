@@ -68,7 +68,7 @@ class DictionaryPage extends StatelessWidget {
           splashColor: Colors.greenAccent,
           onPressed: () {
             showModalBottomSheet(
-              backgroundColor: const Color.fromRGBO(244, 233, 215, 20),
+              backgroundColor: const Color.fromRGBO(244, 233, 215, 1),
               context: context,
               builder: (context) {
                 return SizedBox(
