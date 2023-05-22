@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/pages/article_navigationbar_page/article_navigation_page.dart';
+
+import 'dev_carousel.dart';
+import 'pages/bmi/bmi_calculator_screen.dart';
+import 'pages/food_menu/food_menu_screen.dart';
+import 'pages/fortune_wheel/fortune_wheel_page.dart';
 
 class ApplicationGrid extends StatefulWidget {
   const ApplicationGrid({super.key});
@@ -9,77 +13,117 @@ class ApplicationGrid extends StatefulWidget {
 }
 
 class _ApplicationGridState extends State<ApplicationGrid> {
+  String features =
+      'Tady najdeš aplikace které ti pomohou nebo tě alespoň pobaví při každodenních aktivitách';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        const Spacer(),
-        GridView.count(
-          crossAxisCount: 1,
-          crossAxisSpacing: 0,
-          scrollDirection: Axis.vertical,
-          mainAxisSpacing: 0,
-          shrinkWrap: true,
-          childAspectRatio: 3,
-          padding: const EdgeInsets.only(left: 24, right: 24),
-          children: [
-            itemTile(context, 'assets/icons/tab_icon_bmi.png', 'Kalkulačka bmi',
-                'Výpočet BMI je velmi snadný, postačí ti k němu tovje váha a výška'),
-            itemTile(
-                context,
-                'assets/icons/tab_icon_calendar.png',
-                'Týdenní jídelníček',
-                'Zajímá tě jaký jídelníček máme na tento týden?'),
-            itemTile(
-                context,
-                'assets/icons/tab_icon_loterry.png',
-                'Pečivová ruleta',
-                'Nebaví tě lámat si hlavu si tím, jaké pečivo se dnes dáš?'),
-            itemTile(
-              context,
-              'assets/icons/tab_icon_gallery.png',
-              'Jídelní inspirace',
-              'Nebo jen hledáš inspiraci co si naplánovat? Zkus se podívat do galerie',
+        body: SafeArea(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              features,
+              style: const TextStyle(fontSize: 20),
             ),
-          ],
-        ),
-        const Spacer(),
-      ],
+          ),
+          const Spacer(),
+          GridView.count(
+            crossAxisCount: 1,
+            crossAxisSpacing: 0,
+            scrollDirection: Axis.vertical,
+            mainAxisSpacing: 10,
+            shrinkWrap: true,
+            childAspectRatio: 3,
+            padding: const EdgeInsets.only(left: 24, right: 24),
+            children: [
+              itemTile(
+                  context,
+                  'assets/icons/tab_icon_bmi.png',
+                  'Kalkulačka bmi',
+                  'Výpočet BMI je velmi snadný, postačí ti k němu tovje váha a výška',
+                  'BmiCalculator'),
+              itemTile(
+                  context,
+                  'assets/icons/tab_icon_calendar.png',
+                  'Týdenní jídelníček',
+                  'Zajímá tě jaký jídelníček máme na tento týden?',
+                  'FoodMenuScreen'),
+              itemTile(
+                  context,
+                  'assets/icons/tab_icon_loterry.png',
+                  'Pečivová ruleta',
+                  'Nebaví tě lámat si hlavu si tím, jaké pečivo se dnes dáš?',
+                  'FortuneWheelPage'),
+              itemTile(
+                  context,
+                  'assets/icons/tab_icon_gallery.png',
+                  'Jídelní inspirace',
+                  'Nebo jen hledáš inspiraci co si naplánovat? Zkus se podívat do galerie',
+                  'VerticalSliderDemo'),
+            ],
+          ),
+          const Spacer(),
+        ],
+      ),
     ));
   }
 }
 
-Widget itemTile(
-    BuildContext context, String iconPath, String title, String description) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: ListTile(
-      tileColor: Colors.greenAccent.withOpacity(0.5),
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const ArticleNavigationPage()));
-      },
-      leading: SizedBox(
-        width: 100,
-        height: 100,
-        child: Image.asset(iconPath),
-      ),
-      title: Padding(
-        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-        child: Text(
-          title,
+Widget itemTile(BuildContext context, String iconPath, String title,
+    String description, String pageName) {
+  return ListTile(
+    tileColor: Colors.greenAccent.withOpacity(0.5),
+    onTap: () {
+      String nextPage =
+          pageName; // Replace 'ArticleNavigationPage' with the desired page name
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => getPageByName(nextPage),
         ),
-      ),
-      subtitle: Column(
-        children: [
-          Text(
-            description,
-          ),
-        ],
+      );
+    },
+    leading: SizedBox(
+      width: 100,
+      height: 100,
+      child: Image.asset(iconPath),
+    ),
+    title: Padding(
+      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      child: Text(
+        title,
       ),
     ),
+    subtitle: Column(
+      children: [
+        Text(
+          description,
+        ),
+      ],
+    ),
   );
+}
+
+Widget getPageByName(String pageName) {
+  // Add your logic to return the appropriate widget based on the page name
+  // For example:
+  if (pageName == 'BmiCalculator') {
+    return const BmiCalculator();
+  }
+  if (pageName == 'FoodMenuScreen') {
+    return const FoodMenuScreen();
+  }
+  if (pageName == 'FortuneWheelPage') {
+    return const FortuneWheelPage();
+  }
+  if (pageName == 'VerticalSliderDemo') {
+    return const VerticalSliderDemo(
+      meals: [],
+    );
+  }
+  // Add more conditions for other page names if needed
+  return Container(); // Default return value if no matching page name is found
 }

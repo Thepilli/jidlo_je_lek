@@ -79,81 +79,83 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
     } else {
       cycleNumber = getCycleNumber(weekNumber);
     }
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 15.0,
-      ),
-      child: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Dnes je $dayInWeek,\n$dayNumber.$monthNumber a svátek má:',
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                svatekDnes,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
-            ],
-          ),
-          const Divider(
-            color: Colors.black,
-            thickness: 1,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Expanded(
-                child: Text(
-                  'Co je tento týden \ndobrého k obědu?',
-                  style: TextStyle(
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 15.0,
+        ),
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Dnes je $dayInWeek,\n$dayNumber.$monthNumber a svátek má:',
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-              Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      'Příští týden',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
+                Text(
+                  svatekDnes,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+            const Divider(
+              color: Colors.black,
+              thickness: 1,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Expanded(
+                  child: Text(
+                    'Co je tento týden \ndobrého k obědu?',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        'Příští týden',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                    child: Switch(
-                      value: isNextWeek,
-                      onChanged: (value) {
-                        setState(() {
-                          isNextWeek = value;
-                        });
-                      },
+                    SizedBox(
+                      height: 30,
+                      child: Switch(
+                        value: isNextWeek,
+                        onChanged: (value) {
+                          setState(() {
+                            isNextWeek = value;
+                          });
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          courseLayout(context, cycleNumber),
-        ],
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            courseLayout(context, cycleNumber),
+          ],
+        ),
       ),
     );
   }
