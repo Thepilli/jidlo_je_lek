@@ -19,72 +19,79 @@ class DictionaryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 5),
-              const ClipRRect(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(30.0),
-                ),
-                child: Image(
-                  image: AssetImage('assets/images/dictionary_header.png'),
-                  width: 300,
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 5),
+            const ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(30.0),
               ),
-              Text(title, style: MyTextStyles.headline1),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(description, style: MyTextStyles.bodyText1),
+              child: Image(
+                image: AssetImage('assets/images/dictionary_header.png'),
+                width: 300,
               ),
-              // const VerticalSliderDemo(
-              //   meals: [],
-              // ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ArticleNavigationPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.greenAccent,
-                  foregroundColor: Colors.black,
-                  shape: const StadiumBorder(),
-                ),
-                child: const Text(
-                  'Podívat se na články',
-                  style: MyTextStyles.headline3,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(features, style: MyTextStyles.bodyText1),
-              ),
-            ],
-          ),
-        ),
-        bottomSheet: FloatingActionButton.extended(
-          splashColor: Colors.greenAccent,
-          onPressed: () {
-            showModalBottomSheet(
-              backgroundColor: const Color.fromRGBO(244, 233, 215, 1),
-              context: context,
-              builder: (context) {
-                return SizedBox(
-                  height: 200,
-                  child: Column(
-                    children: [
-                      disclaimerText(autor),
-                      disclaimerText(disclaimer),
-                    ],
-                  ),
-                );
+            ),
+            Text(title, style: MyTextStyles.headline1),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(description, style: MyTextStyles.bodyText1),
+            ),
+            // const VerticalSliderDemo(
+            //   meals: [],
+            // ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ArticleNavigationPage()));
               },
-            );
-          },
-          label: const Text('Upozornění'),
-          icon: const Icon(Icons.info),
-        ));
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.greenAccent,
+                foregroundColor: Colors.black,
+                shape: const StadiumBorder(),
+              ),
+              child: const Text(
+                'Podívat se na články',
+                style: MyTextStyles.headline3,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(features, style: MyTextStyles.bodyText1),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        splashColor: Colors.greenAccent,
+        onPressed: () {
+          showModalBottomSheet(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
+              ),
+            ),
+            backgroundColor: const Color.fromRGBO(244, 233, 215, 1),
+            context: context,
+            builder: (context) {
+              return SizedBox(
+                height: 200,
+                child: Column(
+                  children: [
+                    disclaimerText(autor),
+                    disclaimerText(disclaimer),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+        label: const Text('Upozornění'),
+        icon: const Icon(Icons.info),
+      ),
+    );
   }
 }

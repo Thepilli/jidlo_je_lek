@@ -158,9 +158,15 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             ),
           ),
         ),
-        bottomSheet: FloatingActionButton.extended(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
             showModalBottomSheet(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                ),
+              ),
               context: context,
               builder: (context) {
                 return SizedBox(

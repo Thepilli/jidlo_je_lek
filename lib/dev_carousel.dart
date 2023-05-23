@@ -150,7 +150,7 @@ class GalleryContainer extends StatelessWidget {
               options: CarouselOptions(
                 // height: 250,
                 aspectRatio: 3,
-                viewportFraction: .8,
+                viewportFraction: 0.9,
                 initialPage: Random().nextInt(meals.length),
                 animateToClosest: true,
                 // autoPlay: true,

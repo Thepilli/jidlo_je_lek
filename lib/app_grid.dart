@@ -17,8 +17,7 @@ class _ApplicationGridState extends State<ApplicationGrid> {
       'Tady najdeš aplikace které ti pomohou nebo tě alespoň pobaví při každodenních aktivitách';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
+    return SingleChildScrollView(
       child: Column(
         children: [
           Padding(
@@ -28,8 +27,8 @@ class _ApplicationGridState extends State<ApplicationGrid> {
               style: const TextStyle(fontSize: 20),
             ),
           ),
-          const Spacer(),
           GridView.count(
+            primary: true,
             crossAxisCount: 1,
             crossAxisSpacing: 0,
             scrollDirection: Axis.vertical,
@@ -64,10 +63,9 @@ class _ApplicationGridState extends State<ApplicationGrid> {
                   'VerticalSliderDemo'),
             ],
           ),
-          const Spacer(),
         ],
       ),
-    ));
+    );
   }
 }
 
