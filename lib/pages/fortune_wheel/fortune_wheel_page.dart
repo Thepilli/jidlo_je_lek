@@ -4,7 +4,7 @@ import 'package:stacionar_app/utils/mytextstyles.dart';
 import 'widgets/fortune_wheel.dart';
 
 class FortuneWheelPage extends StatefulWidget {
-  const FortuneWheelPage({super.key});
+  const FortuneWheelPage({Key? key}) : super(key: key);
 
   @override
   _FortuneWheelPageState createState() => _FortuneWheelPageState();
@@ -12,8 +12,9 @@ class FortuneWheelPage extends StatefulWidget {
 
 class _FortuneWheelPageState extends State<FortuneWheelPage> {
   FortuneWheelController<int> fortuneWheelController = FortuneWheelController();
-  FortuneWheelChild? currentWheelChild;
+  FortuneWheelChild<int>? currentWheelChild;
   int currentBalance = 0;
+  bool isAnimationFinished = false; // Added a flag to track animation finish
 
   @override
   void initState() {
@@ -33,6 +34,11 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
       if (fortuneWheelController.shouldStartAnimation) {
         return;
       }
+
+      setState(() {
+        isAnimationFinished =
+            true; // Set the flag to true when animation finishes
+      });
     });
     super.initState();
   }
@@ -42,167 +48,175 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-            child: Column(
-          children: [
-            Container(
-              alignment: Alignment.topCenter,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Co si dneska dám?",
-                    style: MyTextStyles.headline1,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    "Máš problém neustále vybírat jaké pečivo si dát? Pak tohle je aplikace pro tebe!",
-                    style: MyTextStyles.bodyText1,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      const Spacer(
-                        flex: 5,
-                      ),
-                      SizedBox(
-                        height: 120,
-                        width: 120,
-                        child: currentWheelChild != null
-                            ? currentWheelChild!.title
-                            : const Text('Nope'),
-                      ),
-                      const Spacer(
-                        flex: 1,
-                      ),
-                      SizedBox(
-                        height: 120,
-                        width: 120,
-                        child: currentWheelChild != null
-                            ? currentWheelChild!.foreground
-                            : Container(),
-                      ),
-                      const Spacer(
-                        flex: 1,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: SizedBox(
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Theme.of(context).primaryColor),
-                            ),
-                            onPressed: () =>
-                                fortuneWheelController.rotateTheWheel(),
-                            child: const Text('Roztoč mě!'),
+          child: Column(
+            children: [
+              Container(
+                alignment: Alignment.topCenter,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Co si dneska dám?",
+                      style: MyTextStyles.headline1,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text(
+                      "Máš problém neustále vybírat jaké pečivo si dát? Pak tohle je aplikace pro tebe!",
+                      style: MyTextStyles.bodyText1,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Image name
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: SizedBox(
+                            height: 120,
+                            width: 120,
+                            child:
+                                isAnimationFinished && currentWheelChild != null
+                                    ? currentWheelChild!.title
+                                    : const SizedBox(),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  SizedBox(
-                    width: 350,
-                    height: 350,
-                    child: FortuneWheel<int>(
-                      controller: fortuneWheelController,
-                      children: [
-                        _createFortuneWheelChild(
-                          'Bageta fit',
-                          'bageta_fit.png',
+                        // Image path
+                        SizedBox(
+                          height: 120,
+                          width: 120,
+                          child: currentWheelChild != null
+                              ? currentWheelChild!.foreground
+                              : Container(),
                         ),
-                        _createFortuneWheelChild(
-                          'Brioška ',
-                          'brioska.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Bulka sezamova',
-                          'bulka_sezamova.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Chléb kmínáček',
-                          'chleb_kminacek_krajeny_maly.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Chléb příborský ',
-                          'chleb_priborsky.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Chléb sedlácký',
-                          'chleb_sedlacky.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Chléb žitný',
-                          'chleb_zitny_krajeny.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Croissant máslový ',
-                          'croissan_maslovy.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Dalamánek ',
-                          'dalamanek2.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Houska',
-                          'houska3.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Houska',
-                          'houska_lnena.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Hřeben makový',
-                          'hreben_makovy.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Koláč makový',
-                          'kolac_mak.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Loupák ',
-                          'loupak.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Rohlík ',
-                          'rohlik1.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Rohlík ',
-                          'rohlik3.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Rohlík ',
-                          'rohlik4.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Rohlík cerální',
-                          'rohlik_ceralni.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Rohlik grahamový',
-                          'rohlik_grahamovy.png',
-                        ),
-                        _createFortuneWheelChild(
-                          'Veka',
-                          'veka.png',
+                        // Button
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: SizedBox(
+                            height: 50,
+                            width: 120,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Theme.of(context).primaryColor),
+                              ),
+                              onPressed: () {
+                                fortuneWheelController.rotateTheWheel();
+                                setState(() {
+                                  isAnimationFinished =
+                                      false; // Set the flag to false when button is pressed
+                                });
+                              },
+                              child: const Text('Roztoč mě!'),
+                            ),
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    SizedBox(
+                      width: 350,
+                      height: 350,
+                      child: FortuneWheel<int>(
+                        controller: fortuneWheelController,
+                        children: [
+                          _createFortuneWheelChild(
+                            'Bageta fit',
+                            'bageta_fit.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Brioška',
+                            'brioska.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Bulka sezamova',
+                            'bulka_sezamova.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Chléb kmínáček',
+                            'chleb_kminacek_krajeny_maly.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Chléb příborský',
+                            'chleb_priborsky.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Chléb sedlácký',
+                            'chleb_sedlacky.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Chléb žitný',
+                            'chleb_zitny_krajeny.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Croissant máslový',
+                            'croissan_maslovy.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Dalamánek',
+                            'dalamanek2.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Houska',
+                            'houska3.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Houska',
+                            'houska_lnena.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Hřeben makový',
+                            'hreben_makovy.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Koláč makový',
+                            'kolac_mak.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Loupák',
+                            'loupak.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Rohlík',
+                            'rohlik1.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Rohlík',
+                            'rohlik3.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Rohlík',
+                            'rohlik4.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Rohlík cerální',
+                            'rohlik_ceralni.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Rohlik grahamový',
+                            'rohlik_grahamovy.png',
+                          ),
+                          _createFortuneWheelChild(
+                            'Veka',
+                            'veka.png',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        )),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -229,16 +243,25 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
         shape: BoxShape.circle,
       ),
       child: Center(
-          child: Image.asset(
-        'assets/images/pecivo/$image',
-      )),
+        child: Image.asset(
+          'assets/images/pecivo/$image',
+        ),
+      ),
     );
   }
 
   Container _getWheelContentCircleTitle(String text, String image) {
     return Container(
       child: Center(
-        child: Text(text),
+        child: Text(
+          '$text!',
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

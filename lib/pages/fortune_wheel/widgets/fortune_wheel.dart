@@ -14,7 +14,7 @@ class FortuneWheel<T> extends StatefulWidget {
   const FortuneWheel(
       {super.key,
       required this.controller,
-      this.turnsPerSecond = 8,
+      this.turnsPerSecond = 2,
       this.rotationTimeLowerBound = 2000,
       this.rotationTimeUpperBound = 4000,
       required this.children})

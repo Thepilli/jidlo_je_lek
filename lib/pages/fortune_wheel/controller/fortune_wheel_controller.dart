@@ -7,6 +7,7 @@ class FortuneWheelController<T> extends ChangeNotifier {
 
   bool isAnimating = false;
   bool shouldStartAnimation = false;
+  bool isFinishedAnimating = false;
 
   void rotateTheWheel() {
     shouldStartAnimation = true;
@@ -20,11 +21,13 @@ class FortuneWheelController<T> extends ChangeNotifier {
 
   void setValue(FortuneWheelChild<T> fortuneWheelChild) {
     value = fortuneWheelChild;
+    isFinishedAnimating = true;
     notifyListeners();
   }
 
   void animationFinished() {
     isAnimating = false;
+    isFinishedAnimating = true;
     shouldStartAnimation = false;
     notifyListeners();
   }
