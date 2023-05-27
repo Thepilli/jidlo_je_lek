@@ -96,7 +96,7 @@ class RelaxView extends StatelessWidget {
                   padding:
                       EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                   child: Text(
-                    "Pokud vás nebo někoho blízkého duší zákeřná sokyně s přízviskem anorexie nebo bulimie, neváhejte a pokračujte například do sekce Blog, Svépomoc, nebo Časté dotazy. Snažím se pomoc vám a vašim blízkým.",
+                    "Pokud vás nebo někoho blízkého dusí zákeřná sokyně s přízviskem anorexie, bulímie, či jiná porucha příjmu potravy, neváhejte a pokračujte například do sekce Blog, Svépomoc, nebo Časté dotazy. Snažím se pomoc vám a vašim blízkým.",
                     textAlign: TextAlign.center,
                   ),
                 ),

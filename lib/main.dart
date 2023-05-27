@@ -1,10 +1,10 @@
-import 'package:stacionar_app/pages/introduction_animation/introduction_animation_screen.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 // ignore: unused_import
 import 'app_grid.dart';
+import 'pages/fortune_wheel/fortune_wheel_page.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future main() async {
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme: CustomTheme.darkTheme,
       themeMode: currentTheme.currentTheme,
 
-      home: const IntroductionAnimationScreen(),
+      home: const FortuneWheelPage(),
       // home: const Scaffold(
       //   body: Center(
       //     child: VerticalSliderDemo(

@@ -74,6 +74,16 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                         height: 120,
                         width: 120,
                         child: currentWheelChild != null
+                            ? currentWheelChild!.title
+                            : const Text('Nope'),
+                      ),
+                      const Spacer(
+                        flex: 1,
+                      ),
+                      SizedBox(
+                        height: 120,
+                        width: 120,
+                        child: currentWheelChild != null
                             ? currentWheelChild!.foreground
                             : Container(),
                       ),
@@ -197,13 +207,15 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
     );
   }
 
-  FortuneWheelChild<int> _createFortuneWheelChild(String type, String imgPath) {
+  FortuneWheelChild<int> _createFortuneWheelChild(
+      String imgName, String imgPath) {
     Color color = Colors.teal.withOpacity(0.5);
-    String verb = type;
+    String name = imgName;
     String image = imgPath;
 
     return FortuneWheelChild(
-      foreground: _getWheelContentCircle(color, verb, image),
+      foreground: _getWheelContentCircle(color, name, image),
+      title: _getWheelContentCircleTitle(name, image),
     );
   }
 
@@ -220,6 +232,14 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
           child: Image.asset(
         'assets/images/pecivo/$image',
       )),
+    );
+  }
+
+  Container _getWheelContentCircleTitle(String text, String image) {
+    return Container(
+      child: Center(
+        child: Text(text),
+      ),
     );
   }
 }
