@@ -53,7 +53,7 @@ class _ApplicationGridState extends State<ApplicationGrid> {
                   context,
                   'assets/icons/tab_icon_loterry.png',
                   'Pečivová ruleta',
-                  'Nebaví tě lámat si hlavu si tím, jaké pečivo se dnes dáš?',
+                  'Nebaví tě lámat si hlavu tím, jaké pečivo se dnes dáš?',
                   'FortuneWheelPage'),
               itemTile(
                   context,

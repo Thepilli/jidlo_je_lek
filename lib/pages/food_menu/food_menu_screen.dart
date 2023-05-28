@@ -189,7 +189,7 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
     ],
     [
       'Pátek ',
-      'Bramborová kaše, roláda',
+      'Šťouchané brambory, krůtí roláda',
       const Color(0xffD3DEFA),
       1,
     ],

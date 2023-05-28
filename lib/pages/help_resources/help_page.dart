@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ellipsis_text/flutter_ellipsis_text.dart';
 
+import '../../widgets/disclaimer_text_widget.dart';
 import '../../widgets/gallery_pop.dart';
 import '../../utils/mytextstyles.dart';
 import '../../widgets/html_readed_widget.dart';
@@ -13,17 +13,38 @@ class HelpPage extends StatefulWidget {
 }
 
 class _HelpPageState extends State<HelpPage> {
+  final String intro =
+      'Ahoj, Dobrý den. Jmenuji se Jiří a touto cestou bych rád pomohl všem, kteří se - stejně tak jako já - potýkají s nemocí zvanou mentální anorexie, nebo chtějí zjistit více o léčbě poruch příjmu potravy. Po zbytek času si budeme tykat, protože přece jenom je to intimnější téma, a navíc jsme v tom společně jako jedna komunita. Nejsi v tom sama, či sám! Ať už chceš využít jeden z nástrojů aplikace, nebo jen získat více informací jak postupovat s léčbou, věř že je to ten správný krok.\nPo začátku léčby jsem si uvědomil, jak malé, přehlížené, ba dokonce zkreslené, je povědomí o poruchách příjmu potravy a lidech jimi trpícími. A také že není jednoduché najít relevantní informace na jednom místě.';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomSheet: TextButton(
-        onPressed: () {},
-        child: const EllipsisText(
-          text:
-              'O mně\nAhoj, Dobrý den. Jmenuji se Jiří a touto cestou bych rád pomohl všem, kteří se - stejně tak jako já - potýkají s nemocí zvanou mentální anorexie, nebo chtějí zjistit více o léčbě poruch příjmu potravy. Po zbytek času si budeme tykat, protože přece jenom je to intimnější téma, a navíc jsme v tom společně jako jedna komunita. Nejsi v tom sama, či sám! Ať už chceš využít jeden z nástrojů aplikace, nebo jen získat více informací jak postupovat s léčbou, věř že je to ten správný krok.\nPo začátku léčby jsem si uvědomil, jak malé, přehlížené, ba dokonce zkreslené, je povědomí o poruchách příjmu potravy a lidech jimi trpícími. A také že není jednoduché najít relevantní informace na jednom místě.',
-          ellipsis: "..show more",
-          maxLines: 1,
-        ),
+      floatingActionButton: FloatingActionButton.extended(
+        splashColor: Colors.greenAccent,
+        onPressed: () {
+          showModalBottomSheet(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
+              ),
+            ),
+            backgroundColor: const Color.fromRGBO(244, 233, 215, 1),
+            context: context,
+            builder: (context) {
+              return SizedBox(
+                height: 330,
+                child: Column(
+                  children: [
+                    disclaimerText(intro),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+        label: const Text('O mně'),
+        icon: const Icon(Icons.info),
       ),
       body: ListView(
         children: [
