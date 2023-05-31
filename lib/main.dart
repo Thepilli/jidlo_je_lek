@@ -1,8 +1,8 @@
+import 'package:stacionar_app/pages/introduction_animation/introduction_animation_screen.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'pages/introduction_animation/introduction_animation_screen.dart';
 import 'theme/dark_theme.dart';
 import 'theme/light_theme.dart';
 
@@ -54,20 +54,5 @@ class _MyAppState extends State<MyApp> {
       // ),
       debugShowCheckedModeBanner: false,
     );
-  }
-}
-
-class HexColor extends Color {
-  HexColor(final String hexColor)
-      : super(
-          _getColorFromHex(hexColor),
-        );
-
-  static int _getColorFromHex(String hexColor) {
-    hexColor = hexColor.toUpperCase().replaceAll('#', '');
-    if (hexColor.length == 6) {
-      hexColor = 'FF$hexColor';
-    }
-    return int.parse(hexColor, radix: 16);
   }
 }

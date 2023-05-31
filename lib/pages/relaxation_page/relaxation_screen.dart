@@ -105,158 +105,157 @@ class _RelaxationScreenState extends State<RelaxationScreen> {
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          Center(
-              child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Image(
-              image: AssetImage(relaxation.background),
-            ),
-          )),
-          const SizedBox(
-            height: 100,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(relaxation.background),
+            fit: BoxFit.cover,
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 28.0,
-                    right: 28.0,
-                    top: 115,
-                  ),
-                  child: Text(
-                    relaxation.title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
+        ),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 28.0,
+                      right: 28.0,
+                      top: 115,
                     ),
-                    textAlign: TextAlign.center,
+                    child: Text(
+                      relaxation.title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 28.0,
-                    right: 28.0,
-                    top: 10,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 28.0,
+                      right: 28.0,
+                      top: 10,
+                    ),
+                    child: Text(
+                      relaxation.description,
+                      style: const TextStyle(color: Colors.white, fontSize: 15),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  child: Text(
-                    relaxation.description,
-                    style: const TextStyle(color: Colors.white, fontSize: 15),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  flex: 3,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0, bottom: 20),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 2,
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 20),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color.fromRGBO(244, 233, 215, 0.7),
                         ),
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color.fromRGBO(244, 233, 215, 0.7),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SliderTheme(
-                            data: const SliderThemeData(
-                              trackHeight: 6,
-                              inactiveTrackColor: Colors.green,
-                              activeTrackColor: Colors.pinkAccent,
-                              thumbColor: Colors.pink,
-                            ),
-                            child: Slider(
-                              value: sliderPosition.inMilliseconds
-                                  .clamp(0, songDuration.inMilliseconds)
-                                  .toDouble(),
-                              max: songDuration.inMilliseconds.toDouble(),
-                              divisions: 100,
-                              onChanged: (double value) {
-                                if (mounted) {
-                                  setState(() {
-                                    sliderPosition = Duration(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SliderTheme(
+                              data: const SliderThemeData(
+                                trackHeight: 6,
+                                inactiveTrackColor: Colors.green,
+                                activeTrackColor: Colors.pinkAccent,
+                                thumbColor: Colors.pink,
+                              ),
+                              child: Slider(
+                                value: sliderPosition.inMilliseconds
+                                    .clamp(0, songDuration.inMilliseconds)
+                                    .toDouble(),
+                                max: songDuration.inMilliseconds.toDouble(),
+                                divisions: 100,
+                                onChanged: (double value) {
+                                  if (mounted) {
+                                    setState(() {
+                                      sliderPosition = Duration(
+                                        milliseconds: value.toInt(),
+                                      );
+                                    });
+                                  }
+                                  player.seek(
+                                    Duration(
                                       milliseconds: value.toInt(),
-                                    );
-                                  });
-                                }
-                                player.seek(
-                                  Duration(
-                                    milliseconds: value.toInt(),
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 22.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  labelFromMilliseconds(
-                                      sliderPosition.inMilliseconds),
-                                ),
-                                Text(
-                                  labelFromMilliseconds(
-                                      songDuration.inMilliseconds),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 20.0, bottom: 20),
-                    child: StreamBuilder(
-                      stream: player.isPlaying,
-                      builder: (context, asyncSnapshot) {
-                        final bool isPlaying = asyncSnapshot.data ?? false;
-                        return GestureDetector(
-                          onTap: () => player.playOrPause(),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: Container(
-                              color: Colors.pink,
-                              width: 65,
-                              height: 65,
-                              child: Icon(
-                                isPlaying
-                                    ? Icons.pause_rounded
-                                    : Icons.play_arrow_rounded,
-                                size: 40,
-                                color: Colors.white,
+                                    ),
+                                  );
+                                },
                               ),
                             ),
-                          ),
-                        );
-                      },
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 22.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    labelFromMilliseconds(
+                                        sliderPosition.inMilliseconds),
+                                  ),
+                                  Text(
+                                    labelFromMilliseconds(
+                                        songDuration.inMilliseconds),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20.0, bottom: 20),
+                      child: StreamBuilder(
+                        stream: player.isPlaying,
+                        builder: (context, asyncSnapshot) {
+                          final bool isPlaying = asyncSnapshot.data ?? false;
+                          return GestureDetector(
+                            onTap: () => player.playOrPause(),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Container(
+                                color: Colors.pink,
+                                width: 65,
+                                height: 65,
+                                child: Icon(
+                                  isPlaying
+                                      ? Icons.pause_rounded
+                                      : Icons.play_arrow_rounded,
+                                  size: 40,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

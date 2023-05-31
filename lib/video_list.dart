@@ -163,6 +163,9 @@ class VideoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Příběhy Pušínka'),
+      ),
       body: SafeArea(
         child: Column(children: [
           const Padding(

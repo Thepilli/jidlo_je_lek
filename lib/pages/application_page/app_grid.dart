@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../dev_carousel.dart';
-import '../../video_lsit.dart';
+import '../../video_list.dart';
 import '../bmi/bmi_calculator_screen.dart';
 import '../food_menu/food_menu_screen.dart';
 import '../fortune_wheel/fortune_wheel_page.dart';
