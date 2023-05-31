@@ -3,22 +3,27 @@
 import 'package:flutter/material.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 
-enum RelaxationType {
-  afirmace_ranni,
-  afirmace_zdravi,
-  ambience_cafe,
-  ambience_forest,
-  ambience_ocean,
-  ambience_storm,
-  meditace_podvedomi,
-  meditace_prani,
-  meditace_vecerni
-}
+import 'relaxation_list.dart';
 
 class RelaxationScreen extends StatefulWidget {
-  const RelaxationScreen({super.key, required this.relaxationType});
+  const RelaxationScreen({
+    Key? key,
+    required this.relaxationType,
+    required this.tileTitle,
+    required this.description,
+    required this.title,
+    required this.track,
+    required this.tileAsset,
+    required this.background,
+  }) : super(key: key);
 
-  final RelaxationType relaxationType;
+  final String relaxationType;
+  final String tileTitle;
+  final String description;
+  final String title;
+  final String track;
+  final String tileAsset;
+  final String background;
 
   @override
   State<RelaxationScreen> createState() => _RelaxationScreenState();
@@ -30,17 +35,11 @@ class _RelaxationScreenState extends State<RelaxationScreen> {
   Duration songDuration = Duration.zero;
   Duration sliderPosition = Duration.zero;
 
-  late String title;
-  late String asset;
-  String? description;
-  late String? url;
-
   String labelFromMilliseconds(int time) {
     final int sHours = Duration(milliseconds: time).inHours;
     final int sMinutes = Duration(milliseconds: time).inMinutes;
     final int sSeconds = Duration(milliseconds: time).inSeconds;
 
-    //final int rHours = sHours;
     final int rMinutes = sMinutes - (sHours * 60);
     final int rSeconds = sSeconds - (sMinutes * 60 + sHours * 60 * 60);
 
@@ -51,65 +50,12 @@ class _RelaxationScreenState extends State<RelaxationScreen> {
   void initState() {
     super.initState();
 
-    switch (widget.relaxationType) {
-      case RelaxationType.afirmace_ranni:
-        title = 'afirmace_ranni';
-        asset = 'assets/audio/afirmace_ranni.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.afirmace_zdravi:
-        title = 'afirmace_zdravi';
-        asset = 'assets/audio/afirmace_zdravi.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.ambience_cafe:
-        title = 'ambience_cafe';
-        asset = 'assets/audio/ambience_cafe.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.ambience_forest:
-        title = 'ambience_forest';
-        asset = 'assets/audio/ambience_forest.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.ambience_ocean:
-        title = 'ambience_ocean';
-        asset = 'assets/audio/ambience_ocean.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.ambience_storm:
-        title = 'ambience_storm';
-        asset = 'assets/audio/ambience_storm.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.meditace_podvedomi:
-        title = 'meditace_podvedomi';
-        asset = 'assets/audio/meditace_podvedomi.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.meditace_prani:
-        title = 'meditace_prani';
-        asset = 'assets/audio/meditace_prani.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-      case RelaxationType.meditace_vecerni:
-        title = 'meditace_vecerni';
-        asset = 'assets/audio/meditace_vecerni.mp3';
-        description = 'Audionahrávku relaxace namluvili Odpověď uvnitř';
-        url = 'https://www.odpoveduvnitr.cz/';
-        break;
-    }
+    RelaxationTypes relaxation = relaxationType.firstWhere(
+      (type) => type.relaxationType == widget.relaxationType,
+    );
 
     player.open(
-      Audio(asset),
+      Audio(relaxation.asset),
       autoStart: false,
     );
 
@@ -140,109 +86,161 @@ class _RelaxationScreenState extends State<RelaxationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    RelaxationTypes relaxation = relaxationType.firstWhere(
+      (type) => type.relaxationType == widget.relaxationType,
+    );
+
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(title),
-      ),
       body: Stack(
         children: [
-          if (description != null)
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 28.0),
-                child: GestureDetector(
-                  onTap: () {},
+          Center(
+              child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Image(
+              image: AssetImage(relaxation.background),
+              fit: BoxFit.cover,
+            ),
+          )),
+          const SizedBox(
+            height: 100,
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 28.0,
+                    right: 28.0,
+                    top: 115,
+                  ),
                   child: Text(
-                    description!,
+                    relaxation.title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-              ),
-            ),
-          Align(
-            child: StreamBuilder(
-              stream: player.isPlaying,
-              builder: (context, asyncSnapshot) {
-                final bool isPlaying = asyncSnapshot.data ?? false;
-                return Semantics(
-                  button: true,
-                  child: GestureDetector(
-                    onTap: () => player.playOrPause(),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Container(
-                        color: Colors.pink,
-                        width: 86,
-                        height: 86,
-                        child: Icon(
-                          isPlaying
-                              ? Icons.pause_rounded
-                              : Icons.play_arrow_rounded,
-                          size: 40,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 28.0,
+                    right: 28.0,
+                    top: 10,
                   ),
-                );
-              },
+                  child: Text(
+                    relaxation.description,
+                    style: const TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
             ),
           ),
           Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 28.0, vertical: 50),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SliderTheme(
-                    data: const SliderThemeData(
-                      trackHeight: 6,
-                      inactiveTrackColor: Colors.green,
-                      activeTrackColor: Colors.pinkAccent,
-                      thumbColor: Colors.pink,
+            alignment: Alignment.bottomLeft,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0, bottom: 20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color.fromRGBO(244, 233, 215, 0.7),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SliderTheme(
+                            data: const SliderThemeData(
+                              trackHeight: 6,
+                              inactiveTrackColor: Colors.green,
+                              activeTrackColor: Colors.pinkAccent,
+                              thumbColor: Colors.pink,
+                            ),
+                            child: Slider(
+                              value: sliderPosition.inMilliseconds
+                                  .clamp(0, songDuration.inMilliseconds)
+                                  .toDouble(),
+                              max: songDuration.inMilliseconds.toDouble(),
+                              divisions: 100,
+                              onChanged: (double value) {
+                                if (mounted) {
+                                  setState(() {
+                                    sliderPosition = Duration(
+                                      milliseconds: value.toInt(),
+                                    );
+                                  });
+                                }
+                                player.seek(
+                                  Duration(
+                                    milliseconds: value.toInt(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 22.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  labelFromMilliseconds(
+                                      sliderPosition.inMilliseconds),
+                                ),
+                                Text(
+                                  labelFromMilliseconds(
+                                      songDuration.inMilliseconds),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    child: Slider(
-                      value: sliderPosition.inMilliseconds
-                          .clamp(0, songDuration.inMilliseconds)
-                          .toDouble(),
-                      max: songDuration.inMilliseconds.toDouble(),
-                      divisions: 100,
-                      onChanged: (double value) {
-                        if (mounted) {
-                          setState(() {
-                            sliderPosition = Duration(
-                              milliseconds: value.toInt(),
-                            );
-                          });
-                        }
-                        player.seek(
-                          Duration(
-                            milliseconds: value.toInt(),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 20.0, bottom: 20),
+                    child: StreamBuilder(
+                      stream: player.isPlaying,
+                      builder: (context, asyncSnapshot) {
+                        final bool isPlaying = asyncSnapshot.data ?? false;
+                        return GestureDetector(
+                          onTap: () => player.playOrPause(),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Container(
+                              color: Colors.pink,
+                              width: 65,
+                              height: 65,
+                              child: Icon(
+                                isPlaying
+                                    ? Icons.pause_rounded
+                                    : Icons.play_arrow_rounded,
+                                size: 40,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         );
                       },
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          labelFromMilliseconds(sliderPosition.inMilliseconds),
-                        ),
-                        Text(
-                          labelFromMilliseconds(songDuration.inMilliseconds),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

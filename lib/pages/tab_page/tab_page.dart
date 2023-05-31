@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../app_grid.dart';
+import '../application_page/app_grid.dart';
 import '../dictionary_tab_page/dictionary_page.dart';
 import '../help_resources/help_page.dart';
 import '../meal_plan/meal_plan_screen.dart';

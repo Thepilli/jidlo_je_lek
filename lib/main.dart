@@ -1,7 +1,8 @@
-import 'package:stacionar_app/pages/introduction_animation/introduction_animation_screen.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'pages/introduction_animation/introduction_animation_screen.dart';
 
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 

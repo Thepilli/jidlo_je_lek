@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/video_lsit.dart';
 import 'package:video_player/video_player.dart';
 
-class AssetVideo extends StatefulWidget {
-  const AssetVideo({super.key});
+class VideoScreen extends StatefulWidget {
+  const VideoScreen(
+      {Key? key,
+      required this.thumbnail,
+      required this.video,
+      required this.url,
+      required this.title})
+      : super(key: key);
+
+  final String title;
+  final String url;
+  final String thumbnail;
+  final String video;
 
   @override
-  _AssetVideoState createState() => _AssetVideoState();
+  State<VideoScreen> createState() => _VideoScreenState();
 }
 
-class _AssetVideoState extends State<AssetVideo> {
+class _VideoScreenState extends State<VideoScreen> {
   late VideoPlayerController _controller;
 
   @override
   void initState() {
+    VideoTypes videoAsset = videoType.firstWhere(
+      (type) => type.video == widget.video,
+    );
     super.initState();
-    _controller =
-        VideoPlayerController.asset('assets/video/mermaid_pusheen.mp4');
+    _controller = VideoPlayerController.asset(videoAsset.video);
 
     _controller.addListener(() {
       setState(() {});
@@ -33,13 +47,16 @@ class _AssetVideoState extends State<AssetVideo> {
 
   @override
   Widget build(BuildContext context) {
+    VideoTypes videoAsset = videoType.firstWhere(
+      (type) => type.video == widget.video,
+    );
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Text(
-            'Mermaid Pusheen',
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          Text(
+            videoAsset.title,
+            style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
           ),
           Container(
             padding: const EdgeInsets.all(20),
