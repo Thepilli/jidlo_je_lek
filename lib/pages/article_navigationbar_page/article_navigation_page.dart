@@ -44,13 +44,20 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
             appBar: AppBar(
               title: ValueListenableBuilder<int>(
                 valueListenable: _index,
-                builder: (_, value, __) => Text(myMenuValue[value].title,
-                    style: const TextStyle(color: Colors.black)),
+                builder: (_, value, __) => Text(
+                  myMenuValue[value].title,
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary),
+                ),
               ),
               leading: IconButton(
-                  icon: const Icon(Icons.menu_book_rounded,
-                      color: Colors.black, size: 50),
-                  onPressed: showMenu),
+                icon: Icon(
+                  Icons.menu_book_rounded,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                  size: 50,
+                ),
+                onPressed: showMenu,
+              ),
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               elevation: 0,
               systemOverlayStyle: SystemUiOverlayStyle.light,
@@ -82,19 +89,24 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
         },
         enableEdgeDragGesture: true,
         items: myMenuValue
-            .map((value) =>
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Image.asset(value.icon, width: 50, height: 50),
-                  Text(value.title,
+            .map((value) => Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(value.icon, width: 50, height: 50),
+                    Text(
+                      value.title,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold))
-                ]))
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ))
             .toList(),
-        selectedColor: const Color(0xFF1CDE8F),
-        unselectedColor: const Color(0xFFA0E5C9),
+        selectedColor: Theme.of(context).colorScheme.primary,
+        unselectedColor: Theme.of(context).colorScheme.secondary,
         onItemSelected: (value) {
           if (value > 0 && value != _selectedTopicSection) {
             _updateArticles(value);

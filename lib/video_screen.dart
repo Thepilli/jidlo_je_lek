@@ -51,6 +51,20 @@ class _VideoScreenState extends State<VideoScreen> {
       (type) => type.video == widget.video,
     );
     return Scaffold(
+      floatingActionButton: Align(
+        alignment: Alignment.topLeft,
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: FloatingActionButton(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.greenAccent.withOpacity(0.3),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back),
+          ),
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

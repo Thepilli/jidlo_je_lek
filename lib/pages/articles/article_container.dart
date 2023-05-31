@@ -12,7 +12,6 @@ class ArticleContainer extends StatelessWidget {
     required this.article,
   }) : super(key: key);
 
-// Builds the article container
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -37,7 +36,7 @@ class ArticleContainer extends StatelessWidget {
         width: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: CustomTheme.white,
+          color: Theme.of(context).colorScheme.background,
           boxShadow: const [
             BoxShadow(
               color: Colors.black12,
@@ -50,13 +49,17 @@ class ArticleContainer extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-                height: 100, width: 150, child: Image.asset(article.image)),
+              height: 100,
+              width: 150,
+              child: Image.asset(article.image),
+            ),
             Flexible(
-                child: Text(
-              article.title,
-              style: const TextStyle(fontSize: 16),
-              overflow: TextOverflow.clip,
-            )),
+              child: Text(
+                article.title,
+                style: const TextStyle(fontSize: 16),
+                overflow: TextOverflow.clip,
+              ),
+            ),
           ],
         ),
       ),

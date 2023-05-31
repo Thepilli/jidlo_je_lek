@@ -46,6 +46,20 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Align(
+        alignment: Alignment.topLeft,
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: FloatingActionButton(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.greenAccent.withOpacity(0.3),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -102,9 +116,9 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                             width: 120,
                             child: ElevatedButton(
                               style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Theme.of(context).primaryColor),
+                                backgroundColor: MaterialStateProperty.all<
+                                        Color>(
+                                    Theme.of(context).colorScheme.secondary),
                               ),
                               onPressed: () {
                                 fortuneWheelController.rotateTheWheel();
@@ -113,7 +127,10 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                                       false; // Set the flag to false when button is pressed
                                 });
                               },
-                              child: const Text('Roztoč mě!'),
+                              child: const Text(
+                                'Roztoč mě!',
+                                style: TextStyle(color: Colors.black),
+                              ),
                             ),
                           ),
                         ),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'pages/introduction_animation/introduction_animation_screen.dart';
+import 'theme/dark_theme.dart';
+import 'theme/light_theme.dart';
 
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -38,8 +40,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Stacionar',
-      theme: CustomTheme.lightTheme,
-      darkTheme: CustomTheme.darkTheme,
+      theme: lightTheme,
+      darkTheme: darkTheme,
       themeMode: currentTheme.currentTheme,
 
       home: const IntroductionAnimationScreen(),

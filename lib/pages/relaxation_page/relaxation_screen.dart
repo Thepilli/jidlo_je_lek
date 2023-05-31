@@ -91,6 +91,20 @@ class _RelaxationScreenState extends State<RelaxationScreen> {
     );
 
     return Scaffold(
+      floatingActionButton: Align(
+        alignment: Alignment.topLeft,
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: FloatingActionButton(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.greenAccent.withOpacity(0.3),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back),
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           Center(
@@ -98,7 +112,6 @@ class _RelaxationScreenState extends State<RelaxationScreen> {
             width: MediaQuery.of(context).size.width,
             child: Image(
               image: AssetImage(relaxation.background),
-              fit: BoxFit.cover,
             ),
           )),
           const SizedBox(
@@ -131,7 +144,7 @@ class _RelaxationScreenState extends State<RelaxationScreen> {
                   ),
                   child: Text(
                     relaxation.description,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
                 ),

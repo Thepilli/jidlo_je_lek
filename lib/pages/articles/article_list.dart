@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ArticleList extends StatefulWidget {
-  const ArticleList({super.key});
+  const ArticleList({
+    super.key,
+  });
 
   @override
   _ArticleListState createState() => _ArticleListState();
@@ -19,7 +21,6 @@ class _ArticleListState extends State<ArticleList> {
     _articlesFuture = ArticleRepository().getArticles();
   }
 
-// Builds the list of article containers
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Article>>(
@@ -31,7 +32,6 @@ class _ArticleListState extends State<ArticleList> {
             itemBuilder: (context, index) {
               final article = snapshot.data![index];
               return null;
-              // return ArticleContainer(article: article);
             },
           );
         } else if (snapshot.hasError) {
@@ -54,11 +54,12 @@ class Article {
   final String bodyArticle;
   final String topicSection;
 
-  Article(
-      {required this.title,
-      required this.image,
-      required this.bodyArticle,
-      required this.topicSection});
+  Article({
+    required this.title,
+    required this.image,
+    required this.bodyArticle,
+    required this.topicSection,
+  });
 }
 
 class ArticleRepository {

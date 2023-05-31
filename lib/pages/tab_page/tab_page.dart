@@ -7,7 +7,7 @@ import '../meal_plan/meal_plan_screen.dart';
 import 'tab_page_builder.dart';
 
 class TabPage extends StatefulWidget {
-  const TabPage({super.key});
+  const TabPage({Key? key}) : super(key: key);
 
   @override
   State<TabPage> createState() => _TabPageState();
@@ -23,10 +23,14 @@ class _TabPageState extends State<TabPage> {
         actions: <Widget>[
           ElevatedButton(
             onPressed: () => Navigator.pop(context, false),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary),
             child: const Text('No'),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary),
             child: const Text('Yes'),
           ),
         ],
@@ -37,24 +41,21 @@ class _TabPageState extends State<TabPage> {
   // my tabs
   List<Widget> myTabs = [
     const TabPageBuilder(
-        label: 'Články',
-        iconPath: 'assets/icons/tab_icon_dictionary.png'), // blog tab
+      label: 'Články',
+      iconPath: 'assets/icons/tab_icon_dictionary.png',
+    ), // blog tab
     const TabPageBuilder(
-        label: 'Jídelní \nplán',
-        iconPath: 'assets/icons/tab_icon_plan.png'), // plan tab
+      label: 'Jídelní \nplán',
+      iconPath: 'assets/icons/tab_icon_plan.png',
+    ), // plan tab
     const TabPageBuilder(
-        label: 'Applikace',
-        iconPath: 'assets/icons/tab_icon_app.png'), // bmi tab
-    // const TabPageBuilder(
-    //     label: 'BMI', iconPath: 'assets/icons/tab_icon_bmi.png'), // bmi tab
-    // const TabPageBuilder(
-    //     label: 'Menu',
-    //     iconPath: 'assets/icons/tab_icon_calendar.png'), // calendar tab
-    // const TabPageBuilder(
-    //     label: 'Ruleta',
-    //     iconPath: 'assets/icons/tab_icon_loterry.png'), // faq tab
+      label: 'Applikace',
+      iconPath: 'assets/icons/tab_icon_app.png',
+    ), // app tab
     const TabPageBuilder(
-        label: 'Odkazy', iconPath: 'assets/icons/tab_icon_help.png'), // faq tab
+      label: 'Odkazy',
+      iconPath: 'assets/icons/tab_icon_help.png',
+    ), // help tab
   ];
 
   @override
@@ -71,7 +72,7 @@ class _TabPageState extends State<TabPage> {
                   tabs: myTabs,
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.greenAccent,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
                 Expanded(
@@ -80,9 +81,6 @@ class _TabPageState extends State<TabPage> {
                       const DictionaryPage(),
                       MealTab(),
                       const ApplicationGrid(),
-                      // const BmiCalculator(),
-                      // const FoodMenuScreen(),
-                      // const FortuneWheelPage(),
                       const HelpPage(),
                     ],
                   ),

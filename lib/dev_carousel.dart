@@ -22,6 +22,20 @@ class _VerticalSliderDemoState extends State<VerticalSliderDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Align(
+        alignment: Alignment.topLeft,
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: FloatingActionButton(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.greenAccent.withOpacity(0.3),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

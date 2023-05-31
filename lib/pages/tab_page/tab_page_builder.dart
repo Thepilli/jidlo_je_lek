@@ -4,8 +4,11 @@ class TabPageBuilder extends StatelessWidget {
   final String iconPath;
   final String label;
 
-  const TabPageBuilder(
-      {super.key, required this.iconPath, required this.label});
+  const TabPageBuilder({
+    Key? key,
+    required this.iconPath,
+    required this.label,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,9 @@ class TabPageBuilder extends StatelessWidget {
             Text(
               label,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 10,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
             ),
           ],

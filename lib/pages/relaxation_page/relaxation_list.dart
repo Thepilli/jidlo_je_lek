@@ -30,7 +30,7 @@ List relaxationType = [
     asset: 'assets/audio/afirmace_ranni.mp3',
     tileAsset: 'assets/images/tile_afirmace.png',
     description:
-        'Nastartuj svůj den, tyto ranní afirmace ti pomůžou nakopnout tvůj den. Tyto afirmace ti pomohou udržet celý den pozornost na tom, co je důležité a také - díky těmto afirmacím zažiješ zázraky doslova na počkání. Tvoje přání se budou plnit lusknutím prstu. Tvůj den dostane jiný nádech, stejně jako všechno i každý v něm',
+        'Nastartuj svůj den, tyto ranní afirmace ti pomůžou nakopnout tvůj den. Tyto afirmace ti pomohou udržet celý den pozornost na tom, co je důležité a také - díky těmto afirmacím zažiješ zázraky doslova na počkání. Tvoje přání se budou plnit lusknutím prstu.',
     background: 'assets/audio/afirmace.png',
   ),
   const RelaxationTypes(
@@ -123,6 +123,9 @@ class RelaxationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Relaxační nahrávky'),
+      ),
       body: SafeArea(
         child: Column(children: [
           const Padding(

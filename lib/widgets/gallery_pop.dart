@@ -12,27 +12,42 @@ class _GaleryPopState extends State<GalleryPop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: InkWell(
-        onTap: () {
-          Navigator.of(context).pop();
-        },
-        child: Hero(
-          tag: widget.heroTag,
-          child: Dismissible(
-            direction: DismissDirection.vertical,
-            key: const Key('key'),
-            onDismissed: (_) => Navigator.of(context).pop(),
-            child: InteractiveViewer(
-              clipBehavior: Clip.none,
-              child: Image(
-                image: AssetImage(widget.heroTag),
-              ),
+        floatingActionButton: Align(
+          alignment: Alignment.bottomRight,
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: FloatingActionButton(
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.greenAccent.withOpacity(0.5),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back),
             ),
           ),
         ),
-      ),
-    ));
+        backgroundColor: Colors.amber[200],
+        body: Center(
+          child: InkWell(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Hero(
+              tag: widget.heroTag,
+              child: Dismissible(
+                direction: DismissDirection.vertical,
+                key: const Key('key'),
+                onDismissed: (_) => Navigator.of(context).pop(),
+                child: InteractiveViewer(
+                  clipBehavior: Clip.none,
+                  child: Image(
+                    image: AssetImage(widget.heroTag),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ));
   }
 }
 

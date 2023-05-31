@@ -5,11 +5,11 @@ import 'package:stacionar_app/utils/app_theme.dart';
 
 class ArticlePage extends StatefulWidget {
   const ArticlePage({
-    super.key,
+    Key? key,
     required this.title,
     required this.image,
     required this.bodyArticle,
-  });
+  }) : super(key: key);
 
   final String title;
   final String image;
