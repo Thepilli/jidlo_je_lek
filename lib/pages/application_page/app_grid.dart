@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../dev_carousel.dart';
-import '../../video_list.dart';
+import '../meal_carousel/meal_carousel.dart';
 import '../bmi/bmi_calculator_screen.dart';
 import '../food_menu/food_menu_screen.dart';
 import '../fortune_wheel/fortune_wheel_page.dart';
 import '../relaxation_page/relaxation_list.dart';
+import '../video_player/video_list.dart';
 
 class ApplicationGrid extends StatefulWidget {
   const ApplicationGrid({Key? key}) : super(key: key);
@@ -155,7 +155,7 @@ Widget getPageByName(String pageName) {
     return const VideoList();
   }
   if (pageName == 'VerticalSliderDemo') {
-    return const VerticalSliderDemo(
+    return const MealCarousel(
       meals: [],
     );
   }

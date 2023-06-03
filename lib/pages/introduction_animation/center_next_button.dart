@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:slide_to_act/slide_to_act.dart';
 
 import '../tab_page/tab_page.dart';
 
@@ -82,12 +85,16 @@ class CenterNextButton extends StatelessWidget {
                   ),
                   child: Container(
                     height: 58,
-                    width: 58 + (200 * signUpMoveAnimation.value),
+                    width: signUpMoveAnimation.value < 0.7
+                        ? 58 + (200 * signUpMoveAnimation.value)
+                        : 300,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
                         8 + 32 * (1 - signUpMoveAnimation.value),
                       ),
-                      color: const Color(0xff132137),
+                      color: signUpMoveAnimation.value > 0.7
+                          ? Colors.transparent
+                          : const Color(0xff132137),
                     ),
                     child: PageTransitionSwitcher(
                       duration: const Duration(milliseconds: 480),
@@ -107,33 +114,32 @@ class CenterNextButton extends StatelessWidget {
                       },
                       child: signUpMoveAnimation.value > 0.7
                           ? InkWell(
-                              key: const ValueKey('Sign Up button'),
-                              onTap: () {
-                                Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(builder: (context) {
-                                    return const TabPage();
-                                  }),
-                                );
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 16.0, right: 16.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text(
-                                      'Jdeme na to',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
+                              key: const ValueKey('next button'),
+                              child: SlideAction(
+                                borderRadius: 50,
+                                outerColor: const Color(0xff132137),
+                                sliderButtonIcon: const Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  size: 20,
+                                  color: Colors.pink,
+                                ),
+                                text: "Jdeme na to!",
+                                textStyle: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                                onSubmit: () {
+                                  Timer(
+                                    const Duration(milliseconds: 500),
+                                    () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const TabPage(),
                                       ),
                                     ),
-                                    Icon(Icons.arrow_forward_rounded,
-                                        color: Colors.white),
-                                  ],
-                                ),
+                                  );
+                                },
                               ),
                             )
                           : InkWell(

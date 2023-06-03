@@ -5,18 +5,18 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 
-import 'model/meal.dart';
+import '../../model/meal.dart';
 
-class VerticalSliderDemo extends StatefulWidget {
+class MealCarousel extends StatefulWidget {
   final List<Meal> meals;
 
-  const VerticalSliderDemo({Key? key, required this.meals}) : super(key: key);
+  const MealCarousel({Key? key, required this.meals}) : super(key: key);
 
   @override
-  _VerticalSliderDemoState createState() => _VerticalSliderDemoState();
+  _MealCarouselState createState() => _MealCarouselState();
 }
 
-class _VerticalSliderDemoState extends State<VerticalSliderDemo> {
+class _MealCarouselState extends State<MealCarousel> {
   String selectedCategory = 'hlavni_jidla'; // Default selected category
 
   @override
@@ -40,64 +40,6 @@ class _VerticalSliderDemoState extends State<VerticalSliderDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Container(
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.start,
-            //     children: [
-            //       const SizedBox(width: 20),
-            //       Radio<String>(
-            //         value: 'hlavni_jidla',
-            //         groupValue: selectedCategory,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             selectedCategory = value!;
-            //           });
-            //         },
-            //       ),
-            //       const SizedBox(width: 100, child: Text('Hlavní')),
-            //       const SizedBox(width: 25),
-            //       Radio<String>(
-            //         value: 'smazena_jidla',
-            //         groupValue: selectedCategory,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             selectedCategory = value!;
-            //           });
-            //         },
-            //       ),
-            //       const SizedBox(width: 100, child: Text('Smažená')),
-            //     ],
-            //   ),
-            // ),
-            // Container(
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.start,
-            //     children: [
-            //       const SizedBox(width: 20),
-            //       Radio<String>(
-            //         value: 'sladka_jidla',
-            //         groupValue: selectedCategory,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             selectedCategory = value!;
-            //           });
-            //         },
-            //       ),
-            //       const SizedBox(width: 100, child: Text('Sladká')),
-            //       const SizedBox(width: 20),
-            //       Radio<String>(
-            //         value: 'polevky',
-            //         groupValue: selectedCategory,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             selectedCategory = value!;
-            //           });
-            //         },
-            //       ),
-            //       const SizedBox(width: 100, child: Text('Polévky')),
-            //     ],
-            //   ),
-            // ),
             const Spacer(),
             Text(
               "Polévky",

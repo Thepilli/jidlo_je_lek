@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/video_list.dart';
 import 'package:video_player/video_player.dart';
+
+import 'video_list.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen(
