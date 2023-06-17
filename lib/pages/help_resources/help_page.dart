@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/disclaimer_text_widget.dart';
 import '../../widgets/gallery_pop.dart';
-import '../../utils/mytextstyles.dart';
 import '../../widgets/html_readed_widget.dart';
 
 class HelpPage extends StatefulWidget {
@@ -103,8 +102,7 @@ class _HelpPageState extends State<HelpPage> {
         ),
       ));
 
-  Widget buildAppCard(String title, String image, String htmlFilePath) =>
-      Padding(
+  Widget buildAppCard(String title, String image, String htmlFilePath) => Padding(
         padding: const EdgeInsets.all(3.0),
         child: Card(
           child: ExpansionTile(
@@ -115,19 +113,19 @@ class _HelpPageState extends State<HelpPage> {
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Aplikace má sedm základních modulů: deprese, úzkost/panika, sebepoškozování, myšlenky na sebevraždu, sledování nálady, poruchy příjmu potravy a kontakty na odbornou pomoc.',
-                        style: MyTextStyles.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 150,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
+                        children: [
                           InkwellPop(
                             imgPath: 'assets/images/nepanikar_app.png',
                           ),

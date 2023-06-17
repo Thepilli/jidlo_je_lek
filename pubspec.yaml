@@ -42,7 +42,6 @@ dependencies:
   side_menu_animation: ^1.1.0
   flutter_ellipsis_text: ^1.0.1
   carousel_slider: ^4.2.1
-  http: ^0.13.6
   flutter_dotenv: ^5.0.2
   velocity_x: ^4.1.0
   chat_gpt_sdk: ^2.1.2
@@ -51,16 +50,52 @@ dependencies:
   slide_to_act: ^2.0.1
   flutter_screenutil: ^5.7.0
   google_fonts: ^4.0.4
+  get: ^4.6.5
+  cupertino_icons: ^1.0.2
+  firebase_core: ^2.13.1
+  flutter_local_notifications: ^14.1.1
+  firebase_messaging: ^14.6.2
+  http: ^0.13.6
+  cloud_firestore: ^4.8.0
+  firebase_auth: ^4.6.2
+  flutter_native_splash: ^2.2.19
+  liquid_swipe: ^3.1.0
+  smooth_page_indicator: ^1.1.0
+  flutter_otp_text_field: ^1.1.1
+  line_awesome_flutter: ^2.0.0
+  google_sign_in: ^6.1.4
+  flutter_facebook_auth: ^5.0.11
+  lottie: ^2.3.2
 
 dev_dependencies:
-  dependency_validator: ^3.0.0
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#f7f6f1"
+  color_dark: "#272727"
+  image: assets/images/pika.png
+  image_dark: assets/images/pika.png
+
+  android_12:
+    background_color: "#f7f6f1"
+    background_color_dark: "#272727"
+    foreground_color: "#f7f6f1"
+    foreground_color_dark: "#272727"
+    image: assets/images/pika.png
+    image_dark: assets/images/pika.png
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter.
+# The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -104,22 +139,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: WorkSans
-      fonts:
-        - asset: assets/fonts/WorkSans-Regular.ttf
-        - asset: assets/fonts/WorkSans-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/WorkSans-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/WorkSans-Bold.ttf
-          weight: 700
-    - family: Roboto
-      fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
-        - asset: assets/fonts/Roboto-Regular.ttf
-        - asset: assets/fonts/Roboto-Medium.ttf
-          weight: 400
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

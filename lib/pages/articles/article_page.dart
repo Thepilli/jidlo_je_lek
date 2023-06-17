@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:stacionar_app/utils/app_theme.dart';
 
 class ArticlePage extends StatefulWidget {
   const ArticlePage({
@@ -29,8 +28,7 @@ class _ArticlePageState extends State<ArticlePage> {
   }
 
   Future<void> loadHtmlFromAssets() async {
-    String htmlFile =
-        await rootBundle.loadString('assets/htmls/${widget.bodyArticle}');
+    String htmlFile = await rootBundle.loadString('assets/htmls/${widget.bodyArticle}');
     setState(() {
       _htmlContent = htmlFile;
     });
@@ -40,17 +38,9 @@ class _ArticlePageState extends State<ArticlePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              currentTheme.toggleTheme();
-            },
-            icon: const Icon(Icons.lightbulb_outline),
-          )
-        ],
+        actions: const [],
         title: Text(
           widget.title,
-          style: CustomTheme.h4,
         ),
       ),
       body: SingleChildScrollView(

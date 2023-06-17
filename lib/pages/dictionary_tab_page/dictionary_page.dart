@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/pages/article_navigationbar_page/article_navigation_page.dart';
-import 'package:stacionar_app/utils/mytextstyles.dart';
 
 import '../../widgets/disclaimer_text_widget.dart';
 
@@ -32,10 +31,10 @@ class DictionaryPage extends StatelessWidget {
                 width: 300,
               ),
             ),
-            Text(title, style: MyTextStyles.headline1),
+            Text(title, style: Theme.of(context).textTheme.displayLarge),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(description, style: MyTextStyles.bodyText1),
+              child: Text(description, style: Theme.of(context).textTheme.bodyLarge),
             ),
             ElevatedButton(
               onPressed: () {
@@ -46,14 +45,14 @@ class DictionaryPage extends StatelessWidget {
                 foregroundColor: Colors.black,
                 shape: const StadiumBorder(),
               ),
-              child: const Text(
+              child: Text(
                 'Podívat se na články',
-                style: MyTextStyles.headline3,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(features, style: MyTextStyles.bodyText1),
+              child: Text(features, style: Theme.of(context).textTheme.bodyLarge),
             ),
           ],
         ),

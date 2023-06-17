@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/constants/sizes.dart';
 
-import '../../../utils/constants.dart';
 import '../../../widgets/gallery_pop.dart';
 
 class MealPlanDetailContainer extends StatelessWidget {
@@ -8,10 +8,7 @@ class MealPlanDetailContainer extends StatelessWidget {
   final String mealImagePath;
   final String mealImageDescription;
   const MealPlanDetailContainer(
-      {super.key,
-      required this.mealPlanColor,
-      required this.mealImagePath,
-      required this.mealImageDescription});
+      {super.key, required this.mealPlanColor, required this.mealImagePath, required this.mealImageDescription});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +19,7 @@ class MealPlanDetailContainer extends StatelessWidget {
           height: 120,
           decoration: BoxDecoration(
             color: mealPlanColor[50],
-            borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
+            borderRadius: const BorderRadius.all(Radius.circular(jBorderRadius)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,7 +27,7 @@ class MealPlanDetailContainer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(borderRadius),
+                  borderRadius: BorderRadius.circular(jBorderRadius),
                   child: InkwellPop(
                     imgPath: mealImagePath,
                   ),

@@ -2,8 +2,8 @@ import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class TElevatedButtonTheme {
-  TElevatedButtonTheme._();
+class JElevatedButtonTheme {
+  JElevatedButtonTheme._();
 
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: OutlinedButton.styleFrom(

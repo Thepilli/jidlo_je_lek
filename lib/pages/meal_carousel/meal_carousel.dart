@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/utils/app_theme.dart';
 
 import '../../model/meal.dart';
 
@@ -43,25 +42,25 @@ class _MealCarouselState extends State<MealCarousel> {
             const Spacer(),
             Text(
               "Polévky",
-              style: CustomTheme.h4,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             const GalleryContainer(selectedCategory: 'polevky'),
             const Spacer(),
             Text(
               "Hlavní jídla",
-              style: CustomTheme.h4,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             const GalleryContainer(selectedCategory: 'hlavni_jidla'),
             const Spacer(),
             Text(
               "Smažená jídla",
-              style: CustomTheme.h4,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             const GalleryContainer(selectedCategory: 'smazena_jidla'),
             const Spacer(),
             Text(
               "Sladká jídla",
-              style: CustomTheme.h4,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             const GalleryContainer(selectedCategory: 'sladka_jidla'),
             const Spacer(),
@@ -92,8 +91,7 @@ class GalleryContainer extends StatelessWidget {
       ),
       // appBar: AppBar(title: const Text('Vertical sliding carousel demo')),
       child: FutureBuilder(
-        future: DefaultAssetBundle.of(context)
-            .loadString('assets/meal_images_map.json'),
+        future: DefaultAssetBundle.of(context).loadString('assets/meal_images_map.json'),
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           if (snapshot.hasData) {
             final jsonContent = snapshot.data!;
@@ -136,8 +134,7 @@ class GalleryContainer extends StatelessWidget {
                             children: [
                               ClipRRect(
                                 //the main card shape
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(20.0)),
+                                borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                                 child: Image.asset(
                                   'assets/images/havelska_koruna/${meal.category}/${meal.imgsource}',
                                   fit: BoxFit.fitHeight,

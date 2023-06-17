@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../utils/constants.dart';
+import 'package:stacionar_app/constants/sizes.dart';
 
 class MealTypeContainer extends StatelessWidget {
   final String mealType;
@@ -25,7 +24,7 @@ class MealTypeContainer extends StatelessWidget {
         height: 170,
         decoration: BoxDecoration(
           color: mealPlanColor[50],
-          borderRadius: BorderRadius.circular(borderRadius),
+          borderRadius: BorderRadius.circular(jBorderRadius),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -38,8 +37,8 @@ class MealTypeContainer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: mealPlanColor[100],
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(borderRadius),
-                      topRight: Radius.circular(borderRadius),
+                      bottomLeft: Radius.circular(jBorderRadius),
+                      topRight: Radius.circular(jBorderRadius),
                     ),
                   ),
                   padding: const EdgeInsets.all(12),

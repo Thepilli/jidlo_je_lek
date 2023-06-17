@@ -2,8 +2,8 @@ import 'package:stacionar_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/constants/sizes.dart';
 
-class TOutlinedButtonTheme {
-  TOutlinedButtonTheme._();
+class JOutlinedButtonTheme {
+  JOutlinedButtonTheme._();
 
   static final lightOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(

@@ -1,8 +1,8 @@
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
-class TTextFormFieldTheme {
-  TTextFormFieldTheme._();
+class JTextFormFieldTheme {
+  JTextFormFieldTheme._();
 
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),

@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:stacionar_app/utils/app_theme.dart";
 
 class TableWidget extends StatelessWidget {
   const TableWidget({super.key});
@@ -11,13 +10,11 @@ class TableWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Table(
-            border: TableBorder.all(color: CustomTheme.brightGreen),
+            border: TableBorder.all(),
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: [
               const TableRow(
-                decoration: BoxDecoration(
-                  color: CustomTheme.brightGreen,
-                ),
+                decoration: BoxDecoration(),
                 children: [
                   TableCell(
                     verticalAlignment: TableCellVerticalAlignment.middle,
@@ -25,8 +22,7 @@ class TableWidget extends StatelessWidget {
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         "BMI",
-                        style: TextStyle(
-                            decoration: TextDecoration.none, fontSize: 20),
+                        style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
                       ),
                     ),
                   ),
@@ -36,8 +32,7 @@ class TableWidget extends StatelessWidget {
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         "Hodnota Indexu",
-                        style: TextStyle(
-                            decoration: TextDecoration.none, fontSize: 20),
+                        style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
                       ),
                     ),
                   ),
@@ -57,9 +52,7 @@ class TableWidget extends StatelessWidget {
 
 TableRow buildCustomTableRow(String bmiString, String indexString) {
   return TableRow(
-    decoration: const BoxDecoration(
-      color: CustomTheme.brightGreenAccent,
-    ),
+    decoration: const BoxDecoration(),
     children: [
       TableCell(
         verticalAlignment: TableCellVerticalAlignment.middle,
@@ -67,8 +60,7 @@ TableRow buildCustomTableRow(String bmiString, String indexString) {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             bmiString,
-            style:
-                const TextStyle(decoration: TextDecoration.none, fontSize: 20),
+            style: const TextStyle(decoration: TextDecoration.none, fontSize: 20),
           ),
         ),
       ),
@@ -78,8 +70,7 @@ TableRow buildCustomTableRow(String bmiString, String indexString) {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             indexString,
-            style:
-                const TextStyle(decoration: TextDecoration.none, fontSize: 20),
+            style: const TextStyle(decoration: TextDecoration.none, fontSize: 20),
           ),
         ),
       ),

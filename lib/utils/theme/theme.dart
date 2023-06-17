@@ -4,26 +4,26 @@ import 'package:stacionar_app/utils/theme/widget_themes/text_theme.dart';
 import 'package:stacionar_app/utils/theme/widget_themes/text_field_theme.dart';
 import 'package:flutter/material.dart';
 
-class TAppTheme {
-  TAppTheme._();
+class JAppTheme {
+  JAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
     // scaffoldBackgroundColor: tPrimaryColor,
     brightness: Brightness.light,
-    textTheme: TTextTheme.lightTextTheme,
-    elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
-    outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
-    inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
+    textTheme: JTextTheme.lightTextTheme,
+    elevatedButtonTheme: JElevatedButtonTheme.lightElevatedButtonTheme,
+    outlinedButtonTheme: JOutlinedButtonTheme.lightOutlinedButtonTheme,
+    inputDecorationTheme: JTextFormFieldTheme.lightInputDecorationTheme,
     appBarTheme: const AppBarTheme(),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(),
   );
   static ThemeData darkTheme = ThemeData(
     // scaffoldBackgroundColor: tSecondaryColor,
     brightness: Brightness.dark,
-    textTheme: TTextTheme.darkTextTheme,
-    elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
-    outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTheme,
-    inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
+    textTheme: JTextTheme.darkTextTheme,
+    elevatedButtonTheme: JElevatedButtonTheme.darkElevatedButtonTheme,
+    outlinedButtonTheme: JOutlinedButtonTheme.darkOutlinedButtonTheme,
+    inputDecorationTheme: JTextFormFieldTheme.darkInputDecorationTheme,
     appBarTheme: const AppBarTheme(),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(),
   );
