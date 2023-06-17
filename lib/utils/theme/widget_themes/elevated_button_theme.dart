@@ -1,5 +1,5 @@
-import 'package:firebase_cloud_messaging/constants/colors.dart';
-import 'package:firebase_cloud_messaging/constants/sizes.dart';
+import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class TElevatedButtonTheme {
@@ -7,20 +7,20 @@ class TElevatedButtonTheme {
 
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
       foregroundColor: tWhiteColor,
       backgroundColor: tSecondaryColor,
-      side: BorderSide(color: tSecondaryColor),
-      padding: EdgeInsets.symmetric(vertical: tButtonHeight),
+      side: const BorderSide(color: tSecondaryColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
     ),
   );
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
       foregroundColor: tSecondaryColor,
       backgroundColor: tWhiteColor,
-      side: BorderSide(color: tWhiteColor),
-      padding: EdgeInsets.symmetric(vertical: tButtonHeight),
+      side: const BorderSide(color: tWhiteColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
     ),
   );
 }

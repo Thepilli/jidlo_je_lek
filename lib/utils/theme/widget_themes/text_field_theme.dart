@@ -1,4 +1,4 @@
-import 'package:firebase_cloud_messaging/constants/colors.dart';
+import 'package:stacionar_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class TTextFormFieldTheme {
@@ -7,16 +7,16 @@ class TTextFormFieldTheme {
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
     prefixIconColor: tSecondaryColor,
-    floatingLabelStyle: TextStyle(color: tSecondaryColor),
-    focusedBorder: OutlineInputBorder(
+    floatingLabelStyle: const TextStyle(color: tSecondaryColor),
+    focusedBorder: const OutlineInputBorder(
       borderSide: BorderSide(width: 2, color: tSecondaryColor),
     ),
   );
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
     prefixIconColor: tPrimaryColor,
-    floatingLabelStyle: TextStyle(color: tPrimaryColor),
-    focusedBorder: OutlineInputBorder(
+    floatingLabelStyle: const TextStyle(color: tPrimaryColor),
+    focusedBorder: const OutlineInputBorder(
       borderSide: BorderSide(width: 2, color: tPrimaryColor),
     ),
   );

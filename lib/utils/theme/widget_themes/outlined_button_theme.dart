@@ -1,5 +1,5 @@
-import 'package:firebase_cloud_messaging/constants/colors.dart';
-import 'package:firebase_cloud_messaging/constants/sizes.dart';
+import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class TOutlinedButtonTheme {
@@ -7,18 +7,18 @@ class TOutlinedButtonTheme {
 
   static final lightOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
       foregroundColor: tSecondaryColor,
-      side: BorderSide(color: tSecondaryColor),
-      padding: EdgeInsets.symmetric(vertical: tButtonHeight),
+      side: const BorderSide(color: tSecondaryColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
     ),
   );
   static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
       foregroundColor: tWhiteColor,
-      side: BorderSide(color: tWhiteColor),
-      padding: EdgeInsets.symmetric(vertical: tButtonHeight),
+      side: const BorderSide(color: tWhiteColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
     ),
   );
 }

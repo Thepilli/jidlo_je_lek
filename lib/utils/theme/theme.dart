@@ -1,7 +1,7 @@
-import 'package:firebase_cloud_messaging/utils/theme/widget_themes/elevated_button_theme.dart';
-import 'package:firebase_cloud_messaging/utils/theme/widget_themes/outlined_button_theme.dart';
-import 'package:firebase_cloud_messaging/utils/theme/widget_themes/text_theme.dart';
-import 'package:firebase_cloud_messaging/utils/theme/widget_themes/text_field_theme.dart';
+import 'package:stacionar_app/utils/theme/widget_themes/elevated_button_theme.dart';
+import 'package:stacionar_app/utils/theme/widget_themes/outlined_button_theme.dart';
+import 'package:stacionar_app/utils/theme/widget_themes/text_theme.dart';
+import 'package:stacionar_app/utils/theme/widget_themes/text_field_theme.dart';
 import 'package:flutter/material.dart';
 
 class TAppTheme {
