@@ -1,11 +1,11 @@
 /* -- App Sizing -- */
 
 //App default Sizing
-const tDefaultSize = 30.0;
-const tSplashContainerSize = 30.0;
-const tButtonHeight = 15.0;
-const tFormHeight = 30.0;
+const jDefaultSize = 30.0;
+const jSplashContainerSize = 30.0;
+const jButtonHeight = 15.0;
+const jFormHeight = 30.0;
 
 //Dashboard
-const tDashboardPadding = 20.0;
-const tDashboardCardPadding = 10.0;
+const jDashboardPadding = 20.0;
+const jDashboardCardPadding = 10.0;

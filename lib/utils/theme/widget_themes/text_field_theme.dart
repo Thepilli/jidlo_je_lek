@@ -6,18 +6,18 @@ class TTextFormFieldTheme {
 
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
-    prefixIconColor: tSecondaryColor,
-    floatingLabelStyle: const TextStyle(color: tSecondaryColor),
+    prefixIconColor: jSecondaryColor,
+    floatingLabelStyle: const TextStyle(color: jSecondaryColor),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 2, color: tSecondaryColor),
+      borderSide: BorderSide(width: 2, color: jSecondaryColor),
     ),
   );
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
-    prefixIconColor: tPrimaryColor,
-    floatingLabelStyle: const TextStyle(color: tPrimaryColor),
+    prefixIconColor: jPrimaryColor,
+    floatingLabelStyle: const TextStyle(color: jPrimaryColor),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 2, color: tPrimaryColor),
+      borderSide: BorderSide(width: 2, color: jPrimaryColor),
     ),
   );
 }
