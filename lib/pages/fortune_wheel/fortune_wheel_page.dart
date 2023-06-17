@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/utils/mytextstyles.dart';
 
 import 'widgets/fortune_wheel.dart';
 
@@ -36,8 +35,7 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
       }
 
       setState(() {
-        isAnimationFinished =
-            true; // Set the flag to true when animation finishes
+        isAnimationFinished = true; // Set the flag to true when animation finishes
       });
     });
     super.initState();
@@ -70,16 +68,16 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       "Co si dneska dám?",
-                      style: MyTextStyles.headline1,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                     const SizedBox(
                       height: 15,
                     ),
-                    const Text(
+                    Text(
                       "Máš problém neustále vybírat jaké pečivo si dát? Pak tohle je aplikace pro tebe!",
-                      style: MyTextStyles.bodyText1,
+                      style: Theme.of(context).textTheme.bodyLarge,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
@@ -94,19 +92,16 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                           child: SizedBox(
                             height: 120,
                             width: 120,
-                            child:
-                                isAnimationFinished && currentWheelChild != null
-                                    ? currentWheelChild!.title
-                                    : const SizedBox(),
+                            child: isAnimationFinished && currentWheelChild != null
+                                ? currentWheelChild!.title
+                                : const SizedBox(),
                           ),
                         ),
                         // Image path
                         SizedBox(
                           height: 120,
                           width: 120,
-                          child: currentWheelChild != null
-                              ? currentWheelChild!.foreground
-                              : Container(),
+                          child: currentWheelChild != null ? currentWheelChild!.foreground : Container(),
                         ),
                         // Button
                         Padding(
@@ -116,15 +111,12 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                             width: 120,
                             child: ElevatedButton(
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<
-                                        Color>(
-                                    Theme.of(context).colorScheme.secondary),
+                                backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.secondary),
                               ),
                               onPressed: () {
                                 fortuneWheelController.rotateTheWheel();
                                 setState(() {
-                                  isAnimationFinished =
-                                      false; // Set the flag to false when button is pressed
+                                  isAnimationFinished = false; // Set the flag to false when button is pressed
                                 });
                               },
                               child: const Text(
@@ -238,8 +230,7 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
     );
   }
 
-  FortuneWheelChild<int> _createFortuneWheelChild(
-      String imgName, String imgPath) {
+  FortuneWheelChild<int> _createFortuneWheelChild(String imgName, String imgPath) {
     Color color = Colors.teal.withOpacity(0.5);
     String name = imgName;
     String image = imgPath;
@@ -250,8 +241,7 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
     );
   }
 
-  Container _getWheelContentCircle(
-      Color backgroundColor, String text, String image) {
+  Container _getWheelContentCircle(Color backgroundColor, String text, String image) {
     return Container(
       width: 200,
       height: 200,

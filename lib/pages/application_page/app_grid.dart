@@ -15,8 +15,7 @@ class ApplicationGrid extends StatefulWidget {
 }
 
 class _ApplicationGridState extends State<ApplicationGrid> {
-  String features =
-      'Tady najdeš aplikace které ti pomohou nebo tě alespoň pobaví při každodenních aktivitách';
+  String features = 'Tady najdeš aplikace které ti pomohou nebo tě alespoň pobaví při každodenních aktivitách';
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +28,7 @@ class _ApplicationGridState extends State<ApplicationGrid> {
               child: Text(
                 features,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Theme.of(context).colorScheme.inversePrimary),
+                style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.inversePrimary),
               ),
             ),
             GridView.count(
@@ -96,18 +93,10 @@ class _ApplicationGridState extends State<ApplicationGrid> {
   }
 }
 
-Widget itemTile(BuildContext context, String iconPath, String title,
-    String description, String pageName) {
+Widget itemTile(BuildContext context, String iconPath, String title, String description, String pageName) {
   return ListTile(
-    horizontalTitleGap: 20,
-    contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20),
-    ),
-    tileColor: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
     onTap: () {
-      String nextPage =
-          pageName; // Replace 'ArticleNavigationPage' with the desired page name
+      String nextPage = pageName; // Replace 'ArticleNavigationPage' with the desired page name
 
       Navigator.push(
         context,

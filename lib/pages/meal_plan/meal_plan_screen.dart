@@ -1,259 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/pages/meal_plan/meal_plan_grid_galery_screen.dart';
-import 'package:stacionar_app/pages/meal_plan/meal_plan_grid_container_list.dart';
+
+import '../../model/meal_plans.dart';
+import 'components/meal_type_container.dart';
+import 'meal_plan_detail.dart';
 
 // ignore: must_be_immutable
-class MealTab extends StatelessWidget {
-  List foodMenu = [
-    // [ mealType, mealTileColor, imageName, imagePaths, time ]
-    [
-      "Snídaně",
-      Colors.blue,
-      "assets/icons/meal_plan_tile_snidane.png",
-      [
-        [
-          "assets/images/meal_plans/breakfast/breakfast_normal_01.jpg",
-          "Normální \nporce: \nslaná"
-        ],
-        [
-          "assets/images/meal_plans/breakfast/breakfast_normal_02.jpg",
-          "Normální \nporce: \nsladká"
-        ],
-        [
-          "assets/images/meal_plans/breakfast/breakfast_large_01.jpg",
-          "Zvýšená \nporce: \nslaná"
-        ],
-      ],
-      "8:00",
-    ],
-    [
-      "Svačina",
-      Colors.red,
-      "assets/icons/meal_plan_tile_svacina.png",
-      [
-        [
-          "assets/images/meal_plans/snack/snack_normal_02.jpg",
-          "Normální \nporce: \novoce"
-        ],
-        [
-          "assets/images/meal_plans/snack/snack_normal_01.jpg",
-          "Normální \nporce: \novoce"
-        ],
-        [
-          "assets/images/meal_plans/snack/snack_large_01.jpg",
-          "Zvýšená \nporce: \nsladká"
-        ],
-      ],
-      "10:00",
-    ],
-    [
-      "Oběd",
-      Colors.purple,
-      "assets/icons/meal_plan_tile_obed.png",
-      [
-        [
-          "assets/images/meal_plans/lunch/lunch_normal_01.jpg",
-          "Normální \nporce:"
-        ],
-        [
-          "assets/images/meal_plans/lunch/lunch_normal_02.jpg",
-          "Normální \nporce:"
-        ],
-        [
-          "assets/images/meal_plans/lunch/lunch_large_01.jpg",
-          "Zvýšená \nporce:"
-        ],
-        [
-          "assets/images/meal_plans/lunch/lunch_large_02.jpg",
-          "Zvýšená \nporce:"
-        ],
-        [
-          "assets/images/meal_plans/lunch/lunch_large_03.jpg",
-          "Zvýšená \nporce:"
-        ],
-      ],
-      "12:00",
-    ],
-    [
-      "Druhá Svačina",
-      Colors.green,
-      "assets/icons/meal_plan_tile_svaciana_2.png",
-      [
-        [
-          "assets/images/meal_plans/aftersnack/aftersnack_normal_01.jpg",
-          "Normální \nporce: \nsladká"
-        ],
-        [
-          "assets/images/meal_plans/aftersnack/aftersnack_normal_02.jpg",
-          "Normální \nporce: \nslaná"
-        ],
-        [
-          "assets/images/meal_plans/aftersnack/aftersnack_large_01.jpg",
-          "Zvýšená \nporce: \nsladká"
-        ],
-        [
-          "assets/images/meal_plans/aftersnack/aftersnack_large_02.jpg",
-          "Zvýšená \nporce: \nslaná"
-        ],
-        [
-          "assets/images/meal_plans/aftersnack/aftersnack_large_03.jpg",
-          "Zvýšená \nporce: \nsladká"
-        ],
-      ],
-      "16:00",
-    ],
-    [
-      "Večeře",
-      Colors.orange,
-      "assets/icons/meal_plan_tile_vecere.png",
-      [
-        [
-          "assets/images/meal_plans/dinner/dinner_normal_01.jpg",
-          "Normální \nporce: \nteplá"
-        ],
-        [
-          "assets/images/meal_plans/dinner/dinner_normal_02.jpg",
-          "Normální \nporce: \nstudená"
-        ],
-        [
-          "assets/images/meal_plans/dinner/dinner_large_01.jpg",
-          "Zvýšená \nporce: \nstudená"
-        ],
-      ],
-      "19:00",
-    ],
-    [
-      "Druhá Večeře",
-      Colors.teal,
-      "assets/icons/meal_plan_tile_vecere_2.png",
-      [
-        [
-          "assets/images/meal_plans/afterdinner/afterdinner_normal_01.jpg",
-          "Normální \nporce:"
-        ],
-        [
-          "assets/images/meal_plans/afterdinner/afterdinner_normal_02.jpg",
-          "Normální \nporce:"
-        ],
-        [
-          "assets/images/meal_plans/afterdinner/afterdinner_large_01.jpg",
-          "Zvýšená \nporce:"
-        ],
-        [
-          "assets/images/meal_plans/afterdinner/afterdinner_large_02.jpg",
-          "Zvýšená \nporce:"
-        ],
-      ],
-      "21:00",
-    ],
-    [
-      "Ukázkový jídelníček - \nNormální porce:",
-      Colors.lime,
-      "assets/icons/meal_plan_tile_model.png",
-      [
-        ["assets/images/meal_plans/model_01/breakfast_model_01.jpg", "Snídaně"],
-        ["assets/images/meal_plans/model_01/snack_model_01.jpg", "Svačina"],
-        ["assets/images/meal_plans/model_01/lunch_model_01.jpg", "Oběd"],
-        [
-          "assets/images/meal_plans/model_01/aftersnack_model_01.jpg",
-          "Svačina"
-        ],
-        ["assets/images/meal_plans/model_01/dinner_model_01.jpg", "Večeře"],
-        [
-          "assets/images/meal_plans/model_01/afterdinner_model_01.jpg",
-          "Druhá \nVečeře"
-        ],
-      ],
-      "Varianta 1",
-    ],
-    [
-      "Ukázkový jídelníček - \nNormální porce:",
-      Colors.amber,
-      "assets/icons/meal_plan_tile_model.png",
-      [
-        ["assets/images/meal_plans/model_02/breakfast_model_02.jpg", "Snídaně"],
-        ["assets/images/meal_plans/model_02/snack_model_02.jpg", "Svačina"],
-        ["assets/images/meal_plans/model_02/lunch_model_02.jpg", "Oběd"],
-        [
-          "assets/images/meal_plans/model_02/aftersnack_model_02.jpg",
-          "Svačina"
-        ],
-        ["assets/images/meal_plans/model_02/dinner_model_02.jpg", "Večeře"],
-        [
-          "assets/images/meal_plans/model_02/afterdinner_model_02.jpg",
-          "Druhá \nVečeře"
-        ],
-      ],
-      "Varianta 2",
-    ],
-    [
-      "Ukázkový jídelníček - \nZvýšená porce:",
-      Colors.indigo,
-      "assets/icons/meal_plan_tile_model.png",
-      [
-        ["assets/images/meal_plans/model_03/breakfast_model_03.jpg", "Snídaně"],
-        ["assets/images/meal_plans/model_03/snack_model_03.jpg", "Svačina"],
-        ["assets/images/meal_plans/model_03/lunch_model_03.jpg", "Oběd"],
-        [
-          "assets/images/meal_plans/model_03/aftersnack_model_03.jpg",
-          "Svačina"
-        ],
-        ["assets/images/meal_plans/model_03/dinner_model_03.jpg", "Večeře"],
-        [
-          "assets/images/meal_plans/model_03/afterdinner_model_03.jpg",
-          "Druhá \nVečeře"
-        ],
-      ],
-      "Varianta 3",
-    ],
-  ];
+class MealPlanScreen extends StatelessWidget {
+  final List<Meal> mealList;
 
-  MealTab({super.key});
+  const MealPlanScreen({super.key, required this.mealList});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 5),
-        const Text(
-          'Toto jsou ukázkové jídelníčky, \nvčetně časů kdy dané chody jíst.',
-          style: TextStyle(fontSize: 20),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 20),
-        Expanded(
-          child: GridView.builder(
-            itemCount: foodMenu.length,
-            padding: const EdgeInsets.all(12),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              childAspectRatio: 1 / 0.6,
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: const Text(
+                'Toto jsou ukázkové jídelníčky, včetně časů kdy dané chody jíst.',
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
             ),
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MealPlanGridGaleryScreen(
-                              mealType: foodMenu[index][0],
-                              mealContainerColor: foodMenu[index][1],
-                              imagePaths: foodMenu[index][3],
-                            )),
+            Expanded(
+              child: ListView.builder(
+                itemCount: mealList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Meal meal = mealList[index];
+
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MealPlanDetail(
+                            mealType: meal.mealType,
+                            mealPlanColor: meal.mealPlanColor,
+                            imageAssets: meal.mealImageAssets,
+                          ),
+                        ),
+                      );
+                    },
+                    child: MealTypeContainer(
+                      mealType: meal.mealType,
+                      mealIconPath: meal.mealIconPath,
+                      mealTime: meal.mealTime,
+                      mealPlanColor: meal.mealPlanColor,
+                    ),
                   );
                 },
-                child: MealContainer(
-                  mealType: foodMenu[index][0],
-                  mealContainerColor: foodMenu[index][1],
-                  imageName: foodMenu[index][2],
-                  imagePaths: foodMenu[index][3],
-                  mealTime: foodMenu[index][4],
-                ),
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

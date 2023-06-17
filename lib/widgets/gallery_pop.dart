@@ -26,7 +26,7 @@ class _GaleryPopState extends State<GalleryPop> {
             ),
           ),
         ),
-        backgroundColor: Colors.amber[200],
+        backgroundColor: const Color.fromRGBO(244, 233, 215, 1),
         body: Center(
           child: InkWell(
             onTap: () {
@@ -40,8 +40,11 @@ class _GaleryPopState extends State<GalleryPop> {
                 onDismissed: (_) => Navigator.of(context).pop(),
                 child: InteractiveViewer(
                   clipBehavior: Clip.none,
-                  child: Image(
-                    image: AssetImage(widget.heroTag),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Image(
+                      image: AssetImage(widget.heroTag),
+                    ),
                   ),
                 ),
               ),
