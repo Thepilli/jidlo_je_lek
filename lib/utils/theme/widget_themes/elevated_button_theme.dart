@@ -8,18 +8,18 @@ class JElevatedButtonTheme {
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: OutlinedButton.styleFrom(
       shape: const StadiumBorder(),
-      foregroundColor: jWhiteColor,
-      backgroundColor: jSecondaryColor,
-      side: const BorderSide(color: jSecondaryColor),
+      foregroundColor: jPrimaryLightColor,
+      backgroundColor: jSecondaryLightColor,
+      side: const BorderSide(color: jSecondaryLightColor),
       padding: const EdgeInsets.symmetric(vertical: jButtonHeight),
     ),
   );
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
     style: OutlinedButton.styleFrom(
       shape: const StadiumBorder(),
-      foregroundColor: jSecondaryColor,
-      backgroundColor: jWhiteColor,
-      side: const BorderSide(color: jWhiteColor),
+      foregroundColor: jPrimaryDarkColor,
+      backgroundColor: jSecondaryDarkColor,
+      side: const BorderSide(color: jSecondaryDarkColor),
       padding: const EdgeInsets.symmetric(vertical: jButtonHeight),
     ),
   );

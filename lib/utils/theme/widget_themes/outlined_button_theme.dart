@@ -8,16 +8,16 @@ class JOutlinedButtonTheme {
   static final lightOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       shape: const StadiumBorder(),
-      foregroundColor: jSecondaryColor,
-      side: const BorderSide(color: jSecondaryColor),
+      foregroundColor: jSecondaryLightColor,
+      side: const BorderSide(color: jSecondaryLightColor),
       padding: const EdgeInsets.symmetric(vertical: jButtonHeight),
     ),
   );
   static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       shape: const StadiumBorder(),
-      foregroundColor: jWhiteColor,
-      side: const BorderSide(color: jWhiteColor),
+      foregroundColor: jSecondaryDarkColor,
+      side: const BorderSide(color: jSecondaryDarkColor),
       padding: const EdgeInsets.symmetric(vertical: jButtonHeight),
     ),
   );

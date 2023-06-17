@@ -9,7 +9,6 @@ import 'pages/navigation_panel/navigation_panel.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await dotenv.load(fileName: '.env');
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
