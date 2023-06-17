@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 /* -- LIST OF ALL COLORS -- */
 
-const tPrimaryColor = Color(0xFFFFE400);
-const tSecondaryColor = Color(0xFF272727);
-const tAccentColor = Color(0xFF001BFF);
-const tPrimaryColor = Color(0xFFFFE400);
-const tSecondaryColor = Color(0xFF272727);
-const tAccentColor = Color(0xFF001BFF);
+const tPrimaryLightColor = Color(0xFFFFE400);
+const tSecondaryLightColor = Color(0xFF272727);
+const tAccentLightColor = Color(0xFF001BFF);
+const tPrimaryDarkColor = Color(0xFFFFE400);
+const tSecondaryDarkColor = Color(0xFF272727);
+const tAccentDarkColor = Color(0xFF001BFF);
 
 const tWhiteColor = Colors.white;
 const tDarkColor = Color(0xff000000);

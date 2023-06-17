@@ -1,4 +1,3 @@
-import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
