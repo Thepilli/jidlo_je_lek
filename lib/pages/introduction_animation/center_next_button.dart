@@ -4,7 +4,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
-import '../tab_page/tab_page.dart';
+import '../navigation_panel/navigation_panel.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;

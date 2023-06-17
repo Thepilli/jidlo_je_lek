@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/utils/app_theme.dart';
 
 class MealContainer extends StatelessWidget {
   final String mealType;
   final dynamic mealContainerColor;
-  final String imageName;
+  final String icon;
   final String mealTime;
 
   final double borderRadius = 12;
@@ -13,9 +12,9 @@ class MealContainer extends StatelessWidget {
     super.key,
     required this.mealType,
     required this.mealContainerColor,
-    required this.imageName,
-    required imagePaths,
+    required this.icon,
     required this.mealTime,
+    required imagePaths,
   });
 
   @override
@@ -42,13 +41,13 @@ class MealContainer extends StatelessWidget {
                     ),
                   ),
                   padding: const EdgeInsets.all(12),
-                  child: Text(mealTime, style: CustomTheme.body1),
+                  child: Text(mealTime),
                 ),
               ],
             ),
 
             // meal picture
-            Image.asset(imageName, height: 100),
+            Image.asset(icon, height: 100),
 
             // meal flavor
             Expanded(

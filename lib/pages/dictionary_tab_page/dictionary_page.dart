@@ -37,15 +37,9 @@ class DictionaryPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(description, style: MyTextStyles.bodyText1),
             ),
-            // const VerticalSliderDemo(
-            //   meals: [],
-            // ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ArticleNavigationPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ArticleNavigationPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.greenAccent,

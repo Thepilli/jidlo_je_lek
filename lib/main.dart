@@ -1,8 +1,8 @@
-import 'package:stacionar_app/pages/introduction_animation/introduction_animation_screen.dart';
 import 'package:stacionar_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'pages/navigation_panel/navigation_panel.dart';
 import 'theme/dark_theme.dart';
 import 'theme/light_theme.dart';
 
@@ -43,15 +43,10 @@ class _MyAppState extends State<MyApp> {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: currentTheme.currentTheme,
-
-      home: const IntroductionAnimationScreen(),
       // home: const Scaffold(
-      //   body: Center(
-      //     child: VerticalSliderDemo(
-      //       meals: [],
-      //     ),
-      //   ),
+      //   body: Center(child: MealPlanDetailContainer()),
       // ),
+      home: const TabPage(),
       debugShowCheckedModeBanner: false,
     );
   }

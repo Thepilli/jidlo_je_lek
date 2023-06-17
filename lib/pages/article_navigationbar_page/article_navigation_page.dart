@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:stacionar_app/pages/articles/article_container.dart';
 
-import '../tab_page/tab_page.dart';
+import '../navigation_panel/navigation_panel.dart';
 import 'article_navigation_menu_value.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

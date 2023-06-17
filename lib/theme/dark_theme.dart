@@ -9,7 +9,7 @@ ThemeData darkTheme = ThemeData(
     ),
     brightness: Brightness.dark,
     colorScheme: ColorScheme.dark(
-      background: Colors.black,
+      background: Colors.pink,
       primary: Colors.grey[800]!,
       secondary: Colors.grey[600]!,
       inversePrimary: Colors.grey[100]!,

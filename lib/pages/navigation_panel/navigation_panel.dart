@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/model/meal_plans.dart';
 
 import '../application_page/app_grid.dart';
 import '../dictionary_tab_page/dictionary_page.dart';
 import '../help_resources/help_page.dart';
 import '../meal_plan/meal_plan_screen.dart';
-import 'tab_page_builder.dart';
+import 'navigation_panel_builder.dart';
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -79,7 +80,7 @@ class _TabPageState extends State<TabPage> {
                   child: TabBarView(
                     children: [
                       const DictionaryPage(),
-                      MealTab(),
+                      MealPlanScreen(mealList: getMealList()),
                       const ApplicationGrid(),
                       const HelpPage(),
                     ],
