@@ -5,19 +5,19 @@ class JTextFormFieldTheme {
   JTextFormFieldTheme._();
 
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
-    border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
-    prefixIconColor: jSecondaryLightColor,
-    floatingLabelStyle: const TextStyle(color: jSecondaryLightColor),
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(80)),
+    prefixIconColor: jPrimaryLightContainerColor,
+    floatingLabelStyle: const TextStyle(color: jPrimaryLightContainerColor),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 2, color: jSecondaryLightColor),
+      borderSide: BorderSide(width: 2, color: jPrimaryLightContainerColor),
     ),
   );
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
-    border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
-    prefixIconColor: jSecondaryDarkColor,
-    floatingLabelStyle: const TextStyle(color: jSecondaryDarkColor),
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(80)),
+    prefixIconColor: jPrimaryDarkContainerColor,
+    floatingLabelStyle: const TextStyle(color: jPrimaryDarkContainerColor),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 2, color: jSecondaryDarkColor),
+      borderSide: BorderSide(width: 2, color: jPrimaryDarkContainerColor),
     ),
   );
 }

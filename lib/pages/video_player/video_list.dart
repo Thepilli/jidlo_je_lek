@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
 
 import 'video_screen.dart';
 
@@ -20,15 +22,13 @@ List videoType = [
   const VideoTypes(
     title: 'How to Befriend a Ghost with Scaredy Cat Pusheen',
     url: 'https://youtu.be/pq2fiD0kqmc',
-    thumbnail:
-        'assets/video/How_to_Befriend_a_Ghost_with_Scaredy_Cat_Pusheen.jpg',
+    thumbnail: 'assets/video/How_to_Befriend_a_Ghost_with_Scaredy_Cat_Pusheen.jpg',
     video: 'assets/video/How_to_Befriend_a_Ghost_with_Scaredy_Cat_Pusheen.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: How To Tell If Your Cat is a Scaredy Cat',
     url: 'https://youtu.be/ax9uYL4TNKc',
-    thumbnail:
-        'assets/video/Pusheen_How_To_Tell_If_Your_Cat_is_a_Scaredy_Cat.jpg',
+    thumbnail: 'assets/video/Pusheen_How_To_Tell_If_Your_Cat_is_a_Scaredy_Cat.jpg',
     video: 'assets/video/Pusheen_How_To_Tell_If_Your_Cat_is_a_Scaredy_Cat.mp4',
   ),
   const VideoTypes(
@@ -136,10 +136,8 @@ List videoType = [
   const VideoTypes(
     title: 'Pusheen: Pawsitive Affirmations with Super Pusheenicorn',
     url: 'https://youtu.be/v06ppwFw2vE',
-    thumbnail:
-        'assets/video/Pusheen_Pawsitive_Affirmations_with_Super_Pusheenicorn.jpg',
-    video:
-        'assets/video/Pusheen_Pawsitive_Affirmations_with_Super_Pusheenicorn.mp4',
+    thumbnail: 'assets/video/Pusheen_Pawsitive_Affirmations_with_Super_Pusheenicorn.jpg',
+    video: 'assets/video/Pusheen_Pawsitive_Affirmations_with_Super_Pusheenicorn.mp4',
   ),
   const VideoTypes(
     title: 'Pastel Pusheens',
@@ -162,17 +160,27 @@ class VideoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Příběhy Pušínka'),
-      ),
+          iconTheme: IconThemeData(color: iconColor),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: scaffoldColor,
+          title: Text(
+            "Příběhy Pušínka",
+            style: Theme.of(context).textTheme.displayLarge,
+          )),
       body: SafeArea(
         child: Column(children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Container(
+            decoration: BoxDecoration(color: scaffoldColor),
+            padding: const EdgeInsets.all(8.0),
             child: Text('Vyber si video, které tě nejvíce zaujme',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                textAlign: TextAlign.center, style: Theme.of(context).textTheme.headlineLarge),
           ),
           Expanded(
             child: Padding(
@@ -184,20 +192,20 @@ class VideoList extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
+                      height: 80,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.grey,
+                          color: containerBorderColor,
                           width: 2,
                         ),
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.greenAccent.withOpacity(0.3),
+                        color: iconColor,
                       ),
                       child: ListTile(
                         minLeadingWidth: 130,
                         title: Text(video.title),
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 10),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                         leading: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.asset(

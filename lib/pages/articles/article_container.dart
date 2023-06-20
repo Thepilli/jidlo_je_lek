@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
 
 import '../article_navigationbar_page/article_navigation_page.dart';
 import 'article_page.dart';
@@ -13,6 +15,10 @@ class ArticleContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
@@ -35,7 +41,7 @@ class ArticleContainer extends StatelessWidget {
         width: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Theme.of(context).colorScheme.background,
+          color: iconColor,
           boxShadow: const [
             BoxShadow(
               color: Colors.black12,

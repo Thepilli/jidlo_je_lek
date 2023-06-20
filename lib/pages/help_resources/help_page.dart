@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/constants/sizes.dart';
+import 'package:stacionar_app/widgets/disclaimer_text_widget.dart';
 
-import '../../widgets/disclaimer_text_widget.dart';
 import '../../widgets/gallery_pop.dart';
-import '../../widgets/html_readed_widget.dart';
+import '../../widgets/html_reader_widget.dart';
 
 class HelpPage extends StatefulWidget {
   const HelpPage({super.key});
@@ -17,9 +20,10 @@ class _HelpPageState extends State<HelpPage> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var modalColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
-        splashColor: Colors.greenAccent,
         onPressed: () {
           showModalBottomSheet(
             shape: const RoundedRectangleBorder(
@@ -28,14 +32,14 @@ class _HelpPageState extends State<HelpPage> {
                 topRight: Radius.circular(30.0),
               ),
             ),
-            backgroundColor: const Color.fromRGBO(244, 233, 215, 1),
+            backgroundColor: modalColor,
             context: context,
             builder: (context) {
               return SizedBox(
                 height: 330,
                 child: Column(
                   children: [
-                    disclaimerText(intro),
+                    DisclaimerText(disclaimer: intro),
                   ],
                 ),
               );
@@ -50,7 +54,7 @@ class _HelpPageState extends State<HelpPage> {
           buildAppCard(
             'Aplikace Nepanikař',
             'assets/icons/help_nepanikar.png',
-            'assets/htmls/1_LF_UK_a_VFN_oddeleni.html',
+            'assets/htmls/nepanikar.html',
           ),
           buildCard(
             'Lůžkové specializované oddělení',
@@ -90,9 +94,12 @@ class _HelpPageState extends State<HelpPage> {
   Widget buildCard(String title, String image, String htmlFilePath) => Padding(
       padding: const EdgeInsets.all(3.0),
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(jBorderRadius),
+        ),
         child: ExpansionTile(
           leading: Image.asset(image, width: 50, height: 50),
-          title: Text(title),
+          title: Text(title, style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.2, fontWeightDelta: 2)),
           children: [
             Padding(
               padding: const EdgeInsets.all(15.0),
@@ -105,9 +112,13 @@ class _HelpPageState extends State<HelpPage> {
   Widget buildAppCard(String title, String image, String htmlFilePath) => Padding(
         padding: const EdgeInsets.all(3.0),
         child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(jBorderRadius),
+          ),
           child: ExpansionTile(
             leading: Image.asset(image, width: 50, height: 50),
-            title: Text(title),
+            title:
+                Text(title, style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.2, fontWeightDelta: 2)),
             children: [
               Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -115,10 +126,7 @@ class _HelpPageState extends State<HelpPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Aplikace má sedm základních modulů: deprese, úzkost/panika, sebepoškozování, myšlenky na sebevraždu, sledování nálady, poruchy příjmu potravy a kontakty na odbornou pomoc.',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
+                      child: HtmlReaderWidget(htmlFilePath: htmlFilePath),
                     ),
                     const SizedBox(
                       height: 150,

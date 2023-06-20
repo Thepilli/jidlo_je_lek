@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
 
 import 'relaxation_screen.dart';
 
@@ -122,17 +124,30 @@ class RelaxationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Relaxační nahrávky'),
-      ),
+          iconTheme: IconThemeData(color: iconColor),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: scaffoldColor,
+          title: Text(
+            "Relaxační nahrávky",
+            style: Theme.of(context).textTheme.displayLarge,
+          )),
       body: SafeArea(
         child: Column(children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text('Vyber si relaxaci, která ti nejvíce vyhovuje.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          Container(
+            decoration: BoxDecoration(color: scaffoldColor),
+            padding: const EdgeInsets.all(8),
+            child: Text(
+              'Vyber si relaxaci která ti nejvíce vyhovuje.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
           ),
           Expanded(
             child: Padding(
@@ -146,11 +161,11 @@ class RelaxationList extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.grey,
+                          color: containerBorderColor,
                           width: 2,
                         ),
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.greenAccent.withOpacity(0.3),
+                        color: iconColor,
                       ),
                       child: ListTile(
                         title: Text(relaxation.tileTitle),

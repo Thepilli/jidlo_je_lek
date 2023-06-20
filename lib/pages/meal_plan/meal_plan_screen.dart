@@ -18,9 +18,9 @@ class MealPlanScreen extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(10),
-              child: const Text(
+              child: Text(
                 'Toto jsou ukázkové jídelníčky, včetně časů kdy dané chody jíst.',
-                style: TextStyle(fontSize: 20),
+                style: Theme.of(context).textTheme.headlineLarge,
                 textAlign: TextAlign.center,
               ),
             ),

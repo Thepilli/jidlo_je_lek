@@ -6,20 +6,22 @@ class JElevatedButtonTheme {
   JElevatedButtonTheme._();
 
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
-    style: OutlinedButton.styleFrom(
+    style: ElevatedButton.styleFrom(
+      minimumSize: const Size(100, jButtonHeight),
       shape: const StadiumBorder(),
-      foregroundColor: jPrimaryLightColor,
-      backgroundColor: jSecondaryLightColor,
-      side: const BorderSide(color: jSecondaryLightColor),
+      foregroundColor: jScafoldDarkColor,
+      backgroundColor: jPrimaryLightColor,
+      side: const BorderSide(color: jPrimaryLightColor, width: 3),
       padding: const EdgeInsets.symmetric(vertical: jButtonHeight),
     ),
   );
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
-    style: OutlinedButton.styleFrom(
+    style: ElevatedButton.styleFrom(
+      minimumSize: const Size(100, jButtonHeight),
       shape: const StadiumBorder(),
-      foregroundColor: jPrimaryDarkColor,
-      backgroundColor: jSecondaryDarkColor,
-      side: const BorderSide(color: jSecondaryDarkColor),
+      foregroundColor: Colors.white70,
+      backgroundColor: jPrimaryDarkColor,
+      side: const BorderSide(color: jPrimaryDarkContainerColor, width: 3),
       padding: const EdgeInsets.symmetric(vertical: jButtonHeight),
     ),
   );

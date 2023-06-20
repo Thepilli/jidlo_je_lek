@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
 
 class ArticlePage extends StatefulWidget {
   const ArticlePage({
@@ -36,11 +38,18 @@ class _ArticlePageState extends State<ArticlePage> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black54),
+        backgroundColor: iconColor,
         actions: const [],
         title: Text(
           widget.title,
+          style: const TextStyle(color: Colors.black54),
         ),
       ),
       body: SingleChildScrollView(

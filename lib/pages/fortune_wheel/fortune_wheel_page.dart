@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
 
 import 'widgets/fortune_wheel.dart';
 
@@ -43,21 +45,18 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     return Scaffold(
-      floatingActionButton: Align(
-        alignment: Alignment.topLeft,
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: FloatingActionButton(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.greenAccent.withOpacity(0.3),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(Icons.arrow_back),
-          ),
-        ),
-      ),
+      appBar: AppBar(
+          iconTheme: IconThemeData(color: iconColor),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          title: Text(
+            "Co si dneska dám?",
+            style: Theme.of(context).textTheme.displayLarge,
+          )),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -68,17 +67,16 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "Co si dneska dám?",
-                      style: Theme.of(context).textTheme.displayLarge,
-                    ),
                     const SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      "Máš problém neustále vybírat jaké pečivo si dát? Pak tohle je aplikace pro tebe!",
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: Text(
+                        "Máš problém neustále vybírat jaké pečivo si dát? Pak tahle je aplikace pro tebe!",
+                        style: Theme.of(context).textTheme.headlineMedium,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     const SizedBox(
                       height: 15,
@@ -110,18 +108,15 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                             height: 50,
                             width: 120,
                             child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.secondary),
-                              ),
                               onPressed: () {
                                 fortuneWheelController.rotateTheWheel();
                                 setState(() {
                                   isAnimationFinished = false; // Set the flag to false when button is pressed
                                 });
                               },
-                              child: const Text(
+                              child: Text(
                                 'Roztoč mě!',
-                                style: TextStyle(color: Colors.black),
+                                style: Theme.of(context).textTheme.labelSmall,
                               ),
                             ),
                           ),
@@ -262,11 +257,7 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
       child: Center(
         child: Text(
           '$text!',
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.headlineLarge,
           textAlign: TextAlign.center,
         ),
       ),

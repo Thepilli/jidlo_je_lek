@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/constants/sizes.dart';
 import 'package:stacionar_app/pages/bmi/bmi_gauge_arrow_component.dart';
 
 import '../../widgets/disclaimer_text_widget.dart';
@@ -23,11 +26,17 @@ class _BmiCalculatorState extends State<BmiCalculator> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        iconTheme: IconThemeData(color: iconColor),
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        title: Text(
           'Vyplňte svoji výšku a váhu :',
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.displayLarge,
         ),
       ),
       body: SafeArea(
@@ -46,7 +55,6 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                         controller: _heightController,
                         decoration: const InputDecoration(
                           labelText: 'Výška (cm)',
-                          border: OutlineInputBorder(),
                         ),
                         keyboardType: const TextInputType.numberWithOptions(
                           decimal: true,
@@ -60,7 +68,6 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                         controller: _weightController,
                         decoration: const InputDecoration(
                           labelText: 'Váha (kg)',
-                          border: OutlineInputBorder(),
                         ),
                         keyboardType: const TextInputType.numberWithOptions(
                           decimal: true,
@@ -71,6 +78,9 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(200, jButtonHeight),
+                  ),
                   onPressed: _calculateBmi,
                   child: const Text('Spočítat BMI'),
                 ),
@@ -85,13 +95,10 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                           : _bmi < 18.50
                               ? const AssetImage('assets/icons/bmi_neutral.png')
                               : _bmi >= 18.50 && _bmi <= 24.9
-                                  ? const AssetImage(
-                                      'assets/icons/bmi_good.png')
+                                  ? const AssetImage('assets/icons/bmi_good.png')
                                   : _bmi >= 25.0 && _bmi <= 29.9
-                                      ? const AssetImage(
-                                          'assets/icons/bmi_bad.png')
-                                      : const AssetImage(
-                                          'assets/icons/bmi_sad.png'),
+                                      ? const AssetImage('assets/icons/bmi_bad.png')
+                                      : const AssetImage('assets/icons/bmi_sad.png'),
                       width: 100,
                       height: 100,
                     ),
@@ -117,9 +124,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
-                              color: _bmi == 0.0
-                                  ? Colors.transparent
-                                  : Colors.black,
+                              color: _bmi == 0.0 ? Colors.transparent : Colors.black,
                             ),
                           ),
                         ),
@@ -140,8 +145,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
-                          color:
-                              _bmi == 0.0 ? Colors.transparent : Colors.black,
+                          color: _bmi == 0.0 ? Colors.transparent : Colors.black,
                         ),
                       ),
                     ),
@@ -176,10 +180,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 height: 350,
                 child: Column(
                   children: [
-                    disclaimerText('Co je BMI?'),
-                    disclaimerText(bmiDescription),
-                    disclaimerText(bmiDescription2),
-                    disclaimerText(disclaimer),
+                    DisclaimerText(disclaimer: 'Co je BMI? \n$bmiDescription\n$bmiDescription2\n$disclaimer'),
                   ],
                 ),
               );
@@ -193,8 +194,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   }
 
   void _calculateBmi() {
-    final height =
-        _parseDouble(_heightController.text) / 100; // convert cm to m
+    final height = _parseDouble(_heightController.text) / 100; // convert cm to m
     final weight = _parseDouble(_weightController.text);
     final bmi = weight / (height * height);
     setState(() {

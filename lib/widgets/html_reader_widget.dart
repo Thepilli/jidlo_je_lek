@@ -17,6 +17,7 @@ class HtmlReaderWidget extends StatelessWidget {
           if (snapshot.hasData) {
             return SingleChildScrollView(
               child: HtmlWidget(
+                textStyle: Theme.of(context).textTheme.labelLarge,
                 snapshot.data!,
                 onTapImage: (imageData) {
                   Navigator.push(

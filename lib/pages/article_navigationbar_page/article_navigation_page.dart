@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/pages/articles/article_container.dart';
 
 import '../navigation_panel/navigation_panel.dart';
@@ -35,6 +37,10 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     return Scaffold(
       body: SideMenuAnimation.builder(
         curveAnimation: Curves.linear,
@@ -46,19 +52,18 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
                 valueListenable: _index,
                 builder: (_, value, __) => Text(
                   myMenuValue[value].title,
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
+                  style: const TextStyle(color: Colors.black54),
                 ),
               ),
               leading: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.menu_book_rounded,
-                  color: Theme.of(context).colorScheme.inversePrimary,
+                  color: Colors.black54,
                   size: 50,
                 ),
                 onPressed: showMenu,
               ),
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              backgroundColor: iconColor,
               elevation: 0,
               systemOverlayStyle: SystemUiOverlayStyle.light,
               centerTitle: true,
@@ -93,20 +98,12 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(value.icon, width: 50, height: 50),
-                    Text(
-                      value.title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    Text(value.title, textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelLarge),
                   ],
                 ))
             .toList(),
-        selectedColor: Theme.of(context).colorScheme.primary,
-        unselectedColor: Theme.of(context).colorScheme.secondary,
+        selectedColor: iconColor,
+        unselectedColor: containerBorderColor,
         onItemSelected: (value) {
           if (value > 0 && value != _selectedTopicSection) {
             _updateArticles(value);
@@ -114,8 +111,7 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
           if (value > 0 && value != _index.value) _index.value = value;
 
           if (value == 6) {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
               return const TabPage();
             }));
           }

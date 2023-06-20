@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
 
 import '../../model/meal.dart';
 
@@ -20,21 +22,18 @@ class _MealCarouselState extends State<MealCarousel> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     return Scaffold(
-      floatingActionButton: Align(
-        alignment: Alignment.topLeft,
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: FloatingActionButton(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.greenAccent.withOpacity(0.3),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(Icons.arrow_back),
-          ),
-        ),
-      ),
+      appBar: AppBar(
+          iconTheme: IconThemeData(color: iconColor),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          title: Text(
+            "Co si dneska dám?",
+            style: Theme.of(context).textTheme.displayLarge,
+          )),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -42,25 +41,25 @@ class _MealCarouselState extends State<MealCarousel> {
             const Spacer(),
             Text(
               "Polévky",
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             const GalleryContainer(selectedCategory: 'polevky'),
             const Spacer(),
             Text(
               "Hlavní jídla",
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             const GalleryContainer(selectedCategory: 'hlavni_jidla'),
             const Spacer(),
             Text(
               "Smažená jídla",
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             const GalleryContainer(selectedCategory: 'smazena_jidla'),
             const Spacer(),
             Text(
               "Sladká jídla",
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             const GalleryContainer(selectedCategory: 'sladka_jidla'),
             const Spacer(),
@@ -81,12 +80,12 @@ class GalleryContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var containerColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var containerBorderColor = isDark ? jSecondaryDarkColor : jSecondaryLightColor;
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.green,
-          width: 2,
-        ),
+        border: Border.all(color: containerColor, width: 4),
         borderRadius: BorderRadius.circular(12),
       ),
       // appBar: AppBar(title: const Text('Vertical sliding carousel demo')),
@@ -124,7 +123,7 @@ class GalleryContainer extends StatelessWidget {
                   .map((meal) => Container(
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.greenAccent.withOpacity(0.5),
+                            color: containerColor.withOpacity(0.5),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           width: (MediaQuery.of(context).size.width),

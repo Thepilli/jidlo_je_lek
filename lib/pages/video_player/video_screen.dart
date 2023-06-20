@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/constants/sizes.dart';
 import 'package:video_player/video_player.dart';
 
 import 'video_list.dart';
 
 class VideoScreen extends StatefulWidget {
-  const VideoScreen(
-      {Key? key,
-      required this.thumbnail,
-      required this.video,
-      required this.url,
-      required this.title})
+  const VideoScreen({Key? key, required this.thumbnail, required this.video, required this.url, required this.title})
       : super(key: key);
 
   final String title;
@@ -48,46 +46,77 @@ class _VideoScreenState extends State<VideoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var scaffoldImage = isDark ? 'assets/images/pusheenbg_dark.jpeg' : 'assets/images/pusheenbg_light.jpeg';
     VideoTypes videoAsset = videoType.firstWhere(
       (type) => type.video == widget.video,
     );
-    return Scaffold(
-      floatingActionButton: Align(
-        alignment: Alignment.topLeft,
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: FloatingActionButton(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.greenAccent.withOpacity(0.3),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(Icons.arrow_back),
-          ),
-        ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            videoAsset.title,
-            style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-          ),
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: <Widget>[
-                  VideoPlayer(_controller),
-                  _ControlsOverlay(controller: _controller),
-                  VideoProgressIndicator(_controller, allowScrubbing: true),
-                ],
-              ),
+    return SafeArea(
+      child: Scaffold(
+        floatingActionButton: Align(
+          alignment: Alignment.topLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: FloatingActionButton(
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.greenAccent.withOpacity(0.3),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back),
             ),
           ),
-        ],
+        ),
+        body: Container(
+          decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: AssetImage(scaffoldImage))),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                children: [
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Text(
+                      videoAsset.title,
+                      style: Theme.of(context).textTheme.displayMedium,
+                    ),
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                ],
+              ),
+              const SizedBox(height: jDefaultSize),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: containerBorderColor,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                  color: iconColor,
+                ),
+                padding: const EdgeInsets.all(10),
+                child: AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: <Widget>[
+                      VideoPlayer(_controller),
+                      _ControlsOverlay(controller: _controller),
+                      VideoProgressIndicator(_controller, allowScrubbing: true),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

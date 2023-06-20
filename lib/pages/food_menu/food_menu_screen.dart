@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:stacionar_app/constants/colors.dart';
 
 import '../../model/svatek.dart';
 
@@ -12,6 +14,8 @@ class FoodMenuScreen extends StatefulWidget {
   @override
   State<FoodMenuScreen> createState() => _FoodMenuScreenState();
 }
+
+var isDark = Get.isDarkMode;
 
 class _FoodMenuScreenState extends State<FoodMenuScreen> {
   int weekNumber = 0;
@@ -33,9 +37,7 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
   }
 
   int getWeekNumber(DateTime date) {
-    int dayOfYear = int.parse(
-            date.difference(DateTime(date.year, 1, 1)).inDays.toString()) +
-        1;
+    int dayOfYear = int.parse(date.difference(DateTime(date.year, 1, 1)).inDays.toString()) + 1;
     int weekNumber = ((dayOfYear - date.weekday + 10) ~/ 7);
     if (weekNumber < 1) {
       weekNumber = 52 + weekNumber;
@@ -79,7 +81,19 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
     } else {
       cycleNumber = getCycleNumber(weekNumber);
     }
+    var isDark = Get.isDarkMode;
+    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: iconColor),
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Menu :',
+          style: Theme.of(context).textTheme.displayLarge,
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 15.0,
@@ -138,6 +152,7 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
                     SizedBox(
                       height: 30,
                       child: Switch(
+                        activeColor: iconColor,
                         value: isNextWeek,
                         onChanged: (value) {
                           setState(() {
@@ -162,6 +177,9 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
 }
 
 Widget courseLayout(BuildContext context, int cycleNumber) {
+  var isDark = Get.isDarkMode;
+  var containerColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+
   List menu = [
     [
       'Pondělí',
@@ -330,7 +348,7 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
         child: Container(
           width: double.infinity,
           height: 50,
-          color: filteredItems[index][2],
+          color: containerColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -338,13 +356,8 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
               Container(
                 padding: const EdgeInsets.only(left: 10),
                 width: 80,
-                child: Text(
-                  filteredItems[index][0],
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                child:
+                    Text(filteredItems[index][0], style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.1)),
               ),
               const VerticalDivider(
                 color: Colors.black,
@@ -358,9 +371,7 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
                 child: SizedBox(
                   child: Text(
                     filteredItems[index][1],
-                    style: const TextStyle(
-                      fontSize: 15,
-                    ),
+                    style: Theme.of(context).textTheme.labelLarge,
                   ),
                 ),
               ),

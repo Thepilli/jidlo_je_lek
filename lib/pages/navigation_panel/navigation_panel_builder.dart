@@ -17,6 +17,7 @@ class TabPageBuilder extends StatelessWidget {
       child: SizedBox(
         width: 50,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               width: 50,
@@ -29,9 +30,8 @@ class TabPageBuilder extends StatelessWidget {
             Text(
               label,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 10,
-                color: Theme.of(context).colorScheme.inversePrimary,
               ),
             ),
           ],

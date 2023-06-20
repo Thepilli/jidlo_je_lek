@@ -13,11 +13,12 @@ class MealPlanDetailContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 120,
           decoration: BoxDecoration(
+            border: Border.all(color: mealPlanColor[100], width: 4),
             color: mealPlanColor[50],
             borderRadius: const BorderRadius.all(Radius.circular(jBorderRadius)),
           ),
@@ -40,10 +41,7 @@ class MealPlanDetailContainer extends StatelessWidget {
                   child: Text(
                     mealImageDescription,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    style: Theme.of(context).textTheme.labelLarge,
                   ),
                 ),
               ),
