@@ -7,11 +7,11 @@ import 'package:video_player/video_player.dart';
 import 'video_list.dart';
 
 class VideoScreen extends StatefulWidget {
-  const VideoScreen({Key? key, required this.thumbnail, required this.video, required this.url, required this.title})
+  const VideoScreen({Key? key, required this.thumbnail, required this.video, required this.season, required this.title})
       : super(key: key);
 
   final String title;
-  final String url;
+  final String season;
   final String thumbnail;
   final String video;
 

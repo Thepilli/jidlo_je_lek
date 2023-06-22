@@ -24,12 +24,14 @@ class _ApplicationGridState extends State<ApplicationGrid> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  features,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineLarge,
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    features,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineLarge,
+                  ),
                 ),
               ),
               GridView.count(
@@ -40,7 +42,7 @@ class _ApplicationGridState extends State<ApplicationGrid> {
                 scrollDirection: Axis.vertical,
                 mainAxisSpacing: 10,
                 shrinkWrap: true,
-                childAspectRatio: 3,
+                childAspectRatio: 3.5,
                 padding: const EdgeInsets.only(left: 24, right: 24),
                 children: [
                   itemTile(
@@ -111,7 +113,7 @@ Widget itemTile(BuildContext context, String iconPath, String title, String desc
       iconPath,
     ),
     title: Padding(
-      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      padding: const EdgeInsets.only(bottom: 5.0),
       child: Text(
         title,
         style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.2, fontWeightDelta: 2),

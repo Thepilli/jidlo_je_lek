@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 import 'video_screen.dart';
 
 class VideoTypes {
   const VideoTypes({
     required this.title,
-    required this.url,
+    required this.season,
     required this.thumbnail,
     required this.video,
   });
 
   final String title;
-  final String url;
+  final String season;
   final String thumbnail;
   final String video;
 }
@@ -21,149 +22,218 @@ class VideoTypes {
 List videoType = [
   const VideoTypes(
     title: 'How to Befriend a Ghost with Scaredy Cat Pusheen',
-    url: 'https://youtu.be/pq2fiD0kqmc',
+    season: '1',
     thumbnail: 'assets/video/How_to_Befriend_a_Ghost_with_Scaredy_Cat_Pusheen.jpg',
     video: 'assets/video/How_to_Befriend_a_Ghost_with_Scaredy_Cat_Pusheen.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: How To Tell If Your Cat is a Scaredy Cat',
-    url: 'https://youtu.be/ax9uYL4TNKc',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_How_To_Tell_If_Your_Cat_is_a_Scaredy_Cat.jpg',
     video: 'assets/video/Pusheen_How_To_Tell_If_Your_Cat_is_a_Scaredy_Cat.mp4',
   ),
   const VideoTypes(
     title: 'Observing The Rare Mermaid Pusheenicorn',
-    url: 'https://youtu.be/xNfdTE8WNyI',
+    season: '1',
     thumbnail: 'assets/video/Observing_The_Rare_Mermaid_Pusheenicorn.jpg',
     video: 'assets/video/Observing_The_Rare_Mermaid_Pusheenicorn.mp4',
   ),
   const VideoTypes(
     title: 'Pusheenicorn Hairstyles',
-    url: 'https://youtu.be/BAt7D7zlCbI',
+    season: '1',
     thumbnail: 'assets/video/Pusheenicorn_Hairstyles.jpg',
     video: 'assets/video/Pusheenicorn_Hairstyles.mp4',
   ),
   const VideoTypes(
-    title: 'Mermaid Pusheen\'s Treasure Hunt',
-    url: 'https://youtu.be/kmChzsv7_PI',
-    thumbnail: 'assets/video/Mermaid_Pusheen_s_Treasure_Hunt.jpg',
-    video: 'assets/video/Mermaid_Pusheen_s_Treasure_Hunt.mp4',
-  ),
-  const VideoTypes(
-    title: 'Pusheen: Meowgical Girl',
-    url: 'https://youtu.be/E_bG4NAcwjg',
-    thumbnail: 'assets/video/Pusheen_Meowgical_Girl.jpg',
-    video: 'assets/video/Pusheen_Meowgical_Girl.mp4',
-  ),
-  const VideoTypes(
     title: 'Pusheen: Ghost Perks With Boosheen the Ghost',
-    url: 'https://youtu.be/7DSfry6kcZE',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_Ghost_Perks_With_Boosheen_the_Ghost.jpg',
     video: 'assets/video/Pusheen_Ghost_Perks_With_Boosheen_the_Ghost.mp4',
   ),
   const VideoTypes(
-    title: 'Pusheen: Voyage to Planet Koo-Kee',
-    url: 'https://youtu.be/_6cOAcMrcQo',
-    thumbnail: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.jpg',
-    video: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.mp4',
-  ),
-  const VideoTypes(
     title: 'Pusheen: The 4 Types of Mermaid Cats',
-    url: 'https://youtu.be/fZzzukdhJSU',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_The_4_Types_of_Mermaid_Cats.jpg',
     video: 'assets/video/Pusheen_The_4_Types_of_Mermaid_Cats.mp4',
   ),
   const VideoTypes(
     title: 'Dragonsheen\'s BBQ Techniques',
-    url: 'https://youtu.be/HfBRmY1zUPI',
+    season: '1',
     thumbnail: 'assets/video/Dragonsheen_s_BBQ_Techniques.jpg',
     video: 'assets/video/Dragonsheen_s_BBQ_Techniques.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: How to Contact Aliens',
-    url: 'https://youtu.be/I4huuyQEEUE',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_How_to_Contact_Aliens.jpg',
     video: 'assets/video/Pusheen_How_to_Contact_Aliens.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: Pusheenosaurus',
-    url: 'https://youtu.be/RRfunj92HgA',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_Pusheenosaurus.jpg',
     video: 'assets/video/Pusheen_Pusheenosaurus.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: Staying Warm With Dragonsheen',
-    url: 'https://youtu.be/4ltMmH0tS_I',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_Staying_Warm_With_Dragonsheen.jpg',
     video: 'assets/video/Pusheen_Staying_Warm_With_Dragonsheen.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: How to Tell if Your Cat is an Alien',
-    url: 'https://youtu.be/ikIAO6xN4gs',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_How_to_Tell_if_Your_Cat_is_an_Alien.jpg',
     video: 'assets/video/Pusheen_How_to_Tell_if_Your_Cat_is_an_Alien.mp4',
   ),
   const VideoTypes(
     title: 'Pugsheen: How to Achieve Your Goals',
-    url: 'https://youtu.be/iKwZ_G_F_x0',
+    season: '1',
     thumbnail: 'assets/video/Pugsheen_How_to_Achieve_Your_Goals.jpg',
     video: 'assets/video/Pugsheen_How_to_Achieve_Your_Goals.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: How to Tell if Your Cat is a Vampurr',
-    url: 'https://youtu.be/nECyeeQXOwI',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_How_to_Tell_if_Your_Cat_is_a_Vampurr.jpg',
     video: 'assets/video/Pusheen_How_to_Tell_if_Your_Cat_is_a_Vampurr.mp4',
   ),
   const VideoTypes(
     title: 'Pusheenicorn\'s Motivational Tips',
-    url: 'https://youtu.be/B77XXWJKQh8',
+    season: '1',
     thumbnail: 'assets/video/Pusheenicorn_s_Motivational_Tips.jpg',
     video: 'assets/video/Pusheenicorn_s_Motivational_Tips.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: Pusheenicorn\'s Beauty Tips',
-    url: 'https://youtu.be/A0Xm3vKfaW0',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_Pusheenicorn_s_Beauty_Tips.jpg',
     video: 'assets/video/Pusheen_Pusheenicorn_s_Beauty_Tips.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: Dinosheens\' Survival Guide',
-    url: 'https://youtu.be/6cMwhwNerYc',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_Dinosheens_Survival_Guide.jpg',
     video: 'assets/video/Pusheen_Dinosheens_Survival_Guide.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: Pawsitive Affirmations with Super Pusheenicorn',
-    url: 'https://youtu.be/v06ppwFw2vE',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_Pawsitive_Affirmations_with_Super_Pusheenicorn.jpg',
     video: 'assets/video/Pusheen_Pawsitive_Affirmations_with_Super_Pusheenicorn.mp4',
   ),
   const VideoTypes(
     title: 'Pastel Pusheens',
-    url: 'https://youtu.be/PD5uNvbnP1U',
+    season: '1',
     thumbnail: 'assets/video/Pastel_Pusheens.jpg',
     video: 'assets/video/Pastel_Pusheens.mp4',
   ),
   const VideoTypes(
     title: 'Pusheen: Your cat may be a dragon if...',
-    url: 'https://youtu.be/MDCvIEn1w98',
+    season: '1',
     thumbnail: 'assets/video/Pusheen_Your_cat_may_be_a_dragon_if....jpg',
     video: 'assets/video/Pusheen_Your_cat_may_be_a_dragon_if....mp4',
   ),
+  const VideoTypes(
+    title: 'Happy Birthday Pusheen',
+    season: '2',
+    thumbnail: 'assets/video/Happy_Birthday_Pusheen.jpg',
+    video: 'assets/video/Happy_Birthday_Pusheen.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Breads A Documentary',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Breads_A_Documentary.jpg',
+    video: 'assets/video/Pusheen_Breads_A_Documentary.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen s Guide to Ordering Online',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_s_Guide_to_Ordering_Online.jpg',
+    video: 'assets/video/Pusheen_s_Guide_to_Ordering_Online.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen s Pumpkin Patch',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_s_Pumpkin_Patch.jpg',
+    video: 'assets/video/Pusheen_s_Pumpkin_Patch.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen s Reading List for Thine Cat',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_s_Reading_List_for_Thine_Cat.jpg',
+    video: 'assets/video/Pusheen_s_Reading_List_for_Thine_Cat.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Boosheen s Haunted Manor',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Boosheen_s_Haunted_Manor.jpg',
+    video: 'assets/video/Pusheen_Boosheen_s_Haunted_Manor.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Gaming with Your Cat',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Gaming_with_Your_Cat.jpg',
+    video: 'assets/video/Pusheen_Gaming_with_Your_Cat.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Meowgical Girl',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Meowgical_Girl.jpg',
+    video: 'assets/video/Pusheen_Meowgical_Girl.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Nightmare on Kitty Lane',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Nightmare_on_Kitty_Lane.jpg',
+    video: 'assets/video/Pusheen_Nightmare_on_Kitty_Lane.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Pip s Present',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Pip_s_Present.jpg',
+    video: 'assets/video/Pusheen_Pip_s_Present.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Player 2',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Player_2.jpg',
+    video: 'assets/video/Pusheen_Player_2.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Trick or Treat',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Trick_or_Treat.jpg',
+    video: 'assets/video/Pusheen_Trick_or_Treat.mp4',
+  ),
+  const VideoTypes(
+    title: 'Pusheen Voyage to Planet Koo-Kee',
+    season: '2',
+    thumbnail: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.jpg',
+    video: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.mp4',
+  ),
 ];
 
-class VideoList extends StatelessWidget {
+class VideoList extends StatefulWidget {
   const VideoList({
     super.key,
   });
 
+  @override
+  State<VideoList> createState() => _VideoListState();
+}
+
+String selectedSeason = '1';
+
+class _VideoListState extends State<VideoList> {
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
     var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
     var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
+    List filteredVideoType = videoType.where((video) => video.season == selectedSeason).toList();
+
     return Scaffold(
       appBar: AppBar(
           iconTheme: IconThemeData(color: iconColor),
@@ -182,13 +252,42 @@ class VideoList extends StatelessWidget {
             child: Text('Vyber si video, které tě nejvíce zaujme',
                 textAlign: TextAlign.center, style: Theme.of(context).textTheme.headlineLarge),
           ),
+          Container(
+            decoration: BoxDecoration(color: scaffoldColor),
+            padding: const EdgeInsets.all(8.0),
+            child: ToggleSwitch(
+              minWidth: 200.0,
+              initialLabelIndex: selectedSeason == '1' ? 0 : 1, // Set the initial selected season index
+              cornerRadius: 20.0,
+              activeFgColor: Colors.white,
+              inactiveBgColor: Colors.grey,
+              inactiveFgColor: Colors.white,
+              totalSwitches: 2,
+              labels: const ['Sezona 1', 'Sezona 2'],
+              activeBgColors: const [
+                [Colors.teal],
+                [Colors.teal]
+              ],
+              onToggle: (index) {
+                setState(() {
+                  if (index == 0) {
+                    selectedSeason = '1';
+                  } else {
+                    selectedSeason = '2';
+                  }
+                  filteredVideoType = videoType.where((video) => video.season == selectedSeason).toList();
+                });
+              },
+            ),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ListView.builder(
-                itemCount: videoType.length,
+                itemCount: filteredVideoType.length,
                 itemBuilder: (context, index) {
-                  VideoTypes video = videoType[index];
+                  VideoTypes video = filteredVideoType[index];
+
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -218,7 +317,7 @@ class VideoList extends StatelessWidget {
                             MaterialPageRoute(
                               builder: (context) => VideoScreen(
                                 title: video.title,
-                                url: video.url,
+                                season: video.season,
                                 thumbnail: video.thumbnail,
                                 video: video.video,
                               ),
