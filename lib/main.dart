@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:stacionar_app/pages/core/home_page/home_page_navigation.dart';
 import 'package:stacionar_app/utils/theme/theme.dart';
-
-import 'pages/navigation_panel/navigation_panel.dart';
 
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -40,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 500),
-      home: const TabPage(),
+      home: const HomePageNavigator(),
     );
   }
 }
