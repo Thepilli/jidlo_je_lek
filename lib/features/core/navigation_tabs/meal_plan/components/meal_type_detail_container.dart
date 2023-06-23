@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/constants/sizes.dart';
-
-import '../../../../../../widgets/gallery_pop.dart';
+import 'package:stacionar_app/widgets/gallery_pop.dart';
 
 class MealPlanDetailContainer extends StatelessWidget {
   final dynamic mealPlanColor;

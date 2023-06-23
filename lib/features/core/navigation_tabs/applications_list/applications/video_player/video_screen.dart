@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_list.dart';
 import 'package:video_player/video_player.dart';
-
-import 'video_list.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen({Key? key, required this.thumbnail, required this.video, required this.season, required this.title})

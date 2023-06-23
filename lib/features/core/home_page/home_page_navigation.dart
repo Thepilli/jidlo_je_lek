@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/features/core/home_page/home_page_navigation_builder.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications_list.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_page.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/meal_plan/meal_plan_screen.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/resources/help_page.dart';
 import 'package:stacionar_app/model/meal_plans.dart';
-
-import 'navigation_tabs/applications_list/applications_list.dart';
-import 'navigation_tabs/articles/articles_page.dart';
-import 'navigation_tabs/resources/help_page.dart';
-import 'navigation_tabs/meal_plan/meal_plan_screen.dart';
-import 'home_page_navigation_builder.dart';
 
 class HomePageNavigator extends StatefulWidget {
   const HomePageNavigator({Key? key}) : super(key: key);

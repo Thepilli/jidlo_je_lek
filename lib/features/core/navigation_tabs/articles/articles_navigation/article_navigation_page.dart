@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/model/article_drawer.dart';
-import 'package:stacionar_app/features/core/home_page/navigation_tabs/articles/articles_navigation/article_container_widget.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_navigation/article_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:side_menu_animation/side_menu_animation.dart';

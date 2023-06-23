@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/meal_inspiration/meal_inspiration.dart';
-import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/relaxation/relaxation_list.dart';
-import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/video_player/video_list.dart';
-
-import 'applications/BMI/bmi_calculator_screen.dart';
-import 'applications/stacionar_menu/stacionar_menu.dart';
-import 'applications/fortune_wheel/fortune_wheel_page.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/BMI/bmi_calculator_screen.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/fortune_wheel_page.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/relaxation/relaxation_list.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/stacionar_menu/stacionar_menu.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_list.dart';
+import 'package:stacionar_app/features/core//navigation_tabs/applications_list/applications/meal_inspiration/meal_inspiration.dart';
 
 class ApplicationsList extends StatefulWidget {
   const ApplicationsList({Key? key}) : super(key: key);

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
-
-import 'relaxation_screen.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/relaxation/relaxation_screen.dart';
 
 class RelaxationTypes {
   const RelaxationTypes({

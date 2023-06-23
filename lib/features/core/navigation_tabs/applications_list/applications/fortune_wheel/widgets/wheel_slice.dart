@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/fortune_wheel/widgets/fortune_wheel_model.dart';
-import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/fortune_wheel/painters/wheel_slice_painter.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/widgets/fortune_wheel_model.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/painters/wheel_slice_painter.dart';
 
 class WheelSlice extends StatelessWidget {
   const WheelSlice({super.key, required this.index, required this.size, required this.fortuneWheelChildren});

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_screen.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-
-import 'video_screen.dart';
 
 class VideoTypes {
   const VideoTypes({

@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
-
-import '../widgets/fortune_wheel_model.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/widgets/fortune_wheel_model.dart';
 
 class FortuneWheelController<T> extends ChangeNotifier {
   FortuneWheelModel<T>? value;

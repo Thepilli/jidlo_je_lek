@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../model/meal_plans.dart';
-import 'components/meal_type_detail_container.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/meal_plan/components/meal_type_detail_container.dart';
+import 'package:stacionar_app/model/meal_plans.dart';
 
 class MealPlanDetail extends StatelessWidget {
   final String mealType;

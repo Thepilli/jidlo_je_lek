@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
 import 'package:stacionar_app/widgets/disclaimer_text_widget.dart';
+import 'package:stacionar_app/widgets/gallery_pop.dart';
 import 'package:stacionar_app/widgets/html_reader_widget.dart';
-
-import '../../../../../widgets/gallery_pop.dart';
 
 class HelpPage extends StatefulWidget {
   const HelpPage({super.key});

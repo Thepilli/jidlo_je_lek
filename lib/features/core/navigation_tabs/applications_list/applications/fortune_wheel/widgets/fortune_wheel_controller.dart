@@ -1,14 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'wheel_result_indicator.dart';
-import 'wheel_slice.dart';
-import '../painters/wheel_outline_painter.dart';
-import 'fortune_wheel_model.dart';
-import '../controller/fortune_wheel_controller.dart';
-
-export 'fortune_wheel_model.dart';
-export '../controller/fortune_wheel_controller.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/controller/fortune_wheel_controller.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/painters/wheel_outline_painter.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/widgets/fortune_wheel_model.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/widgets/wheel_result_indicator.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/widgets/wheel_slice.dart';
 
 class FortuneWheel<T> extends StatefulWidget {
   const FortuneWheel(

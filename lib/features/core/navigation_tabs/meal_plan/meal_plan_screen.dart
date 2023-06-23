@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../model/meal_plans.dart';
-import 'components/meal_type_container.dart';
-import 'meal_plan_detail.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/meal_plan/components/meal_type_container.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/meal_plan/meal_plan_detail.dart';
+import 'package:stacionar_app/model/meal_plans.dart';
 
 // ignore: must_be_immutable
 class MealPlanScreen extends StatelessWidget {
