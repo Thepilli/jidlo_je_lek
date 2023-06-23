@@ -1,7 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-
-import '../core/home_page/home_page_navigation.dart';
+import 'package:stacionar_app/features/core/home_page/home_page_navigation.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
@@ -10,43 +9,30 @@ class CenterNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final topMoveAnimation = Tween<Offset>(
-      begin: const Offset(0, 5),
-      end: const Offset(0, 0),
-    ).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.0,
-          0.2,
-          curve: Curves.fastOutSlowIn,
-        ),
+    final topMoveAnimation = Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0)).animate(CurvedAnimation(
+      parent: animationController,
+      curve: const Interval(
+        0.0,
+        0.2,
+        curve: Curves.fastOutSlowIn,
       ),
-    );
-    final signUpMoveAnimation = Tween<double>(begin: 0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.6,
-          0.8,
-          curve: Curves.fastOutSlowIn,
-        ),
+    ));
+    final signUpMoveAnimation = Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
+      parent: animationController,
+      curve: const Interval(
+        0.6,
+        0.8,
+        curve: Curves.fastOutSlowIn,
       ),
-    );
-    // ignore: unused_local_variable
-    final loginTextMoveAnimation = Tween<Offset>(
-      begin: const Offset(0, 5),
-      end: const Offset(0, 0),
-    ).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.6,
-          0.8,
-          curve: Curves.fastOutSlowIn,
-        ),
+    ));
+    final loginTextMoveAnimation = Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0)).animate(CurvedAnimation(
+      parent: animationController,
+      curve: const Interval(
+        0.6,
+        0.8,
+        curve: Curves.fastOutSlowIn,
       ),
-    );
+    ));
 
     return Padding(
       padding: EdgeInsets.only(bottom: 16 + MediaQuery.of(context).padding.bottom),
@@ -69,84 +55,105 @@ class CenterNextButton extends StatelessWidget {
             position: topMoveAnimation,
             child: AnimatedBuilder(
               animation: animationController,
-              builder: (context, child) => Center(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    bottom: 38 - (38 * signUpMoveAnimation.value),
+              builder: (context, child) => Padding(
+                padding: EdgeInsets.only(bottom: 38 - (38 * signUpMoveAnimation.value)),
+                child: Container(
+                  height: 58,
+                  width: 58 + (200 * signUpMoveAnimation.value),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8 + 32 * (1 - signUpMoveAnimation.value)),
+                    color: const Color(0xff132137),
                   ),
-                  child: Container(
-                    height: 58,
-                    width: signUpMoveAnimation.value < 0.7 ? 58 + (200 * signUpMoveAnimation.value) : 300,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        8 + 32 * (1 - signUpMoveAnimation.value),
-                      ),
-                      color: signUpMoveAnimation.value > 0.7 ? Colors.transparent : const Color(0xff132137),
-                    ),
-                    child: PageTransitionSwitcher(
-                      duration: const Duration(milliseconds: 480),
-                      reverse: signUpMoveAnimation.value < 0.7,
-                      transitionBuilder: (
-                        Widget child,
-                        Animation<double> animation,
-                        Animation<double> secondaryAnimation,
-                      ) {
-                        return SharedAxisTransition(
-                          fillColor: Colors.transparent,
-                          animation: animation,
-                          secondaryAnimation: secondaryAnimation,
-                          transitionType: SharedAxisTransitionType.vertical,
-                          child: child,
-                        );
-                      },
-                      child: signUpMoveAnimation.value > 0.7
-                          ? InkWell(
-                              key: const ValueKey('Sign Up button'),
-                              onTap: () {
-                                Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(builder: (context) {
-                                    return const HomePageNavigator();
-                                  }),
-                                );
-                              },
-                              child: const Padding(
-                                padding: EdgeInsets.only(left: 16.0, right: 16.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Jdeme na to',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                  child: PageTransitionSwitcher(
+                    duration: const Duration(milliseconds: 480),
+                    reverse: signUpMoveAnimation.value < 0.7,
+                    transitionBuilder: (
+                      Widget child,
+                      Animation<double> animation,
+                      Animation<double> secondaryAnimation,
+                    ) {
+                      return SharedAxisTransition(
+                        fillColor: Colors.transparent,
+                        animation: animation,
+                        secondaryAnimation: secondaryAnimation,
+                        transitionType: SharedAxisTransitionType.vertical,
+                        child: child,
+                      );
+                    },
+                    child: signUpMoveAnimation.value > 0.7
+                        ? InkWell(
+                            key: const ValueKey('Sign Up button'),
+                            onTap: () {
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (context) {
+                                  return const HomePageNavigator();
+                                }),
+                              );
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Sign Up',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    Icon(Icons.arrow_forward_rounded, color: Colors.white),
-                                  ],
-                                ),
-                              ),
-                            )
-                          : InkWell(
-                              key: const ValueKey('next button'),
-                              onTap: onNextClick,
-                              child: const Padding(
-                                padding: EdgeInsets.all(16.0),
-                                child: Icon(Icons.arrow_forward_ios_rounded, color: Colors.white),
+                                  ),
+                                  Icon(Icons.arrow_forward_rounded, color: Colors.white),
+                                ],
                               ),
                             ),
-                    ),
+                          )
+                        : InkWell(
+                            key: const ValueKey('next button'),
+                            onTap: onNextClick,
+                            child: const Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Icon(Icons.arrow_forward_ios_rounded, color: Colors.white),
+                            ),
+                          ),
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 40),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: SlideTransition(
+              position: loginTextMoveAnimation,
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already have an account? ',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Color(0xff132137),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
+  ///Page Indicator
   Widget _pageView() {
     int selectedIndex = 0;
 

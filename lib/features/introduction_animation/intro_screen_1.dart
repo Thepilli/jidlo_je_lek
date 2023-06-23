@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SplashView extends StatefulWidget {
+class Intro extends StatefulWidget {
   final AnimationController animationController;
 
-  const SplashView({Key? key, required this.animationController})
-      : super(key: key);
+  const Intro({Key? key, required this.animationController}) : super(key: key);
 
   @override
-  _SplashViewState createState() => _SplashViewState();
+  _IntroState createState() => _IntroState();
 }
 
-class _SplashViewState extends State<SplashView> {
+class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
     final introductionanimation = Tween<Offset>(
@@ -56,8 +55,7 @@ class _SplashViewState extends State<SplashView> {
               height: 48,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).padding.bottom + 16),
+              padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 16),
               child: InkWell(
                 onTap: () {
                   widget.animationController.animateTo(0.2);

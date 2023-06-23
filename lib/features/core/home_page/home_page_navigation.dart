@@ -7,6 +7,7 @@ import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_pa
 import 'package:stacionar_app/features/core/navigation_tabs/meal_plan/meal_plan_screen.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/resources/help_page.dart';
 import 'package:stacionar_app/model/meal_plans.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class HomePageNavigator extends StatefulWidget {
   const HomePageNavigator({Key? key}) : super(key: key);
@@ -69,9 +70,12 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
           appBar: AppBar(
             iconTheme: IconThemeData(color: iconColor),
             elevation: 0,
-            centerTitle: true,
+            // centerTitle: true,
             backgroundColor: Colors.transparent,
-            title: Text('Stacionář', style: Theme.of(context).textTheme.headlineMedium),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 200),
+              child: Text('Stacionář', style: Theme.of(context).textTheme.headlineMedium),
+            ),
             actions: [
               IconButton(
                 onPressed: () {
@@ -91,27 +95,29 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
               // )
             ],
           ),
-          body: SafeArea(
-            child: Column(
-              children: [
-                TabBar(
-                  tabs: myTabs,
-                  indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: tabColor,
+          body: ConstrainedContainer(
+            child: SafeArea(
+              child: Column(
+                children: [
+                  TabBar(
+                    tabs: myTabs,
+                    indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: tabColor,
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: TabBarView(
-                    children: [
-                      const ArticlesPage(),
-                      MealPlanScreen(mealList: getMealList()),
-                      const ApplicationsList(),
-                      const HelpPage(),
-                    ],
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        const ArticlesPage(),
+                        MealPlanScreen(mealList: getMealList()),
+                        const ApplicationsList(),
+                        const HelpPage(),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
