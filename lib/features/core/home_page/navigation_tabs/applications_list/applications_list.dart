@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/pages/core/home_page/navigation_tabs/applications_list/applications/meal_inspiration/meal_inspiration.dart';
-import 'package:stacionar_app/pages/core/home_page/navigation_tabs/applications_list/applications/relaxation/relaxation_list.dart';
-import 'package:stacionar_app/pages/core/home_page/navigation_tabs/applications_list/applications/video_player/video_list.dart';
+import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/meal_inspiration/meal_inspiration.dart';
+import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/relaxation/relaxation_list.dart';
+import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/video_player/video_list.dart';
 
 import 'applications/BMI/bmi_calculator_screen.dart';
 import 'applications/stacionar_menu/stacionar_menu.dart';

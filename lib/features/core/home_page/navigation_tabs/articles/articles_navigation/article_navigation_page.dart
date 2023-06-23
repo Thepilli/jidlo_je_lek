@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/model/article_drawer.dart';
-import 'package:stacionar_app/pages/core/home_page/navigation_tabs/articles/articles_navigation/article_container_widget.dart';
+import 'package:stacionar_app/features/core/home_page/navigation_tabs/articles/articles_navigation/article_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:side_menu_animation/side_menu_animation.dart';
-import 'package:stacionar_app/pages/core/home_page/home_page_navigation.dart';
+import 'package:stacionar_app/features/core/home_page/home_page_navigation.dart';
 
 class ArticleNavigationPage extends StatefulWidget {
   const ArticleNavigationPage({Key? key}) : super(key: key);

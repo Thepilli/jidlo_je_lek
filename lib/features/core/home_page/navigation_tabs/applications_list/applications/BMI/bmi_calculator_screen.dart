@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
-import 'package:stacionar_app/pages/core/home_page/navigation_tabs/applications_list/applications/BMI/bmi_gauge_arrow_component.dart';
+import 'package:stacionar_app/features/core/home_page/navigation_tabs/applications_list/applications/BMI/bmi_gauge_arrow_component.dart';
 import 'package:stacionar_app/widgets/disclaimer_text_widget.dart';
 
 class BmiCalculator extends StatefulWidget {

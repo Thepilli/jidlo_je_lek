@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
-import 'package:stacionar_app/pages/core/home_page/navigation_tabs/articles/articles_navigation/article_navigation_page.dart';
-import 'package:stacionar_app/pages/core/home_page/navigation_tabs/articles/articles_navigation/article_page.dart';
+import 'package:stacionar_app/features/core/home_page/navigation_tabs/articles/articles_navigation/article_navigation_page.dart';
+import 'package:stacionar_app/features/core/home_page/navigation_tabs/articles/articles_navigation/article_page.dart';
 
 class ArticleContainerWidget extends StatelessWidget {
   final Article article;
