@@ -81,7 +81,7 @@ class _HelpPageState extends State<HelpPage> {
             'assets/htmls/help_lecba.html',
           ),
           buildCard(
-            'Nasledky',
+            'Následky',
             'assets/icons/help_nasledky.png',
             'assets/htmls/nasledky.html',
           ),

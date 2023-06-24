@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class GalleryPop extends StatefulWidget {
   final String heroTag;
@@ -27,23 +28,25 @@ class _GaleryPopState extends State<GalleryPop> {
           ),
         ),
         backgroundColor: const Color.fromRGBO(244, 233, 215, 1),
-        body: Center(
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Hero(
-              tag: widget.heroTag,
-              child: Dismissible(
-                direction: DismissDirection.vertical,
-                key: const Key('key'),
-                onDismissed: (_) => Navigator.of(context).pop(),
-                child: InteractiveViewer(
-                  clipBehavior: Clip.none,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Image(
-                      image: AssetImage(widget.heroTag),
+        body: ConstrainedContainer(
+          child: Center(
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Hero(
+                tag: widget.heroTag,
+                child: Dismissible(
+                  direction: DismissDirection.vertical,
+                  key: const Key('key'),
+                  onDismissed: (_) => Navigator.of(context).pop(),
+                  child: InteractiveViewer(
+                    clipBehavior: Clip.none,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Image(
+                        image: AssetImage(widget.heroTag),
+                      ),
                     ),
                   ),
                 ),

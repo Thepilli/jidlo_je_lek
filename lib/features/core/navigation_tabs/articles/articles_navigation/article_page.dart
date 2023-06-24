@@ -3,6 +3,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class ArticlePage extends StatefulWidget {
   const ArticlePage({
@@ -42,37 +43,40 @@ class _ArticlePageState extends State<ArticlePage> {
     var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 0,
         iconTheme: const IconThemeData(color: Colors.black54),
         backgroundColor: iconColor,
         actions: const [],
-        title: Text(
-          widget.title,
-          style: const TextStyle(color: Colors.black54),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 50),
+          child: Text(widget.title, style: Theme.of(context).textTheme.headlineMedium),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              Image.asset(widget.image),
-              const SizedBox(height: 20),
-              HtmlWidget(
-                _htmlContent,
-                customStylesBuilder: (element) {
-                  switch (element.localName) {
-                    case 'a':
-                      return {
-                        'color': 'rgba(160, 79, 40,255)',
-                        'text-align': 'left',
-                        'font-size': '100%',
-                      };
-                    default:
-                      return {};
-                  }
-                },
-              )
-            ],
+      body: ConstrainedContainer(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                Image.asset(widget.image),
+                const SizedBox(height: 20),
+                HtmlWidget(
+                  _htmlContent,
+                  customStylesBuilder: (element) {
+                    switch (element.localName) {
+                      case 'a':
+                        return {
+                          'color': 'rgba(160, 79, 40,255)',
+                          'text-align': 'left',
+                          'font-size': '100%',
+                        };
+                      default:
+                        return {};
+                    }
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),

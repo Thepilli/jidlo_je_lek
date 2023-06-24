@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/relaxation/relaxation_screen.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class RelaxationTypes {
   const RelaxationTypes({
@@ -31,7 +32,7 @@ List relaxationType = [
     asset: 'assets/audio/afirmace_ranni.mp3',
     tileAsset: 'assets/images/tile_afirmace.png',
     description:
-        'Nastartuj svůj den, tyto ranní afirmace ti pomůžou nakopnout tvůj den. Tyto afirmace ti pomohou udržet celý den pozornost na tom, co je důležité a také - díky těmto afirmacím zažiješ zázraky doslova na počkání. Tvoje přání se budou plnit lusknutím prstu.',
+        'Nastartuj svůj den, pomocí této afirmace, která ti pomůže udržet celý den pozornost na tom, co je důležité. Tvoje přání se budou plnit lusknutím prstu.',
     background: 'assets/audio/afirmace.png',
   ),
   const RelaxationTypes(
@@ -41,7 +42,7 @@ List relaxationType = [
     asset: 'assets/audio/afirmace_zdravi.mp3',
     tileAsset: 'assets/images/tile_afirmace.png',
     description:
-        'Tyto afirmace zdraví jsou sestaveny tak, aby započaly proces léčení a uzdravení. Zároveň tyto afirmace zdraví obsahují i práci s myslí, s potřebou vytvářet a držet si nemoc. Proto jsou tyto afirmace zdraví tak účinné, jdou hlouběji k problému, nikoli jen po jeho povrchu',
+        'Tato afirmace pro zdraví je sestavena tak, aby započala proces léčení a uzdravení. Obsahuje práci s myslí, s potřebou vytvářet a držet si nemoc, a jde tak hlouběji k problému, nikoli jen po jeho povrchu',
     background: 'assets/audio/afirmace.png',
   ),
   const RelaxationTypes(
@@ -129,70 +130,76 @@ class RelaxationList extends StatelessWidget {
     var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     return Scaffold(
       appBar: AppBar(
+          titleSpacing: 0,
           iconTheme: IconThemeData(color: iconColor),
           elevation: 0,
-          centerTitle: true,
+          // centerTitle: true,
           backgroundColor: scaffoldColor,
-          title: Text(
-            "Relaxační nahrávky",
-            style: Theme.of(context).textTheme.displayLarge,
-          )),
-      body: SafeArea(
-        child: Column(children: [
-          Container(
-            decoration: BoxDecoration(color: scaffoldColor),
-            padding: const EdgeInsets.all(8),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 150),
             child: Text(
-              'Vyber si relaxaci která ti nejvíce vyhovuje.',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineLarge,
+              "Relaxační nahrávky",
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: ListView.builder(
-                itemCount: relaxationType.length,
-                itemBuilder: (context, index) {
-                  RelaxationTypes relaxation = relaxationType[index];
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: containerBorderColor,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                        color: iconColor,
-                      ),
-                      child: ListTile(
-                        title: Text(relaxation.tileTitle),
-                        leading: Image.asset(relaxation.tileAsset),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RelaxationScreen(
-                                relaxationType: relaxation.relaxationType,
-                                title: relaxation.title,
-                                tileTitle: relaxation.title,
-                                track: relaxation.title,
-                                description: relaxation.title,
-                                tileAsset: relaxation.title,
-                                background: relaxation.title,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  );
-                },
+          )),
+      body: ConstrainedContainer(
+        child: SafeArea(
+          child: Column(children: [
+            Container(
+              decoration: BoxDecoration(color: scaffoldColor),
+              padding: const EdgeInsets.all(8),
+              child: Text(
+                'Vyber si relaxaci která ti nejvíce vyhovuje.',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
-          ),
-        ]),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListView.builder(
+                  itemCount: relaxationType.length,
+                  itemBuilder: (context, index) {
+                    RelaxationTypes relaxation = relaxationType[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: containerBorderColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          color: iconColor,
+                        ),
+                        child: ListTile(
+                          title: Text(relaxation.tileTitle, style: Theme.of(context).textTheme.bodyMedium),
+                          leading: Image.asset(relaxation.tileAsset),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RelaxationScreen(
+                                  relaxationType: relaxation.relaxationType,
+                                  title: relaxation.title,
+                                  tileTitle: relaxation.title,
+                                  track: relaxation.title,
+                                  description: relaxation.title,
+                                  tileAsset: relaxation.title,
+                                  background: relaxation.title,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }

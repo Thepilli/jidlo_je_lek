@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class WelcomeView extends StatelessWidget {
   final AnimationController animationController;
-  const WelcomeView({Key? key, required this.animationController})
-      : super(key: key);
+  const WelcomeView({Key? key, required this.animationController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +72,7 @@ class WelcomeView extends StatelessWidget {
               SlideTransition(
                 position: welcomeImageAnimation,
                 child: Container(
-                  constraints:
-                      const BoxConstraints(maxWidth: 350, maxHeight: 350),
+                  constraints: const BoxConstraints(maxWidth: 350, maxHeight: 350),
                   child: Image.asset(
                     'assets/images/introduction_animation/splash_4.png',
                     fit: BoxFit.contain,
@@ -82,17 +80,18 @@ class WelcomeView extends StatelessWidget {
                 ),
               ),
               SlideTransition(
-                position: welcomeFirstHalfAnimation,
-                child: const Text(
-                  "Mnohé další",
-                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
-                ),
-              ),
+                  position: welcomeFirstHalfAnimation,
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                    child: Text(
+                      "Mnohé další",
+                      style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                    ),
+                  )),
               const Padding(
-                padding:
-                    EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                 child: Text(
-                  "",
+                  "Ať už jde o pomoc při úzkostných situacích, hledání dalších informací, možností relaxace, nebo třeba jen odreagování se při sledování videii, jste na správném místě.\nNeváhejte a začnete prozkoumávat",
                   textAlign: TextAlign.center,
                 ),
               ),

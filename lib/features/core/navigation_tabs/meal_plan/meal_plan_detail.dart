@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/meal_plan/components/meal_type_detail_container.dart';
 import 'package:stacionar_app/model/meal_plans.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class MealPlanDetail extends StatelessWidget {
   final String mealType;
@@ -18,21 +19,27 @@ class MealPlanDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 0,
         backgroundColor: mealPlanColor.withAlpha(80),
-        title: Text(mealType),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 200),
+          child: Text(mealType, style: Theme.of(context).textTheme.headlineLarge),
+        ),
       ),
-      body: SafeArea(
-        child: ListView.builder(
-          itemCount: imageAssets.length,
-          itemBuilder: (BuildContext context, int index) {
-            MealImage mealImage = imageAssets[index];
+      body: ConstrainedContainer(
+        child: SafeArea(
+          child: ListView.builder(
+            itemCount: imageAssets.length,
+            itemBuilder: (BuildContext context, int index) {
+              MealImage mealImage = imageAssets[index];
 
-            return MealPlanDetailContainer(
-              mealImagePath: mealImage.mealImagePath,
-              mealImageDescription: mealImage.mealImageDescription,
-              mealPlanColor: mealPlanColor,
-            );
-          },
+              return MealPlanDetailContainer(
+                mealImagePath: mealImage.mealImagePath,
+                mealImageDescription: mealImage.mealImageDescription,
+                mealPlanColor: mealPlanColor,
+              );
+            },
+          ),
         ),
       ),
     );

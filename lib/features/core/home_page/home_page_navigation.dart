@@ -73,8 +73,8 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
             // centerTitle: true,
             backgroundColor: Colors.transparent,
             title: Padding(
-              padding: const EdgeInsets.only(left: 200),
-              child: Text('Stacionář', style: Theme.of(context).textTheme.headlineMedium),
+              padding: const EdgeInsets.only(left: 150),
+              child: Text('Jídlo je lék', style: Theme.of(context).textTheme.headlineMedium),
             ),
             actions: [
               IconButton(

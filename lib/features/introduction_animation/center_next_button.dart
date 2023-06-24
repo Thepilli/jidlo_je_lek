@@ -96,7 +96,7 @@ class CenterNextButton extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Sign Up',
+                                    'Jdeme na to!',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -128,22 +128,21 @@ class CenterNextButton extends StatelessWidget {
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Already have an account? ',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Color(0xff132137),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  // Text(
+                  //   'Nebo pokud chceš,',
+                  //   style: TextStyle(
+                  //     color: Colors.grey[700],
+                  //   ),
+                  // ),
+                  // const SizedBox(width: 5),
+                  // GestureDetector(
+                  //   onTap: () {},
+                  //   child: const Text('pokračuj anonymně',
+                  //       style: TextStyle(
+                  //         color: Colors.blue,
+                  //         fontWeight: FontWeight.bold,
+                  //       )),
+                  // ),
                 ],
               ),
             ),

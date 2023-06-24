@@ -38,9 +38,9 @@ class ArticlesPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: jButtonHeight),
-              Text(title, style: Theme.of(context).textTheme.displayMedium),
+              Text(title, style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: jButtonHeight),
-              Text(description, style: Theme.of(context).textTheme.headlineMedium),
+              Text(description, style: Theme.of(context).textTheme.bodyMedium),
               const SizedBox(height: jButtonHeight),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -54,7 +54,7 @@ class ArticlesPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: jButtonHeight),
-              Text(features, style: Theme.of(context).textTheme.headlineMedium),
+              Text(features, style: Theme.of(context).textTheme.bodyMedium),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

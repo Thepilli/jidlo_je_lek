@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/utils/svatek_api.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class StacionarMenu extends StatefulWidget {
   const StacionarMenu({super.key});
@@ -85,90 +86,79 @@ class _StacionarMenuState extends State<StacionarMenu> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: iconColor),
-        elevation: 0,
-        centerTitle: true,
+        elevation: 0, titleSpacing: 0,
+
+        // centerTitle: true,
         backgroundColor: Colors.transparent,
-        title: Text(
-          'Menu :',
-          style: Theme.of(context).textTheme.displayLarge,
+        title: Padding(
+          padding: const EdgeInsets.only(left: 200),
+          child: Text(
+            'Menu :',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 15.0,
-        ),
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Dnes je $dayInWeek,\n$dayNumber.$monthNumber a svátek má:',
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  svatekDnes,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 1,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Expanded(
-                  child: Text(
-                    'Co je tento týden \ndobrého k obědu?',
-                    style: TextStyle(
+      body: ConstrainedContainer(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15.0,
+          ),
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Dnes je $dayInWeek,\n$dayNumber.$monthNumber a svátek má:',
+                      style: Theme.of(context).textTheme.headlineMedium),
+                  Text(
+                    svatekDnes,
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
+                  )
+                ],
+              ),
+              const Divider(
+                color: Colors.black,
+                thickness: 1,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Text('Co je tento týden \ndobrého k obědu?', style: Theme.of(context).textTheme.headlineMedium),
                   ),
-                ),
-                Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        'Příští týden',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text('Příští týden', style: Theme.of(context).textTheme.headlineMedium),
+                      ),
+                      SizedBox(
+                        height: 30,
+                        child: Switch(
+                          activeColor: iconColor,
+                          value: isNextWeek,
+                          onChanged: (value) {
+                            setState(() {
+                              isNextWeek = value;
+                            });
+                          },
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                      child: Switch(
-                        activeColor: iconColor,
-                        value: isNextWeek,
-                        onChanged: (value) {
-                          setState(() {
-                            isNextWeek = value;
-                          });
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            courseLayout(context, cycleNumber),
-          ],
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              courseLayout(context, cycleNumber),
+            ],
+          ),
         ),
       ),
     );
@@ -370,7 +360,7 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
                 child: SizedBox(
                   child: Text(
                     filteredItems[index][1],
-                    style: Theme.of(context).textTheme.labelLarge,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ),
               ),

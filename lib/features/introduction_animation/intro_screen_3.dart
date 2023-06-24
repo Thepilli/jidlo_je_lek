@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class CareView extends StatelessWidget {
   final AnimationController animationController;
 
-  const CareView({Key? key, required this.animationController})
-      : super(key: key);
+  const CareView({Key? key, required this.animationController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -102,8 +101,7 @@ class CareView extends StatelessWidget {
                 child: SlideTransition(
                   position: imageSecondHalfAnimation,
                   child: Container(
-                    constraints:
-                        const BoxConstraints(maxWidth: 350, maxHeight: 250),
+                    constraints: const BoxConstraints(maxWidth: 350, maxHeight: 250),
                     child: Image.asset(
                       'assets/images/introduction_animation/splash_2.png',
                       fit: BoxFit.contain,
@@ -117,16 +115,14 @@ class CareView extends StatelessWidget {
                   position: relaxSecondHalfAnimation,
                   child: const Text(
                     "Jídelníček",
-                    style:
-                        TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
               const Padding(
-                padding:
-                    EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
+                padding: EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
                 child: Text(
-                  "Jídelníček je nedílnou součástí znovunastolení normálního stravovacího režimu. Podívejte se na doporučení pro sestavení vlastního jídelníčku, vzory jednotlivých chodů a příklady jídel.",
+                  "Jídelníček je nedílnou součástí znovunastolení normálního stravovacího režimu. Podívejte se na doporučení pro sestavení vlastního jídelníčku, vzory jednotlivých chodů, nebo třeba jen inspiraci pro co si dát",
                   textAlign: TextAlign.center,
                 ),
               ),

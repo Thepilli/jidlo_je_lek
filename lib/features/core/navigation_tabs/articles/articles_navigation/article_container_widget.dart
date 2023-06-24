@@ -58,7 +58,7 @@ class ArticleContainerWidget extends StatelessWidget {
             Flexible(
               child: Text(
                 article.title,
-                style: const TextStyle(fontSize: 16),
+                style: Theme.of(context).textTheme.headlineMedium,
                 overflow: TextOverflow.clip,
               ),
             ),

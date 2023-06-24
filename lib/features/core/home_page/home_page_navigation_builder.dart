@@ -15,7 +15,7 @@ class HomePageNavigationBuilder extends StatelessWidget {
     return Tab(
       height: 80,
       child: SizedBox(
-        width: 50,
+        width: 80,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -27,13 +27,7 @@ class HomePageNavigationBuilder extends StatelessWidget {
                 height: 50,
               ),
             ),
-            Text(
-              label,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 10,
-              ),
-            ),
+            Text(label, textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelSmall),
           ],
         ),
       ),

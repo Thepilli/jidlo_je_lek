@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_screen.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class VideoTypes {
@@ -237,100 +238,107 @@ class _VideoListState extends State<VideoList> {
       appBar: AppBar(
           iconTheme: IconThemeData(color: iconColor),
           elevation: 0,
-          centerTitle: true,
-          backgroundColor: scaffoldColor,
-          title: Text(
-            "Příběhy Pušínka",
-            style: Theme.of(context).textTheme.displayLarge,
-          )),
-      body: SafeArea(
-        child: Column(children: [
-          Container(
-            decoration: BoxDecoration(color: scaffoldColor),
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Vyber si video, které tě nejvíce zaujme',
-                textAlign: TextAlign.center, style: Theme.of(context).textTheme.headlineLarge),
-          ),
-          Container(
-            decoration: BoxDecoration(color: scaffoldColor),
-            padding: const EdgeInsets.all(8.0),
-            child: ToggleSwitch(
-              minWidth: 200.0,
-              initialLabelIndex: selectedSeason == '1' ? 0 : 1, // Set the initial selected season index
-              cornerRadius: 20.0,
-              activeFgColor: Colors.white,
-              inactiveBgColor: Colors.grey,
-              inactiveFgColor: Colors.white,
-              totalSwitches: 2,
-              labels: const ['Sezona 1', 'Sezona 2'],
-              activeBgColors: const [
-                [Colors.teal],
-                [Colors.teal]
-              ],
-              onToggle: (index) {
-                setState(() {
-                  if (index == 0) {
-                    selectedSeason = '1';
-                  } else {
-                    selectedSeason = '2';
-                  }
-                  filteredVideoType = videoType.where((video) => video.season == selectedSeason).toList();
-                });
-              },
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: ListView.builder(
-                itemCount: filteredVideoType.length,
-                itemBuilder: (context, index) {
-                  VideoTypes video = filteredVideoType[index];
+          titleSpacing: 0,
 
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 80,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: containerBorderColor,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                        color: iconColor,
-                      ),
-                      child: ListTile(
-                        minLeadingWidth: 130,
-                        title: Text(video.title),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.asset(
-                            video.thumbnail,
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => VideoScreen(
-                                title: video.title,
-                                season: video.season,
-                                thumbnail: video.thumbnail,
-                                video: video.video,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  );
+          // centerTitle: true,
+          backgroundColor: scaffoldColor,
+          title: Padding(
+            padding: const EdgeInsets.only(left: 200),
+            child: Text(
+              "Příběhy Pušínka",
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          )),
+      body: ConstrainedContainer(
+        child: SafeArea(
+          child: Column(children: [
+            Container(
+              decoration: BoxDecoration(color: scaffoldColor),
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Vyber si video, které tě nejvíce zaujme',
+                  textAlign: TextAlign.center, style: Theme.of(context).textTheme.headlineSmall),
+            ),
+            Container(
+              decoration: BoxDecoration(color: scaffoldColor),
+              padding: const EdgeInsets.all(8.0),
+              child: ToggleSwitch(
+                minWidth: 200.0,
+                initialLabelIndex: selectedSeason == '1' ? 0 : 1, // Set the initial selected season index
+                cornerRadius: 20.0,
+                activeFgColor: Colors.white,
+                inactiveBgColor: Colors.grey,
+                inactiveFgColor: Colors.white,
+                totalSwitches: 2,
+                labels: const ['Sezona 1', 'Sezona 2'],
+                activeBgColors: const [
+                  [Colors.teal],
+                  [Colors.teal]
+                ],
+                onToggle: (index) {
+                  setState(() {
+                    if (index == 0) {
+                      selectedSeason = '1';
+                    } else {
+                      selectedSeason = '2';
+                    }
+                    filteredVideoType = videoType.where((video) => video.season == selectedSeason).toList();
+                  });
                 },
               ),
             ),
-          ),
-        ]),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListView.builder(
+                  itemCount: filteredVideoType.length,
+                  itemBuilder: (context, index) {
+                    VideoTypes video = filteredVideoType[index];
+
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 80,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: containerBorderColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          color: iconColor,
+                        ),
+                        child: ListTile(
+                          minLeadingWidth: 100,
+                          title: Text(video.title, style: Theme.of(context).textTheme.labelMedium),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              video.thumbnail,
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => VideoScreen(
+                                  title: video.title,
+                                  season: video.season,
+                                  thumbnail: video.thumbnail,
+                                  video: video.video,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }

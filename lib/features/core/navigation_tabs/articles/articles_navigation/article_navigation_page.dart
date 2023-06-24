@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:side_menu_animation/side_menu_animation.dart';
 import 'package:stacionar_app/features/core/home_page/home_page_navigation.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class ArticleNavigationPage extends StatefulWidget {
   const ArticleNavigationPage({Key? key}) : super(key: key);
@@ -47,17 +48,17 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
           return Scaffold(
             appBar: AppBar(
               title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Text(
-                    '<<Další články',
-                    style: TextStyle(color: Colors.black54),
-                  ),
-                  ValueListenableBuilder<int>(
-                    valueListenable: _index,
-                    builder: (_, value, __) => Text(
-                      myMenuValue[value].title,
-                      style: const TextStyle(color: Colors.black54),
+                  Text('<<Další články', style: Theme.of(context).textTheme.headlineSmall),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 50),
+                    child: ValueListenableBuilder<int>(
+                      valueListenable: _index,
+                      builder: (_, value, __) => Text(
+                        myMenuValue[value].title,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
                     ),
                   ),
                   const SizedBox(),
@@ -76,27 +77,29 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
               systemOverlayStyle: SystemUiOverlayStyle.light,
               centerTitle: true,
             ),
-            body: FutureBuilder<List<Article>>(
-              future: _articlesFuture,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return ListView.builder(
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
-                      final article = snapshot.data![index];
-                      return ArticleContainerWidget(article: article);
-                    },
-                  );
-                } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text('Error: ${snapshot.error}'),
-                  );
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-              },
+            body: ConstrainedContainer(
+              child: FutureBuilder<List<Article>>(
+                future: _articlesFuture,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        final article = snapshot.data![index];
+                        return ArticleContainerWidget(article: article);
+                      },
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
+              ),
             ),
           );
         },

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class MoodDiaryVew extends StatelessWidget {
   final AnimationController animationController;
 
-  const MoodDiaryVew({Key? key, required this.animationController})
-      : super(key: key);
+  const MoodDiaryVew({Key? key, required this.animationController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -106,10 +105,9 @@ class MoodDiaryVew extends StatelessWidget {
                 child: SlideTransition(
                   position: moodSecondHalfAnimation,
                   child: const Padding(
-                    padding: EdgeInsets.only(
-                        left: 64, right: 64, top: 16, bottom: 16),
+                    padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                     child: Text(
-                      "Kalkulátor BMI je jednoduchá aplikace, která vám může udělat velkou službu. Zjistí, jaká je hodnota vašeho BMI, a poznáte tak, jak jste na tom se svou váhou v intervalu BMI tabulky",
+                      "Kalkulátor BMI je jednoduchá aplikace, která vám může udělat velkou službu. Zjistí, jaká je hodnota vašeho BMI, a poznáte tak, jak jste na tom se svou váhou v kontextu své výšky",
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -120,8 +118,7 @@ class MoodDiaryVew extends StatelessWidget {
                 child: SlideTransition(
                   position: imageSecondHalfAnimation,
                   child: Container(
-                    constraints:
-                        const BoxConstraints(maxWidth: 350, maxHeight: 250),
+                    constraints: const BoxConstraints(maxWidth: 350, maxHeight: 250),
                     child: Image.asset(
                       'assets/images/introduction_animation/splash_3.png',
                       fit: BoxFit.contain,

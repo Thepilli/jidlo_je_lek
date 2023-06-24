@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_list.dart';
+import 'package:stacionar_app/widgets/contrained_container.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoScreen extends StatefulWidget {
@@ -68,52 +69,54 @@ class _VideoScreenState extends State<VideoScreen> {
             ),
           ),
         ),
-        body: Container(
-          decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: AssetImage(scaffoldImage))),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                children: [
-                  const Spacer(
-                    flex: 1,
+        body: ConstrainedContainer(
+          child: Container(
+            decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: AssetImage(scaffoldImage))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  children: [
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        videoAsset.title,
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                    ),
+                    const Spacer(
+                      flex: 1,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: jDefaultSize),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: containerBorderColor,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                    color: iconColor,
                   ),
-                  Expanded(
-                    flex: 4,
-                    child: Text(
-                      videoAsset.title,
-                      style: Theme.of(context).textTheme.displayMedium,
+                  padding: const EdgeInsets.all(10),
+                  child: AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: <Widget>[
+                        VideoPlayer(_controller),
+                        _ControlsOverlay(controller: _controller),
+                        VideoProgressIndicator(_controller, allowScrubbing: true),
+                      ],
                     ),
                   ),
-                  const Spacer(
-                    flex: 1,
-                  ),
-                ],
-              ),
-              const SizedBox(height: jDefaultSize),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: containerBorderColor,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                  color: iconColor,
                 ),
-                padding: const EdgeInsets.all(10),
-                child: AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: <Widget>[
-                      VideoPlayer(_controller),
-                      _ControlsOverlay(controller: _controller),
-                      VideoProgressIndicator(_controller, allowScrubbing: true),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
