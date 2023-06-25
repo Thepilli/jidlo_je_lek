@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/relaxation/relaxation_list.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/relaxation/relaxation_list.dart';
 import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class RelaxationScreen extends StatefulWidget {

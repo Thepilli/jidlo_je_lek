@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_screen.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/video_player/video_screen.dart';
 import 'package:stacionar_app/widgets/contrained_container.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -229,8 +229,10 @@ class _VideoListState extends State<VideoList> {
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var containerColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+
     var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     List filteredVideoType = videoType.where((video) => video.season == selectedSeason).toList();
 
@@ -270,9 +272,9 @@ class _VideoListState extends State<VideoList> {
                 inactiveFgColor: Colors.white,
                 totalSwitches: 2,
                 labels: const ['Sezona 1', 'Sezona 2'],
-                activeBgColors: const [
-                  [Colors.teal],
-                  [Colors.teal]
+                activeBgColors: [
+                  [containerColor],
+                  [containerColor]
                 ],
                 onToggle: (index) {
                   setState(() {
@@ -301,11 +303,11 @@ class _VideoListState extends State<VideoList> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: containerBorderColor,
+                            color: containerColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(20),
-                          color: iconColor,
+                          color: containerColor,
                         ),
                         child: ListTile(
                           minLeadingWidth: 100,

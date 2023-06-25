@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/BMI/bmi_calculator_screen.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/fortune_wheel_page.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/relaxation/relaxation_list.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/stacionar_menu/stacionar_menu.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_list.dart';
-import 'package:stacionar_app/features/core//navigation_tabs/applications_list/applications/meal_inspiration/meal_inspiration.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/BMI/bmi_calculator_screen.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/fortune_wheel/fortune_wheel_page.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/relaxation/relaxation_list.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/stacionar_menu/stacionar_menu.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/video_player/video_list.dart';
+import 'package:stacionar_app/features/core//navigation_tabs/applications_list/meal_inspiration/meal_inspiration.dart';
 
 class ApplicationsList extends StatefulWidget {
   const ApplicationsList({Key? key}) : super(key: key);
@@ -120,7 +120,7 @@ Widget itemTile(BuildContext context, String iconPath, String title, String desc
       children: [
         Text(
           description,
-          style: Theme.of(context).textTheme.headlineSmall,
+          style: Theme.of(context).textTheme.headlineSmall?.apply(fontSizeFactor: .8),
         ),
       ],
     ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stacionar_app/constants/colors.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/controller/fortune_wheel_controller.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/widgets/fortune_wheel_controller.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/fortune_wheel/widgets/fortune_wheel_model.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/fortune_wheel/controller/fortune_wheel_controller.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/fortune_wheel/widgets/fortune_wheel_controller.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/fortune_wheel/widgets/fortune_wheel_model.dart';
 import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class FortuneWheelPage extends StatefulWidget {
@@ -48,7 +47,7 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     return Scaffold(
       appBar: AppBar(
           titleSpacing: 0,

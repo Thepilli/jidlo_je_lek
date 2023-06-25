@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/BMI/bmi_gauge_arrow_component.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/BMI/bmi_gauge_arrow_component.dart';
 import 'package:stacionar_app/widgets/contrained_container.dart';
 import 'package:stacionar_app/widgets/disclaimer_text_widget.dart';
 
@@ -27,7 +26,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
@@ -57,8 +56,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       SizedBox(
                         width: 150,
                         child: TextField(
+                          style: Theme.of(context).textTheme.bodyMedium,
                           controller: _heightController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
+                            alignLabelWithHint: true,
+                            labelStyle: Theme.of(context).textTheme.labelSmall?.apply(fontSizeFactor: 1.2),
                             labelText: 'Výška (cm)',
                           ),
                           keyboardType: const TextInputType.numberWithOptions(
@@ -68,11 +70,14 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       ),
                       const SizedBox(width: 20),
                       SizedBox(
-                        width: 100,
+                        width: 150,
                         child: TextField(
+                          style: Theme.of(context).textTheme.bodyMedium,
                           controller: _weightController,
-                          decoration: const InputDecoration(
-                            labelText: 'Váha (kg)',
+                          decoration: InputDecoration(
+                            alignLabelWithHint: true,
+                            labelStyle: Theme.of(context).textTheme.labelSmall?.apply(fontSizeFactor: 1.2),
+                            labelText: 'Váha(kg)',
                           ),
                           keyboardType: const TextInputType.numberWithOptions(
                             decimal: true,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/relaxation/relaxation_screen.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/relaxation/relaxation_screen.dart';
 import 'package:stacionar_app/widgets/contrained_container.dart';
 
 class RelaxationTypes {
@@ -125,8 +125,9 @@ class RelaxationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var containerColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     var scaffoldColor = isDark ? jScafoldDarkColor : jScafoldLightColor;
     return Scaffold(
       appBar: AppBar(
@@ -146,7 +147,9 @@ class RelaxationList extends StatelessWidget {
         child: SafeArea(
           child: Column(children: [
             Container(
-              decoration: BoxDecoration(color: scaffoldColor),
+              color: scaffoldColor,
+              // width: MediaQuery.of(context).size.width,
+              // decoration: BoxDecoration(color: scaffoldColor),
               padding: const EdgeInsets.all(8),
               child: Text(
                 'Vyber si relaxaci která ti nejvíce vyhovuje.',
@@ -170,7 +173,7 @@ class RelaxationList extends StatelessWidget {
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(20),
-                          color: iconColor,
+                          color: containerColor.withOpacity(.7),
                         ),
                         child: ListTile(
                           title: Text(relaxation.tileTitle, style: Theme.of(context).textTheme.bodyMedium),

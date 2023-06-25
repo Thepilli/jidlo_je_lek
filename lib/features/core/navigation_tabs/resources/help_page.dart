@@ -15,7 +15,7 @@ class HelpPage extends StatefulWidget {
 
 class _HelpPageState extends State<HelpPage> {
   final String intro =
-      'Ahoj, Dobrý den. Jmenuji se Jiří a touto cestou bych rád pomohl všem, kteří se - stejně tak jako já - potýkají s nemocí zvanou mentální anorexie, nebo chtějí zjistit více o léčbě poruch příjmu potravy. Po zbytek času si budeme tykat, protože přece jenom je to intimnější téma, a navíc jsme v tom společně jako jedna komunita. Nejsi v tom sama, či sám! Ať už chceš využít jeden z nástrojů aplikace, nebo jen získat více informací jak postupovat s léčbou, věř že je to ten správný krok.\nPo začátku léčby jsem si uvědomil, jak malé, přehlížené, ba dokonce zkreslené, je povědomí o poruchách příjmu potravy a lidech jimi trpícími. A také že není jednoduché najít relevantní informace na jednom místě.';
+      'Ahoj, Dobrý den.\nJmenuji se Jiří a touto cestou bych rád pomohl všem, kteří se - stejně tak jako já - potýkají s nemocí zvanou mentální anorexie, nebo chtějí zjistit více o léčbě poruch příjmu potravy. Po zbytek času si budeme tykat, protože přece jenom je to intimnější téma, a navíc jsme v tom společně jako jedna komunita. Nejsi v tom sama, či sám! Ať už chceš využít jeden z nástrojů aplikace, nebo jen získat více informací jak postupovat s léčbou, věř že je to ten správný krok.\nPo začátku léčby jsem si uvědomil, jak malé, přehlížené, ba dokonce zkreslené, je povědomí o poruchách příjmu potravy a lidech jimi trpícími. A také že není jednoduché najít relevantní informace na jednom místě.\nPostupně jak na aplikaci pracuji, budu doplňovat jednotlivé sekce, ať už jsou to nové články, funkcionality, nebo svůj vlasni příběh.';
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +50,6 @@ class _HelpPageState extends State<HelpPage> {
       ),
       body: ListView(
         children: [
-          buildAppCard(
-            'Aplikace Nepanikař',
-            'assets/icons/help_nepanikar.png',
-            'assets/htmls/nepanikar.html',
-          ),
           buildCard(
             'Lůžkové specializované oddělení',
             'assets/icons/help_oddeleni.png',
@@ -84,6 +79,11 @@ class _HelpPageState extends State<HelpPage> {
             'Následky',
             'assets/icons/help_nasledky.png',
             'assets/htmls/nasledky.html',
+          ),
+          buildAppCard(
+            'Aplikace Nepanikař',
+            'assets/icons/help_nepanikar.png',
+            'assets/htmls/nepanikar.html',
           ),
         ],
       ),

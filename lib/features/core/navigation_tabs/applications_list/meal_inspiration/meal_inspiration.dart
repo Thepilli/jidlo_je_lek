@@ -23,7 +23,7 @@ class _MealInspirationState extends State<MealInspiration> {
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     return Scaffold(
       appBar: AppBar(
           titleSpacing: 0,

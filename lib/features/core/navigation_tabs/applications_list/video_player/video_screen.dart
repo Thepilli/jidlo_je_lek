@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/constants/sizes.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications/video_player/video_list.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/applications_list/video_player/video_list.dart';
 import 'package:stacionar_app/widgets/contrained_container.dart';
 import 'package:video_player/video_player.dart';
 
@@ -47,8 +47,10 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     var containerBorderColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+    var containerColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+
     var scaffoldImage = isDark ? 'assets/images/pusheenbg_dark.jpeg' : 'assets/images/pusheenbg_light.jpeg';
     VideoTypes videoAsset = videoType.firstWhere(
       (type) => type.video == widget.video,
@@ -100,7 +102,7 @@ class _VideoScreenState extends State<VideoScreen> {
                       width: 2,
                     ),
                     borderRadius: BorderRadius.circular(20),
-                    color: iconColor,
+                    color: containerColor,
                   ),
                   padding: const EdgeInsets.all(10),
                   child: AspectRatio(

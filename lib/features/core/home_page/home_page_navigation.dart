@@ -61,7 +61,7 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
     var tabColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: DefaultTabController(

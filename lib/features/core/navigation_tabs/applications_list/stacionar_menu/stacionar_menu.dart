@@ -82,7 +82,7 @@ class _StacionarMenuState extends State<StacionarMenu> {
       cycleNumber = getCycleNumber(weekNumber);
     }
     var isDark = Get.isDarkMode;
-    var iconColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
+    var iconColor = isDark ? Colors.white70 : Colors.black54;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: iconColor),

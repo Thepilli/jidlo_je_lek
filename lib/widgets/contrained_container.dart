@@ -34,7 +34,7 @@ class ConstrainedContainer extends StatelessWidget {
 
     return Container(
       constraints: const BoxConstraints(
-        maxWidth: isWeb ? 1000 : double.infinity,
+        maxWidth: isWeb ? 550 : double.infinity,
       ),
       child: child,
     );

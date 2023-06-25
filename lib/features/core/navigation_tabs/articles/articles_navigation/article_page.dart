@@ -44,13 +44,11 @@ class _ArticlePageState extends State<ArticlePage> {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
+        centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black54),
         backgroundColor: iconColor,
         actions: const [],
-        title: Padding(
-          padding: const EdgeInsets.only(left: 50),
-          child: Text(widget.title, style: Theme.of(context).textTheme.headlineMedium),
-        ),
+        title: Text(widget.title, style: Theme.of(context).textTheme.headlineMedium),
       ),
       body: ConstrainedContainer(
         child: SingleChildScrollView(
