@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class RelaxView extends StatelessWidget {
   final AnimationController animationController;
 
-  const RelaxView({Key? key, required this.animationController})
-      : super(key: key);
+  const RelaxView({Key? key, required this.animationController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +61,7 @@ class RelaxView extends StatelessWidget {
     );
 
     final relaxAnimation = Tween<Offset>(
-      begin: const Offset(0, -2),
+      begin: const Offset(0, 1),
       end: const Offset(0, 0),
     ).animate(
       CurvedAnimation(
@@ -93,8 +92,7 @@ class RelaxView extends StatelessWidget {
               SlideTransition(
                 position: textAnimation,
                 child: const Padding(
-                  padding:
-                      EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                  padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                   child: Text(
                     "Pokud vás nebo někoho blízkého dusí zákeřná sokyně s přízviskem anorexie, bulímie, či jiná porucha příjmu potravy, neváhejte a pokračujte například do sekce Blog, Svépomoc, nebo Časté dotazy. Snažím se pomoc vám a vašim blízkým.",
                     textAlign: TextAlign.center,
@@ -104,8 +102,7 @@ class RelaxView extends StatelessWidget {
               SlideTransition(
                 position: imageAnimation,
                 child: Container(
-                  constraints:
-                      const BoxConstraints(maxWidth: 350, maxHeight: 250),
+                  constraints: const BoxConstraints(maxWidth: 350, maxHeight: 250),
                   child: Image.asset(
                     'assets/images/introduction_animation/splash_1.png',
                     fit: BoxFit.contain,

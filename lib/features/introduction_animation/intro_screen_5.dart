@@ -64,39 +64,36 @@ class WelcomeView extends StatelessWidget {
       position: firstHalfAnimation,
       child: SlideTransition(
         position: secondHalfAnimation,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 150),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SlideTransition(
-                position: welcomeImageAnimation,
-                child: Container(
-                  constraints: const BoxConstraints(maxWidth: 350, maxHeight: 350),
-                  child: Image.asset(
-                    'assets/images/introduction_animation/splash_4.png',
-                    fit: BoxFit.contain,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SlideTransition(
+              position: welcomeImageAnimation,
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 350, maxHeight: 350),
+                child: Image.asset(
+                  'assets/images/introduction_animation/splash_4.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            SlideTransition(
+                position: welcomeFirstHalfAnimation,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                  child: Text(
+                    "Mnohé další",
+                    style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                   ),
-                ),
+                )),
+            const Padding(
+              padding: EdgeInsets.only(left: 50, right: 50, top: 16, bottom: 16),
+              child: Text(
+                "Ať už jde o pomoc při úzkostných situacích, hledání dalších informací, možností relaxace, nebo třeba jen odreagování se při sledování videii, jste na správném místě.\nNeváhejte a začnete prozkoumávat",
+                textAlign: TextAlign.center,
               ),
-              SlideTransition(
-                  position: welcomeFirstHalfAnimation,
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
-                    child: Text(
-                      "Mnohé další",
-                      style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
-                    ),
-                  )),
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
-                child: Text(
-                  "Ať už jde o pomoc při úzkostných situacích, hledání dalších informací, možností relaxace, nebo třeba jen odreagování se při sledování videii, jste na správném místě.\nNeváhejte a začnete prozkoumávat",
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

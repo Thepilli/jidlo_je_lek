@@ -35,7 +35,7 @@ class CenterNextButton extends StatelessWidget {
     ));
 
     return Padding(
-      padding: EdgeInsets.only(bottom: 16 + MediaQuery.of(context).padding.bottom),
+      padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
