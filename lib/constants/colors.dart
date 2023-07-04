@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 /* -- LIST OF ALL COLORS -- */
 
 const jPrimaryLightColor = Color(0xFF69F0AE);
-const jPrimaryLightContainerColor = Color(0xFFABEBCC);
-const jSecondaryLightColor = Color(0xFFE1341E);
-const jSecondaryLightContainerColor = Color(0xFFFFAD91);
+const jPrimaryLightContainerColor = Color(0xFF96F7C8);
+const jPrimaryLightColorShade = Color(0xFF21D47E);
 const jScafoldLightColor = Color(0xFFFFF0D1);
+const jLinkLightColor = Color(0xFF49587B);
 
 const jPrimaryDarkColor = Color(0xFFDBA2A1);
-const jPrimaryDarkContainerColor = Color(0xFFF9E0D1);
-const jSecondaryDarkColor = Color(0xFF85C6D6);
-const jSecondaryDarkContainerColor = Color(0xFF037481);
+const jPrimaryDarkContainerColor = Color(0xFFFFD9D8);
+const jPrimaryDarkColorShade = Color(0xFF994C4A);
 const jScafoldDarkColor = Color(0xFF21251F);
+const jLinkDarkColor = Color(0xFF42406F);
 
 const jWhiteColor = Colors.white;
 const jDarkColor = Color(0xff000000);

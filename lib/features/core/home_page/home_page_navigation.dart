@@ -1,3 +1,5 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacionar_app/constants/colors.dart';
@@ -57,6 +59,30 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
     ), // help tab
   ];
 
+  void loggout() {
+    var isDark = Get.isDarkMode;
+    var tabColor = isDark ? jPrimaryDarkContainerColor : jPrimaryLightContainerColor;
+
+    AwesomeDialog(
+      dialogBackgroundColor: tabColor,
+      context: context,
+      keyboardAware: true,
+      dismissOnTouchOutside: false,
+      dismissOnBackKeyPress: false,
+      customHeader: const Image(image: AssetImage('assets/icons/icon_logout.png'), height: 80),
+      animType: AnimType.bottomSlide,
+      btnCancelText: "Ne",
+      btnOkText: "Ano,",
+      title: 'Opravdu se chceš odhlásit??',
+      titleTextStyle: Theme.of(context).textTheme.bodyMedium?.apply(fontWeightDelta: 2),
+      btnCancelOnPress: () {},
+      btnOkOnPress: () {
+        // TODO: implement logout
+        FirebaseAuth.instance.signOut();
+      },
+    ).show();
+  }
+
   @override
   Widget build(BuildContext context) {
     var isDark = Get.isDarkMode;
@@ -68,14 +94,12 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
         length: myTabs.length,
         child: Scaffold(
           appBar: AppBar(
+            leading: IconButton(onPressed: loggout, icon: const Icon(Icons.logout)),
             iconTheme: IconThemeData(color: iconColor),
             elevation: 0,
-            // centerTitle: true,
+            centerTitle: true,
             backgroundColor: Colors.transparent,
-            title: Padding(
-              padding: const EdgeInsets.only(left: 150),
-              child: Text('Jídlo je lék', style: Theme.of(context).textTheme.headlineMedium),
-            ),
+            title: Text('Jídlo je lék', style: Theme.of(context).textTheme.headlineMedium),
             actions: [
               IconButton(
                 onPressed: () {

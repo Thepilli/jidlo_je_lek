@@ -57,8 +57,8 @@ class JTextTheme {
     ///subtitle
     titleSmall: GoogleFonts.montserrat(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.w600),
 
-    bodyLarge: GoogleFonts.poppins(fontSize: 20, color: Colors.white60, fontWeight: FontWeight.w500),
-    bodyMedium: GoogleFonts.poppins(fontSize: 16, color: Colors.white60, fontWeight: FontWeight.w300),
+    bodyLarge: GoogleFonts.poppins(fontSize: 20, color: Colors.white60, fontWeight: FontWeight.w600),
+    bodyMedium: GoogleFonts.poppins(fontSize: 16, color: Colors.white70, fontWeight: FontWeight.w500),
     bodySmall: GoogleFonts.poppins(fontSize: 14, color: Colors.white60, fontWeight: FontWeight.normal),
 
     // aka tile

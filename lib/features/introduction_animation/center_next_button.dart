@@ -1,6 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/features/core/home_page/home_page_navigation.dart';
+import 'package:stacionar_app/features/authentication/auth.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
@@ -35,7 +35,7 @@ class CenterNextButton extends StatelessWidget {
     ));
 
     return Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+      padding: EdgeInsets.only(bottom: 30 + MediaQuery.of(context).padding.bottom),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,7 +86,7 @@ class CenterNextButton extends StatelessWidget {
                             onTap: () {
                               Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(builder: (context) {
-                                  return const HomePageNavigator();
+                                  return const AuthPage();
                                 }),
                               );
                             },

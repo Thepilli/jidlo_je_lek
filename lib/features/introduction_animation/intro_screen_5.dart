@@ -65,7 +65,7 @@ class WelcomeView extends StatelessWidget {
       child: SlideTransition(
         position: secondHalfAnimation,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SlideTransition(
               position: welcomeImageAnimation,

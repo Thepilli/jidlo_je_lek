@@ -8,7 +8,7 @@ class DisclaimerText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(jDefaultPadding),
+      padding: const EdgeInsets.all(jPadding8),
       child: Text(disclaimer, textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelLarge),
     );
   }
