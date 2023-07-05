@@ -49,9 +49,12 @@ class _RegisterPageState extends State<RegisterPage> {
         );
 
         //after creating a new user, create a new document in the cloud firestore collection called Users
-        FirebaseFirestore.instance.collection('Users').doc(userCredential.user!.email).set({
+        FirebaseFirestore.instance.collection('Users').doc(userCredential.user?.uid).set({
+          'UserEmail': userCredential.user!.email,
+
           'username': emailTextController.text.split('@')[0], //initial username
           'bio': 'empty bio...', //initial bio
+
           //add more fields here when needed
         });
 
