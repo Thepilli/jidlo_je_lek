@@ -15,7 +15,7 @@ Welcome to the Jidlo je lek application repository! Jidlo je lek is a mobile app
 
 The Eating Disorder Support Application was developed as a collaborative effort between a team of dedicated developers and the psychiatric clinic of the General University Hospital in Prague. Our mission is to improve the quality of life for individuals struggling with eating disorders and enhance the effectiveness of treatment
 
-We are committed to maintaining the application's integrity and continuously updating it with the latest information and features. We actively seek user feedback and suggestions to enhance the user experience and address evolving needs.
+I am committed to maintaining the application's integrity and continuously updating it with the latest information and features. I actively seek user feedback and suggestions to enhance the user experience and address evolving needs.
 
 ```
 git clone https://github.com/Thepilli/jidlo_je_lek.git
