@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacionar_app/constants/colors.dart';
 import 'package:stacionar_app/features/core/home_page/home_page_navigation_builder.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/applications_list.dart';
@@ -77,10 +78,46 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
       titleTextStyle: Theme.of(context).textTheme.bodyMedium?.apply(fontWeightDelta: 2),
       btnCancelOnPress: () {},
       btnOkOnPress: () {
-        // TODO: implement logout
         FirebaseAuth.instance.signOut();
       },
     ).show();
+  }
+
+  Future<void> showAlertDialog(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
+
+    if (isFirstTime) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Ahoj Co je noveho?', style: Theme.of(context).textTheme.headlineMedium),
+            content: Text(
+                'Nyni se muzes prihlasit a aplikace si te bude pamatovat. Do sekce "clanky" pribylo nekolik novych prispevku, a take "FAQ" prinasi zakladni pravidla jak pro nemocne, tak pro jejich blizke',
+                style: Theme.of(context).textTheme.bodyMedium),
+            actions: <Widget>[
+              ElevatedButton(
+                child: const Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+
+      await prefs.setBool('isFirstTime', false);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      showAlertDialog(context);
+    });
   }
 
   @override
