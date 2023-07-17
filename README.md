@@ -38,4 +38,8 @@ Currently you can access the application via the following link: https://thepill
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_nasledky.png?alt=media&token=05ffb04b-4d25-4cbc-921f-fdb90061a04c" width="300" height="550" />
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_wheel.png?alt=media&token=1a7bfc2c-58cf-4cc3-a021-31d8dcbd8048" width="300" height="550" />
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_relaxace.png?alt=media&token=db728396-93b8-4576-9174-a5e099162e98" width="300" height="550" />
-<video src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek.mp4?alt=media&token=fe9aa645-6e93-4ce0-9204-06cb632d38ac" width="300" height="550" />
+
+
+
+https://github.com/Thepilli/jidlo_je_lek/assets/104307512/ded86246-66a2-466e-8bdf-86d3eb959897
+
