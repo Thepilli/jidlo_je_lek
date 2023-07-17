@@ -34,8 +34,7 @@ class _HelpPageState extends State<HelpPage> {
             backgroundColor: modalColor,
             context: context,
             builder: (context) {
-              return SizedBox(
-                height: 330,
+              return SingleChildScrollView(
                 child: Column(
                   children: [
                     DisclaimerText(disclaimer: intro),
@@ -116,8 +115,7 @@ class _HelpPageState extends State<HelpPage> {
           ),
           child: ExpansionTile(
             leading: Image.asset(image, width: 50, height: 50),
-            title:
-                Text(title, style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.2, fontWeightDelta: 2)),
+            title: Text(title, style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.2, fontWeightDelta: 2)),
             children: [
               Padding(
                 padding: const EdgeInsets.all(15.0),

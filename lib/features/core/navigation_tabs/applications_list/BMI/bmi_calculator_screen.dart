@@ -32,7 +32,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
         titleSpacing: 0,
         iconTheme: IconThemeData(color: iconColor),
         elevation: 0,
-        // centerTitle: true,
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         title: Padding(
           padding: const EdgeInsets.only(left: 5),

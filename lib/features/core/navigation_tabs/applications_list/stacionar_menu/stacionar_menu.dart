@@ -86,16 +86,13 @@ class _StacionarMenuState extends State<StacionarMenu> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: iconColor),
-        elevation: 0, titleSpacing: 0,
-
-        // centerTitle: true,
+        elevation: 0,
+        titleSpacing: 0,
+        centerTitle: true,
         backgroundColor: Colors.transparent,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 200),
-          child: Text(
-            'Menu :',
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
+        title: Text(
+          'Menu :',
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
       body: ConstrainedContainer(
@@ -345,8 +342,7 @@ Widget courseLayout(BuildContext context, int cycleNumber) {
               Container(
                 padding: const EdgeInsets.only(left: 10),
                 width: 80,
-                child:
-                    Text(filteredItems[index][0], style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.1)),
+                child: Text(filteredItems[index][0], style: Theme.of(context).textTheme.labelLarge?.apply(fontSizeFactor: 1.1)),
               ),
               const VerticalDivider(
                 color: Colors.black,

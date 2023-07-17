@@ -20,11 +20,9 @@ class MealPlanDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
+        centerTitle: true,
         backgroundColor: mealPlanColor.withAlpha(80),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 200),
-          child: Text(mealType, style: Theme.of(context).textTheme.headlineLarge),
-        ),
+        title: Text(mealType, style: Theme.of(context).textTheme.headlineLarge),
       ),
       body: ConstrainedContainer(
         child: SafeArea(

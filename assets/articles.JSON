@@ -187,5 +187,33 @@
     "bodyArticle": "hladovy_denik/13_hladovy_denik_ha.html",
     "topicSection": 4,
     "topicName": "Hladový deník"
+  },
+  {
+    "title": "Devět pravd o PPP",
+    "image": "assets/images/faq.png",
+    "bodyArticle": "devet_pravd_o_PPP.html",
+    "topicSection": 5,
+    "topicName": "FAQ"
+  },
+  {
+    "title": "Dalších devět pravd o PPP: Váha a její stigmatizace",
+    "image": "assets/images/faq.png",
+    "bodyArticle": "devet_dalsich_pravd_o_ppp.html",
+    "topicSection": 5,
+    "topicName": "FAQ"
+  },
+  {
+    "title": "Jednotlivci | 10 AKCÍ",
+    "image": "assets/images/faq.png",
+    "bodyArticle": "jednotlivci.html",
+    "topicSection": 5,
+    "topicName": "FAQ"
+  },
+  {
+    "title": "Příbuzní | 10 AKCÍ",
+    "image": "assets/images/faq.png",
+    "bodyArticle": "pribuzni.html",
+    "topicSection": 5,
+    "topicName": "FAQ"
   }
 ]

@@ -85,7 +85,8 @@ class ArticlesPage extends StatelessWidget {
                     // icon: const Icon(Icons.info),
                   ),
                 ],
-              )
+              ),
+              const SizedBox(height: jButtonHeight),
             ],
           ),
         ),

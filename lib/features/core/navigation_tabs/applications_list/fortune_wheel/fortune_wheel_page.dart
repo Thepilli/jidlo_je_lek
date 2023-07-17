@@ -53,14 +53,11 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
           titleSpacing: 0,
           iconTheme: IconThemeData(color: iconColor),
           elevation: 0,
-          // centerTitle: true,
+          centerTitle: true,
           backgroundColor: Colors.transparent,
-          title: Padding(
-            padding: const EdgeInsets.only(left: 150),
-            child: Text(
-              "Co si dneska dám?",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+          title: Text(
+            "Co si dneska dám?",
+            style: Theme.of(context).textTheme.headlineMedium,
           )),
       body: ConstrainedContainer(
         child: SafeArea(
@@ -96,9 +93,8 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
                             child: SizedBox(
                               height: 120,
                               width: 120,
-                              child: isAnimationFinished && currentWheelChild != null
-                                  ? currentWheelChild!.title
-                                  : const SizedBox(),
+                              child:
+                                  isAnimationFinished && currentWheelChild != null ? currentWheelChild!.title : const SizedBox(),
                             ),
                           ),
                           // Image path

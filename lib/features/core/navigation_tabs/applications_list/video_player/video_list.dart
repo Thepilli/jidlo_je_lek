@@ -241,15 +241,11 @@ class _VideoListState extends State<VideoList> {
           iconTheme: IconThemeData(color: iconColor),
           elevation: 0,
           titleSpacing: 0,
-
-          // centerTitle: true,
+          centerTitle: true,
           backgroundColor: scaffoldColor,
-          title: Padding(
-            padding: const EdgeInsets.only(left: 200),
-            child: Text(
-              "Příběhy Pušínka",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+          title: Text(
+            "Příběhy Pušínka",
+            style: Theme.of(context).textTheme.headlineMedium,
           )),
       body: ConstrainedContainer(
         child: SafeArea(

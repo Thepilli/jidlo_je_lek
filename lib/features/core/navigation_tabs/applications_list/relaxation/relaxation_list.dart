@@ -134,14 +134,11 @@ class RelaxationList extends StatelessWidget {
           titleSpacing: 0,
           iconTheme: IconThemeData(color: iconColor),
           elevation: 0,
-          // centerTitle: true,
+          centerTitle: true,
           backgroundColor: scaffoldColor,
-          title: Padding(
-            padding: const EdgeInsets.only(left: 150),
-            child: Text(
-              "Relaxační nahrávky",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+          title: Text(
+            "Relaxační nahrávky",
+            style: Theme.of(context).textTheme.headlineMedium,
           )),
       body: ConstrainedContainer(
         child: SafeArea(

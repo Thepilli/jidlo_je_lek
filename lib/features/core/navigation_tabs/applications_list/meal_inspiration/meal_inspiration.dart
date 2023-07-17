@@ -29,14 +29,11 @@ class _MealInspirationState extends State<MealInspiration> {
           titleSpacing: 0,
           iconTheme: IconThemeData(color: iconColor),
           elevation: 0,
-          // centerTitle: true,
+          centerTitle: true,
           backgroundColor: Colors.transparent,
-          title: Padding(
-            padding: const EdgeInsets.only(left: 100),
-            child: Text(
-              "Co si dneska dám?",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+          title: Text(
+            "Co si dneska dám?",
+            style: Theme.of(context).textTheme.headlineMedium,
           )),
       body: ConstrainedContainer(
         child: SafeArea(
