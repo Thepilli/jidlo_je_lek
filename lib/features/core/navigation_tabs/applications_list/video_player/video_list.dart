@@ -40,7 +40,7 @@ List videoType = [
   ),
   const VideoTypes(
     title: 'Pusheenicorn Hairstyles',
-    season: '1',
+    season: '2',
     thumbnail: 'assets/video/Pusheenicorn_Hairstyles.jpg',
     video: 'assets/video/Pusheenicorn_Hairstyles.mp4',
   ),
@@ -58,7 +58,7 @@ List videoType = [
   ),
   const VideoTypes(
     title: 'Dragonsheen\'s BBQ Techniques',
-    season: '1',
+    season: '2',
     thumbnail: 'assets/video/Dragonsheen_s_BBQ_Techniques.jpg',
     video: 'assets/video/Dragonsheen_s_BBQ_Techniques.mp4',
   ),
@@ -164,12 +164,12 @@ List videoType = [
     thumbnail: 'assets/video/Pusheen_s_Reading_List_for_Thine_Cat.jpg',
     video: 'assets/video/Pusheen_s_Reading_List_for_Thine_Cat.mp4',
   ),
-  const VideoTypes(
-    title: 'Pusheen Boosheen s Haunted Manor',
-    season: '2',
-    thumbnail: 'assets/video/Pusheen_Boosheen_s_Haunted_Manor.jpg',
-    video: 'assets/video/Pusheen_Boosheen_s_Haunted_Manor.mp4',
-  ),
+  // const VideoTypes(
+  //   title: 'Pusheen Boosheen s Haunted Manor',
+  //   season: '2',
+  //   thumbnail: 'assets/video/Pusheen_Boosheen_s_Haunted_Manor.jpg',
+  //   video: 'assets/video/Pusheen_Boosheen_s_Haunted_Manor.mp4',
+  // ),
   const VideoTypes(
     title: 'Pusheen Gaming with Your Cat',
     season: '2',
@@ -182,36 +182,36 @@ List videoType = [
     thumbnail: 'assets/video/Pusheen_Meowgical_Girl.jpg',
     video: 'assets/video/Pusheen_Meowgical_Girl.mp4',
   ),
-  const VideoTypes(
-    title: 'Pusheen Nightmare on Kitty Lane',
-    season: '2',
-    thumbnail: 'assets/video/Pusheen_Nightmare_on_Kitty_Lane.jpg',
-    video: 'assets/video/Pusheen_Nightmare_on_Kitty_Lane.mp4',
-  ),
-  const VideoTypes(
-    title: 'Pusheen Pip s Present',
-    season: '2',
-    thumbnail: 'assets/video/Pusheen_Pip_s_Present.jpg',
-    video: 'assets/video/Pusheen_Pip_s_Present.mp4',
-  ),
-  const VideoTypes(
-    title: 'Pusheen Player 2',
-    season: '2',
-    thumbnail: 'assets/video/Pusheen_Player_2.jpg',
-    video: 'assets/video/Pusheen_Player_2.mp4',
-  ),
+  // const VideoTypes(
+  //   title: 'Pusheen Nightmare on Kitty Lane',
+  //   season: '2',
+  //   thumbnail: 'assets/video/Pusheen_Nightmare_on_Kitty_Lane.jpg',
+  //   video: 'assets/video/Pusheen_Nightmare_on_Kitty_Lane.mp4',
+  // ),
+  // const VideoTypes(
+  //   title: 'Pusheen Pip s Present',
+  //   season: '2',
+  //   thumbnail: 'assets/video/Pusheen_Pip_s_Present.jpg',
+  //   video: 'assets/video/Pusheen_Pip_s_Present.mp4',
+  // ),
+  // const VideoTypes(
+  //   title: 'Pusheen Player 2',
+  //   season: '2',
+  //   thumbnail: 'assets/video/Pusheen_Player_2.jpg',
+  //   video: 'assets/video/Pusheen_Player_2.mp4',
+  // ),
   const VideoTypes(
     title: 'Pusheen Trick or Treat',
     season: '2',
     thumbnail: 'assets/video/Pusheen_Trick_or_Treat.jpg',
     video: 'assets/video/Pusheen_Trick_or_Treat.mp4',
   ),
-  const VideoTypes(
-    title: 'Pusheen Voyage to Planet Koo-Kee',
-    season: '2',
-    thumbnail: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.jpg',
-    video: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.mp4',
-  ),
+  // const VideoTypes(
+  //   title: 'Pusheen Voyage to Planet Koo-Kee',
+  //   season: '2',
+  //   thumbnail: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.jpg',
+  //   video: 'assets/video/Pusheen_Voyage_to_Planet_Koo-Kee.mp4',
+  // ),
 ];
 
 class VideoList extends StatefulWidget {

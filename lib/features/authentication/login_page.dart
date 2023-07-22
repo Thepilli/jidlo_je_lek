@@ -219,16 +219,16 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: jDefaultSize),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 25.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // forgot password?
-                          Text(
-                            Strings.forgotPasswordText,
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                          // Text(
+                          //   Strings.forgotPasswordText,
+                          //   style: Theme.of(context).textTheme.bodySmall,
+                          // ),
                         ],
                       ),
                     ),
@@ -279,7 +279,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(width: jDefaultSize),
 
                         // apple button
-                        SquareTile(imagePath: 'assets/icons/google.png'),
+                        SquareTile(imagePath: 'assets/icons/facebook.png'),
                       ],
                     ),
 

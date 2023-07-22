@@ -31,15 +31,15 @@ I encourage users, caregivers, and healthcare professionals to provide feedback,
 
 ## Demo
 
-Currently you can access the application via the following link: https://thepilli.github.io as the Google Play Store release is pending under a review.
+Currently you can preview the application via the following link: https://thepilli.github.io as the Google Play Store release is pending under a review.
 
+🚀 Exciting News! 🎉 My App Jidlo je lek is Now Available on the Google Play Store! 📱🎉
+
+<img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/features_play_store.png?alt=media&token=dd790359-a701-43e8-986e-92155fd2fe2e" width="1024" height="500" />
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_bmi.png?alt=media&token=66990a94-15af-4d89-b70a-3d6694cb5471" width="300" height="550" />
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_clanky.png?alt=media&token=88634fa4-1bbb-4cc8-94a1-abae73a36089" width="300" height="550" />
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_nasledky.png?alt=media&token=05ffb04b-4d25-4cbc-921f-fdb90061a04c" width="300" height="550" />
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_wheel.png?alt=media&token=1a7bfc2c-58cf-4cc3-a021-31d8dcbd8048" width="300" height="550" />
 <img src="https://firebasestorage.googleapis.com/v0/b/my-api-endpoint.appspot.com/o/jidlo_je_lek_relaxace.png?alt=media&token=db728396-93b8-4576-9174-a5e099162e98" width="300" height="550" />
 
-
-
 https://github.com/Thepilli/jidlo_je_lek/assets/104307512/ded86246-66a2-466e-8bdf-86d3eb959897
-
