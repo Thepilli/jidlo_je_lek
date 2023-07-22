@@ -13,23 +13,17 @@ class HomePageNavigationBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tab(
-      height: 80,
-      child: SizedBox(
-        width: 80,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 50,
-              child: Image.asset(
-                iconPath,
-                width: 50,
-                height: 50,
-              ),
-            ),
-            Text(label, textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelSmall),
-          ],
-        ),
+      height: 90,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            iconPath,
+            width: 50,
+            height: 50,
+          ),
+          Text(label, textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelSmall?.apply(fontWeightDelta: 1)),
+        ],
       ),
     );
   }

@@ -92,9 +92,9 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Ahoj Co je noveho?', style: Theme.of(context).textTheme.headlineMedium),
+            title: Text('Ahoj Co je nového?', style: Theme.of(context).textTheme.headlineMedium),
             content: Text(
-                'Nyni se muzes prihlasit a aplikace si te bude pamatovat. Do sekce "clanky" pribylo nekolik novych prispevku, a take "FAQ" prinasi zakladni pravidla jak pro nemocne, tak pro jejich blizke',
+                'Nyní se můžeš přihlásit a aplikace si tě bude pamatovat. Do sekce "články" přibylo několik nových příspěvků, a také "FAQ" přináší základní pravidla jak pro nemocné, tak pro jejich blízké',
                 style: Theme.of(context).textTheme.bodyMedium),
             actions: <Widget>[
               ElevatedButton(

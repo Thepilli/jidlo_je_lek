@@ -98,7 +98,7 @@ class _ApplicationsListState extends State<ApplicationsList> {
 
 Widget itemTile(BuildContext context, String iconPath, String title, String description, String pageName) {
   return ListTile(
-    horizontalTitleGap: 30,
+    horizontalTitleGap: 15,
     onTap: () {
       String nextPage = pageName; // Replace 'ArticleNavigationPage' with the desired page name
 
@@ -114,13 +114,13 @@ Widget itemTile(BuildContext context, String iconPath, String title, String desc
     ),
     title: Padding(
       padding: const EdgeInsets.only(bottom: 5.0),
-      child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
+      child: Text(title, style: Theme.of(context).textTheme.headlineMedium?.apply(fontSizeFactor: .9)),
     ),
     subtitle: Column(
       children: [
         Text(
           description,
-          style: Theme.of(context).textTheme.headlineSmall?.apply(fontSizeFactor: .8),
+          style: Theme.of(context).textTheme.headlineSmall?.apply(fontSizeFactor: .7),
         ),
       ],
     ),

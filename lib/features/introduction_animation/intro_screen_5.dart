@@ -89,7 +89,7 @@ class WelcomeView extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left: 50, right: 50, top: 16, bottom: 16),
               child: Text(
-                "Ať už jde o pomoc při úzkostných situacích, hledání dalších informací, možností relaxace, nebo třeba jen odreagování se při sledování videii, jste na správném místě.\nNeváhejte a začnete prozkoumávat",
+                "Ať už jde o pomoc při úzkostných situacích, hledání dalších informací, možností relaxace, nebo třeba jen odreagování se při sledování videí, jste na správném místě.\nNeváhejte a začnete prozkoumávat",
                 textAlign: TextAlign.center,
               ),
             ),

@@ -122,7 +122,7 @@ class CareView extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
                 child: Text(
-                  "Jídelníček je nedílnou součástí znovunastolení normálního stravovacího režimu. Podívejte se na doporučení pro sestavení vlastního jídelníčku, vzory jednotlivých chodů, nebo třeba jen inspiraci pro co si dát",
+                  "Jídelníček je nedílnou součástí znovunastolení normálního stravovacího režimu. Podívejte se na doporučení pro sestavení vlastního jídelníčku, vzory jednotlivých chodů, nebo třeba jen inspirací pro co si dát",
                   textAlign: TextAlign.center,
                 ),
               ),

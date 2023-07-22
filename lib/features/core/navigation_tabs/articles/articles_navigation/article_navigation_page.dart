@@ -47,30 +47,32 @@ class _ArticleNavigationPageState extends State<ArticleNavigationPage> {
         builder: (showMenu) {
           return Scaffold(
             appBar: AppBar(
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text('<<Další články', style: Theme.of(context).textTheme.headlineSmall),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
-                    child: ValueListenableBuilder<int>(
-                      valueListenable: _index,
-                      builder: (_, value, __) => Text(
-                        myMenuValue[value].title,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(),
-                ],
-              ),
-              leading: IconButton(
-                icon: const Icon(
-                  Icons.menu_book_rounded,
-                  color: Colors.black54,
-                  size: 50,
+              title: ValueListenableBuilder<int>(
+                valueListenable: _index,
+                builder: (_, value, __) => Text(
+                  myMenuValue[value].title,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                  maxLines: 2,
                 ),
-                onPressed: showMenu,
+              ),
+              leadingWidth: 120,
+              leading: GestureDetector(
+                onTap: showMenu,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.menu_book_rounded,
+                        color: Colors.black54,
+                        size: 45,
+                      ),
+                      onPressed: showMenu,
+                    ),
+                    Text('Další\nčlánky', style: Theme.of(context).textTheme.headlineSmall),
+                  ],
+                ),
               ),
               backgroundColor: iconColor,
               elevation: 0,

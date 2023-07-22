@@ -33,7 +33,7 @@ class JTextTheme {
     // aka buttonBlack
     labelMedium: GoogleFonts.poppins(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.w500),
     //tab
-    labelSmall: GoogleFonts.poppins(fontSize: 10, color: Colors.black54, fontWeight: FontWeight.w700),
+    labelSmall: GoogleFonts.poppins(fontSize: 10, color: Colors.black54, fontWeight: FontWeight.w500),
   );
 
   static TextTheme darkTextTheme = TextTheme(
@@ -66,7 +66,7 @@ class JTextTheme {
     // aka button
     labelMedium: GoogleFonts.poppins(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.w500),
     // aka buttonInverse
-    labelSmall: GoogleFonts.poppins(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w700),
+    labelSmall: GoogleFonts.poppins(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w500),
   );
 }
 
