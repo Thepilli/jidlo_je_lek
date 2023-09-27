@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/fortune_wheel/painters/triangle_painter.dart';
 
 class WheelResultIndicator extends StatelessWidget {
-  const WheelResultIndicator(
-      {super.key, required this.wheelSize, required this.animationController, required this.childCount});
+  const WheelResultIndicator({super.key, required this.wheelSize, required this.animationController, required this.childCount});
 
   final double wheelSize;
   final AnimationController animationController;

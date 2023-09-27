@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class WelcomeView extends StatelessWidget {
   final AnimationController animationController;
-  const WelcomeView({Key? key, required this.animationController}) : super(key: key);
+  const WelcomeView({super.key, required this.animationController});
 
   @override
   Widget build(BuildContext context) {
@@ -78,19 +79,21 @@ class WelcomeView extends StatelessWidget {
               ),
             ),
             SlideTransition(
-                position: welcomeFirstHalfAnimation,
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
-                  child: Text(
-                    "Mnohé další",
-                    style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
-                  ),
-                )),
-            const Padding(
-              padding: EdgeInsets.only(left: 50, right: 50, top: 16, bottom: 16),
+              position: welcomeFirstHalfAnimation,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                child: Text(
+                  "Mnohé další",
+                  style: context.textTheme.titleMedium,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 50, right: 50, top: 16, bottom: 16),
               child: Text(
                 "Ať už jde o pomoc při úzkostných situacích, hledání dalších informací, možností relaxace, nebo třeba jen odreagování se při sledování videii, jste na správném místě.\nNeváhejte a začnete prozkoumávat",
                 textAlign: TextAlign.center,
+                style: context.textTheme.titleMedium,
               ),
             ),
           ],

@@ -1,10 +1,11 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 class BmiGaugeArrowAnimation extends StatefulWidget {
   final double value;
 
-  const BmiGaugeArrowAnimation({Key? key, required this.value}) : super(key: key);
+  const BmiGaugeArrowAnimation({super.key, required this.value});
 
   @override
   _BmiGaugeArrowAnimationState createState() => _BmiGaugeArrowAnimationState();
@@ -34,7 +35,9 @@ class _BmiGaugeArrowAnimationState extends State<BmiGaugeArrowAnimation> with Si
     if (oldWidget.value != widget.value) {
       _controller.reset();
       double angle;
-      if (widget.value <= 18.49) {
+      if (widget.value <= .49) {
+        angle = 0.05;
+      } else if (widget.value <= 18.49) {
         angle = (widget.value - 13.5) / 26 * math.pi;
       } else if (widget.value <= 24.99) {
         angle = ((widget.value - 18.5) / 7.5 * 40 + 40) / 180 * math.pi;

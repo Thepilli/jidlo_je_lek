@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/fortune_wheel/controller/fortune_wheel_controller.dart';

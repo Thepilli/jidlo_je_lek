@@ -1,16 +1,15 @@
-import 'package:flutter/foundation.dart';
-
-import 'intro_screen_3.dart';
-import 'center_next_button.dart';
-import 'intro_screen_4.dart';
-import 'intro_screen_2.dart';
-import 'intro_screen_1.dart';
-import 'top_back_skip_view.dart';
-import 'intro_screen_5.dart';
 import 'package:flutter/material.dart';
 
+import 'center_next_button.dart';
+import 'intro_screen_1.dart';
+import 'intro_screen_2.dart';
+import 'intro_screen_3.dart';
+import 'intro_screen_4.dart';
+import 'intro_screen_5.dart';
+import 'top_back_skip_view.dart';
+
 class IntroductionAnimationScreen extends StatefulWidget {
-  const IntroductionAnimationScreen({Key? key}) : super(key: key);
+  const IntroductionAnimationScreen({super.key});
 
   @override
   _IntroductionAnimationScreenState createState() => _IntroductionAnimationScreenState();
@@ -43,41 +42,36 @@ class _IntroductionAnimationScreenState extends State<IntroductionAnimationScree
     print(screenHeight);
     // print(_animationController?.value);
 
-    return Container(
-      child: Scaffold(
-        body: Container(
-          constraints: kIsWeb && screenWidth > 600
-              ? const BoxConstraints(maxWidth: 600)
-              : (kIsWeb && screenWidth <= 600 ? const BoxConstraints(maxWidth: 600) : const BoxConstraints(maxWidth: 600)),
-          child: ClipRect(
-            child: Stack(
-              children: [
-                Intro(
-                  animationController: _animationController!,
-                ),
-                RelaxView(
-                  animationController: _animationController!,
-                ),
-                CareView(
-                  animationController: _animationController!,
-                ),
-                MoodDiaryVew(
-                  animationController: _animationController!,
-                ),
-                WelcomeView(
-                  animationController: _animationController!,
-                ),
-                TopBackSkipView(
-                  onBackClick: _onBackClick,
-                  onSkipClick: _onSkipClick,
-                  animationController: _animationController!,
-                ),
-                CenterNextButton(
-                  animationController: _animationController!,
-                  onNextClick: _onNextClick,
-                ),
-              ],
-            ),
+    return Scaffold(
+      body: Container(
+        child: ClipRect(
+          child: Stack(
+            children: [
+              Intro(
+                animationController: _animationController!,
+              ),
+              RelaxView(
+                animationController: _animationController!,
+              ),
+              CareView(
+                animationController: _animationController!,
+              ),
+              MoodDiaryVew(
+                animationController: _animationController!,
+              ),
+              WelcomeView(
+                animationController: _animationController!,
+              ),
+              TopBackSkipView(
+                onBackClick: _onBackClick,
+                onSkipClick: _onSkipClick,
+                animationController: _animationController!,
+              ),
+              CenterNextButton(
+                animationController: _animationController!,
+                onNextClick: _onNextClick,
+              ),
+            ],
           ),
         ),
       ),

@@ -38,7 +38,7 @@ def download_video_thumbnail(video_url, output_path):
         print("Invalid YouTube URL!")
 
     except Exception as e:
-        print("An error occurred:", str(e))
+        print("An error occurred:", str(e),)
 
 
 # List of video URLs

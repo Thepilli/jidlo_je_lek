@@ -1,38 +1,51 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:stacionar_app/features/authentication/auth.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
   final VoidCallback onNextClick;
-  const CenterNextButton({Key? key, required this.animationController, required this.onNextClick}) : super(key: key);
+  const CenterNextButton({super.key, required this.animationController, required this.onNextClick});
 
   @override
   Widget build(BuildContext context) {
-    final topMoveAnimation = Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0)).animate(CurvedAnimation(
-      parent: animationController,
-      curve: const Interval(
-        0.0,
-        0.2,
-        curve: Curves.fastOutSlowIn,
+    final topMoveAnimation = Tween<Offset>(
+      begin: const Offset(0, 5),
+      end: const Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: const Interval(
+          0.0,
+          0.2,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final signUpMoveAnimation = Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
-      parent: animationController,
-      curve: const Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
+    );
+    final signUpMoveAnimation = Tween<double>(begin: 0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: const Interval(
+          0.6,
+          0.8,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
-    final loginTextMoveAnimation = Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0)).animate(CurvedAnimation(
-      parent: animationController,
-      curve: const Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
+    );
+    final loginTextMoveAnimation = Tween<Offset>(
+      begin: const Offset(0, 5),
+      end: const Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: const Interval(
+          0.6,
+          0.8,
+          curve: Curves.fastOutSlowIn,
+        ),
       ),
-    ));
+    );
 
     return Padding(
       padding: EdgeInsets.only(bottom: 30 + MediaQuery.of(context).padding.bottom),
@@ -56,12 +69,16 @@ class CenterNextButton extends StatelessWidget {
             child: AnimatedBuilder(
               animation: animationController,
               builder: (context, child) => Padding(
-                padding: EdgeInsets.only(bottom: 38 - (38 * signUpMoveAnimation.value)),
+                padding: EdgeInsets.only(
+                  bottom: 38 - (38 * signUpMoveAnimation.value),
+                ),
                 child: Container(
                   height: 58,
                   width: 58 + (200 * signUpMoveAnimation.value),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8 + 32 * (1 - signUpMoveAnimation.value)),
+                    borderRadius: BorderRadius.circular(
+                      8 + 32 * (1 - signUpMoveAnimation.value),
+                    ),
                     color: const Color(0xff132137),
                   ),
                   child: PageTransitionSwitcher(
@@ -90,20 +107,16 @@ class CenterNextButton extends StatelessWidget {
                                 }),
                               );
                             },
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Jdeme na to!',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                    style: context.textTheme.bodyMedium,
                                   ),
-                                  Icon(Icons.arrow_forward_rounded, color: Colors.white),
+                                  const Icon(Icons.arrow_forward_rounded, color: Colors.white),
                                 ],
                               ),
                             ),
@@ -141,7 +154,7 @@ class CenterNextButton extends StatelessWidget {
                   //       style: TextStyle(
                   //         color: Colors.blue,
                   //         fontWeight: FontWeight.bold,
-                  //       )),
+                  //       ),),
                   // ),
                 ],
               ),

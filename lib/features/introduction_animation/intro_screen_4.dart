@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class MoodDiaryVew extends StatelessWidget {
   final AnimationController animationController;
 
-  const MoodDiaryVew({Key? key, required this.animationController}) : super(key: key);
+  const MoodDiaryVew({super.key, required this.animationController});
 
   @override
   Widget build(BuildContext context) {
@@ -96,19 +97,20 @@ class MoodDiaryVew extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 "BMI Kalkulačka ",
-                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                style: context.textTheme.titleMedium,
               ),
               SlideTransition(
                 position: moodFirstHalfAnimation,
                 child: SlideTransition(
                   position: moodSecondHalfAnimation,
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                     child: Text(
                       "Kalkulátor BMI je jednoduchá aplikace, která vám může udělat velkou službu. Zjistí, jaká je hodnota vašeho BMI, a poznáte tak, jak jste na tom se svou váhou v kontextu své výšky",
                       textAlign: TextAlign.center,
+                      style: context.textTheme.titleMedium,
                     ),
                   ),
                 ),

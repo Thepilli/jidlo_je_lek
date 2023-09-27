@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class RelaxView extends StatelessWidget {
   final AnimationController animationController;
 
-  const RelaxView({Key? key, required this.animationController}) : super(key: key);
+  const RelaxView({super.key, required this.animationController});
 
   @override
   Widget build(BuildContext context) {
@@ -84,18 +85,19 @@ class RelaxView extends StatelessWidget {
             children: [
               SlideTransition(
                 position: relaxAnimation,
-                child: const Text(
+                child: Text(
                   "Pomoc",
-                  style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                  style: context.textTheme.titleMedium,
                 ),
               ),
               SlideTransition(
                 position: textAnimation,
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                   child: Text(
                     "Pokud vás nebo někoho blízkého dusí zákeřná sokyně s přízviskem anorexie, bulímie, či jiná porucha příjmu potravy, neváhejte a pokračujte například do sekce Blog, Svépomoc, nebo Časté dotazy. Snažím se pomoc vám a vašim blízkým.",
                     textAlign: TextAlign.center,
+                    style: context.textTheme.titleMedium,
                   ),
                 ),
               ),

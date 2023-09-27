@@ -2,11 +2,11 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:stacionar_app/constants/colors.dart';
-import 'package:stacionar_app/constants/sizes.dart';
-import 'package:stacionar_app/constants/strings.dart';
+import 'package:stacionar_app/app/app_colors.dart';
+import 'package:stacionar_app/app/app_constants.dart';
+import 'package:stacionar_app/features/authentication/components/auth_text_field.dart';
 import 'package:stacionar_app/features/authentication/components/button.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -73,9 +73,9 @@ class _RegisterPageState extends State<RegisterPage> {
   void displayErrorMessage(String message) {
     AwesomeDialog(
       context: context,
-      dialogBackgroundColor: jPrimaryLightContainerColor,
-      dialogType: DialogType.WARNING,
-      animType: AnimType.BOTTOMSLIDE,
+      dialogBackgroundColor: AppColors.primaryLight,
+      dialogType: DialogType.warning,
+      animType: AnimType.bottomSlide,
       desc: message,
       btnOkOnPress: () {},
     ).show();
@@ -83,104 +83,56 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = Get.isDarkMode;
-    var linkColor = isDark ? jPrimaryDarkColorShade : jPrimaryLightColorShade;
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Logo
-                  const SizedBox(height: jDefaultSize),
-                  const SizedBox(height: 200, child: Image(image: AssetImage('assets/images/food_meditation.png'))),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Logo
+                const SizedBox(height: jDefaultSize),
+                const SizedBox(height: 200, child: Image(image: AssetImage('assets/images/food_meditation.png'))),
 
-                  const SizedBox(height: jDefaultSize),
+                const SizedBox(height: jDefaultSize),
 
-                  // welcome back message
-                  Text(
-                    Strings.welcomeRegisterMessage,
-                    style: Theme.of(context).textTheme.displayMedium,
-                  ),
+                // welcome back message
+                Text(
+                  Strings.welcomeRegisterMessage,
+                  style: context.textTheme.bodyLarge,
+                ),
 
-                  const SizedBox(height: jDefaultSize),
+                const SizedBox(height: jDefaultSize),
 
-                  // email TF
-                  TextField(
-                    controller: emailTextController,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                    decoration: InputDecoration(
-                      floatingLabelAlignment: FloatingLabelAlignment.center,
-                      alignLabelWithHint: true,
-                      labelStyle: Theme.of(context).textTheme.labelSmall?.apply(fontSizeFactor: 1.2),
-                      labelText: Strings.emailLabel,
+                AuthTextField(controller: emailTextController, label: Strings.emailLabel),
+                const SizedBox(height: jDefaultSizeSmall),
+                AuthTextField(obscureText: true, controller: passwordTextController, label: Strings.passwordLabel),
+                const SizedBox(height: jDefaultSizeSmall),
+                AuthTextField(obscureText: true, controller: confirmPasswordTextController, label: Strings.confirmPasswordLabel),
+                const SizedBox(height: jDefaultSizeSmall),
+
+                MyButton(
+                  text: Strings.signUpButtonText,
+                  onPressed: signUp,
+                ),
+                const SizedBox(height: jDefaultSize),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      Strings.alreadyHaveAccountText,
+                      style: context.textTheme.bodyMedium,
                     ),
-                  ),
-                  const SizedBox(height: jDefaultSizeSmall),
-
-                  // password TF
-                  TextField(
-                    controller: passwordTextController,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      floatingLabelAlignment: FloatingLabelAlignment.center,
-                      alignLabelWithHint: true,
-                      labelStyle: Theme.of(context).textTheme.labelSmall?.apply(fontSizeFactor: 1.2),
-                      labelText: Strings.passwordRegisterLabel,
+                    const SizedBox(width: 5),
+                    GestureDetector(
+                      onTap: widget.onTap,
+                      child: Text(Strings.loginNowText, style: context.textTheme.bodyMedium?.copyWith(color: context.primary)),
                     ),
-                  ),
-                  const SizedBox(height: jDefaultSizeSmall),
-                  TextField(
-                    controller: confirmPasswordTextController,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      floatingLabelAlignment: FloatingLabelAlignment.center,
-                      alignLabelWithHint: true,
-                      labelStyle: Theme.of(context).textTheme.labelSmall?.apply(fontSizeFactor: 1.2),
-                      labelText: Strings.confirmPasswordLabel,
-                    ),
-                  ),
-                  const SizedBox(height: jDefaultSizeSmall),
-
-                  // sign in button
-                  MyButton(
-                    text: Strings.signUpButtonText,
-                    onPressed: signUp,
-                  ),
-                  const SizedBox(height: jDefaultSize),
-                  // go to register page
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        Strings.alreadyHaveAccountText,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      const SizedBox(width: 5),
-                      GestureDetector(
-                        onTap: widget.onTap,
-                        child: Text(
-                          Strings.loginNowText,
-                          style: Theme.of(context).textTheme.bodySmall?.apply(fontWeightDelta: 2, color: linkColor),
-                        ),
-                      ),
-                      // TextButton(
-                      //   onPressed: () {
-                      //     Navigator.pushNamed(context, '/register');
-                      //   },
-                      //   child: const Text('Register'),
-                      // ),
-                    ],
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),

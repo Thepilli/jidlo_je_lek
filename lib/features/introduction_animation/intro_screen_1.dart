@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class Intro extends StatefulWidget {
   final AnimationController animationController;
 
-  const Intro({Key? key, required this.animationController}) : super(key: key);
+  const Intro({super.key, required this.animationController});
 
   @override
   _IntroState createState() => _IntroState();
@@ -37,17 +38,18 @@ class _IntroState extends State<Intro> {
                 fit: BoxFit.cover,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
                 "Vítej!",
-                style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                style: context.textTheme.titleMedium,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 64, right: 64),
+            Padding(
+              padding: const EdgeInsets.only(left: 64, right: 64),
               child: Text(
                 "Tato aplikace je určena pro všechny, kteří se potýkají s nemocí, nebo chtějí zjistit více o léčbě poruch příjmu potravy.",
+                style: context.textTheme.titleMedium,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -72,12 +74,9 @@ class _IntroState extends State<Intro> {
                     borderRadius: BorderRadius.circular(38.0),
                     color: const Color(0xff132137),
                   ),
-                  child: const Text(
+                  child: Text(
                     "Co zde najdu?",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
+                    style: context.textTheme.titleMedium,
                   ),
                 ),
               ),

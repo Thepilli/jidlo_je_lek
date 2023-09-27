@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class CareView extends StatelessWidget {
   final AnimationController animationController;
 
-  const CareView({Key? key, required this.animationController}) : super(key: key);
+  const CareView({super.key, required this.animationController});
 
   @override
   Widget build(BuildContext context) {
@@ -113,17 +114,18 @@ class CareView extends StatelessWidget {
                 position: relaxFirstHalfAnimation,
                 child: SlideTransition(
                   position: relaxSecondHalfAnimation,
-                  child: const Text(
+                  child: Text(
                     "Jídelníček",
-                    style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                    style: context.textTheme.titleMedium,
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
+              Padding(
+                padding: const EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
                 child: Text(
                   "Jídelníček je nedílnou součástí znovunastolení normálního stravovacího režimu. Podívejte se na doporučení pro sestavení vlastního jídelníčku, vzory jednotlivých chodů, nebo třeba jen inspiraci pro co si dát",
                   textAlign: TextAlign.center,
+                  style: context.textTheme.titleMedium,
                 ),
               ),
             ],

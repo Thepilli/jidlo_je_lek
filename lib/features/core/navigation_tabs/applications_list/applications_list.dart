@@ -1,155 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/BMI/bmi_calculator_screen.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/fortune_wheel/fortune_wheel_page.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/relaxation/relaxation_list.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/stacionar_menu/stacionar_menu.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/applications_list/video_player/video_list.dart';
-import 'package:stacionar_app/features/core//navigation_tabs/applications_list/meal_inspiration/meal_inspiration.dart';
+import 'package:go_router/go_router.dart';
+import 'package:stacionar_app/models/application.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
-class ApplicationsList extends StatefulWidget {
-  const ApplicationsList({Key? key}) : super(key: key);
-
-  @override
-  State<ApplicationsList> createState() => _ApplicationsListState();
-}
-
-class _ApplicationsListState extends State<ApplicationsList> {
-  String features = 'Tady najdeš aplikace které ti pomohou nebo tě alespoň pobaví při každodenních aktivitách';
+class ApplicationsList extends StatelessWidget {
+  const ApplicationsList({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<Application> applications = applicationList;
+    String features = 'Tady najdeš aplikace které ti pomohou nebo tě alespoň pobaví při každodenních aktivitách';
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    features,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                ),
-              ),
-              GridView.count(
-                physics: const NeverScrollableScrollPhysics(),
-                primary: true,
-                crossAxisCount: 1,
-                crossAxisSpacing: 0,
-                scrollDirection: Axis.vertical,
-                mainAxisSpacing: 10,
-                shrinkWrap: true,
-                childAspectRatio: 3.5,
-                padding: const EdgeInsets.only(left: 24, right: 24),
-                children: [
-                  itemTile(
-                    context,
-                    'assets/icons/tab_icon_bmi.png',
-                    'Kalkulačka BMI',
-                    'Výpočet BMI je velmi snadný, postačí ti k němu tovje váha a výška',
-                    'BmiCalculator',
-                  ),
-                  itemTile(
-                    context,
-                    'assets/icons/tab_icon_calendar.png',
-                    'Týdenní jídelníček',
-                    'Zajímá tě jaký jídelníček máme na tento týden?',
-                    'FoodMenuScreen',
-                  ),
-                  itemTile(
-                    context,
-                    'assets/icons/tab_icon_loterry.png',
-                    'Pečivová ruleta',
-                    'Nebaví tě lámat si hlavu tím, jaké pečivo se dnes dáš?',
-                    'FortuneWheelPage',
-                  ),
-                  itemTile(
-                    context,
-                    'assets/icons/tab_icon_gallery.png',
-                    'Jídelní inspirace',
-                    'Nebo jen hledáš inspiraci co si naplánovat? Zkus se podívat do galerie',
-                    'VerticalSliderDemo',
-                  ),
-                  itemTile(
-                    context,
-                    'assets/icons/tab_icon_relaxation.png',
-                    'Relaxační nahrávky',
-                    'Potřebuješ se uklidnit? Zkus si pustit některou z našich relaxačních nahrávek',
-                    'RelaxationList',
-                  ),
-                  itemTile(
-                    context,
-                    'assets/icons/tab_icon_pusheen.png',
-                    'Příběhy Pušínka',
-                    'Máš chvilu a potřebuješ se odreagovat? Zkus si pustit některý z příběhů Pušínka',
-                    'VideoList',
-                  ),
-                ],
-              ),
-            ],
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              features,
+              textAlign: TextAlign.center,
+              style: context.textTheme.bodyLarge,
+            ),
           ),
-        ),
+          Expanded(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => const Divider(
+                endIndent: 30,
+                indent: 30,
+              ),
+              itemCount: applications.length,
+              itemBuilder: (BuildContext context, int index) {
+                Application application = applications[index];
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: ListTile(
+                    onTap: () => context.push(application.route),
+                    leading: Image.asset(application.imagePath),
+                    title: Text(
+                      application.title,
+                      style: context.textTheme.bodyLarge,
+                    ),
+                    subtitle: Text(
+                      application.description,
+                      style: context.textTheme.bodySmall,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
-}
-
-Widget itemTile(BuildContext context, String iconPath, String title, String description, String pageName) {
-  return ListTile(
-    horizontalTitleGap: 30,
-    onTap: () {
-      String nextPage = pageName; // Replace 'ArticleNavigationPage' with the desired page name
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => getPageByName(nextPage),
-        ),
-      );
-    },
-    leading: Image.asset(
-      iconPath,
-    ),
-    title: Padding(
-      padding: const EdgeInsets.only(bottom: 5.0),
-      child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
-    ),
-    subtitle: Column(
-      children: [
-        Text(
-          description,
-          style: Theme.of(context).textTheme.headlineSmall?.apply(fontSizeFactor: .8),
-        ),
-      ],
-    ),
-  );
-}
-
-Widget getPageByName(String pageName) {
-  // Add your logic to return the appropriate widget based on the page name
-  // For example:
-  if (pageName == 'BmiCalculator') {
-    return const BmiCalculator();
-  }
-  if (pageName == 'FoodMenuScreen') {
-    return const StacionarMenu();
-  }
-  if (pageName == 'FortuneWheelPage') {
-    return const FortuneWheelPage();
-  }
-  if (pageName == 'RelaxationList') {
-    return const RelaxationList();
-  }
-  if (pageName == 'VideoList') {
-    return const VideoList();
-  }
-  if (pageName == 'VerticalSliderDemo') {
-    return const MealInspiration(
-      meals: [],
-    );
-  }
-  // Add more conditions for other page names if needed
-  return Container(); // Default return value if no matching page name is found
 }

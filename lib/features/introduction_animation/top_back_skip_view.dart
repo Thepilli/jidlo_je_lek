@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class TopBackSkipView extends StatelessWidget {
   final AnimationController animationController;
@@ -6,11 +7,11 @@ class TopBackSkipView extends StatelessWidget {
   final VoidCallback onSkipClick;
 
   const TopBackSkipView({
-    Key? key,
+    super.key,
     required this.onBackClick,
     required this.onSkipClick,
     required this.animationController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +78,10 @@ class TopBackSkipView extends StatelessWidget {
                     width: 100,
                     child: IconButton(
                       onPressed: onSkipClick,
-                      icon: const Text('Přeskočit'),
+                      icon: Text(
+                        'Přeskočit',
+                        style: context.textTheme.bodyMedium,
+                      ),
                     ),
                   ),
                 ),

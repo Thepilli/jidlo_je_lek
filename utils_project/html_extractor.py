@@ -12,9 +12,9 @@ def scrape_blog(url, title_div, title_class, title_classtext, content_div, conte
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Find the title and content elements using the provided CSS selectors
-    title = str(soup.find(title_div, {title_class: title_classtext}))
-    content = str(soup.find(content_div, {content_class: content_classtext}))
-    # abstract = str(soup.find('div', {'class': 'article__abstract'}))
+    title = str(soup.find(title_div, {title_class: title_classtext}),)
+    content = str(soup.find(content_div, {content_class: content_classtext}),)
+    # abstract = str(soup.find('div', {'class': 'article__abstract'}),)
 
     # Create a new HTML file
     with open(filename, 'w', encoding='utf-8') as f:

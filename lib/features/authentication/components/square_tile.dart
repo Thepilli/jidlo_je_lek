@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:stacionar_app/constants/colors.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class SquareTile extends StatelessWidget {
   final String imagePath;
@@ -11,14 +10,12 @@ class SquareTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = Get.isDarkMode;
-    var borderColor = isDark ? jPrimaryDarkColor : jPrimaryLightColor;
     return Stack(
       children: [
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            border: Border.all(color: borderColor.withOpacity(0.5), width: 3),
+            border: Border.all(color: context.primary.withOpacity(0.5), width: 3),
             borderRadius: BorderRadius.circular(16),
             color: Colors.transparent,
           ),

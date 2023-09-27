@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class MyButton extends StatelessWidget {
   final Function()? onPressed;
@@ -8,13 +9,16 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(minimumSize: const Size(300, 70)),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(300, 70),
+      ),
       onPressed: onPressed,
       child: SizedBox(
-          child: Text(
-        text,
-        style: Theme.of(context).textTheme.titleLarge,
-      )),
+        child: Text(
+          text,
+          style: context.textTheme.bodyLarge,
+        ),
+      ),
     );
   }
 }
