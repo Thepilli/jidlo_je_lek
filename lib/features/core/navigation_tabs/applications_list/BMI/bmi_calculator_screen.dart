@@ -29,7 +29,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
         centerTitle: true,
         title: Text(
           'Vyplňte svoji výšku a váhu :',
-          style: context.textTheme.bodyLarge,
+          style: context.textTheme.titleMedium,
         ),
       ),
       body: ConstrainedContainer(

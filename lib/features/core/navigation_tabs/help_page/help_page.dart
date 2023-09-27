@@ -3,7 +3,6 @@ import 'package:stacionar_app/app/app_constants.dart';
 import 'package:stacionar_app/models/resource_card.dart';
 import 'package:stacionar_app/shared/extensions/build_context.dart';
 import 'package:stacionar_app/shared/widgets/disclaimer_text_widget.dart';
-import 'package:stacionar_app/shared/widgets/gallery_pop.dart';
 import 'package:stacionar_app/shared/widgets/html_reader_widget.dart';
 
 class HelpPage extends StatelessWidget {
@@ -90,14 +89,7 @@ class ResourceTile extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      InkwellPop(
-                        imgPath: resource.extraImages!.first,
-                      ),
-                      InkwellPop(
-                        imgPath: resource.extraImages!.last,
-                      ),
-                    ],
+                    children: [Image.asset(resource.extraImages!.first), Image.asset(resource.extraImages!.last)],
                   ),
                 )
             ],

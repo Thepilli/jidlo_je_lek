@@ -187,11 +187,15 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: jDefaultSize),
 
                   // email TF
-                  AuthTextField(controller: emailTextController, label: Strings.emailLabel),
+                  AuthTextField(focusNode: usernameFocusNode, controller: emailTextController, label: Strings.emailLabel),
                   const SizedBox(height: jDefaultSizeSmall),
 
                   // password TF
-                  AuthTextField(obscureText: true, controller: passwordTextController, label: Strings.passwordLabel),
+                  AuthTextField(
+                      focusNode: passwordFocusNode,
+                      obscureText: true,
+                      controller: passwordTextController,
+                      label: Strings.passwordLabel),
                   const SizedBox(height: jDefaultSize),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),

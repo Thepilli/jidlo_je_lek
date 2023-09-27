@@ -8,7 +8,10 @@ import 'package:stacionar_app/features/core/navigation_tabs/applications_list/me
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/relaxation/relaxation_page.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/stacionar_menu/stacionar_menu.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/applications_list/video_player/video_page.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_navigation/widgets/article_detail_page.dart';
+import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_navigation/widgets/article_list_page.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/meal_plan/meal_plan_detail.dart';
+import 'package:stacionar_app/models/article.dart';
 import 'package:stacionar_app/models/meal_plans.dart';
 import 'package:stacionar_app/shared/widgets/gallery_pop.dart';
 
@@ -24,7 +27,9 @@ enum Routes {
   fortuneWheelPage,
   relaxationList,
   videoList,
-  galleryPop
+  galleryPop,
+  articleList,
+  articleDetail,
 }
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -85,6 +90,25 @@ GoRouter goRouter(GoRouterRef ref) {
         builder: (context, state) => VideoPage(
           key: state.pageKey,
         ),
+      ),
+      GoRoute(
+        path: '/articleList',
+        name: Routes.articleList.name,
+        builder: (context, state) => ArticleListPage(
+          key: state.pageKey,
+        ),
+      ),
+
+      GoRoute(
+        path: '/articleDetail',
+        name: Routes.articleDetail.name,
+        pageBuilder: (context, state) {
+          final article = state.extra as Article;
+          return MaterialPage(
+            key: state.pageKey,
+            child: ArticleDetailPage(article: article),
+          );
+        },
       ),
       GoRoute(
         path: '/mealPlanDetail',

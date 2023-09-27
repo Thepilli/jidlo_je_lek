@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_navigation/widgets/article_page.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stacionar_app/models/article.dart';
+import 'package:stacionar_app/router/app_router.dart';
 import 'package:stacionar_app/shared/extensions/build_context.dart';
 
 class ArticleContainerWidget extends StatelessWidget {
@@ -14,19 +15,7 @@ class ArticleContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (BuildContext context) {
-              return ArticlePage(
-                title: article.title,
-                image: article.image,
-                bodyArticle: article.bodyArticle,
-              );
-            },
-          ),
-        );
-      },
+      onTap: () => context.pushNamed(Routes.articleDetail.name, extra: article),
       child: Container(
         margin: const EdgeInsets.symmetric(
           horizontal: 10,

@@ -19,7 +19,7 @@ class MealPlanDetail extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: meal.mealPlanColor.withAlpha(80),
-        title: Text(meal.mealType, style: context.textTheme.bodyLarge),
+        title: Text(meal.mealType, style: context.textTheme.titleMedium),
       ),
       body: ConstrainedContainer(
         child: SafeArea(
@@ -52,7 +52,7 @@ class MealPlanDetail extends StatelessWidget {
                       child: Text(
                         mealImage.mealImageDescription,
                         textAlign: TextAlign.center,
-                        style: context.textTheme.bodyMedium,
+                        style: context.textTheme.titleSmall,
                       ),
                     ),
                   ],

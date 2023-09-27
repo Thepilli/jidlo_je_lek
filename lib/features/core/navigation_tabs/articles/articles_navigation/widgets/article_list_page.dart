@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:side_menu_animation/side_menu_animation.dart';
-import 'package:stacionar_app/app/app_colors.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_navigation/widgets/article_container_widget.dart';
 import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_navigation/widgets/drawer_index_provider.dart';
 import 'package:stacionar_app/models/article.dart';
@@ -19,7 +18,6 @@ class ArticleListPage extends ConsumerWidget {
 
     return Scaffold(
       body: SideMenuAnimation.builder(
-        scrimColor: AppColors.white.withOpacity(.3),
         curveAnimation: Curves.easeIn,
         tapOutsideToDismiss: true,
         enableEdgeDragGesture: true,
@@ -36,8 +34,11 @@ class ArticleListPage extends ConsumerWidget {
           ),
         ),
         onItemSelected: (value) {
-          if (value == 5) {
+          if (value == 6) {
             context.pop();
+          }
+          if (value == 0) {
+            return;
           }
           ref.read(drawerIndexProvider.notifier).updateIndex(value);
         },
@@ -45,7 +46,7 @@ class ArticleListPage extends ConsumerWidget {
           return Scaffold(
             appBar: AppBar(
               leadingWidth: 150,
-              title: Text(drawerItems[drawerIndex].title, style: context.textTheme.bodyLarge),
+              title: Text(drawerItems[drawerIndex].title, style: context.textTheme.titleMedium),
               leading: TextButton.icon(
                 icon: const Icon(
                   Icons.menu_book_rounded,

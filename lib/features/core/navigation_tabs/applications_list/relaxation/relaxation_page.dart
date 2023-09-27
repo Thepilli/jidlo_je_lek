@@ -17,10 +17,11 @@ class RelaxationPage extends StatelessWidget {
               expandedHeight: 100,
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.none,
                 centerTitle: true,
                 title: Text(
                   'Vyber si relaxaci která ti nejvíce vyhovuje.',
-                  style: context.textTheme.bodySmall,
+                  style: context.textTheme.titleMedium?.apply(fontSizeFactor: .6),
                 ),
               )),
           SliverList.builder(
@@ -39,7 +40,7 @@ class RelaxationPage extends StatelessWidget {
                   ),
                   child: ListTile(
                     tileColor: context.primary.withOpacity(.6),
-                    title: Text(relaxation.tileTitle, style: context.textTheme.bodyMedium),
+                    title: Text(relaxation.tileTitle, style: context.textTheme.titleMedium),
                     leading: Image.asset(relaxation.tileAsset),
                     onTap: () {
                       Navigator.push(

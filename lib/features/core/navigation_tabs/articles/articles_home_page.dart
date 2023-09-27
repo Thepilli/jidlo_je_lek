@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stacionar_app/app/app_constants.dart';
-import 'package:stacionar_app/features/core/navigation_tabs/articles/articles_navigation/widgets/article_list_page.dart';
+import 'package:stacionar_app/router/app_router.dart';
 import 'package:stacionar_app/shared/extensions/build_context.dart';
 import 'package:stacionar_app/shared/widgets/disclaimer_text_widget.dart';
 
@@ -35,7 +36,7 @@ class ArticlesHomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: jButtonHeight),
-              Text(title, style: context.textTheme.bodyLarge),
+              Text(title, style: context.textTheme.titleLarge),
               const SizedBox(height: jButtonHeight),
               Text(descriptionOne, style: context.textTheme.bodyMedium),
               const SizedBox(height: jButtonHeight),
@@ -44,12 +45,7 @@ class ArticlesHomePage extends StatelessWidget {
                   minimumSize: const Size(200, jButtonHeight),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ArticleListPage(),
-                    ),
-                  );
+                  context.pushNamed(Routes.articleList.name);
                 },
                 child: Text(
                   'Podívat se na články',

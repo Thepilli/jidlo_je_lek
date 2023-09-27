@@ -50,7 +50,7 @@ class _FortuneWheelPageState extends State<FortuneWheelPage> {
         centerTitle: true,
         title: Text(
           "Co si dneska dám?",
-          style: context.textTheme.bodyLarge,
+          style: context.textTheme.titleMedium,
         ),
       ),
       body: SingleChildScrollView(

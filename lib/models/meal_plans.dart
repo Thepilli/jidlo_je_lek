@@ -168,7 +168,7 @@ List<Meal> mealList = [
     mealTime: "21:00",
   ),
   Meal(
-    mealType: "Ukázkový jídelníček - Normální porce:",
+    mealType: "Ukázkový jídelníček - Normální porce",
     mealPlanColor: Colors.green,
     mealIconPath: "assets/icons/meal_plan_tile_model.png",
     mealImageAssets: [
@@ -200,7 +200,7 @@ List<Meal> mealList = [
     mealTime: "Varianta 1",
   ),
   Meal(
-    mealType: "Ukázkový jídelníček - Normální porce:",
+    mealType: "Ukázkový jídelníček - Normální porce",
     mealPlanColor: Colors.yellow,
     mealIconPath: "assets/icons/meal_plan_tile_model.png",
     mealImageAssets: [
@@ -232,7 +232,7 @@ List<Meal> mealList = [
     mealTime: "Varianta 2",
   ),
   Meal(
-    mealType: "Ukázkový jídelníček - Normální porce:",
+    mealType: "Ukázkový jídelníček - Normální porce",
     mealPlanColor: Colors.orange,
     mealIconPath: "assets/icons/meal_plan_tile_model.png",
     mealImageAssets: [

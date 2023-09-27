@@ -15,6 +15,12 @@ class DrawerItem {
 const drawerItems = [
   DrawerItem(
     // icon: Icons.medical_information,
+    icon: 'assets/icons/article_navigation_close.png',
+    title: '',
+    color: Colors.transparent,
+  ),
+  DrawerItem(
+    // icon: Icons.medical_information,
     icon: 'assets/icons/article_navigation_svepomoc.png',
     title: 'Svépomoc',
     color: Colors.transparent,

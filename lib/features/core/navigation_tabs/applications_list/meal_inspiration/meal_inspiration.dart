@@ -30,7 +30,7 @@ class MealInspiration extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Text(
                     "Hledáš inspiraci na možný oběd nebo večeři? Podívej se co vše se dá udělat:",
-                    style: context.textTheme.bodyLarge,
+                    style: context.textTheme.titleMedium,
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -6,7 +6,7 @@ part 'drawer_index_provider.g.dart';
 class DrawerIndex extends _$DrawerIndex {
   @override
   int build() {
-    return 0;
+    return 1;
   }
 
   void updateIndex(int index) {

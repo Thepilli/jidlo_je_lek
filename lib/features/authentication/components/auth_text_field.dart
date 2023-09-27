@@ -7,15 +7,18 @@ class AuthTextField extends StatelessWidget {
     required this.controller,
     required this.label,
     this.obscureText = false,
+    this.focusNode,
   });
 
   final TextEditingController controller;
   final String label;
   final bool obscureText;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      focusNode: focusNode,
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();
       },

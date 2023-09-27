@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:stacionar_app/models/article.dart';
 import 'package:stacionar_app/shared/extensions/build_context.dart';
 import 'package:stacionar_app/shared/widgets/contrained_container.dart';
 
-class ArticlePage extends StatefulWidget {
-  const ArticlePage({
+class ArticleDetailPage extends StatefulWidget {
+  const ArticleDetailPage({
     super.key,
-    required this.title,
-    required this.image,
-    required this.bodyArticle,
+    required this.article,
   });
 
-  final String title;
-  final String image;
-  final String bodyArticle;
+  final Article article;
 
   @override
-  State<ArticlePage> createState() => _ArticlePageState();
+  State<ArticleDetailPage> createState() => _ArticleDetailPageState();
 }
 
-class _ArticlePageState extends State<ArticlePage> {
+class _ArticleDetailPageState extends State<ArticleDetailPage> {
   String _htmlContent = '';
 
   @override
@@ -30,7 +27,7 @@ class _ArticlePageState extends State<ArticlePage> {
   }
 
   Future<void> loadHtmlFromAssets() async {
-    String htmlFile = await rootBundle.loadString('assets/htmls/${widget.bodyArticle}');
+    String htmlFile = await rootBundle.loadString('assets/htmls/${widget.article.bodyArticle}');
     setState(() {
       _htmlContent = htmlFile;
     });
@@ -41,7 +38,7 @@ class _ArticlePageState extends State<ArticlePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(widget.title, style: context.textTheme.bodyLarge),
+        title: Text(widget.article.title, style: context.textTheme.titleMedium),
       ),
       body: ConstrainedContainer(
         child: SingleChildScrollView(
@@ -49,7 +46,7 @@ class _ArticlePageState extends State<ArticlePage> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
-                Image.asset(widget.image),
+                Image.asset(widget.article.image),
                 const SizedBox(height: 20),
                 HtmlWidget(
                   _htmlContent,

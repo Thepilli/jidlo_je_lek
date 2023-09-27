@@ -65,7 +65,7 @@ class MealPlanPage extends StatelessWidget {
                           children: [
                             Image.asset(meal.mealIconPath, height: 80),
                             const JBox(height: 10),
-                            Text(meal.mealType, style: context.textTheme.bodyMedium),
+                            Text(meal.mealType, style: context.textTheme.titleMedium),
                           ],
                         ),
                       ],
